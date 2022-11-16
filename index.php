@@ -122,16 +122,14 @@ switch ($form) {
       <header class = "header">
 	      <div id = "left"><a href = "?form=home">DATABASE TEST</a></div>
 	      <div id = "right">
-            <?php if($_SESSION['id']){
-		echo $_SESSION['login']; ?>
-		<a href="?form=exit">Выйти</a>
-<?php	}
-	else
-	{
-?>
-		<a href="?form=auth">Войти</a>
-<?php 	}	?>
-	</div>
+            <?php if($_SESSION['id']){echo $_SESSION['login']; ?>
+		         <a href="?form=exit">Выйти</a>
+            <?php	}
+	         else
+	         {?>
+		         <a href="?form=auth">Войти</a>
+            <?php}?>
+	      </div>
       </header>
 <main class = "main">
 	<?php if ($_SESSION['id']) {
