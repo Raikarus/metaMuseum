@@ -120,7 +120,7 @@ switch ($form) {
    </head>
    <body>
       <header class = "header">
-	      <div id = "left"><a href = "?form=home">DATABASE TEST</a></div>
+	      <div id = "left"><a href = "?form=home">museum datebase</a></div>
 	      <div id = "right">
             <?php 
                if($_SESSION['id'])
@@ -138,7 +138,7 @@ switch ($form) {
                }     ?>
 	      </div>
       </header>
-<main class = "main">
+      <main class = "main">
 	<?php 
       if ($_SESSION['id']){
 		   if($_SESSION['role']==2){
@@ -168,8 +168,8 @@ switch ($form) {
 				default:include('home.php');break;
 			}
 ?>
-</main>
-<footer class = "footer">
-</footer>
-</body>
+      </main>
+      <footer class = "footer">
+      </footer>
+   </body>
 </html>
