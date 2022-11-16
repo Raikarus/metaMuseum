@@ -122,31 +122,42 @@ switch ($form) {
       <header class = "header">
 	      <div id = "left"><a href = "?form=home">DATABASE TEST</a></div>
 	      <div id = "right">
-            <?php if($_SESSION['id']){echo $_SESSION['login']; ?>
-		         <a href="?form=exit">Выйти</a>
-            <?php	}
-	         else
-	         {?>
-		         <a href="?form=auth">Войти</a>
-            <?php}?>
+            <?php 
+               if($_SESSION['id'])
+               {
+                  echo $_SESSION['login']; 
+                  ?>
+		               <a href="?form=exit">Выйти</a>
+                  <?php    
+               }
+               else
+               {
+                  ?>
+                  <a href="?form=auth">Войти</a>
+                  <?php    
+               }     ?>
 	      </div>
       </header>
 <main class = "main">
-	<?php if ($_SESSION['id']) {
-		if($_SESSION['role']==2){?>
-	<a href="?form=show">Показать всех</a>
-	<br />
-	<a href="?form=reg">Добавить</a>
-	<br />
-	<a href="?form=upload">Добавить изображение</a>
-	<br />
-	<?php	}
+	<?php 
+      if ($_SESSION['id']){
+		   if($_SESSION['role']==2){
+   ?>
+      <a href="?form=show">Показать всех</a>
+      <br />
+      <a href="?form=reg">Добавить</a>
+      <br />
+      <a href="?form=upload">Добавить изображение</a>
+      <br />
+	<?php	
+   }
 		if($_SESSION['role']==2 or $_SESSION['role']==1 or $_SESSION['role']==0)
 		{
 	?>
 			<a href = "?form=showpic">Показать изображения</a>
 			<br />
-<?php		}
+<?php		
+}
 	}
 			switch($form){
 				case 'show': include('show.php'); break;
