@@ -107,36 +107,30 @@ switch ($form) {
 		break;
 }
 ?>
+
 <!DOCTYPE HTML>
 <html>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="Content-Type" content="text/html">
-<link rel="stylesheet" href="css/style.css"  type="text/css">
-<script type="text/javascript" src = "js/jq.js"></script>
-<script type="text/javascript" src = "js/script.js"></script>
-<title>Главная</title>
-</head>
-<body>
-<div id = "bigPic">
-<div>
-	<img src = "img/">
-</div>
-</div>
-<header>
-	<div id = "left"><a href = "?form=home">DATABASE TEST</a></div>
-	<div id = "right">
-<?php if($_SESSION['id']){
-		echo $_SESSION['login']; ?>
-		<a href="?form=exit">Выйти</a>
-<?php	}
-	else
-	{
-?>
-		<a href="?form=auth">Войти</a>
-<?php 	}	?>
-	</div>
-</header>
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="Content-Type" content="text/html">
+      <link rel="stylesheet" href="css/style.css"  type="text/css">
+      <script type="text/javascript" src = "js/jq.js"></script>
+      <script type="text/javascript" src = "js/script.js"></script>
+      <title>База данных музея</title>
+   </head>
+   <body>
+      <header class = "header">
+	      <div id = "left"><a href = "?form=home">DATABASE TEST</a></div>
+	      <div id = "right">
+            <?php if($_SESSION['id']){echo $_SESSION['login']; ?>
+               <a href="?form=exit">Выйти</a>
+            <?php	}
+            else
+            {?>
+               <a href="?form=auth">Войти</a>
+            <?php}?>
+         </div>
+      </header>
 <main class = "main">
 	<?php if ($_SESSION['id']) {
 		if($_SESSION['role']==2){?>
@@ -164,7 +158,7 @@ switch ($form) {
 			}
 ?>
 </main>
-<footer>
+<footer class = "footer">
 </footer>
 </body>
 </html>
