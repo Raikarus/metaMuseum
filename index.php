@@ -137,7 +137,7 @@ switch ($form) {
 <?php 	}	?>
 	</div>
 </header>
-<div id = "main">
+<main class = "main">
 	<?php if ($_SESSION['id']) {
 		if($_SESSION['role']==2){?>
 	<a href="?form=show">Показать всех</a>
@@ -163,8 +163,8 @@ switch ($form) {
 				default:include('home.php');break;
 			}
 ?>
-</div>
+</main>
 <footer>
-	</footer>
+</footer>
 </body>
 </html>
