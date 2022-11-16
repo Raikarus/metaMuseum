@@ -77,36 +77,36 @@ form
 
 }
 
-#main
+.main
 {
 	padding: 20px;
 }
 
-#main .user
+.main .user
 {
 	display: flex;
 	align-items: center;
 }
 
-#main .user div
+.main .user div
 {
 	display: flex;
 	flex-direction: column;
 }
 
-#main .user div span
+.main .user div span
 {
 	min-width: 160px;
 }
 
-#main #picgrid
+.main #picgrid
 {
 	display: grid;
 	grid-template-columns: 100px 100px 100px;
 	grid-gap: 15px;
 }
 
-#main #picgrid .pic
+.main #picgrid .pic
 {
 	display: flex;
 	justify-content: space-between;
@@ -115,13 +115,13 @@ form
 	font-size: 8px;
 }
 
-#main #picgrid .pic div
+.main #picgrid .pic div
 {
 	width:100px;
 	height: 100px;
 }
 
-#main #picgrid .pic div button
+.main #picgrid .pic div button
 {
 	width:	10px;
 	height: 10px;
@@ -132,7 +132,7 @@ form
 	font-size:5px;
 }
 
-#main #picgrid .pic div img
+.main #picgrid .pic div img
 {
 	width: 100px;
 	height: 90px;
