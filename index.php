@@ -115,7 +115,7 @@ switch ($form) {
 <link rel="stylesheet" href="css/style.css"  type="text/css">
 <script type="text/javascript" src = "js/jq.js"></script>
 <script type="text/javascript" src = "js/script.js"></script>
-<title>Главная_для_пидоров</title>
+<title>Главная</title>
 </head>
 <body>
 <div id = "bigPic">
