@@ -32,10 +32,7 @@ try
 	$dbconn = pg_connect("dbname=museumbasa");
 	echo "Connected successfuly";
 }
-catch($e)
-{
-	echo "error";
-}
+
 session_start();
 $form = $_GET['form'];
 $msg = "0";
