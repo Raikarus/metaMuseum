@@ -29,12 +29,12 @@ function upload_file($file, $nameFile='default', $upload_dir= 'img', $allowed_ty
 //$link = mysqli_connect("127.0.0.1", "client", "sosi123", "museumbasa");
 try
 {
-	$myPDO = new PDO("pgsql:host=localhost,dbname=museumbasa","postgres","schef2002");
+	$dbconn = pg_connect("dbname=museumbasa");
 	echo "Connected successfuly";
 }
-catch(PDOException $e)
+catch($e)
 {
-	echo $e->getMessage();
+	echo "error";
 }
 session_start();
 $form = $_GET['form'];
