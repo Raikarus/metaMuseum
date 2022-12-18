@@ -1,0 +1,338 @@
+body {
+   width: 100vw;
+   height: 100vh;
+   padding: 0;
+   margin: 0;
+   font-family: Arial;
+   color: white;
+}
+
+header {
+   height: 8%;
+   width: 100%;
+   background-color:#181818;;
+   display: flex;
+   justify-content: center;
+   align-items: top;
+}
+
+.exit {
+   text-decoration: none;
+   color: white;
+}
+
+.exit:hover {
+   color: #24B47E;
+}
+
+.logo {
+   color: white;
+   text-decoration: none;
+}
+
+.group_name a {
+   color: #24B47E;
+   text-decoration: none;
+}
+
+.group_name a:hover {
+   text-decoration: underline;
+}
+
+.list_item a {
+   color: white;
+   text-decoration: none;
+}
+
+.list_item a:hover {
+   color: white;
+   text-decoration: underline;
+}
+
+.container {
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   font-size: 30px;
+}
+
+.logo {
+   width: 20%;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: end;
+}
+
+.username_exit {
+   padding: 0;
+   padding-right: 30px;
+   width: 20%;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   font-size: 25px;
+   list-style-type: none;
+}
+
+.usit_elem  {
+   text-align: center;
+}
+
+.main {
+   width: 100% -1px;
+   height: 78%;
+   background-color: #181818;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   border: 1px solid white;
+}
+
+.main_left {
+   width: 70%;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.photos {
+   padding: 0;
+   margin: 0;
+   height: 94%;
+   width: 100%;
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   grid-template-rows: repeat(2, 1fr);
+   grid-gap: 10px;
+}
+
+.photo_li {
+   list-style-type: none;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-between;
+   border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.photo {
+   width: 100%;
+   height: 85%;
+   background-size: contain;
+   background-position: center;
+   background-repeat: no-repeat;
+}
+
+.name {
+   padding-bottom: 10px;
+   width: 100%;
+   height: 8%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+#img_001 .photo {
+   background-image: url(img/rOjSxMVNU3mI5yq2ZZAr.jpg);
+}
+
+#img_002 .photo {
+   background-image: url(img/1670475425_kartinkof-club-p-kartinki-amogus-8.png);
+}
+
+#img_003 .photo {
+   background-image: url(img/66419254.jpg);
+}
+
+#img_003 .photo {
+   background-image: url(img/66419254.jpg);
+}
+
+#img_004 .photo {
+   background-image: url(img/Kissing_the_War_Goodbye.jpg);
+}
+
+#img_005 .photo {
+   background-image: url(img/wide_detail_picture.jpg);
+}
+
+.left_right_but {
+   padding-bottom: 6px;
+   width: 15%;
+   height: 4%;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.left {
+   height: 100%;
+   width: 47%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: #24B47E;
+   border-radius: 7px;
+   color: white;
+}
+
+.right {
+   height: 100%;
+   width: 47%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: #24B47E;
+   border-radius: 7px;
+   color: white;
+}
+
+.main_right {
+   width: 30%;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-between;
+   border: 1px solid white;
+}
+
+.all_tags {
+   height: 60%;
+   width: 100%;
+   border: 1px solid white;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.searching {
+   width: 100%;
+   height: 12%;
+}
+
+.searching_form {
+   width: 100%;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.search {
+   height: 82%;
+   width: 85%;
+   background-color: #181818;
+   color: white;
+}
+
+.submit {
+   height: 100%;
+   width: 15%;
+   background-color: #24B47E;
+   color: white;
+}
+
+.tags {
+   width: 100%;
+   height: 83%;
+   word-break: break-all;
+   overflow: auto;
+   scrollbar-width: thin;
+   scrollbar-color: hsl(0 0% 50%);
+}
+
+.list_of_groups {
+   margin: 0;
+   padding: 0 0 0 10px;
+   height: auto;
+   width: 90%;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   justify-content: space-between;
+}
+
+.tag_group {
+   width: auto;
+   height: auto;
+   list-style-type: none;
+   padding-bottom: 10px;
+}
+
+.group_name {
+   height: auto;
+   width: auto;
+   padding-bottom: 5px;
+   margin: 0;
+}
+
+.tags_checkbox {
+   margin: 0;
+   margin-right: 4px;
+}
+
+.tag_list {
+   padding: 0;
+   padding-left: 30px;
+}
+
+.list_item {
+   width: auto;
+   height: auto;
+   padding-bottom: 5px;
+}
+
+.tag-name {
+   width: auto;
+   text-align: start;
+}
+
+.delete_tag {
+   margin-right: 70px;
+   height: 25px;
+   width:  25px;
+   border-radius: 100%;
+}
+
+.choosen_tags {
+   height: 40%;
+   width: 100%;
+}
+
+.wrap {
+   padding: 0 10px 0 10px;
+   width: 95%;
+   height: auto;
+   max-height: 90%;
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   gap: 10px;
+   word-break: break-all;
+   overflow: auto;
+   scrollbar-width: thin;
+   scrollbar-color: hsl(0 0% 50%);
+}
+
+.choose_item {
+   list-style-type: none;
+   height: 25px;
+   background-color: #24B47E;
+   border-radius: 10px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+footer {
+   width: 100% -1px;
+   height: 13vh;
+   background-color: #181818;
+   border: 1px solid white;
+}

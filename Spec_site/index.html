@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html">
+<link rel="stylesheet" href="style.css"  type="text/css">
+<script  src = "jq.js"></script>
+<script  src = "script.js"></script>
+<title>Главная</title>
+</head>
+<body>
+   <header>
+      <div class = "container">
+         <a class = "logo" href = "#">
+            DATABASE
+         </a>
+         <ul class = username_exit>
+            <li class = "usit_elem username">Username</li>
+            <li class = "usit_elem exit"><a class = "exit" href = "#">Exit</a></li>
+         </ul>
+      </div>
+   </header>
+
+   <div class = "main">
+      <div class = "main_left">
+         <ul class = "photos">
+            <li class = "photo_li" id = "img_001">
+               <div class = "photo"></div>
+               <div class = "name">Название</div>           
+            </li>
+            <li class = "photo_li" id = "img_002">
+               <div class = "photo"></div>
+               <div class = "name">Название</div>           
+            </li>
+            <li class = "photo_li" id = "img_003">
+               <div class = "photo"></div>
+               <div class = "name">Название</div>           
+            </li>
+            <li class = "photo_li" id = "img_004">
+               <div class = "photo"></div>
+               <div class = "name">Название</div>           
+            </li>
+            <li class = "photo_li" id = "img_005">
+               <div class = "photo"></div>
+               <div class = "name">Название</div>           
+            </li>
+                    
+         </ul>
+         <div class = "left_right_but">
+            <button class = "left">
+               ←
+            </button>
+            <button class="right">
+               →
+            </button>
+         </div>
+      </div>
+      <div class = "main_right">
+         <div class = "all_tags">
+               <div class = "searching">
+                  <form class = "searching_form">
+                     <input type = "text" name = "search" class = "search" placeholder="Search tags!">
+                     <input type = "submit" name = "submit" class = "submit" value="ADD">
+                  </form>
+               </div>
+               <div class = "tags">
+                  <ul class = "list_of_groups">
+                     <li class = "tag_group">                     
+                        <p class = "group_name">
+                           <input type="checkbox" name = "tags_on" class = tags_checkbox>
+                           <a href = "javascript:flipflop('animals');">
+                              Животные
+                           </a>
+                        </p>
+                        <ul class = "tag_list" id = "animals" style="display: none;">
+                           <li class = "list_item"><a href = "#" id = "">Крокодил</a></li>
+                           <li class = "list_item"><a href = "#" id = "">Бегемот</a></li>
+                        </ul>
+                     </li>   
+                     <li class = "tag_group">
+                        <p class = "group_name">
+                           <input type="checkbox" name = "tags_on" class = tags_checkbox>
+                           <a href = "javascript:flipflop('plants');">
+                              Растения
+                           </a>
+                        </p>
+                        <ul class = "tag_list" id = "plants" style="display: none;">
+                           <li class = "list_item"><a href = "#" id = "">Фикус</a></li>
+                           <li class = "list_item"><a href = "#" id = "">Роза</a></li>
+                        </ul>
+                     </li>    
+                     <li class = "tag_group">
+                        <p class = "group_name">
+                           <input type="checkbox" name = "tags_on" class = tags_checkbox>
+                           <a href = "javascript:flipflop('cars');">
+                              Машины
+                           </a>
+                        </p>
+                        <ul class = "tag_list" id = "cars" style="display: none;">
+                           <li class = "list_item"><a href = "#" id = "">Мерседес</a></li>
+                           <li class = "list_item"><a href = "#" id = "">Лада</a></li>
+                           <li class = "list_item"><a href = "#" id = "">БМВ</a></li>
+                           <li class = "list_item"><a href = "#" id = "">Рино</a></li>
+                        </ul>
+                     </li>   
+                     <li class = "tag_group">
+                        <p class = "group_name">
+                           <input type="checkbox" name = "tags_on" class = tags_checkbox>
+                           <a href = "javascript:flipflop('planes');">
+                              Самолёты
+                           </a>
+                        </p>
+                        <ul class = "tag_list" id = "planes" style="display: none;">
+                           <li class = "list_item">Грузовой</a></li>
+                           <li class = "list_item">Истрибитель</a></li>
+                        </ul>
+                     </li>      
+                  </ul>
+               </div>
+         </div>
+         <div class = "choosen_tags">
+            <ul class = "wrap">
+               <li class = "choose_item">Выбр. Тег 1</li>
+               <li class = "choose_item">Выбр. Тег 1</li>
+               <li class = "choose_item">Выбр. Тег 1</li>
+               <li class = "choose_item">Выбр. Тег 1</li>
+               <li class = "choose_item">Выбр. Тег 1</li>                  
+            </ul>
+         </div>
+      </div>
+   </div>
+
+   <footer></footer>
+</body>
+</html>
