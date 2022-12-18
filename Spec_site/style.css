@@ -137,7 +137,7 @@ header {
 }
 
 .name {
-   padding-bottom: 10px;
+   padding-bottom: 8px;
    width: 100%;
    height: 8%;
    display: flex;
@@ -146,7 +146,7 @@ header {
 }
 
 #img_001 .photo {
-   background-image: url(img/rOjSxMVNU3mI5yq2ZZAr.jpg);
+   background-image: url(img/1657889023_2.jpg);
 }
 
 #img_002 .photo {
@@ -154,30 +154,50 @@ header {
 }
 
 #img_003 .photo {
-   background-image: url(img/66419254.jpg);
+   background-image: url(img/2599646553550df1803873da869c3bcf.jpg);
 }
 
 #img_003 .photo {
-   background-image: url(img/66419254.jpg);
+   background-image: url(img/61778.jpg);
 }
 
 #img_004 .photo {
-   background-image: url(img/Kissing_the_War_Goodbye.jpg);
+   background-image: url(img/66419254.jpg);
 }
 
 #img_005 .photo {
-   background-image: url(img/wide_detail_picture.jpg);
+   background-image: url(img/DSC_3314.jpg);
 }
 
 #img_006 .photo {
-   background-image: url(img/wide_detail_picture.jpg);
+   background-image: url(img/Kissing_the_War_Goodbye.jpg);
 }
 
 #img_007 .photo {
-   background-image: url(img/wide_detail_picture.jpg);
+   background-image: url(img/lol.png);
 }
 
 #img_008 .photo {
+   background-image: url(img/pfobl.jpg);
+}
+
+#img_009 .photo {
+   background-image: url(img/rOjSxMVNU3mI5yq2ZZAr.jpg);
+}
+
+#img_010 .photo {
+   background-image: url(img/wide_detail_picture.jpg);
+}
+
+#img_011 .photo {
+   background-image: url(img/wide_detail_picture.jpg);
+}
+
+#img_012 .photo {
+   background-image: url(img/wide_detail_picture.jpg);
+}
+
+#img_013 .photo {
    background-image: url(img/wide_detail_picture.jpg);
 }
 
@@ -203,6 +223,22 @@ header {
    background-color: #24B47E;
    border-radius: 7px;
    color: white;
+}
+
+.right:hover {
+   border: 1px solid white;
+}
+
+.right:active{
+   background-color: #1b7956;
+}
+
+.left:active{
+   background-color: #1b7956;
+}
+
+.left:hover {
+   border: 1px solid white;
 }
 
 .right {
@@ -331,7 +367,8 @@ header {
 }
 
 .wrap {
-   padding: 0 10px 0 10px;
+   margin: 0;
+   padding: 10px 10px 0 10px;
    width: 95%;
    height: auto;
    max-height: 90%;
@@ -352,6 +389,7 @@ header {
    display: flex;
    justify-content: center;
    align-items: center;
+   cursor: pointer;
 }
 
 footer {
@@ -359,37 +397,104 @@ footer {
    height: 14vh;
    background-color: #181818;
    display: flex;
-   align-items: center;
-   justify-content: space-between;
+   align-items: top;
+   justify-content: space-around;
 }
 
 .switch_mod {
    height: 100%;
-   width: 8%;
+   width: 10%;
    display: flex;
    flex-direction: column;
    align-items: center;
    justify-content: space-evenly;
-   padding-left: 17px;
 }
 
 .switch_mod input {
    width: 100%;
    height: 35%;
    border: 1px solid white;
-   border-radius: 9px;
+   border-radius: 15px;
    background-color: #181818;
    color: white;
+   font-size: 15px;
+   font-weight: bold;
+}
+
+.switch_mod input:hover {
+   border: 2px solid white;
 }
 
 .instruments {
-   height: 100%;
-   width: 85%;
-   display: flex;
-   align-items: center;
-   justify-content: flex-start;
+   padding-top: 10px;
+   height: 80%;
+   width: 60%;
 }
 
 #mod_gallery {
-background-color: #24B47E;
+   background-color: #24B47E;
+}
+
+#gal_ins {
+   display: block;
+}
+
+#fin_ins {
+   display: none;
+}
+
+.panel {
+   padding: 0;
+   margin: 0;
+   height: 100%;
+   width: 100%;
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   grid-template-rows: repeat(2, 1fr);
+   gap: 10px;
+}
+
+.panel li {
+   list-style-type: none;
+}
+
+.panel input {
+   width: 100%;
+   height: 100%;
+   border-radius: 15px;
+   border: 1px solid white;
+   background-color: #181818;
+   color: white;
+   font-size: 15px;
+   font-weight: bold;
+}
+
+.panel input:hover {
+   border: 2px solid white;
+}
+
+.switch_size {
+   height: 100%;
+   width: 10%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-evenly;
+}
+
+.switch_size input {
+   height: 28%;
+   width: 50%;
+   background-color: #181818;
+   color: white;
+   border: 1px solid white;
+   border-radius: 5px;
+}
+
+.switch_size input:hover {
+   border: 2px solid white;
+}
+
+#size_big {
+   background-color: #24B47E;
 }

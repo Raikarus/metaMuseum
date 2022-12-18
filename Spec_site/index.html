@@ -25,7 +25,7 @@
 
    <div class = "main">
       <div class = "main_left">
-         <ul class = "photos">
+         <ul class = "photos" id = "wrapping">
             <li class = "photo_li" id = "img_001">
                <div class = "photo"></div>
                <div class = "name">Название</div>           
@@ -57,7 +57,31 @@
              <li class = "photo_li" id = "img_008">
                <div class = "photo"></div>
                <div class = "name">Название</div>           
-            </li>  
+            </li>  4
+            <li class = "photo_li" id = "img_009">
+               <div class = "photo"></div>
+               <div class = "name">Название</div>           
+            </li> 
+            <li class = "photo_li" id = "img_010">
+               <div class = "photo"></div>
+               <div class = "name">Название</div>           
+            </li> 
+            <li class = "photo_li" id = "img_011">
+               <div class = "photo"></div>
+               <div class = "name">Название</div>           
+            </li> 
+            <li class = "photo_li" id = "img_012">
+               <div class = "photo"></div>
+               <div class = "name">Название</div>           
+            </li> 
+            <li class = "photo_li" id = "img_013">
+               <div class = "photo"></div>
+               <div class = "name">Название</div>           
+            </li> 
+            <li class = "photo_li" id = "img_014">
+               <div class = "photo"></div>
+               <div class = "name">Название</div>           
+            </li>         
          </ul>
          <div class = "left_right_but">
             <button class = "left">
@@ -66,7 +90,7 @@
             <div id = "current_page">1</div>
             <button class="right">
                →
-            </button>
+            </button>    
          </div>
       </div>
       <div class = "main_right">
@@ -134,11 +158,11 @@
          </div>
          <div class = "choosen_tags">
             <ul class = "wrap">
-               <li class = "choose_item">Выбр. Тег 1</li>
-               <li class = "choose_item">Выбр. Тег 1</li>
-               <li class = "choose_item">Выбр. Тег 1</li>
-               <li class = "choose_item">Выбр. Тег 1</li>
-               <li class = "choose_item">Выбр. Тег 1</li>                  
+               <li class = "choose_item" data-selected = "0">Выбр. Тег 1</li>
+               <li class = "choose_item" data-selected = "0">Выбр. Тег 2</li>
+               <li class = "choose_item" data-selected = "0">Выбр. Тег 3</li>
+               <li class = "choose_item" data-selected = "0">Выбр. Тег 4</li>
+               <li class = "choose_item" data-selected = "0">Выбр. Тег 5</li>                  
             </ul>
          </div>
       </div>
@@ -146,11 +170,30 @@
 
    <footer>
       <div class = "switch_mod">
-         <input type = "submit" name = "mods" id = "mod_gallery" class = "mod" value="Галерея">
-         <input type = "submit" name = "mods" id = "mod_finder" class = "mod" value="Подборка">
+         <input type = "submit" name = "mods" id = "mod_gallery"value="Галерея">
+         <input type = "submit" name = "mods" id = "mod_finder" value="Подборка">
       </div>
-      <div class = "instruments">
-
+      <div class = "instruments" id = "gal_ins">
+         <ul class = "panel">
+            <li><input type = "submit" name = "funtional" value="Добавить в подборку"></li>
+            <li><input type = "submit" name = "funtional" value="Выделить всё"></li>
+            <li><input type = "submit" name = "funtional" value="Снять выделение"></li>
+            <li><input type = "submit" name = "funtional" value="Отменить"></li>
+         </ul> 
+      </div>
+      <div class = "instruments" id = "fin_ins">
+         <ul class = "panel">
+            <li><input type = "submit" name = "funtional" value="Скачать"></li>
+            <li><input type = "submit" name = "funtional" value="Сохранить в подборку"></li>
+            <li><input type = "submit" name = "funtional" value="Удалить из подборки"></li>
+            <li><input type = "submit" name = "funtional" value="Выделить всё"></li>
+            <li><input type = "submit" name = "funtional" value="Снять выделение"></li>
+         </ul>        
+      </div>
+      <div class = "switch_size">
+         <input type = "submit" name = "sizes" id = "size_small" value = "5x4">
+         <input type = "submit" name = "sizes" id = "size_normal" value = "4x3">
+         <input type = "submit" name = "sizes" id = "size_big" value = "3x2">
       </div>
    </footer>
 </body>
