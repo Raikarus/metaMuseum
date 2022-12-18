@@ -53,4 +53,19 @@ $(document).ready(function(){
 		$(".photos").html(res);
 		$("#current_page").html(current_page);
 	}
+
+   let but1 = document.getElementById('mod_gallery');
+   let but2 = document.getElementById('mod_finder');
+
+   $(but1).click(function()
+   {
+      but1.style.backgroundColor = "#24B47E";
+      but2.style.backgroundColor = "#181818";
+   });
+
+   $(but2).click(function()
+   {
+      but1.style.backgroundColor = "#181818";
+      but2.style.backgroundColor = "#24B47E";
+   });
 });
