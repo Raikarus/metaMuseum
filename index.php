@@ -116,7 +116,7 @@ switch ($form) {
       <link rel="stylesheet" href="css/style.css"  type="text/css">
       <script type="text/javascript" src = "js/jq.js"></script>
       <script type="text/javascript" src = "js/script.js"></script>
-      <title>База данных музея</title>
+      <title>База данных музея сосет</title>
    </head>
    <body>
       <header class = "header">
