@@ -2,7 +2,7 @@
 
 try
 {
-	$dbconn = pg_connect("host=localhost port=22 dbname=museumbasa");
+	//$dbconn = pg_connect("host=localhost port=22 dbname=museumbasa");
 	echo "Connected successfuly";
 }
 
