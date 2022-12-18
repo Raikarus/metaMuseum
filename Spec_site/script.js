@@ -13,6 +13,7 @@ $(document).ready(function(){
 		 // меняем ему видимость
 		 element.style.display = element.style.display == "none" ? "" : "none";   
 	}
+   
 	let current_list = 1;
 	update_grid();
 	$(".left").click(function()

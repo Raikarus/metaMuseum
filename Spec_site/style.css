@@ -161,6 +161,18 @@ header {
    background-image: url(img/wide_detail_picture.jpg);
 }
 
+#img_006 .photo {
+   background-image: url(img/wide_detail_picture.jpg);
+}
+
+#img_007 .photo {
+   background-image: url(img/wide_detail_picture.jpg);
+}
+
+#img_008 .photo {
+   background-image: url(img/wide_detail_picture.jpg);
+}
+
 .left_right_but {
    padding-bottom: 6px;
    width: 15%;
@@ -168,6 +180,10 @@ header {
    display: flex;
    align-items: center;
    justify-content: space-between;
+}
+
+#current_page {
+   padding: 0 5px;
 }
 
 .left {
