@@ -56,16 +56,38 @@ $(document).ready(function(){
 
    let but1 = document.getElementById('mod_gallery');
    let but2 = document.getElementById('mod_finder');
+   let gallery = document.querySelector('.photos');
+   let buttons = document.querySelector('.left_right_but');
+   let photos = document.querySelectorAll('.photo_li');
+
+   $(document).on('click', 'li[class^="photo_li"]', function(e)
+   {
+      e.preventDefault();
+      if (this.data("selected") != "1") 
+      {
+         this.data("selected") = "1";
+         this.style.border = "1px solid blue";
+      }
+      else
+      {
+         this.data("selected") = "0";
+         this.style.border = "none";
+      }
+   });
 
    $(but1).click(function()
    {
       but1.style.backgroundColor = "#24B47E";
       but2.style.backgroundColor = "#181818";
+      gallery.style.display = "grid";
+      buttons.style.display = "flex";
    });
 
    $(but2).click(function()
    {
       but1.style.backgroundColor = "#181818";
       but2.style.backgroundColor = "#24B47E";
+      gallery.style.display = "none";
+      buttons.style.display = "none";
    });
 });
