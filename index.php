@@ -35,11 +35,16 @@
 	</div>
 </header>
 <main class = "main">
+<a href="/?form=show">Показать</a><br>
+<a href="/?form=auth">Тэги</a><br>
+<a href="/?form=obr">Обработка картинок</a><br>
+<a href="/?form=add">Добавить картинку</a><br>
 <?php
 switch($form){
 case 'show': include('show.php');break;
 case 'auth': include('auth.php');break;
 case 'obr': include('obrabotka.php');break;
+case 'add': include('add.php');break;
 default:include('home.php');break;
 }
 ?>
