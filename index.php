@@ -39,6 +39,7 @@
 switch($form){
 case 'show': include('show.php');break;
 case 'auth': include('auth.php');break;
+case 'obr': include('obrabotka.php');break;
 default:include('home.php');break;
 }
 ?>
