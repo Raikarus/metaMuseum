@@ -1,7 +1,7 @@
 Страница обработки <br>
 <?php
 	$exif = exif_read_data('img/'.$_POST['picName'],'IFD0');
-	echo $_POST['picName'];
+	echo $_POST['picName']."<br>";
 	$exif = exif_read_data('img/'.$_POST['picName'],0,true);
 	foreach($exif as $key => $section){
 		foreach($section as $name => $val){
@@ -15,4 +15,10 @@
 	<input id="submit" type="submit" value="Проверить">
 </form>
 
-
+<?php
+	$dir='./img';
+	$files = scandir($dir);
+	foreach($files as $n => $img){
+		echo $img."<br>";
+	}
+?>
