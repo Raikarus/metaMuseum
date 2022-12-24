@@ -26,9 +26,12 @@ function upload_file($file, $nameFile='default', $upload_dir= 'img', $allowed_ty
 
     return Array('filename' => $prefix.$nameFile.$ext);
 }
-if($_POST['password']=="schef2002"){
-	$etc = $_POST['etc']; // Конечно нужно фильтровать пришедшие данные
-	if(isset($_FILES['imgfile']) && !empty($_FILES['imgfile']['name'])){$result = upload_file($_FILES['imgfile'],$etc);}
+if($_POST['pass']=="schef2002"){
+	echo "П4р0ль пр0йд3н";
+	$res=upload_file($_FILES['imgfile'],$_POST['etc']);
+	foreach($res as $a => $b){
+		echo $a." ".$b."<br>";
+	}
 }
 ?>
 
