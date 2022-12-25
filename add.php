@@ -1,5 +1,5 @@
 <?php
-function upload_file($file, $nameFile='default', $upload_dir= 'img', $allowed_types= array('image/png','image/x-png','image/jpeg','image/webp','image/gif','image/jpg')){
+function upload_file($file, $nameFile='default', $upload_dir= 'img', $allowed_types= array('image/png','image/x-png','image/jpeg','image/webp','image/gif')){
 
   $blacklist = array(".php", ".phtml", ".php3", ".php4");
 

@@ -5,7 +5,7 @@
 	$exif = exif_read_data('img/'.$_POST['picName'],0,true);
 	foreach($exif as $key => $section){
 		foreach($section as $name => $val){
-			if($_POST['full_info'])
+			if(!$_POST['full_info'])
 			{
 				if($key=="IFD0" && $name="Image_Description")echo "$key.$name: $val<br />\n";
 			}
@@ -19,7 +19,7 @@
 ?>
 <form method = "post">
 	<input type="text" name="picName" placeholder="Название картинки">
-	<input type="checkbox" name = "full_info">
+	<div>Отобразить всё<input id = "check1" type="checkbox" name = "full_info"></div>
 	<input id="submit" type="submit" value="Проверить">
 </form>
 

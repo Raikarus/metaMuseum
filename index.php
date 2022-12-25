@@ -3,11 +3,24 @@
 	$res = pg_query($cn,"SELECT * FROM gallery");
 	//gallery(id,name,party,meta [0/1])
 	$form = $_GET['form'];
-	if($form=='add' && !empty($_POST['name']) && !empty($_POST['party']) && !empty($_POST['meta'])){
-		if($_POST['party'] == "noParty"){
-			$query="INSERT INTO gallery(name,party,meta) VALUES('".$_POST['name']."','".$_POST['party']."','".$_POST['meta']."')";
+	$msg = "";
+	if($form=='auth'){
+		if($_POST['pswd'] == "schef2002"){
+			$query = "SELECT * FROM gallery WHERE name='".$_POST['name']."'";
 			$res = pg_query($cn,$query);
-			header("location:/?form=show");	
+			$access = "ok";
+			while($row=pg_fetch_object($res)){
+				$access = "not ok";
+				break;
+			}
+			if($access=="ok"){
+				$query="INSERT INTO gallery(name,party,meta) VALUES('".$_POST['name']."','".$_POST['party']."','".$_POST['meta']."')";
+				$res = pg_query($cn,$query);
+				header("location:/?form=show");
+			}
+			else{
+				$msg = "Такой тэг уже существует";
+			}
 		}
 	}
 ?>
@@ -35,12 +48,14 @@
 	</div>
 </header>
 <main class = "main">
-<a href="/?form=show">Показать</a><br>
-<a href="/?form=auth">Тэги</a><br>
+<a href="/?form=show">Показать тэги</a><br>
+<a href="/?form=auth">Добавить тэг</a><br>
 <a href="/?form=obr">Обработка картинок</a><br>
 <a href="/?form=add">Добавить картинку</a><br>
 <a href="/?form=write">Прикрутить тэг</a><br>
+
 <?php
+echo $msg;
 switch($form){
 case 'show': include('show.php');break;
 case 'auth': include('auth.php');break;
