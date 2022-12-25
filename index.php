@@ -3,7 +3,7 @@
 	$res = pg_query($cn,"SELECT * FROM gallery");
 	//gallery(id,name,party,meta [0/1])
 	$form = $_GET['form'];
-	if(!empty($_POST['name']) && !empty($_POST['party']) && !empty($_POST['meta'])){
+	if($form=='add' && !empty($_POST['name']) && !empty($_POST['party']) && !empty($_POST['meta'])){
 		if($_POST['party'] == "noParty"){
 			$query="INSERT INTO gallery(name,party,meta) VALUES('".$_POST['name']."','".$_POST['party']."','".$_POST['meta']."')";
 			$res = pg_query($cn,$query);
@@ -39,12 +39,14 @@
 <a href="/?form=auth">Тэги</a><br>
 <a href="/?form=obr">Обработка картинок</a><br>
 <a href="/?form=add">Добавить картинку</a><br>
+<a href="/?form=write">Прикрутить тэг</a><br>
 <?php
 switch($form){
 case 'show': include('show.php');break;
 case 'auth': include('auth.php');break;
 case 'obr': include('obrabotka.php');break;
 case 'add': include('add.php');break;
+case 'write': include('write.php');break;
 default:include('home.php');break;
 }
 ?>
