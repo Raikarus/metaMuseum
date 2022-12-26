@@ -56,12 +56,7 @@
          	<?php
 			    $dir='./img';
 				$files = scandir($dir);
-				$schet = 0;
-				echo $_POST['text'];
 				foreach($files as $n => $img){
-					$schet++;
-					if($schet < ($_POST['text']-1)*6)continue;
-					if($schet > ($_POST['text']-1)*6+6)break;
 					if ($img != '.' && $img != '..') echo '<li class = "photo_li" >
                				<div class = "photo" style="background-image:url('."'".'img/'.$img."'".'"></div>
                				<div class = "name">'.$img.'</div>           
