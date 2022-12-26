@@ -132,6 +132,7 @@
     	           	<?php
 						$query = "SELECT party FROM gallery";
 						$res = pg_query($cn,$query);
+						echo "TEST";
 						while($row=pg_fetch_object($res))
 						{
 							echo "<br>".$row."111";
