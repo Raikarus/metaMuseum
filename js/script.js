@@ -25,6 +25,9 @@ $(document).ready(function(){
       }
     });
 
+  $('.tag_list li').click(function(){
+    alert("JOPA");
+  });
   let current_page = 1;
   let limit_of_pages = 6;
   update_grid();

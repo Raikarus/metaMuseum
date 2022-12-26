@@ -145,7 +145,7 @@
 							$res2 = pg_query($cn,$query);
 							while($row2=pg_fetch_row($res2))
 							{
-								echo '<li class = "list_item"><a href = "#" id = "">'.$row2[0].'</a></li>';
+								echo '<li class = "list_item"><a href = "#" tag = '.$row2[0]'>'.$row2[0].'</a></li>';
 							}
 							echo "</ul></li>";
 						}
@@ -195,7 +195,6 @@
    </footer>
 
 <main class = "main">
-<a href="/?form=show">Показать тэги</a><br>
 <a href="/?form=auth">Добавить тэг</a><br>
 <a href="/?form=obr">Обработка картинок</a><br>
 <a href="/?form=add">Добавить картинку</a><br>
@@ -203,7 +202,6 @@
 <?php
 echo $msg;
 switch($form){
-case 'show': include('show.php');break;
 case 'auth': include('auth.php');break;
 case 'obr': include('obrabotka.php');break;
 case 'add': include('add.php');break;
