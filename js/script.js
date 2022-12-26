@@ -12,19 +12,7 @@ function flipflop( id )
     element.style.display = element.style.display == "none" ? "" : "none";   
 }
 
-function tag_color()
-{   
-  if ($(this).data("selected") == "0")
-  {
-     $(this).data("selected", "1");
-     this.style.backgroundColor = "rgb(228, 79, 79)";
-  }
-  else
-  {
-     $(this).data("selected", "0");
-     this.style.backgroundColor = "#24B47E";
-  }    
-}
+
 
 $(document).ready(function(){
     var result_tags = [];
@@ -102,6 +90,20 @@ $(document).ready(function(){
    let size2 = document.getElementById('size_normal');
    let size3 = document.getElementById('size_big');
    let wrap = document.getElementById('wrapping');
+
+  $(".choose_item").on("click",function()
+  {   
+    if ($(this).data("selected") == "0")
+    {
+       $(this).data("selected", "1");
+       this.style.backgroundColor = "rgb(228, 79, 79)";
+    }
+    else
+    {
+       $(this).data("selected", "0");
+       this.style.backgroundColor = "#24B47E";
+    }    
+  });
 
    $(but1).click(function()
    {
