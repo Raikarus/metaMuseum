@@ -17,12 +17,12 @@ function tag_invers()
   if ($(this).data("selected") == "0")
   {
      $(this).data("selected", "1");
-     this.style.backgroundColor = "rgb(228, 79, 79)";
+     $(this).css("backgroundColor","rgb(228, 79, 79)");
   }
   else
   {
      $(this).data("selected", "0");
-     this.style.backgroundColor = "#24B47E";
+     $(this).css("backgroundColor","#24B47E");
   }    
 }
 
