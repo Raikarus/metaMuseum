@@ -145,7 +145,7 @@
 							$res2 = pg_query($cn,$query);
 							while($row2=pg_fetch_row($res2))
 							{
-								echo '<li class = "list_item"><a href = "#" tag = '.$row2[0].'>'.$row2[0].'</a></li>';
+								echo '<li class = "list_item"><a href = "#" data-tag = '.$row2[0].'>'.$row2[0].'</a></li>';
 							}
 							echo "</ul></li>";
 						}
