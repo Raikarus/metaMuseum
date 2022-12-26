@@ -81,6 +81,7 @@ $(document).ready(function(){
       data:current_page,
       success:function(){alert("A");}
     });
+    
   }
 
    let but1 = document.getElementById('mod_gallery');
