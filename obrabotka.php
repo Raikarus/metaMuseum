@@ -27,6 +27,6 @@
 	$dir='./img';
 	$files = scandir($dir);
 	foreach($files as $n => $img){
-		if($img != '.' || $img !='..')echo $img."<br>";
+		echo $img."<br>";
 	}
 ?>
