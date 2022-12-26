@@ -130,11 +130,17 @@
                </div>
                <div class = "tags">
     	           	<?php
-						$query = "SELECT party FROM gallery";
+						$query = "SELECT DISTINCT party FROM gallery";
 						$res = pg_query($cn,$query);
 						while($row=pg_fetch_row($res))
 						{
-							echo "<br>".$row[0]."<br>";
+							echo $row[0]."<br>";
+							$query = "SELECT name FROM gallery WHERE party='".$row[0]."'";
+							$res2 = pg_query($cn,$query);
+							while($row2=pg_fetch_row($res2))
+							{
+								echo $row2[0]."<br>";
+							}
 						}
 					?>
                   <ul class = "list_of_groups">
