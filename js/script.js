@@ -105,7 +105,7 @@ $(document).ready(function(){
       finder.style.display = "block";
    });
 
-  $(".choose_item").click(function()
+  $(".choose_item").click(function(e)
    {   
       if ($(this).data("selected") == "0")
       {
