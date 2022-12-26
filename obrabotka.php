@@ -15,7 +15,7 @@
 			}
 		}
 	}
-	echo "<img width = 500px src = img/".$_POST['picName'].">"
+	echo "<img width = 500px src = img/".$_POST['picName'].">";
 ?>
 <form method = "post">
 	<input type="text" name="picName" placeholder="Название картинки">
