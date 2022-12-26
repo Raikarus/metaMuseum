@@ -13,7 +13,7 @@ function flipflop( id )
 }
 
 $(document).ready(function(){
-
+    var result_tags = [];
     $(".pic img").click(function(){
         $("#bigPic").fadeIn(100);
         $("#bigPic div img").attr("src",$(this).attr("src"));
@@ -26,8 +26,17 @@ $(document).ready(function(){
     });
 
   $('.tag_list li a').click(function(){
-    var a = $(this).data("tag");
-    alert("JOPA "+ a);
+    var index = result_tags.indexOf($(this).data("tag"));
+    if (index >= 0) {
+      result_tags.splice(index, 1);
+    }
+    else{
+      result_tags.push($(this).data("tag"))
+    }
+    $(".wrap").html("");
+    for (var i = 0; i <=result_tags.length - 1; i++) {res
+      $(".wrap").append('<li class = "choose_item" data-selected = "0">'+result_tags[i]+'</li>';
+    }
   });
   let current_page = 1;
   let limit_of_pages = 6;
