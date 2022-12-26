@@ -73,27 +73,14 @@ $(document).ready(function(){
   
   function update_grid()
   {
-    let res = "";
-    for(var i = 1; i <= limit_of_pages; i++)
-    {
-      if((current_page-1) * limit_of_pages + i < 10)
-      {
-        res += '<li class = "photo_li" id = "img_00'+((current_page-1) * limit_of_pages + i)+'"><div class = "photo"></div><div class = "name">Название</div></li>';
-      }
-      else
-      {
-        if((current_page-1) * limit_of_pages + i < 100)
-        {
-          res += '<li class = "photo_li" id = "img_0'+((current_page-1) * limit_of_pages + i)+'"><div class = "photo"></div><div class = "name">Название</div></li>'
-        }
-        else
-        {
-          res += '<li class = "photo_li" id = "img_'+((current_page-1) * limit_of_pages + i)+'"><div class = "photo"></div><div class = "name">Название</div></li>' 
-        }
-      }
-    }
-    $(".photos").html(res);
-    $("#current_page").html(current_page);
+    $.ajax({
+      
+      type:'POST',
+      url:'index.php',
+      dataType:'text',
+      data:current_page,
+      success:function(){alert("A");}
+    });
   }
 
    let but1 = document.getElementById('mod_gallery');
