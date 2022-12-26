@@ -35,7 +35,7 @@ $(document).ready(function(){
     }
     $(".wrap").html("");
     for (var i = 0; i <=result_tags.length - 1; i++) {res
-      $(".wrap").append('<li class = "choose_item" data-selected = "0">'+result_tags[i]+'</li>';
+      $(".wrap").append('<li class = "choose_item" data-selected = "0">'+result_tags[i]+'</li>');
     }
   });
   let current_page = 1;
