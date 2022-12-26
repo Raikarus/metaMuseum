@@ -132,9 +132,9 @@
     	           	<?php
 						$query = "SELECT party FROM gallery";
 						$res = pg_query($cn,$query);
-						while($row=pg_fetch_all($res))
+						while($row=pg_fetch_row($res))
 						{
-							echo "<br>".$row."111";
+							echo "<br>".$row[0]."<br>";
 						}
 					?>
                   <ul class = "list_of_groups">
