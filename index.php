@@ -53,58 +53,17 @@
 <div class = "main">
       <div class = "main_left">
          <ul class = "photos" id = "wrapping">
-            <li class = "photo_li" id = "img_001">
-               <div class = "photo"></div>
-               <div class = "name">Название</div>           
-            </li>
-            <li class = "photo_li" id = "img_002">
-               <div class = "photo"></div>
-               <div class = "name">Название</div>           
-            </li>
-            <li class = "photo_li" id = "img_003">
-               <div class = "photo"></div>
-               <div class = "name">Название</div>           
-            </li>
-            <li class = "photo_li" id = "img_004">
-               <div class = "photo"></div>
-               <div class = "name">Название</div>           
-            </li>
-            <li class = "photo_li" id = "img_005">
-               <div class = "photo"></div>
-               <div class = "name">Название</div>           
-            </li>
-             <li class = "photo_li" id = "img_006">
-               <div class = "photo"></div>
-               <div class = "name">Название</div>           
-            </li>
-             <li class = "photo_li" id = "img_007">
-               <div class = "photo"></div>
-               <div class = "name">Название</div>           
-            </li>
-             <li class = "photo_li" id = "img_008">
-               <div class = "photo"></div>
-               <div class = "name">Название</div>           
-            </li>  4
-            <li class = "photo_li" id = "img_009">
-               <div class = "photo"></div>
-               <div class = "name">Название</div>           
-            </li> 
-            <li class = "photo_li" id = "img_010">
-               <div class = "photo"></div>
-               <div class = "name">Название</div>           
-            </li> 
-            <li class = "photo_li" id = "img_011">
-               <div class = "photo"></div>
-               <div class = "name">Название</div>           
-            </li> 
-            <li class = "photo_li" id = "img_012">
-               <div class = "photo"></div>
-               <div class = "name">Название</div>           
-            </li> 
-            <li class = "photo_li" id = "img_013">
-               <div class = "photo"></div>
-               <div class = "name">Название</div>           
-            </li> 
+         	<?php
+			    $dir='./img';
+				$files = scandir($dir);
+				foreach($files as $n => $img){
+					echo '<li class = "photo_li" style="background-image:img/'.$img.'">
+               				<div class = "photo"></div>
+               				<div class = "name">'.$img.'</div>           
+            			 </li>';
+				}
+         	?>
+            
             <li class = "photo_li" id = "img_014">
                <div class = "photo"></div>
                <div class = "name">Название</div>           

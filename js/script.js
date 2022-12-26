@@ -25,7 +25,7 @@ function tag_invers(e)
      $(e).data("selected",0);
      $(e).attr("data-selected",0);
      $(e).css("backgroundColor","#24B47E");
-  }    
+  }
 }
 
 $(document).ready(function(){
