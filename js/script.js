@@ -37,7 +37,7 @@ $(document).ready(function(){
     }
     $(".wrap").html("");
     for (var i = 0; i <=result_tags.length - 1; i++) {
-      $(".wrap").append('<li class = "choose_item" data-selected = "0">'+result_tags[i]+'</li>');
+      $(".wrap").append('<li class = "choose_item" data-selected = "0" onclick="tag_invers()">'+result_tags[i]+'</li>');
     }
   });
   let current_page = 1;
@@ -91,9 +91,8 @@ $(document).ready(function(){
    let size3 = document.getElementById('size_big');
    let wrap = document.getElementById('wrapping');
 
-  $(".choose_item").on("click",function()
+  function tag_invers()
   {
-    alert("A");
     if ($(this).data("selected") == "0")
     {
        $(this).data("selected", "1");
@@ -104,7 +103,7 @@ $(document).ready(function(){
        $(this).data("selected", "0");
        this.style.backgroundColor = "#24B47E";
     }    
-  });
+  }
 
    $(but1).click(function()
    {
