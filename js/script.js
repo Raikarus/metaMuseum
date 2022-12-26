@@ -77,7 +77,8 @@ $(document).ready(function(){
       url:'/index.php',
       method:'POST',
       dataType:'html',
-      data:{text: current_page}
+      data:{text: current_page},
+      success:function(){$("#current_page").html(current_page);}
     });
 
   }
