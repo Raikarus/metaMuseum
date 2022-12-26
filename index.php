@@ -155,11 +155,7 @@
          </div>
          <div class = "choosen_tags">
             <ul class = "wrap">
-               <li class = "choose_item" data-selected = "0">Выбр. Тег 1</li>
-               <li class = "choose_item" data-selected = "0">Выбр. Тег 2</li>
-               <li class = "choose_item" data-selected = "0">Выбр. Тег 3</li>
-               <li class = "choose_item" data-selected = "0">Выбр. Тег 4</li>
-               <li class = "choose_item" data-selected = "0">Выбр. Тег 5</li>                  
+               
             </ul>
          </div>
       </div>
