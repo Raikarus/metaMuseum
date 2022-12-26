@@ -17,11 +17,13 @@ function tag_invers(e)
   if ($(e).data("selected") == "0")
   {
      $(e).data("selected",1);
+     $(e).attr("data-selected",1)
      $(e).css("backgroundColor","rgb(228, 79, 79)");
   }
   else
   {
      $(e).data("selected",0);
+     $(e).attr("data-selected",0);
      $(e).css("backgroundColor","#24B47E");
   }    
 }
