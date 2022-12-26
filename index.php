@@ -57,7 +57,7 @@
 			    $dir='./img';
 				$files = scandir($dir);
 				foreach($files as $n => $img){
-					echo '<li class = "photo_li" style="background-image:img/'.$img.'">
+					echo '<li class = "photo_li" style="background-image:url('."'".'img/'.$img."'".'">
                				<div class = "photo"></div>
                				<div class = "name">'.$img.'</div>           
             			 </li>';
