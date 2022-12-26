@@ -14,6 +14,7 @@ function flipflop( id )
 
 function tag_invers()
 {
+  alert("A");
   if ($(this).data("selected") == "0")
   {
      $(this).data("selected", "1");
