@@ -130,7 +130,7 @@
                </div>
                <div class = "tags">
     	           	<?php
-						$query = "SELECT 'group' FROM gallery";
+						$query = "SELECT party FROM gallery";
 						$res = pg_query($cn,$query);
 						while($row=pg_fetch_object($res))
 						{
