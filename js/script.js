@@ -12,18 +12,17 @@ function flipflop( id )
     element.style.display = element.style.display == "none" ? "" : "none";   
 }
 
-function tag_invers()
+function tag_invers(e)
 {
-  alert("A");
-  if ($(this).data("selected") == "0")
+  if ($(e).data("selected") == "0")
   {
-     $(this).data("selected", "1");
-     $(this).css("backgroundColor","rgb(228, 79, 79)");
+     $(e).data("selected", "1");
+     $(e).css("backgroundColor","rgb(228, 79, 79)");
   }
   else
   {
-     $(this).data("selected", "0");
-     $(this).css("backgroundColor","#24B47E");
+     $(e).data("selected", "0");
+     $(e).css("backgroundColor","#24B47E");
   }    
 }
 
@@ -50,7 +49,7 @@ $(document).ready(function(){
     }
     $(".wrap").html("");
     for (var i = 0; i <=result_tags.length - 1; i++) {
-      $(".wrap").append('<li class = "choose_item" data-selected = "0" onclick="tag_invers()">'+result_tags[i]+'</li>');
+      $(".wrap").append('<li class = "choose_item" data-selected = "0" onclick="tag_invers($(this))">'+result_tags[i]+'</li>');
     }
   });
   let current_page = 1;
