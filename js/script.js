@@ -26,7 +26,8 @@ $(document).ready(function(){
     });
 
   $('.tag_list li a').click(function(){
-    alert("JOPA "+$(this).data("tag"));
+    var a = $(this).data('tag');
+    alert("JOPA "+ a);
   });
   let current_page = 1;
   let limit_of_pages = 6;
