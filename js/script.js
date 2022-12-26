@@ -74,14 +74,12 @@ $(document).ready(function(){
   function update_grid()
   {
     $.ajax({
-      
-      type:'POST',
-      url:'index.php',
-      dataType:'text',
-      data:current_page,
-      success:function(){alert("A");}
+      url:'/index.php',
+      method:'POST',
+      dataType:'html',
+      data:{text: current_page}
     });
-    
+
   }
 
    let but1 = document.getElementById('mod_gallery');
