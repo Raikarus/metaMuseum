@@ -129,6 +129,14 @@
                   </form>
                </div>
                <div class = "tags">
+    	           	<?php
+						$query = "SELECT group FROM gallery";
+						$res = pg_query($cn,$query);
+						while($row=pg_fetch_object($res))
+						{
+							echo "<br>".$row."111";
+						}
+					?>
                   <ul class = "list_of_groups">
                      <li class = "tag_group">                     
                         <p class = "group_name">
@@ -230,7 +238,6 @@
 <a href="/?form=obr">Обработка картинок</a><br>
 <a href="/?form=add">Добавить картинку</a><br>
 <a href="/?form=write">Прикрутить тэг</a><br>
-
 <?php
 echo $msg;
 switch($form){
