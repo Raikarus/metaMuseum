@@ -34,7 +34,7 @@ $(document).ready(function(){
       result_tags.push($(this).data("tag"))
     }
     $(".wrap").html("");
-    for (var i = 0; i <=result_tags.length - 1; i++) {res
+    for (var i = 0; i <=result_tags.length - 1; i++) {
       $(".wrap").append('<li class = "choose_item" data-selected = "0">'+result_tags[i]+'</li>');
     }
   });
