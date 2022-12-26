@@ -12,6 +12,20 @@ function flipflop( id )
     element.style.display = element.style.display == "none" ? "" : "none";   
 }
 
+function tag_color()
+{   
+  if ($(this).data("selected") == "0")
+  {
+     $(this).data("selected", "1");
+     this.style.backgroundColor = "rgb(228, 79, 79)";
+  }
+  else
+  {
+     $(this).data("selected", "0");
+     this.style.backgroundColor = "#24B47E";
+  }    
+}
+
 $(document).ready(function(){
     var result_tags = [];
     $(".pic img").click(function(){
@@ -105,19 +119,7 @@ $(document).ready(function(){
       finder.style.display = "block";
    });
 
-  function tag_color()
-   {   
-      if ($(this).data("selected") == "0")
-      {
-         $(this).data("selected", "1");
-         this.style.backgroundColor = "rgb(228, 79, 79)";
-      }
-      else
-      {
-         $(this).data("selected", "0");
-         this.style.backgroundColor = "#24B47E";
-      }    
-   }
+
 
    $(size1).click(function()
    {
