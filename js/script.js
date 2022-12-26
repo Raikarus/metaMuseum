@@ -92,7 +92,8 @@ $(document).ready(function(){
    let wrap = document.getElementById('wrapping');
 
   $(".choose_item").on("click",function()
-  {   
+  {
+    alert("A");
     if ($(this).data("selected") == "0")
     {
        $(this).data("selected", "1");
