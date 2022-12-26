@@ -138,7 +138,7 @@
 							echo '<li class = "tag_group">                     
                         			<p class = "group_name">
                           				<input type="checkbox" name = "tags_on" class = tags_checkbox>
-                           				<a href = "javascript:flipflop('.$row[0].');">'.$row[0].'</a>
+                           				<a href = "javascript:flipflop(''.$row[0].'');">'.$row[0].'</a>
                         			</p>
                         			<ul class = "tag_list" id = '.$row[0].' style="display: none;">';
 							$query = "SELECT name FROM gallery WHERE party='".$row[0]."'";
@@ -150,7 +150,53 @@
 							echo "</ul></li>";
 						}
 					?>
-                   </ul>
+                  
+                     
+                              Животные
+                           
+                           <li class = "list_item"><a href = "#" id = "">Крокодил</a></li>
+                           <li class = "list_item"><a href = "#" id = "">Бегемот</a></li>
+                        </ul>
+                     </li>   
+                     <li class = "tag_group">
+                        <p class = "group_name">
+                           <input type="checkbox" name = "tags_on" class = tags_checkbox>
+                           <a href = "javascript:flipflop('plants');">
+                              Растения
+                           </a>
+                        </p>
+                        <ul class = "tag_list" id = "plants" style="display: none;">
+                           <li class = "list_item"><a href = "#" id = "">Фикус</a></li>
+                           <li class = "list_item"><a href = "#" id = "">Роза</a></li>
+                        </ul>
+                     </li>    
+                     <li class = "tag_group">
+                        <p class = "group_name">
+                           <input type="checkbox" name = "tags_on" class = tags_checkbox>
+                           <a href = "javascript:flipflop('cars');">
+                              Машины
+                           </a>
+                        </p>
+                        <ul class = "tag_list" id = "cars" style="display: none;">
+                           <li class = "list_item"><a href = "#" id = "">Мерседес</a></li>
+                           <li class = "list_item"><a href = "#" id = "">Лада</a></li>
+                           <li class = "list_item"><a href = "#" id = "">БМВ</a></li>
+                           <li class = "list_item"><a href = "#" id = "">Рино</a></li>
+                        </ul>
+                     </li>   
+                     <li class = "tag_group">
+                        <p class = "group_name">
+                           <input type="checkbox" name = "tags_on" class = tags_checkbox>
+                           <a href = "javascript:flipflop('planes');">
+                              Самолёты
+                           </a>
+                        </p>
+                        <ul class = "tag_list" id = "planes" style="display: none;">
+                           <li class = "list_item"><a href = "#" id = "">Грузовой</a></li>
+                           <li class = "list_item"><a href = "#" id = "">Истребитель</a></li>
+                        </ul>
+                     </li>      
+                  </ul>
                </div>
          </div>
          <div class = "choosen_tags">
