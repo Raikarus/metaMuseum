@@ -57,6 +57,7 @@
 			    $dir='./img';
 				$files = scandir($dir);
 				$schet = 0;
+				echo $_POST['text'];
 				foreach($files as $n => $img){
 					$schet++;
 					if($schet < ($_POST['text']-1)*6)continue;
@@ -67,12 +68,7 @@
             			 </li>';
 				}
          	?>
-            
-            <li class = "photo_li" id = "img_014">
-               <div class = "photo"></div>
-               <div class = "name">Название</div>           
-            </li>         
-         </ul>
+		</ul>
          <div class = "left_right_but">
             <button class = "left">
                ←
