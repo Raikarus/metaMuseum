@@ -11,19 +11,19 @@ function upload_file($file, $nameFile='default', $upload_dir= 'img', $allowed_ty
   $prefix = date('Ymd-is_');
   $filename = $file['name']; // В переменную $filename заносим точное имя файла.
   $ext = strtolower(substr($filename, strrpos($filename,'.'), strlen($filename)-1)); // В переменную $ext заносим расширение загруженного файла.
-  echo $file['type'];
   if(!is_writable($upload_dir))  // Проверяем, доступна ли на запись папка, определенная нами под загрузку файлов.
     return array('error' => 'Невозможно загрузить файл в папку "'.$upload_dir.'". Установите права доступа - 777.');
-
-  if(!in_array($file['type'], $allowed_types))
-    return array('error' => 'Данный тип файла не поддерживается.');
+//  echo $file['type']."TEST".$file['name']."<br>";
+//  if(!in_array($file['type'], $allowed_types))
+//    return array('error' => 'Данный тип файла не поддерживается.');
 
   if(filesize($file['tmp_name']) > $max_filesize)
     return array('error' => 'файл слишком большой. максимальный размер '.intval($max_filesize/(1024*1024)).'мб');
 
   if(!move_uploaded_file($file['tmp_name'],$upload_dir.$prefix.$nameFile.$ext)) // Загружаем файл в указанную папку.
     return array('error' => 'При загрузке возникли ошибки. Попробуйте ещё раз.');
-
+    $query = "INSERT INTO images(name) VALUES(".$prefix.$nameFile.$ext.")";
+    $res = pg_query($cn,$query);
     return Array('filename' => $prefix.$nameFile.$ext);
 }
 if($_POST['pass']=="schef2002"){
