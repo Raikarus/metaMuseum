@@ -130,7 +130,7 @@
       </div>
       <div class = "instruments" id = "fin_ins">
          <ul class = "panel">
-            <li><input type = "submit" name = "funtional" value="Скачать"></li>
+            <li><input type = "submit" name = "funtional" value="Деньчик пидор"></li>
             <li><input type = "submit" name = "funtional" value="Сохранить в подборку"></li>
             <li><input type = "submit" name = "funtional" value="Удалить из подборки"></li>
             <li><input type = "submit" name = "funtional" value="Выделить всё"></li>
