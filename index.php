@@ -92,7 +92,7 @@
 							echo '<li class = "tag_group">                     
                         			<p class = "group_name">
                           	
-                           				<a href = "javascript:flipflop('."'".$row[0]."'".');">'.$row[0].+'</a>
+                           				<a href = "javascript:flipflop('."'".$row[0]."'".');">'.$row[0].'+</a>
 
 
                         			</p>
