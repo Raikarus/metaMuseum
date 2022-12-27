@@ -91,9 +91,10 @@
 						{
 							echo '<li class = "tag_group">                     
                         			<p class = "group_name">
-
-                          				
+                          	
                            				<a href = "javascript:flipflop('."'".$row[0]."'".');">'.$row[0].'</a>
+
+                                       я в своем познании настолько преисполнился что я как будто уже 
                         			</p>
                         			<ul class = "tag_list" id = '.$row[0].' style="display: none;">';
 							$query = "SELECT name FROM gallery WHERE party='".$row[0]."'";
