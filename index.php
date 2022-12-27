@@ -87,11 +87,11 @@
                		<?php
 						$query = "SELECT DISTINCT party FROM gallery";
 						$res = pg_query($cn,$query);
-					/*	while($row=pg_fetch_row($res))
+						while($row=pg_fetch_row($res))
 						{
 							echo '<li class = "tag_group">                     
                         			<p class = "group_name">
-                          				<input type="checkbox" name = "tags_on" class = tags_checkbox>
+                          				<input type="checkbox" name = "tags_on"+"+" class = tags_checkbox>
                            				<a href = "javascript:flipflop('."'".$row[0]."'".');">'.$row[0].'</a>
                         			</p>
                         			<ul class = "tag_list" id = '.$row[0].' style="display: none;">';
@@ -102,7 +102,7 @@
 								echo '<li class = "list_item"><a href = "#" data-en = 0 data-tag = '.$row2[0].'>'.$row2[0].'</a></li>';
 							}
 							echo "</ul></li>";
-						}*/
+						}
 					?>
 					</ul>
                </div>
