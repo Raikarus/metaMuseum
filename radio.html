@@ -86,8 +86,9 @@
       }
 
       .ass_button{
-        width: 250px;
+        max-height: 100%;
         height: 250px;
+        width: 250px;
         /*outline: 1px solid rgba(255,255,255,0); */
         border-radius: 200px;
         background-color:rgba(255,255,255,0);
@@ -114,6 +115,10 @@
 
       @media screen and (max-device-width: 750px)
       {
+        #main
+        {
+          justify-content: center;
+        }
         #right_inf
         {
           display: none;
@@ -121,11 +126,12 @@
         #play_cat
         {
           width: 70%;
+          margin: 0;
         }
         #devka
         {
           width:100%;
-          margin: 0;
+
           height: auto;
           bottom: 0;
         }
