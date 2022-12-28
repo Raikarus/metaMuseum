@@ -4,11 +4,40 @@
   <meta charset="utf-8">
 
 <style type="text/css">
+      body
+      {
+        background-image: url(https://c.wallhere.com/photos/ea/60/abstract_fluid_liquid_artwork_colorful_shapes_ArtStation_dark-2013259.jpg!d);
+        background-size: 100% auto;
+        margin:0;
+        padding: 0;
+        min-height: 100vh;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+      #main
+      {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #play_cat
+      {
+        height: 90vh;
+        display: flex;
+        align-items: center;
+        width: 55%;
+        margin-left: 100px;
+        flex-direction: column;
+        justify-content: space-between;
+
+      }
       .case{
-        position: fixed; top: 25px; left: 100px;
-         width: 1000px;
-         height: 500px;
-         padding: 0px 0px;
+         top: 0;
+         width: 100%;
+         height: 57vh;
          background-color:rgba(255,255,255,0);
          border-radius: 20px;
          backdrop-filter: blur(50px);
@@ -19,38 +48,42 @@
       }
 
        .case_norm{
-        position: fixed; top: 560px; left: 100px;
-         width: 1000px;
-         height: 250px;
-        padding: 8px 12px;
-         background-color:rgba(255,255,255,0);
-         border-radius: 20px;
-            backdrop-filter: blur(50px);
-         overflow: hidden;
-         align-items: center;
-         display: flex;
-         justify-content: center;
+        bottom:0px;
+        width: 100%;
+        height: 27vh;
+        background-color:rgba(255,255,255,0);
+        border-radius: 20px;
+        backdrop-filter: blur(50px);
+        overflow: hidden;
+        align-items: center;
+        display: flex;
+        justify-content: center;
       }
 
+      #right_inf
+      {
+        height: 90vh;
+        width: 40%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+      }
        .case_small_1{
-        position: fixed; top: 25px; left: 1150px;
-         width: 500px;
-         height: 175px;
-        padding: 8px 12px;
-         background-color:rgba(255,255,255,0);
-         border-radius: 20px;
-            backdrop-filter: blur(50px);
-         overflow: hidden;
+        width: 85%;
+        height: 27vh;
+        background-color:rgba(255,255,255,0);
+        border-radius: 20px;
+        backdrop-filter: blur(50px);
+        overflow: hidden;
       }
       .case_small_2{
-        position: fixed; top: 230px; left: 1150px;
-         width: 500px;
-         height: 580px;
-        padding: 8px 12px;
-         background-color:rgba(255,255,255,0);
-         border-radius: 20px;
-            backdrop-filter: blur(50px);
-         overflow: hidden;
+        width: 85%;
+        height: 57vh;
+        background-color:rgba(255,255,255,0);
+        border-radius: 20px;
+        backdrop-filter: blur(50px);
+        overflow: hidden;
       }
 
       .ass_button{
@@ -61,18 +94,17 @@
         background-color:rgba(255,255,255,0);
         backdrop-filter: blur(50px);
         align-items: center;
-         display: flex;
-         justify-content: center;
+        display: flex;
+        justify-content: center;
       }
       #canvas {
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      filter: blur(10px);
-
-        };
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        filter: blur(10px);
+      }
 
 
 </style>
@@ -157,24 +189,26 @@ function audio_play()
 
  </head>
 
- <body style = "background-image: url(https://c.wallhere.com/photos/ea/60/abstract_fluid_liquid_artwork_colorful_shapes_ArtStation_dark-2013259.jpg!d); background-size: 100% auto; margin:0;padding: 0;">
+ <body>
+    <div id = "main">
+    <div id = "play_cat">
+      <div class = "case">
+          
+          <img style = "height: 100%;position: fixed;z-index: 99;" src = "https://cdn130.picsart.com/304871995484211.png">
 
-    <div class = "case">
-        
-        <img style = "height: 100%;position: fixed;z-index: 99;" src = "https://cdn130.picsart.com/304871995484211.png">
+         <canvas id="canvas"></canvas>
 
-       <canvas id="canvas"></canvas>
+      </div>
 
+       <div class = "case_norm" >
+          <button class = "ass_button" onclick="audio_play()"> 
+              <img src="cat.png" width="100%">
+
+          </button>
+             
+      </div>
     </div>
-
-     <div class = "case_norm" >
-        <button class = "ass_button" onclick="audio_play()"> 
-            <img src="cat.png" width="100%">
-
-        </button>
-           
-    </div>
-
+    <div id = "right_inf">
      <div class = "case_small_1" >
           Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diem 
   nonummy nibh euismod tincidunt ut lacreet dolore magna aliguam erat volutpat.
@@ -187,6 +221,8 @@ function audio_play()
   nonummy nibh euismod tincidunt ut lacreet dolore magna aliguam erat volutpat.
  Ut wisis enim ad minim veniam, quis nostrud exerci tution ullamcorper 
   suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+    </div>
+    </div>
     </div>
  </body>
 </html>
