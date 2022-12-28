@@ -8,12 +8,14 @@
         position: fixed; top: 25px; left: 100px;
          width: 1000px;
          height: 500px;
-        padding: 8px 12px;
+         padding: 0px 0px;
          background-color:rgba(255,255,255,0);
          border-radius: 20px;
-            backdrop-filter: blur(50px);
+         backdrop-filter: blur(50px);
          overflow: hidden;
          align-items: center;
+         display: flex;
+         justify-content: center;
       }
 
        .case_norm{
@@ -25,6 +27,9 @@
          border-radius: 20px;
             backdrop-filter: blur(50px);
          overflow: hidden;
+         align-items: center;
+         display: flex;
+         justify-content: center;
       }
 
        .case_small_1{
@@ -46,27 +51,123 @@
          border-radius: 20px;
             backdrop-filter: blur(50px);
          overflow: hidden;
-      };
+      }
+
+      .ass_button{
+        width: 250px;
+        height: 250px;
+        /*outline: 1px solid rgba(255,255,255,0); */
+        border-radius: 200px;
+        background-color:rgba(255,255,255,0);
+        backdrop-filter: blur(50px);
+        align-items: center;
+         display: flex;
+         justify-content: center;
+      }
+      #canvas {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+        };
 
 
 </style>
   
+    <script>
+        
+         var audio;
+var flag = false;
+function audio_play()
+{
+  if(!flag)
+  {
+    hard();
+    flag = true;
+  }
+  audio.paused ? audio.play() : audio.pause();
+}
+    function hard(){
+    audio = new Audio(); // Создаём новый элемент Audio
+    audio.src = 'http://s0.radioheart.ru:8000/RH62990'; // Указываем путь к звуку "клика"
+    audio.crossOrigin = "anonymous";
+    audio.load();
+    audio.volume=0.1;
+    var context = new AudioContext();
+    var src = context.createMediaElementSource(audio);
+    var analyser = context.createAnalyser();
+
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+
+    src.connect(analyser);
+    analyser.connect(context.destination);
+
+    analyser.fftSize = 256;
+
+    var bufferLength = analyser.frequencyBinCount;
+    console.log(bufferLength);
+
+    var dataArray = new Uint8Array(bufferLength);
+
+    var WIDTH = canvas.width;
+    var HEIGHT = canvas.height;
+
+    var barWidth = (WIDTH / bufferLength) * 2.5;
+    var barHeight;
+    var x = 0;
+
+    function renderFrame() {
+      requestAnimationFrame(renderFrame);
+
+      x = 0;
+
+      analyser.getByteFrequencyData(dataArray);
+
+      ctx.fillStyle = "#000";
+      ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+      for (var i = 0; i < bufferLength; i++) {
+        barHeight = dataArray[i];
+        
+        var r = barHeight + (25 * (i/bufferLength));
+        var g = 250 * (i/bufferLength);
+        var b = 50;
+
+        ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
+        ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
+
+        x += barWidth + 1;
+      }
+    }
+
+    //audio.play();
+    renderFrame();
+
+ 
+};
+
+    </script>
+
  </head>
 
- <body style = "background-image: url(https://c.wallhere.com/photos/ea/60/abstract_fluid_liquid_artwork_colorful_shapes_ArtStation_dark-2013259.jpg!d); background-size: 100% auto;">
+ <body style = "background-image: url(https://c.wallhere.com/photos/ea/60/abstract_fluid_liquid_artwork_colorful_shapes_ArtStation_dark-2013259.jpg!d); background-size: 100% auto; margin:0;padding: 0;">
 
-    <div class = "case" >
+    <div class = "case">
         
-       <img src = "https://cdn130.picsart.com/304871995484211.png" width="50%">
-       <audio src="https://randommusic.insomnia247.nl/music/Песни из кинофильмов - Песня о медведях (Кавказская пленница).mp3"></audio>
-       
+        <img style = "height: 100%;position: fixed;z-index: 99;" src = "https://cdn130.picsart.com/304871995484211.png">
+
+       <canvas id="canvas"></canvas>
+
     </div>
 
      <div class = "case_norm" >
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diem 
-  nonummy nibh euismod tincidunt ut lacreet dolore magna aliguam erat volutpat.
- Ut wisis enim ad minim veniam, quis nostrud exerci tution ullamcorper 
-  suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+        <button class = "ass_button" onclick="audio_play()"> 
+            <img src="cat.png" width="100%">
+
+        </button>
+           
     </div>
 
      <div class = "case_small_1" >
