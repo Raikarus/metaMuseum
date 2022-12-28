@@ -106,7 +106,30 @@
         filter: blur(10px);
       }
 
+      #devka
+      {
+        height: 100%;
+        position: fixed;
+        z-index: 99;
+      }
 
+      @media screen and (max-width: 750px)
+      {
+        #right_inf
+        {
+          display: none;
+        }
+        #play_cat
+        {
+          width: 70%;
+        }
+        #devka
+        {
+          width:100%;
+          height: auto;
+          bottom: 0;
+        }
+      }
 </style>
   
     <script>
@@ -194,7 +217,7 @@ function audio_play()
     <div id = "play_cat">
       <div class = "case">
           
-          <img style = "height: 100%;position: fixed;z-index: 99;" src = "https://cdn130.picsart.com/304871995484211.png">
+          <img id = "devka" src = "https://cdn130.picsart.com/304871995484211.png">
 
          <canvas id="canvas"></canvas>
 
