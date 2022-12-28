@@ -70,6 +70,8 @@
       top: 0;
       width: 100%;
       height: 100%;
+      filter: blur(10px);
+
         };
 
 
@@ -119,29 +121,32 @@ function audio_play()
     var x = 0;
 
     function renderFrame() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
       requestAnimationFrame(renderFrame);
-
+        
       x = 0;
 
       analyser.getByteFrequencyData(dataArray);
 
-      ctx.fillStyle = "#000";
+      ctx.fillStyle = "rgba(255,255,255,0)";
+      
       ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
       for (var i = 0; i < bufferLength; i++) {
         barHeight = dataArray[i];
         
-        var r = barHeight + (25 * (i/bufferLength));
-        var g = 250 * (i/bufferLength);
-        var b = 50;
+        var r = barHeight + (25 * (i/bufferLength)) -50;
+        var g = 250 * (i/bufferLength) - 110;
+        var b = 100;
 
         ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
         ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
 
         x += barWidth + 1;
+
       }
     }
-
+    
     //audio.play();
     renderFrame();
 
