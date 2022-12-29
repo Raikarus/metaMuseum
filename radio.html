@@ -75,6 +75,11 @@
         border-radius: 20px;
         backdrop-filter: blur(50px);
         overflow: hidden;
+        justify-content: space-between;
+        align-items: center;
+       
+        display:inline-block;
+
       }
       .case_small_2{
         width: 85%;
@@ -83,6 +88,10 @@
         border-radius: 20px;
         backdrop-filter: blur(50px);
         overflow: hidden;
+               justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+       
       }
 
       .ass_button{
@@ -96,6 +105,22 @@
         align-items: center;
         display: flex;
         justify-content: center;
+      }
+      .switch_button{
+         max-height: 100%;
+        height: 150px;
+        width: 150px;
+        /*outline: 1px solid rgba(255,255,255,0); */
+        border-radius: 200px;
+        background-color:rgba(255,255,255,0);
+        backdrop-filter: blur(50px);
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin-top: 9%;
+        margin-left: 7%;
+         display:inline;
+        
       }
       #canvas {
         position: fixed;
@@ -146,7 +171,31 @@
     <script>
         
          var audio;
+          audio = new Audio(); // Создаём новый элемент Audio
+    audio.src = 'http://s0.radioheart.ru:8000/RH62990'; // Указываем путь к звуку "клика"
 var flag = false;
+function switch_play(chanel)
+{
+    switch (chanel) {
+  case 1:
+     audio.src = 'https://icecast-mirtv.cdnvideo.ru/radio_mir128';
+    break;
+  case 2:
+     audio.src = 'https://stream-55.zeno.fm/f174214qvzzuv?zs=jaif3OyARq6Gm7Liqkb1gw&aw_0_req_lsid=2fdb0bceed2ec731ca34067466044c13';
+    break;
+  case 3:
+    audio.src = 'http://s0.radioheart.ru:8000/RH62990';
+    break;
+  default:
+     audio.src = 'http://s0.radioheart.ru:8000/RH62990';
+}
+    
+    
+    hard();
+    flag = true;
+  
+  
+}
 function audio_play()
 {
   if(!flag)
@@ -157,8 +206,7 @@ function audio_play()
   audio.paused ? audio.play() : audio.pause();
 }
     function hard(){
-    audio = new Audio(); // Создаём новый элемент Audio
-    audio.src = 'http://s0.radioheart.ru:8000/RH62990'; // Указываем путь к звуку "клика"
+   
     audio.crossOrigin = "anonymous";
     audio.load();
     audio.volume=0.1;
@@ -244,10 +292,11 @@ function audio_play()
     </div>
     <div id = "right_inf">
      <div class = "case_small_1" >
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diem 
-  nonummy nibh euismod tincidunt ut lacreet dolore magna aliguam erat volutpat.
- Ut wisis enim ad minim veniam, quis nostrud exerci tution ullamcorper 
-  suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+         <button class = "switch_button" onclick="switch_play(1)">  <img src="cat.png" width="100%"> </button>
+        
+         <button class = "switch_button" onclick="switch_play(2)">  </button>
+
+          <button class = "switch_button" onclick="switch_play(3)">  </button>
     </div>
 
       <div class = "case_small_2" >
