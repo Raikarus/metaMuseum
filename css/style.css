@@ -250,6 +250,7 @@ header {
    scrollbar-width: thin;
    scrollbar-color: hsl(0 0% 50%);
    border-bottom: 1px solid white;
+   display: inline-block;
 }
 
 .list_of_groups {

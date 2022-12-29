@@ -97,7 +97,13 @@
 
                                           </p>
                                           <ul class = "tag_list" id = '.$row[0].' style="display: none;">';
-                             
+                              $query = "SELECT name FROM gallery WHERE party='".$row[0]."'";
+                              $res2 = pg_query($cn,$query);
+                              while($row2=pg_fetch_row($res2))
+                              {
+                                 echo '<li class = "list_item"><a href = "#" data-en = 0 data-tag = '.$row2[0].'>'.$row2[0].'</a></li>';
+                              }
+                              echo "</ul></li>";
                            }
                         ?>
                         </ul>
