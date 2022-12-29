@@ -88,12 +88,13 @@
                            $x = rand(5, 15);
                            $query = "SELECT DISTINCT party FROM gallery";
                            $res = pg_query($cn,$query);
+                           echo $x;
                            while($row=pg_fetch_row($res))
                            {
                               echo '<li class = "tag_group">                     
                                           <p class = "group_name">
                                     
-                                                <a href = "javascript:flipflop('."'".$row[0]."'".');" style="font-size:$xpx">'.$row[0].'+</a>
+                                                <a href = "javascript:flipflop('."'".$row[0]."'".');" style="font-size:25px">'.$row[0].'+</a>
                            
                                           </p>
                                           <ul class = "tag_list" id = '.$row[0].' style="display: none;">';
