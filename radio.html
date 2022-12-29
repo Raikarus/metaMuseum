@@ -124,7 +124,7 @@
         top: 0;
         width: 100%;
         height: 100%;
-        filter: blur(10px);
+        filter: blur(7px);
       }
 
       #devka
@@ -240,13 +240,14 @@ function audio_play()
       ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
       for (var i = 0; i < bufferLength; i++) {
-        barHeight = dataArray[i];
+        barHeight = dataArray[i] ;
         
         var r = barHeight + (25 * (i/bufferLength)) -50;
         var g = 250 * (i/bufferLength) - 110;
         var b = 100;
-
+        
         ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
+        barHeight = dataArray[i] /2;
         ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
 
         x += barWidth + 1;
