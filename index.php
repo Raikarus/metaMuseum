@@ -85,12 +85,13 @@
                <div class = "tags">
 
                            <?php 
-                           $x = rand(5, 15);
+                          
                            $query = "SELECT DISTINCT party FROM gallery";
                            $res = pg_query($cn,$query);
                         
                            while($row=pg_fetch_row($res))
                            {
+                               $x = rand(5, 15);
                               echo '<li class = "tag_group">                     
                                           <p class = "group_name">
                                     
