@@ -93,7 +93,7 @@
                         			<p class = "group_name">
                           	
                            				<a href = "javascript:flipflop('."'".$row[0]."'".');">'.$row[0].'+</a>
-
+                  
 
                         			</p>
                         			<ul class = "tag_list" id = '.$row[0].' style="display: none;">';
