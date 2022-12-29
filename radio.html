@@ -242,7 +242,61 @@ function audio_play()
     var barWidth = (WIDTH / bufferLength) * 2.5;
     var barHeight;
     var x = 0;
+    /*
+        function renderFrame() {
 
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+      requestAnimationFrame(renderFrame);
+        
+      analyser.getByteFrequencyData(dataArray);
+      var x = 0
+      //ctx.fillStyle = "rgba(255,255,255,0)";
+      
+        //ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+
+        barHeight = dataArray[0];
+        var r = barHeight + (25 * (0/bufferLength)) -50;
+        var g = 250 * (0/bufferLength) - 110;
+        var b = 100;
+        ctx.beginPath();
+        ctx.strokeStyle = "rgb("+r+","+g+","+b+")"; 
+        ctx.arc(WIDTH/2, HEIGHT/2, static_r, 0, 2 * Math.PI, false);
+        ctx.stroke();
+      for (var i = 0; i < (bufferLength-60)/2; i++) {
+        barHeight = dataArray[i];
+        
+        var r = barHeight + (25 * (i/bufferLength)) -50;
+        var g = 250 * (i/bufferLength) - 110;
+        var b = 100;
+
+        //ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
+        //ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
+
+        ctx.beginPath();
+        ctx.strokeStyle = "rgb("+r+","+g+","+b+")"; 
+        ctx.lineWidth = 2; // толщина линии в 5px
+        ctx.arc(WIDTH/2, HEIGHT/2, barHeight/20+static_r, 2 * Math.PI*(i/(bufferLength-60)), 2 * Math.PI*((i+1)/(bufferLength-60)), false);
+        ctx.stroke();
+      }
+       for (var i = (bufferLength-60)/2-1; i >= 0; i--) {
+        barHeight = dataArray[i];
+        
+        var r = barHeight + (25 * (i/bufferLength)) -50;
+        var g = 250 * (i/bufferLength) - 110;
+        var b = 100;
+
+        //ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
+        //ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
+
+        ctx.beginPath();
+        ctx.strokeStyle = "rgb("+r+","+g+","+b+")"; 
+        ctx.lineWidth = 2; // толщина линии в 5px
+        ctx.arc(WIDTH/2, HEIGHT/2, barHeight/20+static_r, 2 * Math.PI*(((bufferLength-60)/2-1-i)/(bufferLength-60))+Math.PI, 2 * Math.PI*(((bufferLength-60)/2-i)/(bufferLength-60))+Math.PI, false);
+        ctx.stroke();
+      }
+    }
+    */
     function renderFrame() {
     ctx.clearRect(0,0,canvas.width,canvas.height);
     ctx_but.clearRect(0,0,canvas.width,canvas.height);
