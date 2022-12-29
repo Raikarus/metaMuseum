@@ -85,23 +85,9 @@
                <div class = "tags">
 
                            <?php 
-                           $query = "SELECT DISTINCT party FROM gallery";
-                           $res = pg_query($cn,$query);
-                           while($row=pg_fetch_row($res))
-                           {
-                              echo '<li class = "tag_group">                     
-                                          <p class = "group_name">
-                                    
-                                                <a href = "javascript:flipflop('."'".$row[0]."'".');"> style="font-size:50px" '.$row[0].'+ </a>
                            
 
-                                          </p>
-                                          <ul class = "tag_list" id = '.$row[0].' style="display: none;">';
-                              $query = "SELECT name FROM gallery WHERE party='".$row[0]."'";
-
                            ?>
-
-
                            <!--	<ul class = "list_of_groups">
                         		<?php
          						$query = "SELECT DISTINCT party FROM gallery";
