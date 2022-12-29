@@ -118,7 +118,7 @@
         display:inline;
         
       }
-      #canvas {
+      .canvas {
         position: fixed;
         left: 0;
         top: 0;
@@ -170,17 +170,27 @@
           audio = new Audio(); // Создаём новый элемент Audio
     audio.src = 'http://s0.radioheart.ru:8000/RH62990'; // Указываем путь к звуку "клика"
 var flag = false;
+ var canvas_button;
+ var ctx_but ;
+
 function switch_play(chanel)
 {
+    ctx_but.clearRect(0,0,canvas.width,canvas.height);
     switch (chanel) {
   case 1:
      audio.src = 'https://icecast-mirtv.cdnvideo.ru/radio_mir128';
+        canvas_button = document.getElementById("canvas_but1");
+     ctx_but = canvas_button.getContext("2d");
     break;
   case 2:
      audio.src ="https://radio.stereoanime.net/listen/stereoanime/128";
+      canvas_button = document.getElementById("canvas_but2");
+     ctx_but = canvas_button.getContext("2d");
     break;
   case 3:
     audio.src = 'http://s0.radioheart.ru:8000/RH62990';
+     canvas_button = document.getElementById("canvas_but3");
+     ctx_but = canvas_button.getContext("2d");
     break;
   default:
      audio.src = 'http://s0.radioheart.ru:8000/RH62990';
@@ -189,6 +199,10 @@ function switch_play(chanel)
   
   
 }
+
+
+
+
 function audio_play()
 {
   if(!flag)
@@ -210,6 +224,9 @@ function audio_play()
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
 
+   canvas_button = document.getElementById("canvas_but1");
+     ctx_but = canvas_button.getContext("2d");
+
     src.connect(analyser);
     analyser.connect(context.destination);
 
@@ -229,6 +246,8 @@ function audio_play()
 
     function renderFrame() {
     ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx_but.clearRect(0,0,canvas.width,canvas.height);
+
       requestAnimationFrame(renderFrame);
         
       x = 0;
@@ -248,8 +267,12 @@ function audio_play()
         
         ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
         barHeight = dataArray[i] /2;
-        ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
 
+        ctx_but.beginPath();
+        ctx_but.arc(canvas_button.width/2, canvas_button.height/2,barHeight/2,0,2*Math.PI);
+        ctx_but.strokeStyle="rgb(" + r + "," + g + "," + b + ")";
+        ctx_but.stroke();
+        ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
         x += barWidth + 1;
 
       }
@@ -272,7 +295,7 @@ function audio_play()
           
           <img id = "devka" src = "https://cdn130.picsart.com/304871995484211.png">
 
-         <canvas id="canvas"></canvas>
+         <canvas class="canvas" id = "canvas"></canvas>
 
       </div>
 
@@ -286,11 +309,12 @@ function audio_play()
     </div>
     <div id = "right_inf">
      <div class = "case_small_1" >
-         <button class = "switch_button" onclick="switch_play(1)">  <img src="cringe.png" width="100%"> </button>
-        
-         <button class = "switch_button" onclick="switch_play(2)">  <img src="https://prod.cloud.rockstargames.com/crews/sc/1304/39090563/publish/emblem/emblem_512.png" width="90%"> </button>
 
-          <button class = "switch_button" onclick="switch_play(3)"> <img src="radio_hearth.png" width="90%" height="90%"> </button>
+         <button class = "switch_button" onclick="switch_play(1)"> <canvas class="canvas" id = "canvas_but1" width="100%" height="100%" style="z-index: -99;"></canvas>  <img src="cringe.png" width="100%" style="z-index: 99;">    </button>
+        
+         <button class = "switch_button" onclick="switch_play(2)"> <canvas class="canvas" id = "canvas_but2" width="100%" height="100%" style="z-index: -99;"></canvas>  <img src="https://prod.cloud.rockstargames.com/crews/sc/1304/39090563/publish/emblem/emblem_512.png" width="90%"> </button>
+
+          <button class = "switch_button" onclick="switch_play(3)"> <canvas class="canvas" id = "canvas_but3" width="100%" height="100%" style="z-index: -99;"></canvas> <img src="radio_hearth.png" width="90%" height="90%"> </button>
     </div>
 
       <div class = "case_small_2" >
