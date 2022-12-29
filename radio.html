@@ -197,7 +197,6 @@ function switch_play(chanel)
 }
     
   
-  
 }
 
 
@@ -224,7 +223,7 @@ function audio_play()
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
 
-   canvas_button = document.getElementById("canvas_but1");
+   canvas_button = document.getElementById("canvas_but3");
      ctx_but = canvas_button.getContext("2d");
 
     src.connect(analyser);
@@ -269,7 +268,7 @@ function audio_play()
         barHeight = dataArray[i] /2;
 
         ctx_but.beginPath();
-        ctx_but.arc(canvas_button.width/2, canvas_button.height/2,barHeight/2,0,2*Math.PI);
+        ctx_but.arc(canvas_button.width/2, canvas_button.height/2,barHeight/2.3,0,2*Math.PI);
         ctx_but.strokeStyle="rgb(" + r + "," + g + "," + b + ")";
         ctx_but.stroke();
         ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
