@@ -92,9 +92,8 @@
                               echo '<li class = "tag_group">                     
                                           <p class = "group_name">
                                     
-                                                <a href = "javascript:flipflop('."'".$row[0]."'".');">'.$row[0].'+</a>
+                                                <a href = "javascript:flipflop('."'".$row[0]."'".');" style="font-family:Monotype Corsiva;color:green;font-size:25px">'.$row[0].'+</a>
                            
-
                                           </p>
                                           <ul class = "tag_list" id = '.$row[0].' style="display: none;">';
                               $query = "SELECT name FROM gallery WHERE party='".$row[0]."'";
