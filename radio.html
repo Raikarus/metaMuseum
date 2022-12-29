@@ -7,7 +7,6 @@
       body
       {
         background-image: url(https://c.wallhere.com/photos/ea/60/abstract_fluid_liquid_artwork_colorful_shapes_ArtStation_dark-2013259.jpg!d);
-        background-size: 100% auto;
         margin:0;
         padding: 0;
         min-height: 100vh;
@@ -100,6 +99,7 @@
         border-radius: 200px;
         background-color:rgba(255,255,255,0);
         backdrop-filter: blur(50px);
+        border:1px solid black;
         align-items: center;
         display: flex;
         justify-content: center;
@@ -107,10 +107,11 @@
       .switch_button{
          max-height: 100%;
         height: 150px;
-        width: 150px;
+        width: 32%;
         /*outline: 1px solid rgba(255,255,255,0); */
         border-radius: 200px;
         background-color:rgba(255,255,255,0);
+        border:1px solid black;
         backdrop-filter: blur(50px);
         display: flex;
         justify-content: center;
@@ -133,25 +134,33 @@
         position: fixed;
         z-index: 99;
       }
-
+      #backPhone
+      {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        display: none;
+      }
       @media screen and (max-device-width: 750px)
       {
         #main
         {
-          justify-content: center;
+          justify-content: space-around;
+          flex-direction: column;
+          height: 200vh;
         }
         .case
         {
-            height: 45vh;
+            height: 65vh;
         }
         #right_inf
         {
-          display: none;
+          width: 100%;
         }
         #play_cat
         {
-            height: 75vh;
-          width: 70%;
+            height: 95vh;
+          width: 90%;
           margin: 0;
         }
         #devka
@@ -160,6 +169,10 @@
 
           height: auto;
           bottom: 0;
+        }
+        #backPhone
+        {
+          display: block;
         }
       }
 </style>
@@ -242,7 +255,61 @@ function audio_play()
     var barWidth = (WIDTH / bufferLength) * 2.5;
     var barHeight;
     var x = 0;
+    /*
+        function renderFrame() {
 
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+      requestAnimationFrame(renderFrame);
+        
+      analyser.getByteFrequencyData(dataArray);
+      var x = 0
+      //ctx.fillStyle = "rgba(255,255,255,0)";
+      
+        //ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+
+        barHeight = dataArray[0];
+        var r = barHeight + (25 * (0/bufferLength)) -50;
+        var g = 250 * (0/bufferLength) - 110;
+        var b = 100;
+        ctx.beginPath();
+        ctx.strokeStyle = "rgb("+r+","+g+","+b+")"; 
+        ctx.arc(WIDTH/2, HEIGHT/2, static_r, 0, 2 * Math.PI, false);
+        ctx.stroke();
+      for (var i = 0; i < (bufferLength-60)/2; i++) {
+        barHeight = dataArray[i];
+        
+        var r = barHeight + (25 * (i/bufferLength)) -50;
+        var g = 250 * (i/bufferLength) - 110;
+        var b = 100;
+
+        //ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
+        //ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
+
+        ctx.beginPath();
+        ctx.strokeStyle = "rgb("+r+","+g+","+b+")"; 
+        ctx.lineWidth = 2; // толщина линии в 5px
+        ctx.arc(WIDTH/2, HEIGHT/2, barHeight/20+static_r, 2 * Math.PI*(i/(bufferLength-60)), 2 * Math.PI*((i+1)/(bufferLength-60)), false);
+        ctx.stroke();
+      }
+       for (var i = (bufferLength-60)/2-1; i >= 0; i--) {
+        barHeight = dataArray[i];
+        
+        var r = barHeight + (25 * (i/bufferLength)) -50;
+        var g = 250 * (i/bufferLength) - 110;
+        var b = 100;
+
+        //ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
+        //ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
+
+        ctx.beginPath();
+        ctx.strokeStyle = "rgb("+r+","+g+","+b+")"; 
+        ctx.lineWidth = 2; // толщина линии в 5px
+        ctx.arc(WIDTH/2, HEIGHT/2, barHeight/20+static_r, 2 * Math.PI*(((bufferLength-60)/2-1-i)/(bufferLength-60))+Math.PI, 2 * Math.PI*(((bufferLength-60)/2-i)/(bufferLength-60))+Math.PI, false);
+        ctx.stroke();
+      }
+    }
+    */
     function renderFrame() {
     ctx.clearRect(0,0,canvas.width,canvas.height);
     ctx_but.clearRect(0,0,canvas.width,canvas.height);
@@ -288,6 +355,7 @@ function audio_play()
  </head>
 
  <body>
+  <img src="https://c.wallhere.com/photos/ea/60/abstract_fluid_liquid_artwork_colorful_shapes_ArtStation_dark-2013259.jpg!d" id = "backPhone">
     <div id = "main">
     <div id = "play_cat">
       <div class = "case">
