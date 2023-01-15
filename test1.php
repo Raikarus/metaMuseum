@@ -13,7 +13,7 @@
                 </rdf:RDF>";
 
           $pos = substr($var,strpos($var, $tag) + strlen($tag) + 1,strpos($var, $tag.'>'));
-          $sub = substr($var,strpos($var, $tag),strpos($var, $tag.'>') +strlen($tag)+1);
+          $sub = substr($var,strpos($var, $tag),strpos('\n'));
                  echo $pos;
                  echo $sub;
           ?>
