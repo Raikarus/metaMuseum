@@ -1,11 +1,11 @@
 <?php
     if (isset($_POST['action'])) {
         switch ($_POST['action']) {
-            case 'insert':
-                insert();
-                break;
             case 'read':
                 read();
+                break;
+            case 'insert':
+                insert();
                 break;
         }
     }
