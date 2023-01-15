@@ -25,7 +25,7 @@
 <body>
 
 <input type="submit" class="button" name="read" value="read" />
-<input type="submit" class="button" name="select" value="select" />
+<input type="submit" class="button" name="insert" value="insert" />
 <div id = "output">
 </div>
 <?php
