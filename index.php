@@ -15,7 +15,7 @@
 	        var ajaxurl = 'ajax.php',
 	        data =  {'action': clickBtnValue};
 	        $.post(ajaxurl, data, function (response) {
-				$('#output').html(response);	            
+				$('#output').html(response);
 	        });
     	});
 	});
