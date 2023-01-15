@@ -19,7 +19,9 @@
 
     function insert() {
         $files1 = scandir('./img');
-        print_r($files1);
+        foreach ($files1 as $n => $filename) {
+            echo $filename."<br>";
+        }
         exit;
     }
 ?>
