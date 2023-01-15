@@ -24,7 +24,7 @@
 </head>
 <body>
 
-<input type="submit" class="button" name="insert" value="insert" />
+<input type="submit" class="button" name="read" value="read" />
 <input type="submit" class="button" name="select" value="select" />
 <div id = "output">
 </div>
