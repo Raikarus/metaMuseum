@@ -3,9 +3,11 @@
         switch ($_POST['action']) {
             case 'insert':
                 insert();
+                echo "A";
                 break;
             case 'select':
                 select();
+                echo "B";
                 break;
         }
     }
