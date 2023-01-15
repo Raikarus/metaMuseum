@@ -18,7 +18,9 @@
     }
 
     function insert() {
-        echo "The insert function is called.";
+        $shl = 'exiftool 2.png';
+        $res = shell_exec($shl);
+        echo "<pre>$res</pre>";
         exit;
     }
 ?>
