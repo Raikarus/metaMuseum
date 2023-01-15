@@ -4,13 +4,13 @@
             case 'insert':
                 insert();
                 break;
-            case 'select':
-                select();
+            case 'read':
+                read();
                 break;
         }
     }
 
-    function select() {
+    function read() {
         echo "The select function is called.";
         exit;
     }
