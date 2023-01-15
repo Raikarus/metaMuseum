@@ -8,7 +8,7 @@
                  <IFD0:Artist>GAY1</IFD0:Artist>
                 </rdf:Description>
                 </rdf:RDF>";
-          $pos = substr($var,strpos($var, 'Artist'),strpos($var, 'Artist>'));
+          $pos = substr($var,strpos($var, 'Artist')+1,strpos($var, 'Artist>'));
 
           $sub = substr($pos,strpos($var, '>'),strpos($var, '1'));
                  echo $pos;
