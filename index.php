@@ -15,7 +15,7 @@
 	        var img_name = "img/"+$('#img_name').val();
 	        alert(img_name);
 	        var ajaxurl = 'ajax.php',
-	        data =  {'action': clickBtnValue, 'arg': img_name};
+	        data =  {'action': clickBtnValue, 'img_name': img_name};
 	        $.post(ajaxurl, data, function (response) {
 				$('#output').html(response);
 	        });
