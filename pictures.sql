@@ -187,7 +187,6 @@ status		int DEFAULT 0,	-- Статус тега:
 				-- 2 - рабочий - введён вручную,
 				--     и пока не привязан ни к одной картинке;
 				-- 10,11,12 - аналогичные 0,1,2, но скрытые;
-UNIQUE(tag_id_num),
 foreign key(gkword_id) references gkwords(gkword_id)
 );
 -- задание затравочных значений индексов
@@ -202,7 +201,7 @@ grant all on kwords to "www-data";
 
 
 
-/*
+
 -- Таблица сопоставления kwords и gkwords
 create table kwgkw(
 gkword_id	int NOT NULL,			-- уникальный код группы
@@ -210,11 +209,10 @@ tag_id		int NOT NULL,		-- идентификатор тега
 tag_id_num	int NOT NULL,		-- порядковый номер тега tag_id
 foreign key(gkword_id) references gkwords(gkword_id),
 foreign key(tag_id,tag_id_num) references kwords(tag_id,tag_id_num),
-UNIQUE(gkword_id,tag_id,tag_id_num)
 );
 grant all on kwgkw to sch;
 grant all on kwgkw to "www-data";
-*/
+
 
 
 
