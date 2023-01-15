@@ -10,7 +10,8 @@
                 </rdf:RDF>";
           $pos = substr($var,strpos($var, 'Artist'),strpos($var, 'Artist>'));
 
-                 echo $pos;
+          $sub = substr($pos,strpos($var, '>'),strlen($pos));
+                 echo $sub;
           ?>
           </body>
 </html>
