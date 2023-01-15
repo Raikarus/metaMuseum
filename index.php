@@ -1,5 +1,12 @@
 <?php
-
+	function select()
+	{
+		echo "SELECT";
+	}
+	function insert()
+	{
+		echo "INSERT";
+	}
 ?>
 <!DOCTYPE html>
 <html>
