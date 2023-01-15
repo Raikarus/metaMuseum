@@ -12,8 +12,10 @@
 	$(document).ready(function(){
     	$('.button').click(function(){
 	        var clickBtnValue = $(this).val();
+	        var img_name = "img/"+$('#img_name');
+	        alert(img_name);
 	        var ajaxurl = 'ajax.php',
-	        data =  {'action': clickBtnValue};
+	        data =  {'action': clickBtnValue; 'arg': img_name};
 	        $.post(ajaxurl, data, function (response) {
 				$('#output').html(response);
 	        });
@@ -24,6 +26,7 @@
 </head>
 <body>
 
+<input type="text" id="img_name" placeholder="Название изображения">
 <input type="submit" class="button" name="read" value="read" />
 <input type="submit" class="button" name="insert" value="insert" />
 <div id = "output">
