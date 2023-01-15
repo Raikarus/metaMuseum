@@ -5,7 +5,7 @@
                 read();
                 break;
             case 'list':
-                list();
+                list_l();
                 break;
         }
     }
@@ -18,7 +18,7 @@
         exit;
     }
 
-    function list() {
+    function list_l() {
         $files1 = scandir('./img');
         foreach ($files1 as $n => $filename) {
             if ($filename != '.' && $filename!= '..') echo $filename."<br>";
