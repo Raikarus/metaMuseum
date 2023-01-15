@@ -1,4 +1,6 @@
+<?php
 
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +10,9 @@
 	</title>
 </head>
 <body>
+
+<input type="submit" class="button" name="insert" value="insert" />
+<input type="submit" class="button" name="select" value="select" />
 
 <?php
 
