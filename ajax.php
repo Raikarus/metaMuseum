@@ -4,8 +4,8 @@
             case 'read':
                 read();
                 break;
-            case 'insert':
-                insert();
+            case 'list':
+                list();
                 break;
         }
     }
@@ -18,7 +18,7 @@
         exit;
     }
 
-    function insert() {
+    function list() {
         $files1 = scandir('./img');
         foreach ($files1 as $n => $filename) {
             if ($filename != '.' && $filename!= '..')echo $filename."<br>";

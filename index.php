@@ -27,7 +27,7 @@
 
 <input type="text" id="img_name" placeholder="Название изображения">
 <input type="submit" class="button" name="read" value="read" />
-<input type="submit" class="button" name="insert" value="insert" />
+<input type="submit" class="button" name="list" value="list" />
 <div id = "output">
 </div>
 <?php
