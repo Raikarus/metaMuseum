@@ -11,16 +11,15 @@
     }
 
     function read() {
-        $shl = 'exiftool 1.jpg';
+        $shl = 'exiftool '.$_POST['img_name'];
         $res = shell_exec($shl);
         echo "<pre>$res</pre>";
         exit;
     }
 
     function insert() {
-        $shl = 'exiftool 2.png';
-        $res = shell_exec($shl);
-        echo "<pre>$res</pre>";
+        $files1 = scandir('/img');
+        print_r($files1);
         exit;
     }
 ?>
