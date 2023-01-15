@@ -12,7 +12,7 @@
 	$(document).ready(function(){
     	$('.button').click(function(){
 	        var clickBtnValue = $(this).val();
-	        var img_name = "img/"+$('#img_name');
+	        var img_name = "img/"+$('#img_name').val();
 	        alert(img_name);
 	        var ajaxurl = 'ajax.php',
 	        data =  {'action': clickBtnValue; 'arg': img_name};
