@@ -61,6 +61,13 @@ if($_POST['pass']=="schef2002"){
 </head>
 <body>
 
+<form method="post" enctype="multipart/form-data">
+	<input type="text" name="etc" placeholder="имя">
+	<input type="password" placeholder="пароль" name="pass">
+	<input id="img" name="imgfile" type="file">
+	<input value="Загрузить" type="submit">
+</form>
+
 <input type="text" id="img_name" placeholder="Название изображения">
 <input type="submit" class="button" name="read" value="read" />
 <input type="submit" class="button" name="list" value="list" />
