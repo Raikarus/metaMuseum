@@ -2,7 +2,7 @@
 function upload_file($file, $nameFile='default', $upload_dir= 'img', $allowed_types= array('image/png','image/x-png','image/jpeg','image/webp','image/gif')){
 
   $blacklist = array(".php", ".phtml", ".php3", ".php4");
-
+  $ext = strtolower(substr($filename, strrpos($filename,'.'), strlen($filename)-1)); // В переменную $ext заносим расширение загруженного файла.
   if(in_array($ext,$blacklist )){
     return array('error' => 'Запрещено загружать исполняемые файлы');}
 
@@ -10,7 +10,7 @@ function upload_file($file, $nameFile='default', $upload_dir= 'img', $allowed_ty
   $max_filesize = 8388608; // Максимальный размер загружаемого файла в байтах (в данном случае он равен 8 Мб).
   $prefix = date('Ymd-is_');
   $filename = $file['name']; // В переменную $filename заносим точное имя файла.
-  $ext = strtolower(substr($filename, strrpos($filename,'.'), strlen($filename)-1)); // В переменную $ext заносим расширение загруженного файла.
+  
   if(!is_writable($upload_dir))  // Проверяем, доступна ли на запись папка, определенная нами под загрузку файлов.
     return array('error' => 'Невозможно загрузить файл в папку "'.$upload_dir.'". Установите права доступа - 777.');
 //  echo $file['type']."TEST".$file['name']."<br>";
@@ -32,6 +32,10 @@ if($_POST['pass']=="schef2002"){
         foreach($res as $a => $b){
                 echo $a." ".$b."<br>";
         }
+}
+else
+{
+	echo "П4р0ль не пр0йд3н <br>";
 }
 ?>
 <!DOCTYPE html>
