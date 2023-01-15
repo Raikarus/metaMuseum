@@ -1,13 +1,3 @@
-<?php
-	function select()
-	{
-		echo "SELECT";
-	}
-	function insert()
-	{
-		echo "INSERT";
-	}
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +6,7 @@
 		SCHEF
 	</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-	
+
 	<script>
 
 	$(document).ready(function(){
