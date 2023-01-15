@@ -11,6 +11,7 @@
           $pos = substr($var,strpos($var, 'Artist'),strpos($var, 'Artist>'));
 
           $sub = substr($pos,strpos($var, '>'),strlen($pos));
+                 echo $pos;
                  echo $sub;
           ?>
           </body>
