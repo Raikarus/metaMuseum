@@ -11,7 +11,7 @@
     }
 
     function read() {
-        $shl = 'exiftool '.$_POST['img_name'].' -b';
+        $shl = 'exiftool '.$_POST['img_name'];
         echo $shl."<br>";
         $res = shell_exec($shl);
         echo "<pre>$res</pre>";
