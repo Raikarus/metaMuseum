@@ -15,8 +15,7 @@
 	        var ajaxurl = 'ajax.php',
 	        data =  {'action': clickBtnValue};
 	        $.post(ajaxurl, data, function (response) {
-	            // Response div goes here.
-	            alert("action performed successfully"+response);
+				$('#output').html(response);	            
 	        });
     	});
 	});
@@ -27,7 +26,8 @@
 
 <input type="submit" class="button" name="insert" value="insert" />
 <input type="submit" class="button" name="select" value="select" />
-
+<div id = "output">
+</div>
 <?php
 
 
