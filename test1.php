@@ -18,7 +18,7 @@
 
           $pos = substr($var,strpos($var, $tag) + strlen($tag) + 1,strpos($var, $tag.'>'));
 
-          $sub = substr($var,strpos($var, $tag),strpos($tag.'>\n'));
+          $sub = substr($var,strpos($var, $tag),strpos($tag.'>'.'\n'));
                  echo $pos;
                  echo $sub;
           ?>
