@@ -11,7 +11,9 @@
     }
 
     function read() {
-        echo "The select function is called.";
+        $shl = 'exiftool 1.jpg';
+        $res = shell_exec($shl);
+        echo $res;
         exit;
     }
 
