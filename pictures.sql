@@ -187,7 +187,7 @@ status		int DEFAULT 0,	-- Статус тега:
 				-- 2 - рабочий - введён вручную,
 				--     и пока не привязан ни к одной картинке;
 				-- 10,11,12 - аналогичные 0,1,2, но скрытые;
-UNIQUE(tag_id,tag_id_num),
+UNIQUE(tag_id_num),
 foreign key(gkword_id) references gkwords(gkword_id)
 );
 -- задание затравочных значений индексов
@@ -202,7 +202,7 @@ grant all on kwords to "www-data";
 
 
 
-
+/*
 -- Таблица сопоставления kwords и gkwords
 create table kwgkw(
 gkword_id	int NOT NULL,			-- уникальный код группы
@@ -214,7 +214,7 @@ UNIQUE(gkword_id,tag_id,tag_id_num)
 );
 grant all on kwgkw to sch;
 grant all on kwgkw to "www-data";
-
+*/
 
 
 
@@ -225,8 +225,7 @@ tag_id		int NOT NULL,		-- идентификатор тега
 tag_id_num	int NOT NULL,		-- порядковый номер тега tag_id
 doubt	integer default 0,	-- 1 = сомнение в соответствии тега картинке
 foreign key(pic_id) references pics(pic_id),
-foreign key(tag_id,tag_id_num) references kwords(tag_id,tag_id_num),
-UNIQUE(pic_id,tag_id,tag_id_num)
+foreign key(tag_id,tag_id_num) references kwords(tag_id,tag_id_num)
 );
 grant all on pictags to sch;
 grant all on pictags to "www-data";
@@ -248,8 +247,7 @@ create table selpics(
 sel_id		bigint NOT NULL,	-- идентификатор подборки
 pic_id		bigint NOT NULL,	-- идентификатор картинки
 foreign key(pic_id) references pics(pic_id),
-foreign key(sel_id) references selections(sel_id),
-UNIQUE(sel_id,pic_id)
+foreign key(sel_id) references selections(sel_id)
 );
 grant all on selpics to sch;
 grant all on selpics to "www-data";
