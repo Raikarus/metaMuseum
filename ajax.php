@@ -13,7 +13,7 @@
     function read() {
         $shl = 'exiftool 1.jpg';
         $res = shell_exec($shl);
-        echo "<pre>"+$res+"</pre>";
+        echo "<pre>$res</pre>";
         exit;
     }
 
