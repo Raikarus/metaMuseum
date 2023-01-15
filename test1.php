@@ -11,7 +11,7 @@
                 </rdf:Description>
                 </rdf:RDF>";
 
-          $pos = substr($var,strpos($var, 'Artist') + strlen($tag),strpos($var, 'Artist>'));
+          $pos = substr($var,strpos($var, $tag) + strlen($tag) + 1,strpos($var, $tag+'>'));
 
           $sub = substr($pos,strpos($var, '>'),strpos($var, '1'));
                  echo $pos;
