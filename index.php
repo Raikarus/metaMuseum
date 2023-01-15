@@ -67,7 +67,7 @@ if($_POST['pass']=="schef2002"){
 	<input id="img" name="imgfile" type="file">
 	<input value="Загрузить" type="submit">
 </form>
-
+<br>
 <input type="text" id="img_name" placeholder="Название изображения">
 <input type="submit" class="button" name="read" value="read" />
 <input type="submit" class="button" name="list" value="list" />
