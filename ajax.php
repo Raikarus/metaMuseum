@@ -18,7 +18,7 @@
     }
 
     function insert() {
-        $files1 = scandir('/img');
+        $files1 = scandir('./img');
         print_r($files1);
         exit;
     }
