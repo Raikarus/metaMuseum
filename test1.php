@@ -1,8 +1,9 @@
   <html>
         <body>
-                  ccccccc <BR>
+                 VAN DARCHOLM <BR>
          <?php
-                 echo "Hello, world!";
+         $var = 'Боб';
+                 echo $var;
           ?>
           </body>
 </html>
