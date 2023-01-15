@@ -1,6 +1,10 @@
+  <head>
+    <title>ХАХАХАХАХАХА</title>
+  </head>
+
   <html>
         <body>
-                 VAN DARCHOLM <BR>
+                ^^^^^^^^^^^^^^^^^^^^ <BR>
          <?php
 
          $tag = "Artist";
@@ -13,6 +17,7 @@
                 </rdf:RDF>";
 
           $pos = substr($var,strpos($var, $tag) + strlen($tag) + 1,strpos($var, $tag.'>'));
+
           $sub = substr($var,strpos($var, $tag),strpos('\\'));
                  echo $pos;
                  echo $sub;
