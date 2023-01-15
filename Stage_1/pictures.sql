@@ -167,4 +167,3 @@ foreign key(pic_id) references pics(pic_id),
 foreign key(tag_id,tag_id_num) references kwords(tag_id,tag_id_num),
 UNIQUE(pic_id,tag_id,tag_id_num)
 );
-

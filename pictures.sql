@@ -202,7 +202,7 @@ grant all on kwords to "www-data";
 
 
 
-
+/*
 -- Таблица сопоставления kwords и gkwords
 create table kwgkw(
 gkword_id	int NOT NULL,			-- уникальный код группы
@@ -214,7 +214,7 @@ UNIQUE(gkword_id,tag_id,tag_id_num)
 );
 grant all on kwgkw to sch;
 grant all on kwgkw to "www-data";
-
+*/
 
 
 
