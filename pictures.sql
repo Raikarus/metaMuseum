@@ -161,17 +161,7 @@ create table kwords(
 tag_id		int,		-- код тега
 tag_id_num	int,		-- порядковый номер для тега tag_id
 kword_name	varchar(256) NOT NULL,	-- собственно слово/фраза (произвольная строка)
-gkword_id	int DEFAULT 0,		-- код группы слова/фразы
-					-- Не используется, так как
-					-- для этого сделана 
-					-- отдельная таблица kwgkw!!!
-hidden		int DEFAULT 0,	-- Если >0, то слово/фраза считаются скрытыми
-				-- Просто совсем удалять из системы нежелательно - мало ли что?
-				-- ВНИМАНИЕ!
-				-- На практике удобнее оказалось
-				-- отмечать сокрытие спец.кодами в status,
-				-- поэтому поле не используется!!!
-status		int DEFAULT 0,	-- Статус тега:
+status		int DEFAULT 0	-- Статус тега:
 				-- 0 - автоматический -
 				--     появился при автоматическом вводе 
 				--     (по имени подкаталога/файла,
@@ -187,7 +177,6 @@ status		int DEFAULT 0,	-- Статус тега:
 				-- 2 - рабочий - введён вручную,
 				--     и пока не привязан ни к одной картинке;
 				-- 10,11,12 - аналогичные 0,1,2, но скрытые;
-foreign key(gkword_id) references gkwords(gkword_id)
 );
 -- задание затравочных значений индексов
 insert into kwords(tag_id,tag_id_num,kword_name) values
@@ -208,7 +197,7 @@ gkword_id	int NOT NULL,			-- уникальный код группы
 tag_id		int NOT NULL,		-- идентификатор тега
 tag_id_num	int NOT NULL,		-- порядковый номер тега tag_id
 foreign key(gkword_id) references gkwords(gkword_id),
-foreign key(tag_id,tag_id_num) references kwords(tag_id,tag_id_num),
+foreign key(tag_id,tag_id_num) references kwords(tag_id,tag_id_num)
 );
 grant all on kwgkw to sch;
 grant all on kwgkw to "www-data";
