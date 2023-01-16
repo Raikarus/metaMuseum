@@ -36,7 +36,7 @@
             //echo  htmlspecialchars("<pre>$text</pre>");
            
 
-             echo htmlspecialchars($sub1);
+             //echo htmlspecialchars($sub1);
 
              echo htmlspecialchars($sub3);
               //   echo $pos;
