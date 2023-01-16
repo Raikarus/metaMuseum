@@ -115,7 +115,7 @@ else
 		$res = pg_query($cn,$query);
 		while($row=pg_fetch_object($res))
 		{
-			echo "<option>".$row->kwords_name."</option>";
+			echo "<option>".$row->kword_name."</option>";
 		}
 	?>
 	<input type="password" placeholder="пароль" name="pass">
