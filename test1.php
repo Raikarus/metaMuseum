@@ -40,7 +40,7 @@
 
              //echo htmlspecialchars($sub1);
 
-             echo htmlspecialchars($sub3);
+             echo htmlspecialchars($sub4);
               //   echo $pos;
                 
 
