@@ -34,6 +34,8 @@
         $query = "SELECT * FROM pics";
         $res = pg_query($cn,$query);
         $row = pg_fetch_all($res);
+        echo "<pre>";
         print_r($row);
+        echo "</pre>";
     }
 ?>
