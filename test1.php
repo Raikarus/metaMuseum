@@ -33,7 +33,7 @@
 
             $sub3 = substr($sub1,0,strpos($sub1, '>')+1);// для удаления
 
-            $sub4 = substr($sub3,strpos($sub3, '<'),strpos($sub3, '>')).$sub3);
+            $sub4 = substr($sub3,strpos($sub3, '<'),strpos($sub3, '>')).$sub3;
 
             //echo  htmlspecialchars("<pre>$text</pre>");
            
