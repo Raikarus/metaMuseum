@@ -21,7 +21,7 @@ function upload_file($file, $nameFile='default', $upload_dir= 'img', $allowed_ty
   if(filesize($file['tmp_name']) > $max_filesize)
     return array('error' => 'файл слишком большой. максимальный размер '.intval($max_filesize/(1024*1024)).'мб');
 
-  if(!move_uploaded_file($file['tmp_name'],$upload_dir.$prefix.$nameFile.$ext)) // Загружаем файл в указанную папку.
+  if(!move_uploaded_file($file['tmp_name'],$filename))//$upload_dir.$prefix.$nameFile.$ext)) // Загружаем файл в указанную папку.
     return array('error' => 'При загрузке возникли ошибки. Попробуйте ещё раз.');
     $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
   	$query = "INSERT INTO pics(title,fmt,fsize) VALUES('".$file['name']."','$ext',".$file['size'].")";
@@ -51,7 +51,7 @@ else if($_POST['pass']=="schef2003"){
         $res = shell_exec($shl);
         echo "<br><pre>$res</pre>";
 
-        $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+
         $query="SELECT pic_id FROM pics WHERE title='".$_POST['img_name']."'";
         $res = pg_query($cn,$query);
         while ($row=pg_fetch_object($res)) {
