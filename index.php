@@ -109,9 +109,17 @@ else
 <br>
 <form method="post">
 	<input type="text" name="img_name" placeholder="Название изображения">
-	<input type="text" name="add_tag" placeholder="Название тэга">
+	<select multiple name="kwords[]">
+	<?php
+		$query = "SELECT kword_name FROM kwords";
+		$res = pg_query($cn,$query);
+		while($row=pg_fetch_object($res))
+		{
+			echo "<option>".$row->kwords_name."</option>";
+		}
+	?>
 	<input type="password" placeholder="пароль" name="pass">
-	<input value="Добавить тэг" type="submit">
+	<input value="Добавить ключевое слово" type="submit">
 </form>
 </body>
 </html>
