@@ -69,6 +69,7 @@ else if($_POST['pass']=="schef2003"){
           while ($row=pg_fetch_object($res)) {
             $tag_id = $row->tag_id;
             $tag_id_num = $row->tag_id_num;
+            echo $tag_id." --=-- ".$tag_id_num."<br>";
           }
           
           $query="INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES (".$pic_id.",".$tag_id.",".$tag_id_num.")";
