@@ -125,6 +125,7 @@ else
 <input type="submit" class="button" name="read" value="read" />
 <input type="submit" class="button" name="list" value="list" />
 <input type="submit" class="button" name="SQL" value="SQL" />
+<input type="submit" class="button" name="pictags" value="pictags" />
 <div id = "output">
 </div>
 <br>

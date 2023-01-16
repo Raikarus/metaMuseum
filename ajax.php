@@ -13,6 +13,9 @@
             case 'tags':
                 tags();
                 break;
+            case 'pictags':
+                pictags();
+                break;
         }
     }
 
@@ -52,5 +55,14 @@
         echo "</pre>";
     }
 
+    function pictags()  {
+        $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+        $query = "SELECT * FROM pictags";
+        $res = pg_query($cn,$query);
+        $row = pg_fetch_all($res);
+        echo "<pre>";
+        print_r($row);
+        echo "</pre>";
+    }
 
 ?>
