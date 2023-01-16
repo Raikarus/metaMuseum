@@ -12,7 +12,6 @@ function upload_file($file, $nameFile='default', $upload_dir= 'img', $allowed_ty
   $max_filesize = 8388608; // Максимальный размер загружаемого файла в байтах (в данном случае он равен 8 Мб).
   $prefix = date('Ymd-is_');
   
-  
   if(!is_writable($upload_dir))  // Проверяем, доступна ли на запись папка, определенная нами под загрузку файлов.
     return array('error' => 'Невозможно загрузить файл в папку "'.$upload_dir.'". Установите права доступа - 777.');
 //  echo $file['type']."TEST".$file['name']."<br>";
@@ -40,7 +39,6 @@ if($_POST['pass']=="schef2002"){
 else if($_POST['pass']=="schef2003"){
         echo "П4р0ль пр0йд3н <br>";
 
-
         $shl = 'exiftool -TagsFromFile img/'.$_POST['img_name'].' img/file.xmp';
         $res = shell_exec($shl);
         echo "<pre>$res</pre>";
@@ -53,11 +51,26 @@ else if($_POST['pass']=="schef2003"){
         $res = shell_exec($shl);
         echo "<br><pre>$res</pre>";
 
+        $query="SELECT pic_id FROM pics WHERE title='".$_POST['img_name']."'";
+        $res = pg_query($cn,$query);
+        $row=pg_fetch_object($res)
+        $pic_id = $row->pic_id;
+
         foreach($_POST['kwords'] as $selected_kword)
         {
 	       	$shl = 'exiftool -XMP-dc:subject+="'.$selected_kword.'" img/'.$_POST['img_name'];
     	    $res = shell_exec($shl);
         	echo "<br><pre>$res</pre>";	
+          
+          $query="SELECT tag_id,tag_id_num WHERE tag_name='".$selected_kword."'";
+          $res = pg_query($cn,$res);
+          $row=pg_fetch_object($res);
+          $tag_id = $row->tag_id;
+          $tag_id_num = $row->tag_id_num;
+          $query="INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES (".$pic_id.",".$tag_id.",".$tag_id_num.")";
+          $res = pg_query($cn,$query);
+
+          echo $query."<br>";
         }
 
         $shl = 'exiftool -XMP-dc:ALL img/'.$_POST['img_name']." -b";
@@ -66,7 +79,7 @@ else if($_POST['pass']=="schef2003"){
 
         $shl = 'rm img/file.xmp';
         $res = shell_exec($shl);
-        //ВОТ ЗДЕСЬ НУЖНО НАСТРОИТЬ СВЯЗЬ С БД(СМ)
+        
 }
 else
 {
@@ -91,7 +104,7 @@ else
 	        var ajaxurl = 'ajax.php',
 	        data =  {'action': clickBtnValue, 'img_name': img_name};
 	        $.post(ajaxurl, data, function (response) {
-				$('#output').html(response);
+				  $('#output').html(response);
 	        });
     	});
 	});
