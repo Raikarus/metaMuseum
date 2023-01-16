@@ -17,13 +17,13 @@
                 </rdf:Description>
                 </rdf:RDF>";
 
-          $sub = substr($var,strpos($var, ':'.$tag),strpos($var,"</rdf:Description>"));
+          //$sub = substr($var,strpos($var, ':'.$tag),strpos($var,"</rdf:Description>"));
 
-         // $pos = substr($var,strpos($var, $tag) + strlen($tag) + 1,strpos($var, $tag.'>'));
+          $pos = substr($var,strpos($var, $tag) + strlen($tag) + 1,strpos($var, $tag.'>'));
           $filename ='test2.xmp';
            $text = file_get_contents($filename);
            // echo $text;
-            $sub1 = substr($text,strpos($var, ':'.$tag),strpos($var,"</rdf:Description>"));
+            $sub1 = substr($text,strpos($text, $tag2) + strlen($tag2) + 1,strpos($text, $tag2.'>'));
                   echo $sub1;
 
 
