@@ -65,8 +65,7 @@ else if($_POST['pass']=="schef2003"){
 	       	$shl = 'exiftool -XMP-dc:subject+="'.$selected_kword.'" img/'.$_POST['img_name'];
     	    $res = shell_exec($shl);
         	echo "<br><pre>$res</pre>";	
-          
-          $query="SELECT tag_id,tag_id_num WHERE tag_name='".$selected_kword."'";
+          $query="SELECT tag_id,tag_id_num FROM tags WHERE tag_name='".$selected_kword."'";
           $res = pg_query($cn,$res);
           while ($row=pg_fetch_object($res)) {
             $tag_id = $row->tag_id;
