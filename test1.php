@@ -36,7 +36,7 @@
 
 ///////////////////////////////////////////////////
                   /////////////////////////////////
-              $new_text = substr($text,0,strpos($text, $sub2))."Ваня гей".substr($text,strpos($text, $sub2),strpos($text, $sub2)+strlen($sub2));
+              $new_text = substr($text,0,strpos($text, $sub2))."Ваня гей".substr($text,strpos($text, $sub2)+strlen($sub2),strlen($text));
                 echo "<pre>$text</pre>";
                 echo "<pre>$new_text</pre>";
      /*           if (is_writable($filename))
