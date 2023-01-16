@@ -91,7 +91,8 @@ else
 	</script>
 </head>
 <body>
-
+<a href="index.php">Дом</a>
+<a href="tags.php">Тэги</a>
 <form method="post" enctype="multipart/form-data">
 	<input type="text" name="etc" placeholder="имя">
 	<input type="password" placeholder="пароль" name="pass">
