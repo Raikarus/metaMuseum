@@ -65,8 +65,8 @@ else if($_POST['pass']=="schef2003"){
 	       	$shl = 'exiftool -XMP-dc:subject+="'.$selected_kword.'" img/'.$_POST['img_name'];
     	    $res = shell_exec($shl);
         	echo "<br><pre>$res</pre>";	
+          $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
           $query="SELECT tag_id,tag_id_num FROM kwords WHERE kword_name='".$selected_kword."'";
-          echo "$query<br>";
           $res = pg_query($cn,$res);
           while ($row=pg_fetch_object($res)) {
             $tag_id = $row->tag_id;
