@@ -53,7 +53,7 @@ else if($_POST['pass']=="schef2003"){
 
         $query="SELECT pic_id FROM pics WHERE title='".$_POST['img_name']."'";
         $res = pg_query($cn,$query);
-        $row=pg_fetch_object($res)
+        $row=pg_fetch_object($res);
         $pic_id = $row->pic_id;
 
         foreach($_POST['kwords'] as $selected_kword)
