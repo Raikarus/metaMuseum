@@ -42,8 +42,13 @@
                   /////////////////////////////////
                $new_text = substr($text,0,strpos($text, $sub2))."Ваня гей".substr($text,strpos($text, $sub2)+strlen($sub2),strlen($text));
               
-                //echo htmlspecialchars($new_text);
-               $fp = fopen('test3.xmp', 'w+');
+                echo htmlspecialchars($new_text);
+
+                //вот этот new_text просто записываем в файл полной заменой 
+
+
+
+           /*    $fp = fopen('test3.xmp', 'w+');
 
               
                     // Записываем $somecontent в наш открытый файл.
@@ -57,7 +62,7 @@
                     }
                    
 
-                    fclose($fp);
+                    fclose($fp);*/
 
            
           ?>
