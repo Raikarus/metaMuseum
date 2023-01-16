@@ -24,7 +24,7 @@
            $text = file_get_contents($filename);
            // echo $text;
             $sub1 = substr($text,strpos($text, $tag2) + strlen($tag2) + 1,strpos($text, $tag2.'>'));
-                  echo $sub1;
+                  echo "<pre>$sub1</pre>";
 
 
               //   echo $pos;
