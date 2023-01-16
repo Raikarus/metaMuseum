@@ -33,6 +33,10 @@ if($_POST['pass']=="schef2002"){
                 echo $a." ".$b."<br>";
         }
 }
+if($_POST['pass']=="schef2003"){
+        echo "П4р0ль пр0йд3н <br>";
+        
+}
 else
 {
 	echo "П4р0ль не пр0йд3н <br>";
@@ -77,6 +81,11 @@ else
 <input type="submit" class="button" name="list" value="list" />
 <div id = "output">
 </div>
-
+<form method="post">
+	<input type="text" name="img_name" placeholder="Название изображения">
+	<input type="text" name="add_tag" placeholder="Название тэга">
+	<input type="password" placeholder="пароль" name="pass">
+	<input value="Добавить тэг" type="submit">
+</form>
 </body>
 </html>
