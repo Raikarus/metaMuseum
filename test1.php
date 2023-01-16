@@ -40,7 +40,7 @@
 
              //echo htmlspecialchars($sub1);
 
-             echo htmlspecialchars($sub5);
+             echo htmlspecialchars($delete_txt);
               //   echo $pos;
                 
 
