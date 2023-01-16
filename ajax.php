@@ -11,7 +11,7 @@
                 SQL();
                 break;
             case 'tags':
-                tags():
+                tags();
                 break();
         }
     }
@@ -52,5 +52,5 @@
         echo "</pre>";
     }
 
-    
+
 ?>
