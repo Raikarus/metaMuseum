@@ -43,28 +43,23 @@
                $new_text = substr($text,0,strpos($text, $sub2))."Ваня гей".substr($text,strpos($text, $sub2)+strlen($sub2),strlen($text));
               
                 //echo htmlspecialchars($new_text);
+               $fp = fopen('test3.xmp', 'w+');
 
-               if (is_writable('test3.xmp'))
-                 {
-
-                    if (!$fp = fopen('test3.xmp', 'w+')) {
-                         echo "Не могу открыть файл ($filename)";
-                         exit;
-                    }
-
+              
                     // Записываем $somecontent в наш открытый файл.
                     if (fwrite($fp, $new_text) === FALSE) {
                         echo "Не могу произвести запись в файл ($filename)";
                         exit;
                     }
-
-                    echo "Ура! Записали ($new_text) в файл ($filename)";
+                    else
+                    {
+                       echo "Ура! Записали ($new_text) в файл ($filename)";
+                    }
+                   
 
                     fclose($fp);
 
-            } else {
-                echo "Файл $filename недоступен для записи";
-            }
+           
           ?>
 
 
