@@ -51,6 +51,7 @@ else if($_POST['pass']=="schef2003"){
         $res = shell_exec($shl);
         echo "<br><pre>$res</pre>";
 
+        $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
         $query="SELECT pic_id FROM pics WHERE title='".$_POST['img_name']."'";
         $res = pg_query($cn,$query);
         while ($row=pg_fetch_object($res)) {
