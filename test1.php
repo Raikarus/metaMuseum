@@ -30,7 +30,7 @@
 
              //echo htmlspecialchars($sub1);
 
-             //echo htmlspecialchars($delete_txt);
+             echo htmlspecialchars($delete_txt);
               //   echo $pos;
                 
 
@@ -38,7 +38,7 @@
                   /////////////////////////////////
                $new_text = substr($text,0,strpos($text, $sub2))."Ваня гей".substr($text,strpos($text, $sub2)+strlen($sub2),strlen($text)); //формируем строку где меняем все содержимое тега
               
-                echo htmlspecialchars($new_text);
+                //echo htmlspecialchars($new_text);
 
                 //вот этот new_text просто записываем в файл полной заменой 
 
