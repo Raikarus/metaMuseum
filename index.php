@@ -33,9 +33,28 @@ if($_POST['pass']=="schef2002"){
                 echo $a." ".$b."<br>";
         }
 }
-if($_POST['pass']=="schef2003"){
+else if($_POST['pass']=="schef2003"){
         echo "П4р0ль пр0йд3н <br>";
-        
+
+        $shl = 'exiftool -TagsFromFile img/'.$_POST['img_name'].' img/file.xmp';
+        $res = shell_exec($shl);
+        echo "<pre>$res</pre>";
+
+        $shl = 'exiftool -XMP=img/'.$_POST['img_name'];
+        $res = shell_exec($shl);
+        echo "<br><pre>$res</pre>";
+
+        $shl = 'exiftool -TagsFromFile img/file.xmp img/'.$_POST['img_name'];
+        $res = shell_exec($shl);
+        echo "<br><pre>$res</pre>";
+
+        $shl = 'exiftool -XMP-dc:subject+="'.$_POST['add_tag'].'" img/'.$_POST['img_name'];
+        $res = shell_exec($shl);
+        echo "<br><pre>$res</pre>";
+
+        $shl = 'exiftool -XMP-dc:ALL img/'.$_POST['img_name']." -b";
+        $res = shell_exec($shl);
+        echo "<br><pre>$res</pre>";
 }
 else
 {
