@@ -44,10 +44,10 @@
               
                 //echo htmlspecialchars($new_text);
 
-               if (is_writable($filename))
+               if (is_writable('test3.xmp'))
                  {
 
-                    if (!$fp = fopen($filename, 'w+')) {
+                    if (!$fp = fopen('test3.xmp', 'w+')) {
                          echo "Не могу открыть файл ($filename)";
                          exit;
                     }
