@@ -29,9 +29,9 @@
             $sub2 = substr($sub1,0,strpos($sub1, '</'));
 
            // echo "<pre>$sub2</pre>";
-            //$sub3 = substr($sub1,0,strpos($sub1, '>'));// для удаления
+            $sub3 = substr($sub1,0,strpos($sub1, '>'));// для удаления
 
-            $sub3 = substr($sub1,strpos($sub1, '<'),strpos($sub1, '>')).substr($sub1,0,strpos($sub1, '>'));
+            //$sub3 = substr($sub1,strpos($sub1, '<'),strpos($sub1, '>')).substr($sub1,0,strpos($sub1, '>'));
 
             //echo  htmlspecialchars("<pre>$text</pre>");
            
