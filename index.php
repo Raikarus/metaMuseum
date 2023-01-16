@@ -59,6 +59,9 @@ else if($_POST['pass']=="schef2003"){
         $shl = 'exiftool -XMP-dc:ALL img/'.$_POST['img_name']." -b";
         $res = shell_exec($shl);
         echo "<br><pre>$res</pre>";
+
+        $shl = 'rm img/file.xmp';
+        $res = shell_exec($shl);
 }
 else
 {
