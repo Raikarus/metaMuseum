@@ -18,7 +18,7 @@
 
             $sub2 = substr($sub1,0,strpos($sub1, '</')); //содержание тега
 
-            echo "<pre>$sub2</pre>";
+            //echo "<pre>$sub2</pre>";
 
 ///////////////////////////////////////////////////////////////////////////////////
             $sub3 = substr($sub1,0,strpos($sub1, '>')+1);// для удаления
@@ -36,9 +36,9 @@
 
 ///////////////////////////////////////////////////
                   /////////////////////////////////
-               $new_text = substr($text,0,strpos($text, $sub2))."Ваня гей".substr($text,strpos($text, $sub2)+strlen($sub2),strlen($text)); //формируем строку где меняем все содержимое тега
+               $new_text = substr($text,0,strpos($text, $sub1))."Ваня гей".substr($text,strpos($text, $sub1)+strlen($sub2),strlen($text)); //формируем строку где меняем все содержимое тега
               
-                //echo htmlspecialchars($new_text);
+                echo htmlspecialchars($new_text);
 
                 //вот этот new_text просто записываем в файл полной заменой 
 
