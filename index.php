@@ -54,6 +54,7 @@ else if($_POST['pass']=="schef2003"){
         $query="SELECT pic_id FROM pics WHERE title='".$_POST['img_name']."'";
         $res = pg_query($cn,$query);
         $row=pg_fetch_object($res);
+        $row=pg_fetch_object($res);
         $pic_id = $row->pic_id;
 
         foreach($_POST['kwords'] as $selected_kword)
@@ -64,6 +65,7 @@ else if($_POST['pass']=="schef2003"){
           
           $query="SELECT tag_id,tag_id_num WHERE tag_name='".$selected_kword."'";
           $res = pg_query($cn,$res);
+          $row=pg_fetch_object($res);
           $row=pg_fetch_object($res);
           $tag_id = $row->tag_id;
           $tag_id_num = $row->tag_id_num;
