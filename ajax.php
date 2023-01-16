@@ -7,6 +7,9 @@
             case 'list':
                 list_l();
                 break;
+            case 'SQL':
+                SQL();
+                break;
         }
     }
 
@@ -24,5 +27,13 @@
             if ($filename != '.' && $filename!= '..') echo $filename."<br>";
         }
         exit;
+    }
+
+    function SQL()  {
+        $query = "SELECT * FROM tags";
+        $res = pg_query($cn,$res);
+        foreach ($res as $key => $value) {
+            echo $key." ".$value." <br>";
+        }
     }
 ?>
