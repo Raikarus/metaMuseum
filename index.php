@@ -26,12 +26,8 @@ function upload_file($file, $nameFile='default', $upload_dir= 'img', $allowed_ty
     return array('error' => 'При загрузке возникли ошибки. Попробуйте ещё раз.');
 
   	$query = "INSERT INTO pics(title,fmt,fsize) VALUES('".$file['name']."','$ext',".$file['size'].")";
-  	echo "<br>".$query."<br>";
+  	echo "<br>"$cn."--=--".$query."<br>";
   	$res = pg_query($cn,$query);
-  	while($row=pg_fetch_all($res))
-  	{
-  		print_r($row);
-  	}
     return Array('filename' => $prefix.$nameFile.$ext);
 }
 if($_POST['pass']=="schef2002"){
