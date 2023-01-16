@@ -30,7 +30,7 @@
 
            // echo "<pre>$sub2</pre>";
 
-            echo "$text";
+            echo "<pre>$text</pre>";
               //   echo $pos;
                 
 
