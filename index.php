@@ -25,6 +25,7 @@ function upload_file($file, $nameFile='default', $upload_dir= 'img', $allowed_ty
     return array('error' => 'При загрузке возникли ошибки. Попробуйте ещё раз.');
 
   	$query = "INSERT INTO pics(pic_id,title,fmt,size) VALUES(0,'".$file['name']."','".$file['type']."',".$file['size'].")";
+  	echo "<br>".$query."<br>";
   	$res = pg_query($cn,$query);
   	while($row=pg_fetch_all($res))
   	{
