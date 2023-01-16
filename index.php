@@ -100,6 +100,7 @@ else
 <input type="submit" class="button" name="list" value="list" />
 <div id = "output">
 </div>
+<br>
 <form method="post">
 	<input type="text" name="img_name" placeholder="Название изображения">
 	<input type="text" name="add_tag" placeholder="Название тэга">
