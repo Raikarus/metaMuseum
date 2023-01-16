@@ -32,7 +32,7 @@
     function SQL()  {
         $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
         $query = "SELECT * FROM tags";
-        $res = pg_query($cn,$res);
+        $res = pg_query($cn,$query);
         while($row=pg_fetch_object($res))
         {
             echo $row->tag_name."<br>";
