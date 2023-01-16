@@ -21,7 +21,7 @@
 
           $pos = substr($var,strpos($var, $tag) + strlen($tag) + 1,strpos($var, $tag.'>'));
           $filename ='test2.xmp';
-           $text = readfile($filename);
+           $text = file_get_contents($filename);
 
            // echo $text;
             $sub1 = substr($text,strpos($text, $tag2) + strlen($tag2) + 1,strpos($text, $tag2.'>'));
@@ -31,6 +31,8 @@
            // echo "<pre>$sub2</pre>";
 
             echo "<pre>$text</pre>";
+            $text = file_get_contents('test2.txt');
+             echo "<pre>$text</pre>";
               //   echo $pos;
                 
 
