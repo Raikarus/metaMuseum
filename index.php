@@ -66,6 +66,7 @@ else if($_POST['pass']=="schef2003"){
 
         $shl = 'rm img/file.xmp';
         $res = shell_exec($shl);
+        //ВОТ ЗДЕСЬ НУЖНО НАСТРОИТЬ СВЯЗЬ С БД(СМ)
 }
 else
 {
