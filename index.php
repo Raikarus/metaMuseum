@@ -1,6 +1,6 @@
 <?php
 $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
-$query = "SELECT * FROM pics";
+$query = "SELECT * FROM tags";
 $res = pg_query($cn,$query);
 foreach ($res as $key => $value) {
 	echo $key." ".$value."<br>";
