@@ -19,7 +19,7 @@
           $sub = substr($var,strpos($var, ':'.$tag),strpos($var,"</rdf:Description>"));
 
          // $pos = substr($var,strpos($var, $tag) + strlen($tag) + 1,strpos($var, $tag.'>'));
-          $filename ='/test2.xmp';
+          $filename ='test2.xmp';
            $text = file_get_contents($filename);
             echo $text;
 
