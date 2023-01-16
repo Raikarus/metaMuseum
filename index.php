@@ -2,7 +2,9 @@
 $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
 $query = "SELECT * FROM pics";
 $res = pg_query($cn,$query);
-echo "<pre>$res</pre>";
+foreach ($res as $key => $value) {
+	echo $key." ".$value."<br>";
+}
 function upload_file($file, $nameFile='default', $upload_dir= 'img', $allowed_types= array('image/png','image/x-png','image/jpeg','image/webp','image/gif')){
 
   $blacklist = array(".php", ".phtml", ".php3", ".php4");
