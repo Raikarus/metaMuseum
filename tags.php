@@ -51,7 +51,7 @@ else
 <form method="post">
 	<input type="text" name="kword_name" placeholder="Название ключевого слова">
 	<input type="password" placeholder="пароль" name="pass">
-	<input value="Добавить тэг" type="submit">
+	<input value="Добавить ключевое слово" type="submit">
 </form>
 
 </body>
