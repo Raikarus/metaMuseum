@@ -18,7 +18,7 @@
 
             $sub2 = substr($sub1,0,strpos($sub1, '</')); //содержание тега
 
-           // echo "<pre>$sub2</pre>";
+            echo "<pre>$sub2</pre>";
 
 ///////////////////////////////////////////////////////////////////////////////////
             $sub3 = substr($sub1,0,strpos($sub1, '>')+1);// для удаления
@@ -30,7 +30,7 @@
 
              //echo htmlspecialchars($sub1);
 
-             echo htmlspecialchars($delete_txt);
+            // echo htmlspecialchars($delete_txt);
               //   echo $pos;
                 
 
