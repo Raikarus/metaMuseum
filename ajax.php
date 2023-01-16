@@ -44,7 +44,7 @@
 
     function tags() {
         $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
-        $query = "SELECT * FROM tags";
+        $query = "SELECT * FROM kwords";
         $res = pg_query($cn,$query);
         $row = pg_fetch_all($res);
         echo "<pre>";

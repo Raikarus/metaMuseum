@@ -1,3 +1,17 @@
+<?php
+if($_POST['pass']=="schef2002"){
+        echo "П4р0ль пр0йд3н <br>";
+        $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+        $query = "INSERT INTO kwords(tag_id,kword_name,status) VALUES(10,'".$_POST['tag_name']."',1)";
+        echo "<br>--- ".$query." ---<br>";
+        $res = pg_query($cn,$query);
+}
+else
+{
+	echo "П4р0ль не пр0йд3н <br>";
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,5 +46,13 @@
 <input type="submit" class="button" name="list" value="list" />
 <input type="submit" class="button" name="tags" value="tags" />
 <div id = "output">
+</div>
+
+<form method="post">
+	<input type="text" name="tag_name" placeholder="Название тэга">
+	<input type="password" placeholder="пароль" name="pass">
+	<input value="Добавить тэг" type="submit">
+</form>
+
 </body>
 </html>
