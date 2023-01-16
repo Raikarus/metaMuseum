@@ -1,4 +1,6 @@
 <?php
+$cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+
 function upload_file($file, $nameFile='default', $upload_dir= 'img', $allowed_types= array('image/png','image/x-png','image/jpeg','image/webp','image/gif')){
 
   $blacklist = array(".php", ".phtml", ".php3", ".php4");
@@ -22,8 +24,10 @@ function upload_file($file, $nameFile='default', $upload_dir= 'img', $allowed_ty
 
   if(!move_uploaded_file($file['tmp_name'],$upload_dir.$prefix.$nameFile.$ext)) // Загружаем файл в указанную папку.
     return array('error' => 'При загрузке возникли ошибки. Попробуйте ещё раз.');
-    $query = "INSERT INTO images(name) VALUES(".$prefix.$nameFile.$ext.")";
-    $res = pg_query($cn,$query);
+
+  	$query = "INSERT INTO pics(pic_id,title,fmt,size) VALUES(0,'".$file['name']."','".$file['type']."',".$file['size'].")";
+  	$res = pg_query($cn,$query);
+  	echo "<pre>$res</pre>";
     return Array('filename' => $prefix.$nameFile.$ext);
 }
 if($_POST['pass']=="schef2002"){
