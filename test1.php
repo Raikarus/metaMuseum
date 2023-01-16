@@ -7,7 +7,7 @@
                 ^^^^^^^^^^^^^^^^^^^^ <BR>
          <?php
 
-         $tag2 = "CreatorTool";
+         $tag2 = "softwareAgent";
 
           $filename ='test2.xmp';
            $text = file_get_contents($filename);
