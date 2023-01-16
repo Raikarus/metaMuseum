@@ -1,10 +1,5 @@
 <?php
 $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
-$query = "SELECT * FROM tags";
-$res = pg_query($cn,$query);
-foreach ($res as $key => $value) {
-	echo $key." ".$value."<br>";
-}
 function upload_file($file, $nameFile='default', $upload_dir= 'img', $allowed_types= array('image/png','image/x-png','image/jpeg','image/webp','image/gif')){
 
   $blacklist = array(".php", ".phtml", ".php3", ".php4");
@@ -31,7 +26,10 @@ function upload_file($file, $nameFile='default', $upload_dir= 'img', $allowed_ty
 
   	$query = "INSERT INTO pics(pic_id,title,fmt,size) VALUES(0,'".$file['name']."','".$file['type']."',".$file['size'].")";
   	$res = pg_query($cn,$query);
-  	echo "<pre>$res</pre>";
+  	while($row=pg_fetch_all($res))
+  	{
+  		print_r($row);
+  	}
     return Array('filename' => $prefix.$nameFile.$ext);
 }
 if($_POST['pass']=="schef2002"){
