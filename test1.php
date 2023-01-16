@@ -36,7 +36,7 @@
             $sub4 = '<'.substr($sub3,strpos($sub3, '<')+2,strpos($sub3, '>')).$sub3;
 
             //echo  htmlspecialchars("<pre>$text</pre>");
-            $delete_txt = substr($text,0,strpos($text,$sub4)).substr($text,strpos($text,$sub4)+strlen($sub4),strlen($text))
+            $delete_txt = substr($text,0,strpos($text,$sub4)).substr($text,strpos($text,$sub4)+strlen($sub4),strlen($text));
 
              //echo htmlspecialchars($sub1);
 
