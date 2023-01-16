@@ -33,9 +33,7 @@
         $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
         $query = "SELECT * FROM pics";
         $res = pg_query($cn,$query);
-        $row = pg_fetch_all($res);
-        foreach ($row as $key => $value) {
-            echo $key." ".$value."<br>";
-        }
+        $row = pg_fetch_object($res);
+        print_r($row);
     }
 ?>
