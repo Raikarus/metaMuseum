@@ -12,7 +12,7 @@
                 break;
             case 'tags':
                 tags();
-                break();
+                break;
         }
     }
 
