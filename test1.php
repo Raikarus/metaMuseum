@@ -42,9 +42,9 @@
                   /////////////////////////////////
                $new_text = substr($text,0,strpos($text, $sub2))."Ваня гей".substr($text,strpos($text, $sub2)+strlen($sub2),strlen($text));
               
-                echo htmlspecialchars($new_text);
+                //echo htmlspecialchars($new_text);
 
-          /*     if (is_writable($filename))
+               if (is_writable($filename))
                  {
 
                     if (!$fp = fopen($filename, 'w+')) {
@@ -53,18 +53,18 @@
                     }
 
                     // Записываем $somecontent в наш открытый файл.
-                    if (fwrite($fp, $somecontent) === FALSE) {
+                    if (fwrite($fp, $new_text) === FALSE) {
                         echo "Не могу произвести запись в файл ($filename)";
                         exit;
                     }
 
-                    echo "Ура! Записали ($somecontent) в файл ($filename)";
+                    echo "Ура! Записали ($new_text) в файл ($filename)";
 
                     fclose($fp);
 
             } else {
                 echo "Файл $filename недоступен для записи";
-            }*/
+            }
           ?>
 
 
