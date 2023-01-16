@@ -33,7 +33,7 @@
 
             $sub3 = substr($sub1,0,strpos($sub1, '>')+1);// для удаления
 
-            $sub4 = substr($sub3,strpos($sub3, '<'),strpos($sub3, '>')).$sub3;
+            $sub4 = '<'.substr($sub3,strpos($sub3, '<')+2,strpos($sub3, '>')).$sub3;
 
             //echo  htmlspecialchars("<pre>$text</pre>");
            
@@ -46,7 +46,7 @@
 
 ///////////////////////////////////////////////////
                   /////////////////////////////////
-               $new_text = '<'.substr($text,2,strpos($text, $sub2))."Ваня гей".substr($text,strpos($text, $sub2)+strlen($sub2),strlen($text));
+               $new_text = substr($text,0,strpos($text, $sub2))."Ваня гей".substr($text,strpos($text, $sub2)+strlen($sub2),strlen($text));
               
                 //echo htmlspecialchars($new_text);
 
