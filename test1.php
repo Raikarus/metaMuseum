@@ -8,7 +8,7 @@
          <?php
 
          $tag = "Artist";
-         $tag2 = "DocumentID";
+         $tag2 = "CreateDate";
 
          $var = "<rdf:Description rdf:about='20221225-2837_ss.jpg'
                   xmlns:et='http://ns.exiftool.ca/1.0/' et:toolkit='Image::ExifTool 12.16'
