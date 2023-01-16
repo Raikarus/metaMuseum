@@ -77,10 +77,6 @@ else
 <input type="submit" class="button" name="list" value="list" />
 <div id = "output">
 </div>
-<?php
 
-
-
-?>
 </body>
 </html>
