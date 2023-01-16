@@ -30,9 +30,10 @@
 
            // echo "<pre>$sub2</pre>";
 
-            echo  htmlspecialchars("<pre>$text</pre>");
-            $text = file_get_contents('test2.txt');
-             echo "<pre>$text</pre>";
+            //echo  htmlspecialchars("<pre>$text</pre>");
+           
+
+             echo htmlspecialchars($sub1);
               //   echo $pos;
                 
 
