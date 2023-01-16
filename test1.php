@@ -8,6 +8,7 @@
          <?php
 
          $tag = "Artist";
+         $tag2 = "softwareAgent";
 
          $var = "<rdf:Description rdf:about='20221225-2837_ss.jpg'
                   xmlns:et='http://ns.exiftool.ca/1.0/' et:toolkit='Image::ExifTool 12.16'
@@ -21,9 +22,9 @@
          // $pos = substr($var,strpos($var, $tag) + strlen($tag) + 1,strpos($var, $tag.'>'));
           $filename ='test2.xmp';
            $text = file_get_contents($filename);
-            echo $text;
-
-                  echo $sub;
+           // echo $text;
+            $sub1 = substr($text,strpos($var, ':'.$tag),strpos($var,"</rdf:Description>"));
+                  echo $sub1;
 
 
               //   echo $pos;
