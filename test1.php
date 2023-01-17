@@ -52,8 +52,12 @@
               
                  for($i = 0 ;$i < count($list);$i++)
                  {
-                  echo $list[$i];
-                  echo '<br>';
+                  if(strpos($text, $list[$i]))
+                  {
+                    echo $list[$i];
+                     echo '<br>';
+                  }
+                  
                  }
            
           ?>
