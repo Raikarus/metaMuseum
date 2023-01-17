@@ -51,7 +51,7 @@
                 
                   $data_pos = 0;
 
-                 for($i = 0 ;$i <0;$i++) //count($list)
+                 for($i = 0 ;$i <4;$i++) //count($list)
                  {
                   if(strpos($text, $list[$i]))
                   {
