@@ -56,6 +56,7 @@
         echo "<pre>";
         print_r($row);
         echo "</pre>";
+        exit;
     }
 
     function kwords() {
@@ -66,6 +67,7 @@
         echo "<pre>";
         print_r($row);
         echo "</pre>";
+        exit;
     }
 
     function pictags()  {
@@ -76,6 +78,7 @@
         echo "<pre>";
         print_r($row);
         echo "</pre>";
+        exit;
     }
 
     function remove()   {
@@ -87,6 +90,7 @@
 
         $query = "rm img/*";
         shell_exec($query);
+        exit;
     }
 
     function upload_file($file, $nameFile='default', $upload_dir= 'img', $allowed_types= array('image/png','image/x-png','image/jpeg','image/webp','image/gif')){
@@ -116,6 +120,7 @@
             echo "<br>".$cn."--=--".$query."<br>";
             $res = pg_query($cn,$query);
         return Array('filename' => $prefix.$nameFile.$ext);
+        exit;
     }
     function Download() {
         if($_POST['pass']=="schef2002"){
@@ -129,62 +134,64 @@
         {
             echo "П4р0ль не пр0йд3н <br>";
         }
+        exit;
     }
 
     function LinkKeyword(){
         if($_POST['pass']=="schef2002"){
-        echo "П4р0ль пр0йд3н <br>";
+            echo "П4р0ль пр0йд3н <br>";
 
-        $shl = 'exiftool -TagsFromFile img/'.$_POST['img_name'].' img/file.xmp';
-        $res = shell_exec($shl);
-        echo "<pre>$res</pre>";
-
-        $shl = 'exiftool -XMP=img/'.$_POST['img_name'];
-        $res = shell_exec($shl);
-        echo "<br><pre>$res</pre>";
-
-        $shl = 'exiftool -TagsFromFile img/file.xmp img/'.$_POST['img_name'];
-        $res = shell_exec($shl);
-        echo "<br><pre>$res</pre>";
-
-        $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
-        $query="SELECT pic_id FROM pics WHERE title='".$_POST['img_name']."'";
-        $res = pg_query($cn,$query);
-        while ($row=pg_fetch_object($res)) {
-          $pic_id = $row->pic_id; 
-          echo $pic_id."<br>";
-        }      
-        
-
-        foreach($_POST['kwords'] as $selected_kword)
-        {
-            $shl = 'exiftool -XMP-dc:subject+="'.$selected_kword.'" img/'.$_POST['img_name'];
+            $shl = 'exiftool -TagsFromFile img/'.$_POST['img_name'].' img/file.xmp';
             $res = shell_exec($shl);
-            echo "<br><pre>$res</pre>"; 
-          $query="SELECT tag_id,tag_id_num FROM kwords WHERE kword_name='".$selected_kword."'";
-          $res = pg_query($cn,$query);
-          while ($row=pg_fetch_object($res)) {
-            $tag_id = $row->tag_id;
-            $tag_id_num = $row->tag_id_num;
-          }
-          
-          $query="INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES (".$pic_id.",".$tag_id.",".$tag_id_num.")";
-          $res = pg_query($cn,$query);
+            echo "<pre>$res</pre>";
 
-          echo $query."<br>";
-        }
+            $shl = 'exiftool -XMP=img/'.$_POST['img_name'];
+            $res = shell_exec($shl);
+            echo "<br><pre>$res</pre>";
 
-        $shl = 'exiftool -XMP-dc:ALL img/'.$_POST['img_name']." -b";
-        $res = shell_exec($shl);
-        echo "<br><pre>$res</pre>";
+            $shl = 'exiftool -TagsFromFile img/file.xmp img/'.$_POST['img_name'];
+            $res = shell_exec($shl);
+            echo "<br><pre>$res</pre>";
 
-        $shl = 'rm img/file.xmp';
-        $res = shell_exec($shl);
-        }
+            $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+            $query="SELECT pic_id FROM pics WHERE title='".$_POST['img_name']."'";
+            $res = pg_query($cn,$query);
+            while ($row=pg_fetch_object($res)) {
+              $pic_id = $row->pic_id; 
+              echo $pic_id."<br>";
+            }      
+            
+
+            foreach($_POST['kwords'] as $selected_kword)
+            {
+                $shl = 'exiftool -XMP-dc:subject+="'.$selected_kword.'" img/'.$_POST['img_name'];
+                $res = shell_exec($shl);
+                echo "<br><pre>$res</pre>"; 
+              $query="SELECT tag_id,tag_id_num FROM kwords WHERE kword_name='".$selected_kword."'";
+              $res = pg_query($cn,$query);
+              while ($row=pg_fetch_object($res)) {
+                $tag_id = $row->tag_id;
+                $tag_id_num = $row->tag_id_num;
+              }
+              
+              $query="INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES (".$pic_id.",".$tag_id.",".$tag_id_num.")";
+              $res = pg_query($cn,$query);
+
+              echo $query."<br>";
+            }
+
+            $shl = 'exiftool -XMP-dc:ALL img/'.$_POST['img_name']." -b";
+            $res = shell_exec($shl);
+            echo "<br><pre>$res</pre>";
+
+            $shl = 'rm img/file.xmp';
+            $res = shell_exec($shl);
+            }
         else
         {
             echo "П4р0ль не пр0йд3н <br>";
         }
+        exit;
     }
     function AddKeyword()
     {
@@ -198,5 +205,6 @@
         {
             echo "П4р0ль не пр0йд3н <br>";
         }
+        exit;
     }
 ?>
