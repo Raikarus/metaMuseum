@@ -34,6 +34,7 @@
         echo "<pre>$res</pre><br><br>";
         foreach ($arr as $key => $value) {
             $str = str_replace(' ', '', $value);
+            echo $str."<br>";
             if(in_array($str, $list)){
                 echo $str." = ".substr($value, strpos($value, ":")+1,strlen($value))."<br>";
             }
