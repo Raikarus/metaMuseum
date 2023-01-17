@@ -1,5 +1,18 @@
 <?php
-
+    function AddKeyword()
+    {
+        if($_POST['passAdd']=="schef2002"){
+        echo "П4р0ль пр0йд3н <br>";
+        $query = "INSERT INTO kwords(tag_id,kword_name,status) VALUES(10,'".$_POST['kword_name']."',1)";
+        echo "<br>--- ".$query." ---<br>";
+        $res = pg_query($cn,$query);
+        }
+        else
+        {
+            echo "П4р0ль не пр0йд3н <br>";
+        }
+        exit;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -38,11 +51,14 @@
 <br>
 <form method="post">
 	<input type="text" name="kword_name" placeholder="Название ключевого слова">
-	<input type="password" placeholder="пароль" name="pass">
+	<input type="password" placeholder="пароль" name="passAdd">
 	<input class="button" name="AddKeyword" value="AddKeyword" type="submit">
 </form>
 <br>
 <div id = "output">
+	<?php
+	AddKeyword();
+	?>
 </div>
 </body>
 </html>
