@@ -36,9 +36,9 @@
         $data_pos = 0;
 
         foreach ($list as $key => $value) {
+            echo $key." ".$value."<br>";
             if(strpos($text, $value))
             {
-                echo $key." ".$value."<br>";
                 $sub = substr($text, strpos($text, $value));
                 $sub1 = substr($sub,0, strpos($text, ' : '));
                 $sub2 = substr($sub,strpos($text, ':'), strpos($text,"\n"));
