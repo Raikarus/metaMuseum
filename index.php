@@ -41,7 +41,6 @@ function Download() {
   {
       echo "П4р0ль не пр0йд3н <br>";
   }
-  $_POST = array();
 }
 
 function LinkKeyword(){
