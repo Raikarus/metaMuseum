@@ -1,5 +1,5 @@
 <?php
-
+$cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
 ?>
 <!DOCTYPE html>
 <html>
