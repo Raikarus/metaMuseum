@@ -34,7 +34,7 @@
         echo "<pre>$res</pre><br><br>";
         foreach ($arr as $key => $value) {
             echo substr($value, 0,strpos($value, ":"))."Ъ";
-            if(in_array(substr($value, 0,strpos($value, ":")-1), $list)){
+            if(in_array(substr($value, 0,strpos($value, ":")-2), $list)){
                 echo substr($value, strpos($value, ":")+1,strlen($value))."<br>";
             }
         }
