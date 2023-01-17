@@ -38,11 +38,24 @@
                   /////////////////////////////////
                $new_text = substr($text,0,strpos($text, $sub1))."Ваня гей".substr($text,strpos($text, $sub1)+strlen($sub2),strlen($text)); //формируем строку где меняем все содержимое тега
               
-                echo htmlspecialchars($new_text);
+                //echo htmlspecialchars($new_text);
 
                 //вот этот new_text просто записываем в файл полной заменой 
 
+////////////////////////////////////////////////////////
 
+                 $filename1 ='test_new.xmp';
+                 $text1 = file_get_contents($filename);
+
+                 $list = array("DateTime","ModifyDate","FileModifyDate","ImageWidth","ImageHeight","Label","Title","AuthorPosition","ObjectName","By-lineTitle","UserComment","Description",
+                               "ImageDescription","Headline","Caption-Abstract","Country","Country-PrimaryLocationName","State","Province-State","City","Subject","Keywords","Creator","Artist"
+                               "Author","Identifier","Rights","Copyright","CopyrightNotice");
+
+                 for($i = 0 ;$i < count($list);$i++)
+                 {
+                  echo $list[$i];
+                  echo '/n';
+                 }
            
           ?>
 
