@@ -71,6 +71,7 @@ function LinkKeyword(){
     {
       $query = "SELECT pic_id FROM pictags WHERE pic_id='".$pic_id."' AND tag_id_num='".$selected_kword."'";
       $res = pg_query($cn,$query);
+      echo "$res !_!_!_!_!_!_! $query <br>";
       $access = 1;
       while ($row=pg_fetch_object($res)) {
         echo $row->pic_id." !_!_!_!_! <br>";
@@ -78,21 +79,21 @@ function LinkKeyword(){
       }
       if($access == 1)
       {
-      $shl = 'exiftool -XMP-dc:subject+="'.$selected_kword.'" img/'.$_POST['img_name'];
-      $res = shell_exec($shl);
-      echo "<br><pre>$res</pre>"; 
-      $query="SELECT tag_id,tag_id_num FROM kwords WHERE kword_name='".$selected_kword."'";
-      $res = pg_query($cn,$query);
-      while ($row=pg_fetch_object($res)) {
-        $tag_id = $row->tag_id;
-        $tag_id_num = $row->tag_id_num;
-      }
-      
-      $query="INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES (".$pic_id.",".$tag_id.",".$tag_id_num.")";
-      $res = pg_query($cn,$query);
+        $shl = 'exiftool -XMP-dc:subject+="'.$selected_kword.'" img/'.$_POST['img_name'];
+        $res = shell_exec($shl);
+        echo "<br><pre>$res</pre>"; 
+        $query="SELECT tag_id,tag_id_num FROM kwords WHERE kword_name='".$selected_kword."'";
+        $res = pg_query($cn,$query);
+        while ($row=pg_fetch_object($res)) {
+          $tag_id = $row->tag_id;
+          $tag_id_num = $row->tag_id_num;
+        }
+        
+        $query="INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES (".$pic_id.",".$tag_id.",".$tag_id_num.")";
+        $res = pg_query($cn,$query);
 
-      echo $query."<br>";
-      }
+        echo $query."<br>";
+        }
       else
       {
         echo "Ключевое слово $selected_kword уже существует";
