@@ -4,7 +4,7 @@ function upload_file($file, $nameFile='default', $upload_dir= 'img', $allowed_ty
 
   $blacklist = array(".php", ".phtml", ".php3", ".php4");
   $filename = $file['name']; // В переменную $filename заносим точное имя файла.
-  $ext = strtolower(substr($filename, strrpos($filename,'.'), strlen($filename)-1)); // В переменную $ext заносим расширение загруженного файла.
+  $ext = strtolower(substr($filename, strrpos($filename,'.')+1, strlen($filename)-1)); // В переменную $ext заносим расширение загруженного файла.
   if(in_array($ext,$blacklist )){
     return array('error' => 'Запрещено загружать исполняемые файлы');}
 

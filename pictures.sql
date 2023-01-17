@@ -158,7 +158,7 @@ grant all on gkwords to "www-data";
 -- (ключевых слов, авторов...)
 create table kwords(
 tag_id		int,		-- код тега
-tag_id_num	int,		-- порядковый номер для тега tag_id
+tag_id_num	SERIAL PRIMARY KEY,		-- порядковый номер для тега tag_id
 kword_name	varchar(256) NOT NULL,	-- собственно слово/фраза (произвольная строка)
 status		int DEFAULT 0	-- Статус тега:
 				-- 0 - автоматический -
@@ -194,9 +194,7 @@ grant all on kwords to "www-data";
 create table kwgkw(
 gkword_id	int NOT NULL,			-- уникальный код группы
 tag_id		int NOT NULL,		-- идентификатор тега
-tag_id_num	int NOT NULL,		-- порядковый номер тега tag_id
-foreign key(gkword_id) references gkwords(gkword_id),
-foreign key(tag_id,tag_id_num) references kwords(tag_id,tag_id_num)
+tag_id_num	int NOT NULL		-- порядковый номер тега tag_id
 );
 grant all on kwgkw to sch;
 grant all on kwgkw to "www-data";
@@ -208,10 +206,8 @@ grant all on kwgkw to "www-data";
 create table pictags(
 pic_id		bigint NOT NULL,	-- идентификатор картинки
 tag_id		int NOT NULL,		-- идентификатор тега
-tag_id_num	int NOT NULL,		-- порядковый номер тега tag_id
-doubt	integer default 0,	-- 1 = сомнение в соответствии тега картинке
-foreign key(pic_id) references pics(pic_id),
-foreign key(tag_id,tag_id_num) references kwords(tag_id,tag_id_num)
+tag_id_num	BIGINT,		-- порядковый номер тега tag_id
+doubt	integer default 0	-- 1 = сомнение в соответствии тега картинке
 );
 grant all on pictags to sch;
 grant all on pictags to "www-data";
@@ -232,8 +228,6 @@ grant all on selections to "www-data";
 create table selpics(
 sel_id		bigint NOT NULL,	-- идентификатор подборки
 pic_id		bigint NOT NULL,	-- идентификатор картинки
-foreign key(pic_id) references pics(pic_id),
-foreign key(sel_id) references selections(sel_id)
 );
 grant all on selpics to sch;
 grant all on selpics to "www-data";
