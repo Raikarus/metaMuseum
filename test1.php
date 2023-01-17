@@ -57,7 +57,7 @@
                  {
                   if(strpos($text, $list[$i]))
                   {
-                    $sub = substr($text, strpos($text, $list[$i])+1);
+                    $sub = substr($text, strpos($text, $list[$i]));
                     $sub1 = substr($sub,0, strpos($text, ' : '));
                     $sub2 = substr($sub,strpos($text, ':')+1, strpos($text,'\n'));
 
