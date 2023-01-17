@@ -7,9 +7,9 @@
                 ^^^^^^^^^^^^^^^^^^^^ <BR>
          <?php
 
-         $tag2 = "CreatorTool";
+   /*      $tag2 = "CreatorTool";
 
-          $filename ='test1.xmp';
+          $filename ='test2.xmp';
            $text = file_get_contents($filename);
 
            // echo $text;
@@ -43,7 +43,7 @@
                 //вот этот new_text просто записываем в файл полной заменой 
 
 ////////////////////////////////////////////////////////
-
+*/
                  $filename1 ='test_new.xmp';
                  $text1 = file_get_contents($filename);
 
