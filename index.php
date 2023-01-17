@@ -128,7 +128,7 @@ else
 <input type="text" id="img_name" placeholder="Название изображения" />
 <input type="submit" class="button" name="read" value="read" />
 <input type="submit" class="button" name="list" value="list" />
-<input type="submit" class="button" name="SQL" value="SQL" />
+<input type="submit" class="button" name="pics" value="pics" />
 <input type="submit" class="button" name="pictags" value="pictags" />
 <input type="submit" class="button" name="REMOVE" value="REMOVE" />
 <div id = "output">

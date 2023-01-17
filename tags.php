@@ -44,7 +44,7 @@ else
 <input type="text" id="img_name" placeholder="Название изображения">
 <input type="submit" class="button" name="read" value="read" />
 <input type="submit" class="button" name="list" value="list" />
-<input type="submit" class="button" name="tags" value="tags" />
+<input type="submit" class="button" name="kwords" value="kwords" />
 <div id = "output">
 </div>
 

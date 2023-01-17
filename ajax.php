@@ -7,11 +7,11 @@
             case 'list':
                 list_l();
                 break;
-            case 'SQL':
-                SQL();
+            case 'pics':
+                pics();
                 break;
-            case 'tags':
-                tags();
+            case 'kwords':
+                kwords();
                 break;
             case 'pictags':
                 pictags();
@@ -38,7 +38,7 @@
         exit;
     }
 
-    function SQL()  {
+    function pics()  {
         $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
         $query = "SELECT * FROM pics";
         $res = pg_query($cn,$query);
@@ -48,7 +48,7 @@
         echo "</pre>";
     }
 
-    function tags() {
+    function kwords() {
         $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
         $query = "SELECT * FROM kwords";
         $res = pg_query($cn,$query);
