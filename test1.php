@@ -7,7 +7,7 @@
                 ^^^^^^^^^^^^^^^^^^^^ <BR>
          <?php
 
-   /*      $tag2 = "CreatorTool";
+         $tag2 = "CreatorTool";
 
           $filename ='test2.xmp';
            $text = file_get_contents($filename);
@@ -38,12 +38,12 @@
                   /////////////////////////////////
                $new_text = substr($text,0,strpos($text, $sub1))."Ваня гей".substr($text,strpos($text, $sub1)+strlen($sub2),strlen($text)); //формируем строку где меняем все содержимое тега
               
-                //echo htmlspecialchars($new_text);
+                echo htmlspecialchars($new_text);
 
                 //вот этот new_text просто записываем в файл полной заменой 
 
 ////////////////////////////////////////////////////////
-*/
+
                /*  $filename1 ='test2.xmp';
                  $text1 = file_get_contents($filename);
 
