@@ -44,7 +44,7 @@ function upload_file($file, $nameFile='default', $upload_dir= 'img', $allowed_ty
         $_POST = array();
     }
 
-    Download();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -107,6 +107,9 @@ function upload_file($file, $nameFile='default', $upload_dir= 'img', $allowed_ty
 
 <br>
 <div id = "output">
+  <?php
+    Download();
+  ?>
 </div>
 </body>
 </html>
