@@ -120,7 +120,6 @@
             echo "<br>".$cn."--=--".$query."<br>";
             $res = pg_query($cn,$query);
         return Array('filename' => $prefix.$nameFile.$ext);
-        exit;
     }
     function Download() {
         if($_POST['pass']=="schef2002"){
