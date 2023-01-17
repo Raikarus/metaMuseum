@@ -6,15 +6,12 @@
                 read();
                 break;
             case 'list':
-                $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
                 list_l();
                 break;
             case 'pics':
-                $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
                 pics();
                 break;
             case 'kwords':
-                $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
                 kwords();
                 break;
             case 'pictags':
@@ -52,6 +49,7 @@
     }
 
     function pics()  {
+        $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
         $query = "SELECT * FROM pics";
         $res = pg_query($cn,$query);
         $row = pg_fetch_all($res);
@@ -61,6 +59,7 @@
     }
 
     function kwords() {
+        $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
         $query = "SELECT * FROM kwords";
         $res = pg_query($cn,$query);
         $row = pg_fetch_all($res);
@@ -70,6 +69,7 @@
     }
 
     function pictags()  {
+        $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
         $query = "SELECT * FROM pictags";
         $res = pg_query($cn,$query);
         $row = pg_fetch_all($res);
@@ -79,6 +79,7 @@
     }
 
     function remove()   {
+        $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
         $query = "DELETE FROM pics";
         pg_query($cn,$query);
         $query = "DELETE FROM pictags";
@@ -146,7 +147,7 @@
         $res = shell_exec($shl);
         echo "<br><pre>$res</pre>";
 
-
+        $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
         $query="SELECT pic_id FROM pics WHERE title='".$_POST['img_name']."'";
         $res = pg_query($cn,$query);
         while ($row=pg_fetch_object($res)) {
