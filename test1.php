@@ -55,7 +55,7 @@
                   if(strpos($text, $list[$i]))
                   {
 
-                    echo $list[$i];
+                    echo substr($text, strpos($text, $list[$i]),strpos($text, $list[$i])+strlen($list[$i]));
                      echo '<br>';
                   }
                   
