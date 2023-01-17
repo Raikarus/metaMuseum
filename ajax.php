@@ -27,7 +27,10 @@
         $shl = 'exiftool '.$_POST['img_name'];
         echo $shl."<br>";
         $res = shell_exec($shl);
-        echo "<pre>$res</pre>";
+        $arr = explode('\n', $res);
+        foreach ($arr as $key => $value) {
+            echo $key." ".$value."<br>";
+        }
         exit;
     }
 
