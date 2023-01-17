@@ -30,11 +30,14 @@
         $arr = explode("\n", $res);
         
 
-        $list = array("Date Time","Modify Date","File Modify Date","Image Width","Image Height","Label","Title","Author Position","Object Name","By-lineTitle","User Comment","Description","Image Description","Headline","Caption-Abstract","Country","Country-Primary Location Name","State","Province-State","City","Subject","Keywords","Creator","Artist","Author","Identifier","Rights","Copyright","Copyright Notice");
+        $list = array("DateTime","ModifyDate","FileModifyDate","ImageWidth","ImageHeight","Label","Title","AuthorPosition","ObjectName","By-lineTitle","UserComment","Description","ImageDescription","Headline","Caption-Abstract","Country","Country-PrimaryLocationName","State","Province-State","City","Subject","Keywords","Creator","Artist","Author","Identifier","Rights","Copyright","CopyrightNotice");
         echo "<pre>$res</pre><br><br>";
         foreach ($arr as $key => $value) {
-            echo "<pre>substr($value, 0,strpos($value, ':'))</pre><br>";
-            if(in_array(substr($value, 0,strpos($value, "\t")), $list)){
+            $keyWords = explode(" ",substr($value, 0,strpos($value, ':')));
+            foreach ($keyWords as $key1 => $word) {
+                $keys += $word;
+            }
+            if(in_array($keys, $list)){
                 echo substr($value, strpos($value, ":")+1,strlen($value))."<br>";
             }
         }
