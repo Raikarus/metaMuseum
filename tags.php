@@ -1,4 +1,5 @@
 <?php
+	$cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
     function AddKeyword()
     {
         if($_POST['passAdd']=="schef2002"){
