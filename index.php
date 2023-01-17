@@ -69,9 +69,17 @@ function LinkKeyword(){
       
     foreach($_POST['kwords'] as $selected_kword)
     {
-        $shl = 'exiftool -XMP-dc:subject+="'.$selected_kword.'" img/'.$_POST['img_name'];
-        $res = shell_exec($shl);
-        echo "<br><pre>$res</pre>"; 
+      $query = "SELECT pic_id FROM pictags WHERE pic_id='".$pic_id."' AND tag_id_num='".$selected_kword."'";
+      $res = pg_query($cn,$query);
+      $access = 1;
+      while ($row=pg_fetch_object($res)) {
+        $access = 0;
+      }
+      if($access == 1)
+      {
+      $shl = 'exiftool -XMP-dc:subject+="'.$selected_kword.'" img/'.$_POST['img_name'];
+      $res = shell_exec($shl);
+      echo "<br><pre>$res</pre>"; 
       $query="SELECT tag_id,tag_id_num FROM kwords WHERE kword_name='".$selected_kword."'";
       $res = pg_query($cn,$query);
       while ($row=pg_fetch_object($res)) {
@@ -83,6 +91,11 @@ function LinkKeyword(){
       $res = pg_query($cn,$query);
 
       echo $query."<br>";
+      }
+      else
+      {
+        echo "Ключевое слово $selected_kword уже существует";
+      }
     }
 
     $shl = 'exiftool -XMP-dc:ALL img/'.$_POST['img_name']." -b";
