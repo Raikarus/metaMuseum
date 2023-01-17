@@ -69,12 +69,17 @@ function LinkKeyword(){
       
     foreach($_POST['kwords'] as $selected_kword)
     {
-      $query = "SELECT pic_id FROM pictags WHERE pic_id='".$pic_id."' AND tag_id_num='".$selected_kword."'";
+      $query="SELECT tag_id,tag_id_num FROM kwords WHERE kword_name='".$selected_kword."'";
       $res = pg_query($cn,$query);
-      echo "$res !_!_!_!_!_!_! $query <br>";
+      while ($row=pg_fetch_object($res)) {
+        $tag_id = $row->tag_id;
+        $tag_id_num = $row->tag_id_num;
+      }
+      
+      $query = "SELECT pic_id FROM pictags WHERE pic_id='".$pic_id."' AND tag_id_num='".$tag_id_num."'";
+      $res = pg_query($cn,$query);
       $access = 1;
       while ($row=pg_fetch_object($res)) {
-        echo $row->pic_id." !_!_!_!_! <br>";
         $access = 0;
       }
       if($access == 1)
@@ -82,12 +87,7 @@ function LinkKeyword(){
         $shl = 'exiftool -XMP-dc:subject+="'.$selected_kword.'" img/'.$_POST['img_name'];
         $res = shell_exec($shl);
         echo "<br><pre>$res</pre>"; 
-        $query="SELECT tag_id,tag_id_num FROM kwords WHERE kword_name='".$selected_kword."'";
-        $res = pg_query($cn,$query);
-        while ($row=pg_fetch_object($res)) {
-          $tag_id = $row->tag_id;
-          $tag_id_num = $row->tag_id_num;
-        }
+        
         
         $query="INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES (".$pic_id.",".$tag_id.",".$tag_id_num.")";
         $res = pg_query($cn,$query);
