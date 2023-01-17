@@ -52,7 +52,7 @@
 <form method="post">
 	<input type="text" name="kword_name" placeholder="Название ключевого слова">
 	<input type="password" placeholder="пароль" name="passAdd">
-	<input class="button" name="AddKeyword" value="AddKeyword" type="submit">
+	<input name="AddKeyword" value="AddKeyword" type="submit">
 </form>
 <br>
 <div id = "output">

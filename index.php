@@ -133,7 +133,7 @@ function LinkKeyword(){
 <form method="post" enctype="multipart/form-data">
     <input type="password" placeholder="пароль" name="passDownload">
 		<input id="img" name="imgfile" type="file">
-	<input class="button" name="Download" value="Download" type="submit">
+	<input   name="Download" value="Download" type="submit">
 </form>
 <br>
 <form method="post">
@@ -148,7 +148,7 @@ function LinkKeyword(){
       echo "<option>".$row->kword_name."</option>";
     }
   ?>
-  <input class="button" name="LinkKeyword" value="LinkKeyword" type="submit">
+  <input name="LinkKeyword" value="LinkKeyword" type="submit">
 </form>
 <br>
 <input type="text" id="img_name" placeholder="Название изображения" />

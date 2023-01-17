@@ -20,12 +20,6 @@
             case 'REMOVE':
                 remove();
                 break;
-            case 'LinkKeyword':
-                LinkKeyword();
-                break;
-            case 'AddKeyword':
-                AddKeyword();
-                break;
         }
     }
 
@@ -89,7 +83,4 @@
         shell_exec($query);
         exit;
     }
-
-
-
 ?>
