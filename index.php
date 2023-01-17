@@ -76,9 +76,9 @@ function upload_file($file, $nameFile='default', $upload_dir= 'img', $allowed_ty
 <a href="index.php">Дом</a>
 <a href="tags.php">Тэги</a>
 <br>
-<input id = "pass" type="password" placeholder="пароль" name="pass">
 <br>
 <form method="post" enctype="multipart/form-data">
+    <input id = "pass" type="password" placeholder="пароль" name="pass">
 		<input id="img" name="imgfile" type="file">
 	<input class="button" name="Download" value="Download" type="submit">
 </form>

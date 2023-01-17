@@ -20,9 +20,6 @@
             case 'REMOVE':
                 remove();
                 break;
-            case 'Download':
-                Download();
-                break;
             case 'LinkKeyword':
                 LinkKeyword();
                 break;
