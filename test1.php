@@ -44,7 +44,7 @@
 
 ////////////////////////////////////////////////////////
 */
-                 $filename1 ='test_new.xmp';
+                 $filename1 ='test2.xmp';
                  $text1 = file_get_contents($filename);
 
                  $list = array("DateTime","ModifyDate","FileModifyDate","ImageWidth","ImageHeight","Label","Title","AuthorPosition","ObjectName","By-lineTitle","UserComment","Description",
