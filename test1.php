@@ -47,7 +47,7 @@
                /*  $filename1 ='test2.xmp';
                  $text1 = file_get_contents($filename);
 */
-                 $list = array("DateTime","ModifyDate","FileModifyDate","ImageWidth","ImageHeight","Label","Title","AuthorPosition","ObjectName","By-lineTitle","UserComment","Description","ImageDescription","Headline","Caption-Abstract","Country","Country-PrimaryLocationName","State","Province-State","City","Subject","Keywords","Creator","Artist","Author","Identifier","Rights","Copyright","CopyrightNotice");
+                 $list = array("DateTime","ModifyDate","FileModifyDate","ImageWidth","ImageHeight","Label","T4444itle","AuthorPosition","ObjectName","By-lineTitle","UserComment","Description","ImageDescription","Headline","Caption-Abstract","Country","Country-PrimaryLocationName","State","Province-State","City","Subject","Keywords","Creator","Artist","Author","Identifier","Rights","Copyright","CopyrightNotice");
                 
                   $data_pos = 0;
                  for($i = 0 ;$i < count($list);$i++)
