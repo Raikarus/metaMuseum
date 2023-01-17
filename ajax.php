@@ -26,6 +26,9 @@
             case 'Download':
                 Download();
                 break;
+            case 'LinkKeyword':
+                LinkKeyword();
+                break;
             case 'AddKeyword':
                 AddKeyword();
                 break;
@@ -127,7 +130,7 @@
         }
     }
 
-    function AddKeyword(){
+    function LinkKeyword(){
         if($_POST['pass']=="schef2002"){
         echo "П4р0ль пр0йд3н <br>";
 

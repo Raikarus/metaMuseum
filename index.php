@@ -56,7 +56,7 @@ $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres passwor
 		}
 	?>
 	<input type="password" placeholder="пароль" name="pass">
-	<input class="button" name="AddKeyword" value="AddKeyword" type="submit">
+	<input class="button" name="LinkKeyword" value="LinkKeyword" type="submit">
 </form>
 </body>
 </html>
