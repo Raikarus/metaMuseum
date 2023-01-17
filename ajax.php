@@ -38,7 +38,7 @@
                 $keys += $word;
             }
             if(in_array($keys, $list)){
-                echo substr($value, strpos($value, ":")+1,strlen($value))."<br>";
+                echo $keys." = ".substr($value, strpos($value, ":")+1,strlen($value))."<br>";
             }
         }
         
