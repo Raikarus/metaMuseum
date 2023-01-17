@@ -19,7 +19,7 @@ $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres passwor
 	        var ajaxurl = 'ajax.php',
           var pass = $('#pass').val();
           alert(pass);
-	        data =  {'action': clickBtnValue, 'img_name': img_name, 'pass': pass}, ;
+	        data =  {'action': clickBtnValue, 'img_name': img_name, 'pass': pass};
 	        $.post(ajaxurl, data, function (response) {
 				  $('#output').html(response);
 	        });
@@ -32,8 +32,8 @@ $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres passwor
 <a href="index.php">Дом</a>
 <a href="tags.php">Тэги</a>
 <form method="post" enctype="multipart/form-data">
-	<input id = "pass" type="password" placeholder="пароль" name="pass">
-	<input id="img" name="imgfile" type="file">
+		<input id="img" name="imgfile" type="file">
+    <input id = "pass" type="password" placeholder="пароль" name="pass">
 	<input class="button" name="Download" value="Download" type="submit">
 </form>
 <br>
@@ -46,6 +46,7 @@ $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres passwor
 <br>
 <form method="post">
 	<input type="text" name="img_name" placeholder="Название изображения">
+  <input id = "pass2" type="password" placeholder="пароль" name="pass">
 	<select multiple name="kwords[]">
 	<?php
 		$query = "SELECT kword_name FROM kwords";
@@ -55,7 +56,6 @@ $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres passwor
 			echo "<option>".$row->kword_name."</option>";
 		}
 	?>
-	<input id = "pass" type="password" placeholder="пароль" name="pass">
 	<input class="button" name="LinkKeyword" value="LinkKeyword" type="submit">
 </form>
 <br>
