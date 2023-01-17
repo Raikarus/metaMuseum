@@ -9,7 +9,7 @@
 
          $tag2 = "CreatorTool";
 
-          $filename ='test2.xmp';
+          $filename ='test1.xmp';
            $text = file_get_contents($filename);
 
            // echo $text;
