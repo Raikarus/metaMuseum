@@ -30,12 +30,28 @@ $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres passwor
 <body>
 <a href="index.php">Дом</a>
 <a href="tags.php">Тэги</a>
+<br>
+<input id = "pass" type="password" placeholder="пароль" name="pass">
+<br>
 <form method="post" enctype="multipart/form-data">
 		<input id="img" name="imgfile" type="file">
 	<input class="button" name="Download" value="Download" type="submit">
 </form>
 <br>
-<input id = "pass" type="password" placeholder="пароль" name="pass">
+<form method="post">
+  <input type="text" name="img_name" placeholder="Название изображения">
+    <select multiple name="kwords[]">
+  <?php
+    $query = "SELECT kword_name FROM kwords";
+    $res = pg_query($cn,$query);
+    while($row=pg_fetch_object($res))
+    {
+      echo "<option>".$row->kword_name."</option>";
+    }
+  ?>
+  <input class="button" name="LinkKeyword" value="LinkKeyword" type="submit">
+</form>
+<br>
 <input type="text" id="img_name" placeholder="Название изображения" />
 <input type="submit" class="button" name="read" value="read" />
 <input type="submit" class="button" name="list" value="list" />
@@ -43,19 +59,7 @@ $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres passwor
 <input type="submit" class="button" name="pictags" value="pictags" />
 <input type="submit" class="button" name="REMOVE" value="REMOVE" />
 <br>
-<form method="post">
-	<input type="text" name="img_name" placeholder="Название изображения">
-  	<select multiple name="kwords[]">
-	<?php
-		$query = "SELECT kword_name FROM kwords";
-		$res = pg_query($cn,$query);
-		while($row=pg_fetch_object($res))
-		{
-			echo "<option>".$row->kword_name."</option>";
-		}
-	?>
-	<input class="button" name="LinkKeyword" value="LinkKeyword" type="submit">
-</form>
+
 <br>
 <div id = "output">
 </div>
