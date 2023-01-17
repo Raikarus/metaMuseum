@@ -33,7 +33,7 @@
         $list = array("Date Time","Modify Date","File Modify Date","Image Width","Image Height","Label","Title","Author Position","Object Name","By-lineTitle","User Comment","Description","Image Description","Headline","Caption-Abstract","Country","Country-Primary Location Name","State","Province-State","City","Subject","Keywords","Creator","Artist","Author","Identifier","Rights","Copyright","Copyright Notice");
         echo "<pre>$res</pre><br><br>";
         foreach ($arr as $key => $value) {
-            echo substr($value, 0,strpos($value, ":"))." ".in_array(substr($value, 0,strpos($value, ":")), $list)."<br>";
+            echo substr($value, 0,strpos($value, ":"))."Ъ";
             if(in_array(substr($value, 0,strpos($value, ":")-1), $list)){
                 echo substr($value, strpos($value, ":")+1,strlen($value))."<br>";
             }
