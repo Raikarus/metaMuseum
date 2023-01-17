@@ -33,13 +33,9 @@
         $list = array("DateTime","ModifyDate","FileModifyDate","ImageWidth","ImageHeight","Label","Title","AuthorPosition","ObjectName","By-lineTitle","UserComment","Description","ImageDescription","Headline","Caption-Abstract","Country","Country-PrimaryLocationName","State","Province-State","City","Subject","Keywords","Creator","Artist","Author","Identifier","Rights","Copyright","CopyrightNotice");
         echo "<pre>$res</pre><br><br>";
         foreach ($arr as $key => $value) {
-            $keyWords = explode(" ",substr($value, 0,strpos($value, ':')));
-            foreach ($keyWords as $key1 => $word) {
-                $keys += $word;
-            }
-            echo $keys."<br>";
-            if(in_array($keys, $list)){
-                echo $keys." = ".substr($value, strpos($value, ":")+1,strlen($value))."<br>";
+            $str = str_replace(' ', '', $value);
+            if(in_array($str, $list)){
+                echo $str." = ".substr($value, strpos($value, ":")+1,strlen($value))."<br>";
             }
         }
         
