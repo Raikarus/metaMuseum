@@ -18,7 +18,6 @@ $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres passwor
 	        var img_name = "img/"+$('#img_name').val();
 	        var ajaxurl = 'ajax.php';
           var pass = $('#pass').val();
-          alert(pass);
 	        data =  {'action': clickBtnValue, 'img_name': img_name, 'pass': pass};
 	        $.post(ajaxurl, data, function (response) {
 				  $('#output').html(response);
@@ -33,10 +32,10 @@ $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres passwor
 <a href="tags.php">Тэги</a>
 <form method="post" enctype="multipart/form-data">
 		<input id="img" name="imgfile" type="file">
-    <input id = "pass" type="password" placeholder="пароль" name="pass">
 	<input class="button" name="Download" value="Download" type="submit">
 </form>
 <br>
+<input id = "pass" type="password" placeholder="пароль" name="pass">
 <input type="text" id="img_name" placeholder="Название изображения" />
 <input type="submit" class="button" name="read" value="read" />
 <input type="submit" class="button" name="list" value="list" />
@@ -46,8 +45,7 @@ $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres passwor
 <br>
 <form method="post">
 	<input type="text" name="img_name" placeholder="Название изображения">
-  <input id = "pass2" type="password" placeholder="пароль" name="pass">
-	<select multiple name="kwords[]">
+  	<select multiple name="kwords[]">
 	<?php
 		$query = "SELECT kword_name FROM kwords";
 		$res = pg_query($cn,$query);
