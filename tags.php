@@ -35,14 +35,14 @@
 <input type="submit" class="button" name="read" value="read" />
 <input type="submit" class="button" name="list" value="list" />
 <input type="submit" class="button" name="kwords" value="kwords" />
-<div id = "output">
-</div>
-
+<br>
 <form method="post">
 	<input type="text" name="kword_name" placeholder="Название ключевого слова">
 	<input type="password" placeholder="пароль" name="pass">
 	<input class="button" name="AddKeyword" value="AddKeyword" type="submit">
 </form>
-
+<br>
+<div id = "output">
+</div>
 </body>
 </html>

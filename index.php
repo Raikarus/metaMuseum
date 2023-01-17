@@ -41,8 +41,6 @@ $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres passwor
 <input type="submit" class="button" name="pics" value="pics" />
 <input type="submit" class="button" name="pictags" value="pictags" />
 <input type="submit" class="button" name="REMOVE" value="REMOVE" />
-<div id = "output">
-</div>
 <br>
 <form method="post">
 	<input type="text" name="img_name" placeholder="Название изображения">
@@ -58,5 +56,8 @@ $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres passwor
 	<input type="password" placeholder="пароль" name="pass">
 	<input class="button" name="LinkKeyword" value="LinkKeyword" type="submit">
 </form>
+<br>
+<div id = "output">
+</div>
 </body>
 </html>
