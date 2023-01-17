@@ -37,6 +37,7 @@
             foreach ($keyWords as $key1 => $word) {
                 $keys += $word;
             }
+            echo $keys."<br>";
             if(in_array($keys, $list)){
                 echo $keys." = ".substr($value, strpos($value, ":")+1,strlen($value))."<br>";
             }
