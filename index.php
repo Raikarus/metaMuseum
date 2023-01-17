@@ -17,7 +17,9 @@ $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres passwor
 	        var clickBtnValue = $(this).val();
 	        var img_name = "img/"+$('#img_name').val();
 	        var ajaxurl = 'ajax.php',
-	        data =  {'action': clickBtnValue, 'img_name': img_name};
+          var pass = $('#pass').val();
+          alert(pass);
+	        data =  {'action': clickBtnValue, 'img_name': img_name}, 'pass': pass;
 	        $.post(ajaxurl, data, function (response) {
 				  $('#output').html(response);
 	        });
@@ -30,7 +32,7 @@ $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres passwor
 <a href="index.php">Дом</a>
 <a href="tags.php">Тэги</a>
 <form method="post" enctype="multipart/form-data">
-	<input type="password" placeholder="пароль" name="pass">
+	<input id = "pass" type="password" placeholder="пароль" name="pass">
 	<input id="img" name="imgfile" type="file">
 	<input class="button" name="Download" value="Download" type="submit">
 </form>
@@ -53,7 +55,7 @@ $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres passwor
 			echo "<option>".$row->kword_name."</option>";
 		}
 	?>
-	<input type="password" placeholder="пароль" name="pass">
+	<input id = "pass" type="password" placeholder="пароль" name="pass">
 	<input class="button" name="LinkKeyword" value="LinkKeyword" type="submit">
 </form>
 <br>
