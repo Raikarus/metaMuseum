@@ -73,6 +73,7 @@ function LinkKeyword(){
       $res = pg_query($cn,$query);
       $access = 1;
       while ($row=pg_fetch_object($res)) {
+        echo $row->pic_id." !_!_!_!_! <br>";
         $access = 0;
       }
       if($access == 1)
