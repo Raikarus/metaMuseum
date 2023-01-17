@@ -28,23 +28,13 @@
         echo $shl."<br>";
         $res = shell_exec($shl);
         $arr = explode("\n", $res);
-        foreach ($arr as $key => $value) {
-            echo substr($value, 0,strpos($value, ":"))." ".substr($value, strpos($value, ":")+1,strlen($value))."<br>";
-        }
+        
 
         $list = array("DateTime","ModifyDate","FileModifyDate","ImageWidth","ImageHeight","Label","T4444itle","AuthorPosition","ObjectName","By-lineTitle","UserComment","Description","ImageDescription","Headline","Caption-Abstract","Country","Country-PrimaryLocationName","State","Province-State","City","Subject","Keywords","Creator","Artist","Author","Identifier","Rights","Copyright","CopyrightNotice");
-        $data_pos = 0;
-
-        foreach ($list as $key => $value) {
-            echo $key." ".$value."<br>";
-            if(strpos($text, $value))
-            {
-                $sub = substr($text, strpos($text, $value));
-                $sub1 = substr($sub,0, strpos($text, ' : '));
-                $sub2 = substr($sub,strpos($text, ':'), strpos($text,"\n"));
-
-                echo $sub1." : ".$sub2;
-                echo '<br>';
+        
+        foreach ($arr as $key => $value) {
+            if(in_array(substr($value, 0,strpos($value, ":")), $list)){
+                echo substr($value, strpos($value, ":")+1,strlen($value))."<br>";
             }
         }
         
