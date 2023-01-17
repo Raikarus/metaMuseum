@@ -66,8 +66,8 @@ else if($_POST['pass']=="schef2003"){
     	    $res = shell_exec($shl);
         	echo "<br><pre>$res</pre>";	
           $query="SELECT tag_id,tag_id_num FROM kwords WHERE kword_name='".$selected_kword."'";
-          $res = pg_query($cn,$res);
-          echo $cn." ".$res."<br>";
+          $res = pg_query($cn,$query);
+                    
           while ($row=pg_fetch_object($res)) {
             $tag_id = $row->tag_id;
             $tag_id_num = $row->tag_id_num;
