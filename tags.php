@@ -1,15 +1,5 @@
 <?php
-if($_POST['pass']=="schef2002"){
-        echo "П4р0ль пр0йд3н <br>";
-        $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
-        $query = "INSERT INTO kwords(tag_id,kword_name,status) VALUES(10,'".$_POST['kword_name']."',1)";
-        echo "<br>--- ".$query." ---<br>";
-        $res = pg_query($cn,$query);
-}
-else
-{
-	echo "П4р0ль не пр0йд3н <br>";
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +41,7 @@ else
 <form method="post">
 	<input type="text" name="kword_name" placeholder="Название ключевого слова">
 	<input type="password" placeholder="пароль" name="pass">
-	<input value="Добавить ключевое слово" type="submit">
+	<input class="button" name="AddKeyword" value="AddKeyword" type="submit">
 </form>
 
 </body>

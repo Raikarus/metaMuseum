@@ -1,17 +1,20 @@
 <?php
-    $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+    
     if (isset($_POST['action'])) {
         switch ($_POST['action']) {
             case 'read':
                 read();
                 break;
             case 'list':
+                $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
                 list_l();
                 break;
             case 'pics':
+                $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
                 pics();
                 break;
             case 'kwords':
+                $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
                 kwords();
                 break;
             case 'pictags':
@@ -173,6 +176,19 @@
 
         $shl = 'rm img/file.xmp';
         $res = shell_exec($shl);
+        }
+        else
+        {
+            echo "П4р0ль не пр0йд3н <br>";
+        }
+    }
+    function AddKeyword()
+    {
+        if($_POST['pass']=="schef2002"){
+        echo "П4р0ль пр0йд3н <br>";
+        $query = "INSERT INTO kwords(tag_id,kword_name,status) VALUES(10,'".$_POST['kword_name']."',1)";
+        echo "<br>--- ".$query." ---<br>";
+        $res = pg_query($cn,$query);
         }
         else
         {
