@@ -52,13 +52,15 @@
                   $data_pos = 0;
                   $sub = " " ;
                   $sub1 = " " ;
+                   $sub2 = " " ;
                  for($i = 0 ;$i < 12;$i++)
                  {
                   if(strpos($text, $list[$i]))
                   {
                     $sub = substr($text, strpos($text, $list[$i]));
-                    //$sub1 = substr($sub,0, strpos($text, ':'+));
-                    echo $sub;
+                    $sub1 = substr($sub,0, strpos($text, ' : '));
+                    $sub2 = substr($sub,strpos($text, ':')+1, strpos($text, ' '));
+                    echo $sub2;
                     echo '<br>';
                   }
                   
