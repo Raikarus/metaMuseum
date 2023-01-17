@@ -66,7 +66,7 @@
                   }
                   
                  }
-                  echo "<pre>$text</pre>";
+                  echo htmlspecialchars("<pre>$text</pre>");
            
           ?>
 
