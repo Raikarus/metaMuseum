@@ -19,7 +19,7 @@ $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres passwor
 	        var ajaxurl = 'ajax.php',
           var pass = $('#pass').val();
           alert(pass);
-	        data =  {'action': clickBtnValue, 'img_name': img_name}, 'pass': pass;
+	        data =  {'action': clickBtnValue, 'img_name': img_name, 'pass': pass}, ;
 	        $.post(ajaxurl, data, function (response) {
 				  $('#output').html(response);
 	        });
