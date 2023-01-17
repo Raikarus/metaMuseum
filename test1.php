@@ -66,7 +66,7 @@
                   }
                   
                  }
-                  echo $text;
+                  echo "<pre>$text</pre>";
            
           ?>
 
