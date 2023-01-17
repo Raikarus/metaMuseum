@@ -31,7 +31,7 @@
         foreach ($arr as $key => $value) {
             $key = explode(":", $value);
             foreach ($key as $key2 => $value2) {
-                echo $key2."<br>".$value2."<br><br>";
+                echo $value2."<br>";
             }
         }
         exit;
