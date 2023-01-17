@@ -50,13 +50,16 @@
                  $list = array("DateTime","ModifyDate","FileModifyDate","ImageWidth","ImageHeight","Label","T4444itle","AuthorPosition","ObjectName","By-lineTitle","UserComment","Description","ImageDescription","Headline","Caption-Abstract","Country","Country-PrimaryLocationName","State","Province-State","City","Subject","Keywords","Creator","Artist","Author","Identifier","Rights","Copyright","CopyrightNotice");
                 
                   $data_pos = 0;
+                  $sub = " " ;
+                  $sub1 = " " ;
                  for($i = 0 ;$i < 12;$i++)
                  {
                   if(strpos($text, $list[$i]))
                   {
-
-                    echo substr($text, strpos($text, $list[$i]),strpos($text, $list[$i])+1);
-                     echo '<br>';
+                    $sub = substr($text, strpos($text, $list[$i]));
+                    $sub1 = substr($text,0, strpos($text, $list[$i])+33);
+                    echo $sub1;
+                    echo '<br>';
                   }
                   
                  }
