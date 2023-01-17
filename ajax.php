@@ -29,7 +29,7 @@
         $res = shell_exec($shl);
         $arr = explode('\n', $res);
         foreach ($arr as $key => $value) {
-            echo $key." ".$value."<br>";
+            echo $key." ".$value." 1<br>";
         }
         exit;
     }
