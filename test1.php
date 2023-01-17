@@ -57,7 +57,7 @@
                   if(strpos($text, $list[$i]))
                   {
                     $sub = substr($text, strpos($text, $list[$i]));
-                    $sub1 = substr($sub,0, strpos($text, ':'));
+                    $sub1 = substr($sub,0, strpos($text, ':'+10));
                     echo $sub1;
                     echo '<br>';
                   }
