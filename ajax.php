@@ -30,7 +30,7 @@
         $arr = explode("\n", $res);
         
 
-        $list = array("DateTime","ModifyDate","FileModifyDate","ImageWidth","ImageHeight","Label","T4444itle","AuthorPosition","ObjectName","By-lineTitle","UserComment","Description","ImageDescription","Headline","Caption-Abstract","Country","Country-PrimaryLocationName","State","Province-State","City","Subject","Keywords","Creator","Artist","Author","Identifier","Rights","Copyright","CopyrightNotice");
+        $list = array("Date Time","Modify Date","File Modify Date","Image Width","Image Height","Label","Title","Author Position","Object Name","By-lineTitle","User Comment","Description","Image Description","Headline","Caption-Abstract","Country","Country-PrimaryLocationName","State","Province-State","City","Subject","Keywords","Creator","Artist","Author","Identifier","Rights","Copyright","CopyrightNotice");
         echo "<pre>$res</pre><br><br>";
         foreach ($arr as $key => $value) {
             if(in_array(substr($value, 0,strpos($value, ":")), $list)){
