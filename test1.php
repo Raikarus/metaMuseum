@@ -53,7 +53,7 @@
                  for($i = 0 ;$i < count($list);$i++)
                  {
                   echo $list[$i];
-                  echo '/n';
+                  echo \n;
                  }
            
           ?>
