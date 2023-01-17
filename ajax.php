@@ -29,10 +29,7 @@
         $res = shell_exec($shl);
         $arr = explode("\n", $res);
         foreach ($arr as $key => $value) {
-            $key = explode(":", $value);
-            foreach ($key as $key2 => $value2) {
-                echo $value2."<br>";
-            }
+            echo substr($value, 0,strpos($value, ":"))." ".substr($value, strpos($value, ":"),strlen($value));
         }
         exit;
     }
