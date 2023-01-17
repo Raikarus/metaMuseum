@@ -16,6 +16,9 @@
             case 'pictags':
                 pictags();
                 break;
+            case 'REMOVE':
+                remove();
+                break;
         }
     }
 
@@ -63,6 +66,18 @@
         echo "<pre>";
         print_r($row);
         echo "</pre>";
+    }
+
+    function remove()   {
+        $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+        
+        $query = "DELETE FROM pics";
+        pg_query($cn,$query);
+        $query = "DELETE FROM pictags";
+        pg_query($cn,$query);
+
+        $query = "rm img/*";
+        shell_exec($query);
     }
 
 ?>

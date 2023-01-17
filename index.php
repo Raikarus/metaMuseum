@@ -130,6 +130,7 @@ else
 <input type="submit" class="button" name="list" value="list" />
 <input type="submit" class="button" name="SQL" value="SQL" />
 <input type="submit" class="button" name="pictags" value="pictags" />
+<input type="submit" class="button" name="REMOVE" value="REMOVE" />
 <div id = "output">
 </div>
 <br>
