@@ -51,11 +51,11 @@
                                "ImageDescription","Headline","Caption-Abstract","Country","Country-PrimaryLocationName","State","Province-State","City","Subject","Keywords","Creator","Artist"
                                "Author","Identifier","Rights","Copyright","CopyrightNotice");
 
-                 for($i = 0 ;$i < count($list);$i++)
+              /*   for($i = 0 ;$i < count($list);$i++)
                  {
                   echo $list[$i];
                   echo '/n';
-                 }
+                 }*/
            
           ?>
 
