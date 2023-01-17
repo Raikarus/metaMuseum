@@ -75,7 +75,7 @@ function LinkKeyword(){
         $tag_id = $row->tag_id;
         $tag_id_num = $row->tag_id_num;
       }
-      
+
       $query = "SELECT pic_id FROM pictags WHERE pic_id='".$pic_id."' AND tag_id_num='".$tag_id_num."'";
       $res = pg_query($cn,$query);
       $access = 1;
@@ -96,7 +96,7 @@ function LinkKeyword(){
         }
       else
       {
-        echo "Ключевое слово $selected_kword уже существует";
+        echo "Ключевое слово $selected_kword уже существует<br>";
       }
     }
 
