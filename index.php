@@ -16,7 +16,7 @@ $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres passwor
     	$('.button').click(function(){
 	        var clickBtnValue = $(this).val();
 	        var img_name = "img/"+$('#img_name').val();
-	        var ajaxurl = 'ajax.php',
+	        var ajaxurl = 'ajax.php';
           var pass = $('#pass').val();
           alert(pass);
 	        data =  {'action': clickBtnValue, 'img_name': img_name, 'pass': pass};
