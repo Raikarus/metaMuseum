@@ -44,14 +44,14 @@
 
 ////////////////////////////////////////////////////////
 */
-                 $filename1 ='test2.xmp';
+               /*  $filename1 ='test2.xmp';
                  $text1 = file_get_contents($filename);
 
                  $list = array("DateTime","ModifyDate","FileModifyDate","ImageWidth","ImageHeight","Label","Title","AuthorPosition","ObjectName","By-lineTitle","UserComment","Description",
                                "ImageDescription","Headline","Caption-Abstract","Country","Country-PrimaryLocationName","State","Province-State","City","Subject","Keywords","Creator","Artist"
                                "Author","Identifier","Rights","Copyright","CopyrightNotice");
 
-              /*   for($i = 0 ;$i < count($list);$i++)
+                 for($i = 0 ;$i < count($list);$i++)
                  {
                   echo $list[$i];
                   echo '/n';
