@@ -23,7 +23,7 @@ function upload_file($file, $nameFile='default', $upload_dir= 'img', $allowed_ty
         if(!move_uploaded_file($file['tmp_name'],$upload_dir.$filename))//$upload_dir.$prefix.$nameFile.$ext)) // Загружаем файл в указанную папку.
             return array('error' => 'При загрузке возникли ошибки. Попробуйте ещё раз.');
 
-        AddToBd($file['size']);
+        AddToBd($filename,$file['size']);
             
         return Array('filename' => $prefix.$nameFile.$ext);
     }
@@ -44,12 +44,12 @@ function Download() {
 
 
 
-function AddToBd($fsize) {
+function AddToBd($filename,$fsize) {
   $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
   $date = "";
   $width = 0;
   $height = 0;
-  $title = "";
+  $title = $filename;
   $subscr = "";
   $rights = "";
   $ext = "";
