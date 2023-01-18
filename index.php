@@ -46,7 +46,7 @@ function Download() {
 
 function AddToBd($filename,$fsize,$ext) {
   $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
-  $date = '2010-10-10 10:10:10';
+  $date = '2023:01:18 01:55:53+00:00';
   $width = 0;
   $height = 0;
   $title = $filename;
@@ -75,7 +75,7 @@ function AddToBd($filename,$fsize,$ext) {
         echo "ЗАПРОСИК $query <br>";
         $res = pg_query($cn,$query);
       }
-      $query = "SELECT tag_id_num FROM kwords WHERE kword_name='".$strValue."'";
+      $query = "SELECT tag_id_num FROM kwords WHERE tag_id=$tag_id AND kword_name='".$strValue."'";
       echo "ЗАПРОСИК $query <br>";
       $res = pg_query($cn,$query);
       $row = pg_fetch_object($res);
@@ -88,7 +88,7 @@ function AddToBd($filename,$fsize,$ext) {
       echo "ЗАПРОСИК $query<br>";
       switch ($row->pics_name) {
         case 'date':
-          $date = substr($strValue,0,"+");
+          $date = $strValue;
           break;
         case 'width':
           $width = $strValue;
