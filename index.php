@@ -31,16 +31,18 @@ function upload_file($file, $nameFile='default', $upload_dir= 'img', $allowed_ty
 function Download() {
   if($_POST['passDownload']=="schef2002"){
       echo "П4р0ль пр0йд3н <br>";
-      echo "<pre>";
-      print_r($_FILES['imgfile']);
-      echo "</pre>";
-      /*$files = array();
+      
+      $files = array();
       foreach($_FILES['imgfile'] as $k => $l) {
         foreach($l as $i => $v) {
           $files[$i][$k] = $v;
         }
       }   
       $_FILES['imgfile'] = $files;
+      echo "<pre>";
+      print_r($_FILES['imgfile']);
+      echo "</pre>";
+      /*
       foreach ($_FILES as $key => $value) {
         $res = upload_file($value,$_POST['etc']);
         foreach($res as $a => $b){
