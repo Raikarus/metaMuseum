@@ -106,16 +106,7 @@
                             echo '<span style="color:#24B47E;text-align:center;font-size:'.$size.'pt;word-break:normal;">'.$tag[$i]."($size)".'</span>';
                             echo "\n";
                         }
-                              
-                          
-                         
-                        ?>
-                     
-                     
-                         
-                           <!--	<ul class = "list_of_groups">
-                        	
-         					</ul> --> 
+                        ?> 
                </div>
                <div class = "choosen_tags">
                   <ul class = "wrap">
