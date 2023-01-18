@@ -243,9 +243,9 @@ header {
 }
 
 .search {
-   padding-left: 3px;
    padding: 0;
    margin: 0;
+   padding-left: 2px;
    height: 100%;
    width: 82%;
    background-color: #181818;
