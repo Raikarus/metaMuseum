@@ -32,7 +32,7 @@
 <link rel="stylesheet" href="css/style1.css"  type="text/css">
 <script type="text/javascript" src = "js/jq.js"></script>
 <script type="text/javascript" src = "js/script.js"></script>
-<title>Главная</title>
+<title>Главнаялол</title>
 </head>
 <body>
 
