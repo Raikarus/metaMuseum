@@ -53,16 +53,14 @@
 <div class = "main">
    <div class = "main_left">
       <ul class = "photos_compilation" id = "compilation">
-      <!--
-                  $dir='./img';
-                  $files = scandir($dir);
-                  foreach($files as $n => $img){
-                     if ($img != '.' && $img != '..') echo '<li class = "photo_li" >
-                                 <div class = "photo" style="background-image:url('."'".'img/'.$img."'".'"></div>
-                                 <div class = "name">'.$img.'</div>           
-                           </li>';
-       -->
-                  
+         <li class = "compilation_li">
+            <div class="comp_li_photo">
+
+            </div>
+            <div class="comp_li_name">
+               
+            </div>
+         </li>         
       </ul>
    </div>
       <div class = "main_center">
