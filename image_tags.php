@@ -32,6 +32,22 @@
 <link rel="stylesheet" href="css/style1.css"  type="text/css">
 <script type="text/javascript" src = "js/jq.js"></script>
 <script type="text/javascript" src = "js/script.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+    <script>
+
+    $(document).ready(function(){
+        $('.button').click(function(){
+            var clickBtnValue = $(this).val();
+            var ajaxurl = 'ajax.php';
+            data =  {'action': clickBtnValue};
+            $.post(ajaxurl, data, function (response) {
+                  $('#out').html(response);
+            });
+        });
+    });
+
+    </script>
 <title>Главная</title>
 </head>
 <body>
@@ -58,7 +74,7 @@
 				$files = scandir($dir);
 				foreach($files as $n => $img){
 					if ($img != '.' && $img != '..') echo '<li class = "compilation_li" >
-                           <button class = "comp_li_button">
+                           <button class = "comp_li_button" value= "read">
                				   <div class = "comp_li_photo" style="background-image:url('."'".'img/'.$img."'".'"></div>
                				   <div class = "comp_li_name">'.$img.'</div>   
                            </button>        
