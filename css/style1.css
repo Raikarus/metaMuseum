@@ -208,6 +208,8 @@ header {
 .photos_compilation {
    width: 95%;
    height: 100%;
+   padding: 0;
+   margin: 0;
 }
 
 .main_right {
