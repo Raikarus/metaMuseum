@@ -61,7 +61,7 @@ function AddToBd($filename,$fsize,$ext) {
   $last_query = "";
   foreach ($arr as $key => $value) {
     $strTag = str_replace(' ', '', substr($value, 0,strpos($value, ":")));
-    $strValue = substr($value, strpos($value, ":")+1,strlen($value));
+    $strValue = trim(substr($value, strpos($value, ":")+1,strlen($value)), " ");
     if(in_array($strTag, $list)){
       echo "<br>";
       $tag_id = $list2[array_search($strTag, $list)];
@@ -69,11 +69,14 @@ function AddToBd($filename,$fsize,$ext) {
       $res = pg_query($cn,$query);
       echo "ЗАПРОСИК $query <br>";
       $row = pg_fetch_object($res);
+      $newTag = 0;
       if(!$row->tag_id_num)
       {
+        //Тут автоматически создаются тэги
         $query = "INSERT INTO kwords(tag_id,kword_name,status) VALUES($tag_id,'".$strValue."',0)";
         echo "ЗАПРОСИК $query <br>";
         $res = pg_query($cn,$query);
+        $newTag = 1;
       }
       $query = "SELECT tag_id_num FROM kwords WHERE tag_id=$tag_id AND kword_name='".$strValue."'";
       echo "ЗАПРОСИК $query <br>";
@@ -81,6 +84,13 @@ function AddToBd($filename,$fsize,$ext) {
       $row = pg_fetch_object($res);
       $tag_id_num = $row->tag_id_num;
       $last_query .= "INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES('-pic_id-',$tag_id,$tag_id_num);";
+
+      if($newTag == 1)
+      {
+        $query = "INSERT INTO kwgkw(gkword_id,tag_id,tag_id_num) VALUES(0,$tag_id,$tag_id_num)";
+        echo "ЗАПРОСИК $query <br>";
+        $res = pg_query($cn,$query);[]
+      }
 
       $query = "SELECT pics_name FROM tags WHERE tag_id=$tag_id";
       $res = pg_query($cn,$query);
