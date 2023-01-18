@@ -149,8 +149,8 @@
                           
                         for($i = 0; $i < 16;$i++)
                         {
-                           $size = rand(14, 40);
-                            echo '<span class = "cloud_tag" style="font-size:'.$size.'em;">'.$tag[$i]."($size)".'</span>';
+                           $size = rand(10, 40);
+                            echo '<span class = "cloud_tag" style="font-size:'.$size.'px;">'.$tag[$i]."($size)".'</span>';
                             echo "\n";
                         }
                         ?> 
