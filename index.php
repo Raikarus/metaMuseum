@@ -34,7 +34,7 @@ function Download() {
       
       $files = array();
       echo "<pre>";
-      print_r($_FILES['imgfile']);
+      print_r($_FILES);
       echo "</pre>";
       foreach($_FILES as $k => $l) {
         foreach($l as $i => $v) {
