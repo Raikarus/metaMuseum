@@ -95,8 +95,7 @@
                <div class = "tags">
                		<ul class = "list_of_groups">
                		<?php
-         					$query = "SELECT gkword_id,tag_id_num FROM kwgkw";
-                        echo "ЗАПРОСИК $query <br>";
+         					$query = "SELECT gkword_id,tag_id_num FROM kwgkw WHERE tag_id=10";
          					$res = pg_query($cn,$query);
          					while($row=pg_fetch_object($res))
          					{
