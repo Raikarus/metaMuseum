@@ -22,10 +22,9 @@ function upload_file($file, $nameFile='default', $upload_dir= 'img', $allowed_ty
 
         if(!move_uploaded_file($file['tmp_name'],$upload_dir.$filename))//$upload_dir.$prefix.$nameFile.$ext)) // Загружаем файл в указанную папку.
             return array('error' => 'При загрузке возникли ошибки. Попробуйте ещё раз.');
-            $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
-            $query = "INSERT INTO pics(title,fmt,fsize,md5) VALUES('".$file['name']."','$ext',".$file['size'].",'".md5_file($upload_dir.$filename)."')";
-            echo "<br>".$cn."--=--".$query."<br>";
-            $res = pg_query($cn,$query);
+
+        AddToBd($file['size']);
+            
         return Array('filename' => $prefix.$nameFile.$ext);
     }
 
@@ -41,6 +40,93 @@ function Download() {
   {
       echo "П4р0ль не пр0йд3н <br>";
   }
+}
+
+
+
+function AddToBd($fsize) {
+  $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+  $date = "";
+  $width = 0;
+  $height = 0;
+  $title = "";
+  $subscr = "";
+  $rights = "";
+  $ext = "";
+  $query = "SELECT pic_id FROM pics WHERE title='".$file['name']."'";
+  $res = pg_query($cn,$query);
+  while($row=pg_fetch_object($res))
+  {
+    $pic_id = $row->pic_id;
+  }
+
+  $shl = 'exiftool '.$file['name'];
+  $res = shell_exec($shl);
+  $arr = explode("\n", $res);
+  $list = array("DateTime","ModifyDate","FileModifyDate","ImageWidth","ImageHeight","Label","Title","AuthorPosition","ObjectName","By-lineTitle","UserComment","Description","ImageDescription","Headline","Caption-Abstract","Country","Country-PrimaryLocationName","State","Province-State","City","Subject","Keywords","Creator","Artist","Author","Identifier","Rights","Copyright","CopyrightNotice");
+  $list2 = array(1,1,1,2,3,4,5,5,5,5,6,6,6,6,6,7,7,8,8,9,9,10,10,11,11,11,12,13,13,13);
+  foreach ($arr as $key => $value) {
+    $strTag = str_replace(' ', '', substr($value, 0,strpos($value, ":")));
+    $strValue = substr($value, strpos($value, ":")+1,strlen($value))
+    if(in_array($strTag, $list)){
+      $tag_id = $list2[array_search($strTag, $list)];
+      $query = "SELECT tag_id_num WHERE tag_id= AND kword_name='".$strValue."'";
+      $res = pg_query($cn,$query);
+      echo "ЗАПРОСИК $query <br>";
+      $row = pg_fetch_object($res);
+      if(!$row->tag_id_num)
+      {
+        $query = "INSERT INTO keywords(tag_id,kword_name,status) VALUES($tag_id,;".$strValue."',0)";
+        echo "ЗАПРОСИК $query <br>";
+        $res = pg_query($cn,$query);
+      }
+      $query = "SELECT tag_id_num FROM keywords WHERE kword_name='".$strValue."'";
+      echo "ЗАПРОСИК $query <br>";
+      $res = pg_query($cn,$query);
+      $row = pg_fetch_object($res);
+      $tag_id_num = $row->tag_id_num;
+      $query = "INSERT INTO pictags(pic_id,tag_id_num) VALUES($pic_id,$tag_id_num)";
+      echo "ЗАПРОСИК $query<br>";
+      $res = pg_query($cn,$query);
+      $query "SELECT pics_name FROM tags WHERE tag_id=$tag_id";
+      $res = pg_query($cn,$query);
+      $row = pg_fetch_object($res);
+      echo "ЗАПРОСИК $query<br>";
+      if($row->pics_name == "width")
+      else if($row->pics_name=="height")
+      else if($row->pics_name=="date")
+      else if($row->pics_name=="title")
+      switch ($row->pics_name) {
+        case 'date':
+          $date = substr($strValue,0,"+");
+          break;
+        case 'width':
+          $width = $strValue;
+          break;
+        case 'height':
+          $height = $strValue;
+          break;
+        case 'title':
+          $title = substr($strValue,0,".");
+          $ext = substr($strValue, "."+1,strlen($strValue))
+          break;
+        case 'subscr':
+          $subscr = $strValue;
+          break;
+        case 'rights':
+          $rights = $strValue;
+          break;
+        default:
+          # code...
+          break;
+      }
+    }
+  }
+  $md5 = md5_file("img/".$title.".".$ext);
+  $query = "INSERT INTO pics(fmt,subscr,title,width,height,date,fsize,md5,rights) VALUES('".$ext."','".$subscr."','".$title."',$width,$height,$date,$fsize,'".$md5."','".$rights."')";
+  $res = pg_query($cn,$query);
+  echo "ЗАПРОСИК $query<br>";
+
 }
 
 function LinkKeyword(){
