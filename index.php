@@ -138,7 +138,7 @@ function AddToBd($filename,$fsize,$ext) {
   $res = pg_query($cn,$query);
   echo "ЗАПРОСИК $query<br>";
 
-  $query = "SELECT pic_id FROM pics WHERE title='$filename'";
+  $query = "SELECT pic_id FROM pics WHERE title=$title";
   $res = pg_query($cn,$query);
   echo "ЗАПРОСИК $query<br>";
   $row = pg_fetch_object($res);
@@ -148,7 +148,8 @@ function AddToBd($filename,$fsize,$ext) {
   echo "ЗАПРОСИК $last_query<br>";
 
   $shl = 'rename img/'.$filename." $pic_id.$ext";
-  shell_exec($shl);
+  $res = shell_exec($shl);
+  echo "$res<br>";
 }
 
 function LinkKeyword(){
