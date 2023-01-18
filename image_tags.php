@@ -92,7 +92,7 @@
                           $tag = explode(" ", $tags);
                         for($i = 0; $i < 16;$i++)
                         {
-                            echo '<span style="color:#24B47E;text-align:center;font-size:30pt;word-wrap: normal;">'.$tag[$i]."\n".'</span>';
+                            echo '<span style="color:#24B47E;text-align:center;font-size:30pt;word-break:normal;">'.$tag[$i]."\n".'</span>';
                             echo "\n";
                         }
                               
@@ -100,7 +100,7 @@
                          
                         ?>
                      
-                          aaa
+                     
                          
                            <!--	<ul class = "list_of_groups">
                         	
