@@ -395,6 +395,7 @@ header {
 .choosen_tags {
    height: 48%;
    width: 100%;
+   padding-left: 5px;
 }
 
 .choosen_tags::-webkit-scrollbar {
@@ -536,4 +537,5 @@ footer {
    color:#24B47E;
    text-align: center;
    word-break: normal;
+   margin-right: 5px;
 }
