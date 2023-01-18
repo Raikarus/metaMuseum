@@ -112,7 +112,7 @@ function AddToBd($filename,$fsize,$ext) {
     }
   }
   $md5 = md5_file("img/".$title);
-  $query = "INSERT INTO pics(fmt,subscr,title,width,height,date,fsize,md5,rights) VALUES('".$ext."','".$subscr."','".$title."',$width,$height,$date,$fsize,'".$md5."','".$rights."')";
+  $query = "INSERT INTO pics(fmt,subscr,title,width,height,date,fsize,md5,rights) VALUES('".$ext."','".$subscr."','".$title."',$width,$height,'".$date"',$fsize,'".$md5."','".$rights."')";
   $res = pg_query($cn,$query);
   echo "ЗАПРОСИК $query<br>";
 
