@@ -172,6 +172,8 @@
                             echo "\n";
                         }
                         ?> 
+                         <div id="out" >
+            </div>
                </div>
          </div>      
       </div>
