@@ -245,12 +245,14 @@ header {
    width: 85%;
    background-color: #181818;
    color: white;
+   border-radius: 10px;
 }
 
 .submit {
    height: 100%;
    width: 15%;
    background-color: #24B47E;
+   border-radius: 10px;
    color: white;
 }
 
