@@ -92,10 +92,6 @@ function AddToBd($fsize) {
       $res = pg_query($cn,$query);
       $row = pg_fetch_object($res);
       echo "ЗАПРОСИК $query<br>";
-      if($row->pics_name == "width")
-      else if($row->pics_name=="height")
-      else if($row->pics_name=="date")
-      else if($row->pics_name=="title")
       switch ($row->pics_name) {
         case 'date':
           $date = substr($strValue,0,"+");
