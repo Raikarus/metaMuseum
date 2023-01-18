@@ -226,12 +226,12 @@ header {
 .compilation_li {
    list-style: none;
    width: 100%;
-   height: 15vh;
+   height: 13vh;
    margin-bottom: 15px;
    display: flex;
    align-items: center;
    justify-content: space-around;
-   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+
 }
 
 .comp_li_photo {
