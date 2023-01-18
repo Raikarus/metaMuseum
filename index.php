@@ -46,7 +46,7 @@ function Download() {
 
 function AddToBd($filename,$fsize,$ext) {
   $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
-  $date = '2023:01:18 01:55:53+00:00';
+  $date = '2023-01-18 01:55:53';
   $width = 0;
   $height = 0;
   $title = $filename;
