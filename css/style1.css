@@ -240,6 +240,9 @@ header {
    display: flex;
    align-items: center;
    justify-content: flex-start;
+   border: 0;
+   padding: 0;
+   margin: 0;
 }
 
 

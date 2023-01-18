@@ -157,6 +157,8 @@
                           }
                        ?>
                        </ul> --> 
+                         <div id="out" >
+                           </div>
                </div>
                <div class = "choosen_tags">
                   <ul class = "wrap">
@@ -172,8 +174,7 @@
                             echo "\n";
                         }
                         ?> 
-                         <div id="out" >
-            </div>
+
                </div>
          </div>      
       </div>
