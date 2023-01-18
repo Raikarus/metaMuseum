@@ -120,7 +120,7 @@
                                              <p class = "group_name">
                                                 
                                              </p>
-                                       <ul class = "tag_list" id = '.$gkword_name.' style="display: none;">'';
+                                       <ul class = "tag_list" id = '.$gkword_name.' style="display: none;">';
                                  }
                               }
                            }

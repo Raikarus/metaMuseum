@@ -113,7 +113,7 @@ function AddToBd($filename,$fsize,$ext) {
           $height = $strValue;
           break;
         case 'title':
-          $title = substr($strValue,0,".");
+          $title = $strValue;
           break;
         case 'subscr':
           $subscr = $strValue;
