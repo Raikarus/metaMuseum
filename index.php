@@ -58,10 +58,12 @@ function AddToBd($filename,$fsize,$ext) {
   $arr = explode("\n", $res);
   $list = array("DateTime","ModifyDate","FileModifyDate","ImageWidth","ImageHeight","Label","Title","AuthorPosition","ObjectName","By-lineTitle","UserComment","Description","ImageDescription","Headline","Caption-Abstract","Country","Country-PrimaryLocationName","State","Province-State","City","Subject","Keywords","Creator","Artist","Author","Identifier","Rights","Copyright","CopyrightNotice");
   $list2 = array(1,1,1,2,3,4,5,5,5,5,6,6,6,6,6,7,7,8,8,9,9,10,10,11,11,11,12,13,13,13);
+  $last_query = "";
   foreach ($arr as $key => $value) {
     $strTag = str_replace(' ', '', substr($value, 0,strpos($value, ":")));
     $strValue = substr($value, strpos($value, ":")+1,strlen($value));
     if(in_array($strTag, $list)){
+      echo "<br>";
       $tag_id = $list2[array_search($strTag, $list)];
       $query = "SELECT tag_id_num FROM kwords WHERE tag_id=$tag_id AND kword_name='".$strValue."'";
       $res = pg_query($cn,$query);
@@ -78,9 +80,8 @@ function AddToBd($filename,$fsize,$ext) {
       $res = pg_query($cn,$query);
       $row = pg_fetch_object($res);
       $tag_id_num = $row->tag_id_num;
-      $query = "INSERT INTO pictags(pic_id,tag_id_num) VALUES($pic_id,$tag_id_num)";
-      echo "ЗАПРОСИК $query<br>";
-      $res = pg_query($cn,$query);
+      $last_query += "$tag_id_num ";
+
       $query = "SELECT pics_name FROM tags WHERE tag_id=$tag_id";
       $res = pg_query($cn,$query);
       $row = pg_fetch_object($res);
@@ -114,7 +115,6 @@ function AddToBd($filename,$fsize,$ext) {
   $query = "INSERT INTO pics(fmt,subscr,title,width,height,date,fsize,md5,rights) VALUES('".$ext."','".$subscr."','".$title."',$width,$height,$date,$fsize,'".$md5."','".$rights."')";
   $res = pg_query($cn,$query);
   echo "ЗАПРОСИК $query<br>";
-
 }
 
 function LinkKeyword(){
