@@ -95,8 +95,18 @@
                   </form>
                </div>
                <div class = "tags">
+               </div>
+               <div class = "choosen_tags">
+                  <ul class = "wrap">
+                  </ul>
+               </div>
+         </div>      
+      </div>
+   </div>
 
-                           <?php 
+
+                        <?php 
+                        /*
                           $tags  = "japanese hentai lesbian milf korean asian step_mom massage anal ebony big_ass teen threesome public anime creampie ";
                           $tag = explode(" ", $tags);
                           
@@ -106,23 +116,8 @@
                             echo '<span style="color:#24B47E;text-align:center;font-size:'.$size.'pt;word-break:normal;">'.$tag[$i]."($size)".'</span>';
                             echo "\n";
                         }
-                              
-                          
-                         
-                        ?>
-                     
-                     
-                         
-                           <!--	<ul class = "list_of_groups">
-                        	
-         					</ul> --> 
-               </div>
-         </div>
-        
-      </div>
-   </div>
-
-   
+                        */
+                        ?> 
 
 
 </body>
