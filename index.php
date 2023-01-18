@@ -31,10 +31,19 @@ function upload_file($file, $nameFile='default', $upload_dir= 'img', $allowed_ty
 function Download() {
   if($_POST['passDownload']=="schef2002"){
       echo "П4р0ль пр0йд3н <br>";
-      $res=upload_file($_FILES['imgfile'],$_POST['etc']);
+
+      $files = array();
+      foreach($_FILES['imgfile'] as $k => $l) {
+        foreach($l as $i => $v) {
+          $files[$i][$k] = $v;
+        }
+      }   
+      $_FILES['imgfile'] = $files;
+      print_r($FILES['imgfile']);
+      /*$res=upload_file($_FILES['imgfile'],$_POST['etc']);
       foreach($res as $a => $b){
               echo $a." ".$b."<br>";
-      }
+      }*/
   }
   else
   {
@@ -283,7 +292,7 @@ function LinkKeyword(){
 <br>
 <form method="post" enctype="multipart/form-data">
     <input type="password" placeholder="пароль" name="passDownload">
-		<input id="img" name="imgfile" type="file">
+		<input id="img" name="imgfile[]" type="file" multiple>
 	<input   name="Download" value="Download" type="submit">
 </form>
 <br>
