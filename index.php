@@ -177,7 +177,7 @@ function AddToBd($filename,$fsize,$ext) {
 
   $shl = 'rename img/'.$filename." $pic_id.$ext";
   $res = shell_exec($shl);
-  echo "$res<br>";
+  echo "$shl <br>$res<br>";
 }
 
 function LinkKeyword(){
