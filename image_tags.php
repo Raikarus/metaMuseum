@@ -92,8 +92,8 @@
                           $tag = explode(" ", $tags);
                         for($i = 0; $i < 16;$i++)
                         {
-                            echo $tag[$i]."\n";
-                            echo "ssss";
+                            echo '<span style="color:#AFA;text-align:center;">.$tag[$i]."\n"</span>';
+                            echo "\n";
                         }
                               
                           
