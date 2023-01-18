@@ -20,6 +20,9 @@
             case 'REMOVE':
                 remove();
                 break;
+            case 'kwgkw':
+                kwgkw();
+                break;
         }
     }
 
@@ -65,6 +68,17 @@
     function pictags()  {
         $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
         $query = "SELECT * FROM pictags";
+        $res = pg_query($cn,$query);
+        $row = pg_fetch_all($res);
+        echo "<pre>";
+        print_r($row);
+        echo "</pre>";
+        exit;
+    }
+
+    function kwgkw()    {
+        $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+        $query = "SELECT * FROM kwgkw";
         $res = pg_query($cn,$query);
         $row = pg_fetch_all($res);
         echo "<pre>";

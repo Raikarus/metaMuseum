@@ -61,6 +61,7 @@
 <input type="submit" class="button" name="read" value="read" />
 <input type="submit" class="button" name="list" value="list" />
 <input type="submit" class="button" name="kwords" value="kwords" />
+<input type="submit" class="button" name="kwgkw" value="kwgkw" />
 <br>
 <form method="post">
 	<input type="text" name="kword_name" placeholder="Название ключевого слова">
