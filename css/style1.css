@@ -211,7 +211,7 @@ header {
 }
 
 .photos_compilation {
-   width: 96%;
+   width: 100%;
    height: auto;
    padding: 0;
    margin: 0;
@@ -230,7 +230,7 @@ header {
    margin-bottom: 15px;
    display: flex;
    align-items: center;
-   justify-content: space-between;
+   justify-content: space-around;
    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
@@ -243,7 +243,7 @@ header {
 }
 
 .comp_li_name {
-   width: 46%;
+   width: 45%;
    height: 100%;
    color: white;
    display: flex;
