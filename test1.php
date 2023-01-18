@@ -90,13 +90,13 @@
                   $str1 = substr($str1,0,strpos($str1,'+'));
                   echo $str1;*/
                   $str = 0;
-                 echo '
+             /*    echo '
                        <ul class="logreg">
                         <li><a href="#exampleModal" id="#example1" onclick="';
                  echo $str'" class="button8">Войти</a></li>
                       </ul>';
 
-                 
+                 */
           ?>
             <a href="#exampleModal" id="#example1" onclick="ABS" class="button8">Войти</a>
           </body>
