@@ -116,11 +116,12 @@
                                     $res3 = pg_query($cn,$query);
                                     echo "ЗАПРОСИК $query<br>";
                                     $row3 = pg_fetch_object($res3);
-                                    echo '<li class = "tag_group">
-                                             <p class = "group_name">
-                                                
+                                    $kword_name = $row3->kword_name;
+                                    echo "<li class = 'tag_group'>
+                                             <p class = 'group_name'>
+                                                $kword_name;
                                              </p>
-                                       <ul class = "tag_list" id = '.$gkword_name.' style="display: none;">';
+                                          </li>";
                                  }
                               }
                            }
