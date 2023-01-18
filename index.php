@@ -61,7 +61,7 @@ function AddToBd($filename,$fsize,$ext) {
   $last_query = "";
   foreach ($arr as $key => $value) {
     $strTag = str_replace(' ', '', substr($value, 0,strpos($value, ":")));
-    $strValue = trim(substr($value, strpos($value, ":")+1,strlen($value)), " ");
+    $strValue = trim(substr($value, strpos($value, ":")+1,strlen($value)));
     if(in_array($strTag, $list)){
       echo "<br>";
       $tag_id = $list2[array_search($strTag, $list)];
