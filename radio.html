@@ -1,0 +1,325 @@
+<html>
+ <head>
+  <title>AI</title>
+  <meta charset="utf-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style type="text/css">
+      body
+      {
+        background-image: url(bg.jpg);
+        background-size: 100% auto;
+        margin:0;
+        padding: 0;
+        min-height: 100vh;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+      #main
+      {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #play_cat
+      {
+        height: 90vh;
+        width: 55%;
+        margin-left: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+      }
+      .case{
+         top: 0;
+         width: 100%;
+         height: 57vh;
+         background-color:rgba(255,255,255,0);
+         border-radius: 20px;
+         backdrop-filter: blur(50px);
+         overflow: hidden;
+         align-items: center;
+         display: flex;
+         justify-content: center;
+      }
+
+       .case_norm{
+        bottom:0px;
+        width: 100%;
+        height: 27vh;
+        background-color:rgba(255,255,255,0);
+        border-radius: 20px;
+        backdrop-filter: blur(50px);
+        overflow: hidden;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+
+      #right_inf
+      {
+        height: 90vh;
+        width: 40%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+      }
+       .case_small_1{
+        width: 85%;
+        height: 27vh;
+        background-color:rgba(255,255,255,0);
+        border-radius: 20px;
+        backdrop-filter: blur(50px);
+        overflow: hidden;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .case_small_2{
+        width: 85%;
+        height: 57vh;
+        background-color:rgba(255,255,255,0);
+        border-radius: 20px;
+        backdrop-filter: blur(50px);
+        overflow: hidden;
+               justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+       
+      }
+
+      .ass_button{
+        max-height: 100%;
+        height: 250px;
+        width: 250px;
+        /*outline: 1px solid rgba(255,255,255,0); */
+        border-radius: 200px;
+        background-color:rgba(255,255,255,0);
+        backdrop-filter: blur(50px);
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+      .switch_button{
+         max-height: 100%;
+        height: 150px;
+        width: 150px;
+        /*outline: 1px solid rgba(255,255,255,0); */
+        border-radius: 200px;
+        background-color:rgba(255,255,255,0);
+        backdrop-filter: blur(50px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        display:inline;
+        
+      }
+      .canvas {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        filter: blur(7px);
+      }
+
+      #devka
+      {
+        height: 100%;
+        position: fixed;
+        z-index: 99;
+      }
+
+      @media screen and (max-device-width: 750px)
+      {
+        #main
+        {
+          justify-content: center;
+        }
+        .case
+        {
+            height: 45vh;
+        }
+        #right_inf
+        {
+          display: none;
+        }
+        #play_cat
+        {
+            height: 75vh;
+          width: 70%;
+          margin: 0;
+        }
+        #devka
+        {
+          width:90%;
+
+          height: auto;
+          bottom: 0;
+        }
+      }
+</style>
+  
+    <script>
+        
+         var audio;
+          audio = new Audio(); // Создаём новый элемент Audio
+    audio.src = 'http://s0.radioheart.ru:8000/RH62990'; // Указываем путь к звуку "клика"
+var flag = false;
+ var canvas_button;
+ var ctx_but ;
+
+function switch_play(chanel)
+{
+    ctx_but.clearRect(0,0,canvas.width,canvas.height);
+    switch (chanel) {
+  case 1:
+     audio.src = '  http://radiorecord.hostingradio.ru/lofi96.aacp';
+        canvas_button = document.getElementById("canvas_but1");
+     ctx_but = canvas_button.getContext("2d");
+    break;
+  case 2:
+     audio.src ="https://radio.stereoanime.net/listen/stereoanime/128";
+      canvas_button = document.getElementById("canvas_but2");
+     ctx_but = canvas_button.getContext("2d");
+    break;
+  case 3:
+    audio.src = 'http://s0.radioheart.ru:8000/RH62990';
+     canvas_button = document.getElementById("canvas_but3");
+     ctx_but = canvas_button.getContext("2d");
+    break;
+  default:
+     audio.src = 'http://s0.radioheart.ru:8000/RH62990';
+}
+    
+   audio.paused ? audio.play() : audio.pause();
+}
+
+
+
+
+function audio_play()
+{
+  if(!flag)
+  {
+    hard();
+    flag = true;
+  }
+  audio.paused ? audio.play() : audio.pause();
+}
+    function hard(){
+   
+    audio.crossOrigin = "anonymous";
+    audio.load();
+    audio.volume=0.1;
+    var context = new AudioContext();
+    var src = context.createMediaElementSource(audio);
+    var analyser = context.createAnalyser();
+
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+
+   canvas_button = document.getElementById("canvas_but3");
+     ctx_but = canvas_button.getContext("2d");
+
+    src.connect(analyser);
+    analyser.connect(context.destination);
+
+    analyser.fftSize = 256;
+
+    var bufferLength = analyser.frequencyBinCount;
+    console.log(bufferLength);
+
+    var dataArray = new Uint8Array(bufferLength);
+
+    var WIDTH = canvas.width;
+    var HEIGHT = canvas.height;
+
+    var barWidth = (WIDTH / bufferLength) * 2.5;
+    var barHeight;
+    var x = 0;
+
+    function renderFrame() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx_but.clearRect(0,0,canvas.width,canvas.height);
+
+      requestAnimationFrame(renderFrame);
+        
+      x = 0;
+
+      analyser.getByteFrequencyData(dataArray);
+
+      ctx.fillStyle = "rgba(255,255,255,0)";
+      
+      ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+      for (var i = 0; i < bufferLength; i++) {
+        barHeight = dataArray[i] ;
+        
+        var r = barHeight + (25 * (i/bufferLength)) -50;
+        var g = 250 * (i/bufferLength) - 110;
+        var b = 100;
+        
+        ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
+        barHeight = dataArray[i] /2;
+
+        ctx_but.beginPath();
+        ctx_but.arc(canvas_button.width/2, canvas_button.height/2,barHeight/2.3,0,2*Math.PI);
+        ctx_but.strokeStyle="rgb(" + r + "," + g + "," + b + ")";
+        ctx_but.stroke();
+        ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
+        x += barWidth + 1;
+
+      }
+    }
+    
+    //audio.play();
+    renderFrame();
+
+ 
+};
+
+    </script>
+
+ </head>
+
+ <body>
+    <div id = "main">
+    <div id = "play_cat">
+      <div class = "case">
+          
+          <img id = "devka" src = "https://cdn130.picsart.com/304871995484211.png">
+
+         <canvas class="canvas" id = "canvas"></canvas>
+
+      </div>
+
+       <div class = "case_norm" >
+          <button class = "ass_button" onclick="audio_play()"> 
+              <img src="cat.png" width="100%">
+
+          </button>
+             
+      </div>
+    </div>
+    <div id = "right_inf">
+     <div class = "case_small_1" >
+
+         <button class = "switch_button" onclick="switch_play(1)"> <canvas class="canvas" id = "canvas_but1" width="100%" height="100%" style="z-index: -99;"></canvas>  <img src="cringe.png" width="100%" style="z-index: 99;">    </button>
+        
+         <button class = "switch_button" onclick="switch_play(2)"> <canvas class="canvas" id = "canvas_but2" width="100%" height="100%" style="z-index: -99;"></canvas>  <img src="https://prod.cloud.rockstargames.com/crews/sc/1304/39090563/publish/emblem/emblem_512.png" width="90%"> </button>
+
+          <button class = "switch_button" onclick="switch_play(3)"> <canvas class="canvas" id = "canvas_but3" width="100%" height="100%" style="z-index: -99;"></canvas> <img src="radio_hearth.png" width="90%" height="90%"> </button>
+    </div>
+
+      <div class = "case_small_2" >
+         ♂ убрать кринж фм ♂
+    </div>
+    </div>
+    </div>
+ </body>
+</html>

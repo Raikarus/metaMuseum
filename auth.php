@@ -1,14 +1,7 @@
-<?php
- if(!$_SESSION['id'])
-{
-?>
 <form method="post">
-<b>Логин:</b>
-<input type="text" name="login" placeholder="логин" size="30">
-<b>Пароль:</b>
-<input name="pass" placeholder="пароль" type="password" size="30">
-<input id="submit" type="submit" value="Войти">
+<input type="text" name="name" placeholder="Имя тэга" size="30">
+<input type="text" name="party" placeholder="Группа тэга" size="30">
+<input type="text" name="meta" placeholder="Автоматический" size="30">
+<input type="password" name="pswd" placeholder="Пароль" size="30">
+<input id="submit" type="submit" value = "Добавить тэг">
 </form>
-<?php
-}
-?>
