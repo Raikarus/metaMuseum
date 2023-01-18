@@ -99,13 +99,13 @@
                         $res = pg_query($cn,$query);
                         while($row=pg_fetch_object($res))
                         {
+                           echo "TEST<br>";
                            $gkword_id = $row->gkword_id;
                            if($gkword_id == 0)
                            {
                               //Если нет никакой группы
                               $query = "SELECT tag_id,tag_id_num FROM kwgkw WHERE gkword_id=$gkword_id";
                               $res2 = pg_query($cn,$query);
-                              echo "ЗАПРОСИК $query<br>";
                               $row2 = pg_fetch_object($res2);
                               while($row2=pg_fetch_object($res2))
                               {
@@ -116,12 +116,11 @@
                                  {
                                     $query = "SELECT kword_name FROM kwords WHERE tag_id_num=$tag_id_num";
                                     $res3 = pg_query($cn,$query);
-                                    echo "ЗАПРОСИК $query<br>";
                                     $row3 = pg_fetch_object($res3);
                                     $kword_name = $row3->kword_name;
                                     echo "<li class = 'tag_group'>
                                              <p class = 'group_name'>
-                                                $kword_name;
+                                                $kword_name
                                              </p>
                                           </li>";
                                  }
