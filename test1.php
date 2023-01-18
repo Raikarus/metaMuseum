@@ -78,12 +78,12 @@
                   $str1 =  $str1.substr($str,strpos($str, ' '));
                   $str1 = substr($str1,0,strpos($str1,'+'));
                   echo $str1;*/
-
+                  $str = 0;
                  echo '
                        <ul class="logreg">
                         <li><a href="#modal1" class="button7">Регистрация</a></li>
                         <li><a href="#exampleModal" id="#example1" 
-                         onclick="$(\'#exampleModal1\').arcticmodal()" class="button8">Войти</a></li>
+                         onclick="$(\'echo $str\').arcticmodal()" class="button8">Войти</a></li>
                       </ul>';
                  
           ?>
