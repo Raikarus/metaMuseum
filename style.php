@@ -96,13 +96,12 @@
                		<ul class = "list_of_groups">
                		<?php
          					$query = "SELECT gkwords_id,tag_id_num FROM kwgkw";
+                        echo "ЗАПРОСИК $query <br>";
          					$res = pg_query($cn,$query);
          					while($row=pg_fetch_object($res))
          					{
                            $tag_id_num = $row->tag_id_num;
                            $gkwords_id = $row->gkwords_id;
-                           //$query = "SELECT kword_name FROM kwords WHERE tag_id_num = $tag_id_num";
-                           
                            if($gkwords_id != 0)
                            {
                               $query = "SELECT gkword_name FROM gkwords WHERE gkwords_id=$gkwords";
@@ -130,11 +129,13 @@
                            else
                            {
                               $query = "SELECT tag_id_num FROM kwgkw WHERE gkwords_id=$gkwords";
+                              echo "ЗАПРОСИК $query <br>";
                               $res2 = pg_query($cn,$query);
                               while($row2 = pg_fetch_object($res2))
                               {
                                  $tag_id_num = $row2->tag_id_num;
                                  $query = "SELECT kword_name FROM kwords WHERE tag_id_num=$tag_id_num";
+                                 echo "ЗАПРОСИК $query <br>";
                                  $res3 = pg_query($cn,$query);
                                  $row3=pg_fetch_object($res3);
                                  $kword_name=$row3->kword_name;
