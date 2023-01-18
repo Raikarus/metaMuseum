@@ -99,6 +99,6 @@
 
                  */
           ?>
-            <a href="#exampleModal" id="#example1" onclick="ABS()" class="button8">Войти</a>
+            <button id="#example1" onclick="ABS()" class="button8">Войти</button>
           </body>
 </html>
