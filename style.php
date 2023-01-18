@@ -95,24 +95,56 @@
                <div class = "tags">
                		<ul class = "list_of_groups">
                		<?php
-         					$query = "SELECT kword_name FROM kwords";
+         					$query = "SELECT gkwords_id,tag_id_num FROM kwgkw";
          					$res = pg_query($cn,$query);
-         					while($row=pg_fetch_row($res))
+         					while($row=pg_fetch_object($res))
          					{
-                           $kword_name = $row->kword_name;
-         						echo '<li class = "tag_group">                     
-                              			<p class = "group_name">
-                                				<input type="checkbox" name = "tags_on" class = tags_checkbox>
-                                 				<a href = "javascript:flipflop('."'".$kword_name."'".');">'.$kword_name.'</a>
-                              			</p>
-                              			<ul class = "tag_list" id = '.$kword_name.' style="display: none;">';
-         						$query = "SELECT name FROM gallery WHERE party='".$row[0]."'";
-         						$res2 = pg_query($cn,$query);
-         						while($row2=pg_fetch_row($res2))
-         						{
-         							echo '<li class = "list_item"><a href = "#" data-en = 0 data-tag = '.$row2[0].'>'.$row2[0].'</a></li>';
-         						}
-         						echo "</ul></li>";
+                           $tag_id_num = $row->tag_id_num;
+                           $gkwords_id = $row->gkwords_id;
+                           //$query = "SELECT kword_name FROM kwords WHERE tag_id_num = $tag_id_num";
+                           
+                           if($gkwords_id != 0)
+                           {
+                              $query = "SELECT gkword_name FROM gkwords WHERE gkwords_id=$gkwords";
+                              $res2 = pg_query($cn,$query);
+                              $row2 = pg_fetch_object($res2);
+                              $gkword_name = $row2->gkword_name;
+                              echo '<li class = "tag_group">
+                                       <p class = "group_name">
+                                          <input type="checkbox" name = "tags_on" class = tags_checkbox>
+                                             <a href = "javascript:flipflop('."'".$gkword_name."'".');">'.$gkword_name.'</a>
+                                       </p>
+                                       <ul class = "tag_list" id = '.$gkword_name.' style="display: none;">';   
+                              $query = "SELECT tag_id_num FROM kwgkw WHERE gkword_id=$gkword_id";
+                              $res2 = pg_query($cn,$query);
+                              while($row2=pg_fetch_object($res2))
+                              {
+                                 $query = "SELECT kword_name FROM kwords WHERE tag_id_num=$tag_id_num";
+                                 $res3 = pg_query($cn,$query);
+                                 $row3 = pg_fetch_object($res3);
+                                 $kword_name = $row3->kword_name;
+                                 echo '<li class = "list_item"><a href = "#" data-en = 0 data-tag = '.$kword_name.'>'.$kword_name.'</a></li>';
+                              }
+                              echo "</ul></li>";
+                           }
+                           else
+                           {
+                              $query = "SELECT tag_id_num FROM kwgkw WHERE gkwords_id=$gkwords";
+                              $res2 = pg_query($cn,$query);
+                              while($row2 = pg_fetch_object($res2))
+                              {
+                                 $tag_id_num = $row2->tag_id_num;
+                                 $query = "SELECT kword_name FROM kwords WHERE tag_id_num=$tag_id_num";
+                                 $res3 = pg_query($cn,$query);
+                                 $row3=pg_fetch_object($res3);
+                                 $kword_name=$row3->kword_name;
+                                 echo '<li class = "tag_group">
+                                       <p class = "group_name">
+                                          <input type="checkbox" name = "tags_on" class = tags_checkbox>
+                                             $kword_name
+                                       </p></li>';
+                              }
+                           }
          					}
 					?>
 					</ul>
