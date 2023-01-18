@@ -103,7 +103,7 @@
                         for($i = 0; $i < 16;$i++)
                         {
                            $size = rand(14, 40);
-                            echo '<span style="color:#24B47E;text-align:center;font-size:'.$size.'pt;word-break:normal;">'.$tag[$i]."\n".'</span>';
+                            echo '<span style="color:#24B47E;text-align:center;font-size:'.$size.'pt;word-break:normal;">'.$tag[$i]."\n"."($size)".'</span>';
                             echo "\n";
                         }
                               
