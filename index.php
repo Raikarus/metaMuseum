@@ -185,13 +185,21 @@ function AddToBd($filename,$fsize,$ext) {
   echo "ЗАПРОСИК $query<br>";
   $row = pg_fetch_object($res);
   $pic_id = $row->pic_id;
-  $last_query = str_replace("'-pic_id-'", $pic_id, $last_query);
-  pg_query($cn,$last_query);
-  echo "ЗАПРОСИК $last_query<br>";
+  if($pic_id)
+  {
+    $last_query = str_replace("'-pic_id-'", $pic_id, $last_query);
+    pg_query($cn,$last_query);
+    echo "ЗАПРОСИК $last_query<br>";
 
-  $shl = 'mv img/'.$filename." img/$pic_id.$ext";
-  $res = shell_exec($shl);
-  echo "$shl <br>$res<br>";
+    $shl = 'mv img/'.$filename." img/$pic_id.$ext";
+    $res = shell_exec($shl);
+    echo "$shl <br>$res<br>";  
+  }
+  else
+  {
+    echo "Ошибка $title добавления в базу. Файл добавлен с ошибками, требуется вмешательство администратора";
+  }
+  
 }
 
 function LinkKeyword(){
