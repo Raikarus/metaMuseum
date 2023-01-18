@@ -67,7 +67,7 @@ function AddToBd($fsize) {
   $list2 = array(1,1,1,2,3,4,5,5,5,5,6,6,6,6,6,7,7,8,8,9,9,10,10,11,11,11,12,13,13,13);
   foreach ($arr as $key => $value) {
     $strTag = str_replace(' ', '', substr($value, 0,strpos($value, ":")));
-    $strValue = substr($value, strpos($value, ":")+1,strlen($value))
+    $strValue = substr($value, strpos($value, ":")+1,strlen($value));
     if(in_array($strTag, $list)){
       $tag_id = $list2[array_search($strTag, $list)];
       $query = "SELECT tag_id_num WHERE tag_id= AND kword_name='".$strValue."'";
