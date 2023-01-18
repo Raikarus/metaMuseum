@@ -79,6 +79,7 @@ function AddToBd($filename,$fsize,$ext) {
         $str1 =  $str1.substr($strValue,strpos($str, ' '));
         $str1 = substr($str1,0,strpos($str1,'+'));
         $strValue = $str1;
+        echo "$strValue<br>";
       }
       $query = "SELECT tag_id_num FROM kwords WHERE tag_id=$tag_id AND kword_name='".$strValue."'";
       $res = pg_query($cn,$query);
