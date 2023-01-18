@@ -53,78 +53,16 @@
 <div class = "main">
    <div class = "main_left">
       <ul class = "photos_compilation" id = "compilation">
-         <li class = "compilation_li">
-            <div class="comp_li_photo" style = "background-image:url('https://klike.net/uploads/posts/2019-05/1556708032_1.jpg')">
-
-            </div>
-            <div class="comp_li_name">
-               Название блаблаблаблаблабалабла
-            </div>
-         </li>   
-         <li class = "compilation_li">
-            <div class="comp_li_photo" style = "background-image:url('https://klike.net/uploads/posts/2019-05/1556708032_1.jpg')">
-
-            </div>
-            <div class="comp_li_name">
-               Название блаблаблаблаблабалабла
-            </div>
-         </li> 
-         <li class = "compilation_li">
-            <div class="comp_li_photo" style = "background-image:url('https://klike.net/uploads/posts/2019-05/1556708032_1.jpg')">
-
-            </div>
-            <div class="comp_li_name">
-               Название блаблаблаблаблабалабла
-            </div>
-         </li> 
-         <li class = "compilation_li">
-            <div class="comp_li_photo" style = "background-image:url('https://klike.net/uploads/posts/2019-05/1556708032_1.jpg')">
-
-            </div>
-            <div class="comp_li_name">
-               Название блаблаблаблаблабалабла
-            </div>
-         </li> 
-         <li class = "compilation_li">
-            <div class="comp_li_photo" style = "background-image:url('https://klike.net/uploads/posts/2019-05/1556708032_1.jpg')">
-
-            </div>
-            <div class="comp_li_name">
-               Название блаблаблаблаблабалабла
-            </div>
-         </li> 
-         <li class = "compilation_li">
-            <div class="comp_li_photo" style = "background-image:url('https://img4.goodfon.ru/wallpaper/nbig/1/7c/kartinka-loshadi-liubov-serdechki.jpg')">
-
-            </div>
-            <div class="comp_li_name">
-               Название блаблаблаблаблабалабла
-            </div>
-         </li> 
-         <li class = "compilation_li">
-            <div class="comp_li_photo" style = "background-image:url('https://klike.net/uploads/posts/2019-05/1556708032_1.jpg')">
-
-            </div>
-            <div class="comp_li_name">
-               Название блаблаблаблаблабалабла
-            </div>
-         </li> 
-         <li class = "compilation_li">
-            <div class="comp_li_photo" style = "background-image:url('https://klike.net/uploads/posts/2019-05/1556708032_1.jpg')">
-
-            </div>
-            <div class="comp_li_name">
-               Название блаблаблаблаблабалабла
-            </div>
-         </li> 
-         <li class = "compilation_li">
-            <div class="comp_li_photo" style = "background-image:url('https://klike.net/uploads/posts/2019-05/1556708032_1.jpg')">
-
-            </div>
-            <div class="comp_li_name">
-               Название блаблаблаблаблабалабла
-            </div>
-         </li>       
+         <?php
+			    $dir='./img';
+				$files = scandir($dir);
+				foreach($files as $n => $img){
+					if ($img != '.' && $img != '..') echo '<li class = "compilation_li" >
+               				<div class = "comp_li_photo" style="background-image:url('."'".'img/'.$img."'".'"></div>
+               				<div class = "comp_li_name">'.$img.'</div>           
+            			 </li>';
+				}
+         	?>               
       </ul>
    </div>
       <div class = "main_center">
@@ -139,16 +77,16 @@
             			 </li>';
 				}
          	?>
-		</ul>
-         <div class = "left_right_but">
-            <button class = "left">
-               ←
-            </button>
-            <div id = "current_page">1</div>
-            <button class="right">
-               →
-            </button>    
-         </div>
+		   </ul>
+      <div class = "left_right_but">
+         <button class = "left">
+            ←
+         </button>
+         <div id = "current_page">1</div>
+         <button class="right">
+            →
+         </button>    
+      </div>
       </div>
       <div class = "main_right">
          <div class = "all_tags">
