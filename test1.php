@@ -47,7 +47,7 @@
                /*  $filename1 ='test2.xmp';
                  $text1 = file_get_contents($filename);
 */
-                 $list = array("DateTime","ModifyDate","FileModifyDate","ImageWidth","ImageHeight","Label","T4444itle","AuthorPosition","ObjectName","By-lineTitle","UserComment","Description","ImageDescription","Headline","Caption-Abstract","Country","Country-PrimaryLocationName","State","Province-State","City","Subject","Keywords","Creator","Artist","Author","Identifier","Rights","Copyright","CopyrightNotice");
+          /*       $list = array("DateTime","ModifyDate","FileModifyDate","ImageWidth","ImageHeight","Label","T4444itle","AuthorPosition","ObjectName","By-lineTitle","UserComment","Description","ImageDescription","Headline","Caption-Abstract","Country","Country-PrimaryLocationName","State","Province-State","City","Subject","Keywords","Creator","Artist","Author","Identifier","Rights","Copyright","CopyrightNotice");
                 
                   $data_pos = 0;
                   $sub = " " ;
@@ -67,7 +67,14 @@
                   
                  }
                   echo htmlspecialchars("<pre>$text</pre>");
-           
+           */
+
+
+                  $str =  "2023:01:18 18:38:55+00:00";
+
+                  $str1 = substr($str,0, strpos($str, ' '));
+                  $str1 = str_replace(':','-', $str1);
+                  $str1 =  $str1.substr($str,strpos(' '));
           ?>
 
 
