@@ -53,16 +53,9 @@ function AddToBd($filename,$fsize) {
   $subscr = "";
   $rights = "";
   $ext = "";
-  $query = "SELECT pic_id FROM pics WHERE title='".$file['name']."'";
-  $res = pg_query($cn,$query);
-  echo "ЗАПРОСИК $query<br>";
-  while($row=pg_fetch_object($res))
-  {
-    $pic_id = $row->pic_id;
-  }
-
-  $shl = 'exiftool '.$file['name'];
+  $shl = 'exiftool '.$filename;
   $res = shell_exec($shl);
+  $echo "<pre>$res</pre>";
   $arr = explode("\n", $res);
   $list = array("DateTime","ModifyDate","FileModifyDate","ImageWidth","ImageHeight","Label","Title","AuthorPosition","ObjectName","By-lineTitle","UserComment","Description","ImageDescription","Headline","Caption-Abstract","Country","Country-PrimaryLocationName","State","Province-State","City","Subject","Keywords","Creator","Artist","Author","Identifier","Rights","Copyright","CopyrightNotice");
   $list2 = array(1,1,1,2,3,4,5,5,5,5,6,6,6,6,6,7,7,8,8,9,9,10,10,11,11,11,12,13,13,13);
