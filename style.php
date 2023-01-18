@@ -133,11 +133,11 @@
                               $res2 = pg_query($cn,$query);
                               $row2=pg_fetch_object($res2);
                               $kword_name=$row2->kword_name;
-                              echo '<li class = "tag_group">
-                                    <p class = "group_name">
-                                       <input type="checkbox" name = "tags_on" class = tags_checkbox>
+                              echo "<li class = 'tag_group'>
+                                    <p class = 'group_name'>
+                                       <input type='checkbox' name = 'tags_on' class = tags_checkbox>
                                           $kword_name
-                                    </p></li>';
+                                    </p></li>";
                            }
          					}
 					?>
