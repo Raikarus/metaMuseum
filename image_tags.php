@@ -57,7 +57,8 @@
             $files = scandir($dir);
             foreach($files as $n => $img){
                if ($img != '.' && $img != '..') echo '<li class = "photo_li" >
-                           <div class = "photo" style="background-image:url('."'".'img/'.$img."'".'"></div>
+                           <div class = "photo" style=" height: 85%;
+   width: 85%; background-image:url('."'".'img/'.$img."'".'"></div>
                            <div class = "name">'.$img.'</div>           
                       </li>';
             }
