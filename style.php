@@ -100,15 +100,28 @@
                         while($row=pg_fetch_object($res))
                         {
                            $gkword_id = $row->gkword_id;
-                           if($gkword_if != 0)
+                           if($gkword_id == 0)
                            {
-                              echo "";
                               $query = "SELECT tag_id,tag_id_num FROM kwgkw WHERE gkword_id=$gkword_id";
                               $res2 = pg_query($cn,$query);
                               $row2 = pg_fetch_object($res2);
                               while($row2=pg_fetch_object($res2))
                               {
+                                 $tag_id = $row2->tag_id;
+                                 $tag_id_num = $row2->tag_id_num;
 
+                                 if($tag_id == 10)
+                                 {
+                                    $query = "SELECT kword_name FROM kwords WHERE tag_id_num=$tag_id_num";
+                                    $res3 = pg_query($cn,$query);
+                                    echo "ЗАПРОСИК $query<br>";
+                                    $row3 = pg_fetch_object($res3);
+                                    echo '<li class = "tag_group">
+                                             <p class = "group_name">
+                                                
+                                             </p>
+                                       <ul class = "tag_list" id = '.$gkword_name.' style="display: none;">'';
+                                 }
                               }
                            }
                            else
