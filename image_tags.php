@@ -137,11 +137,7 @@
          					</ul> --> 
                </div>
          </div>
-         <div class = "choosen_tags">
-            <ul class = "wrap">
-               
-            </ul>
-         </div>
+        
       </div>
    </div>
 
