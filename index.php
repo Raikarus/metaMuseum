@@ -80,7 +80,7 @@ function AddToBd($filename,$fsize,$ext) {
       $res = pg_query($cn,$query);
       $row = pg_fetch_object($res);
       $tag_id_num = $row->tag_id_num;
-      $last_query += "INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES('-pic_id-',$tag_id,$tag_id_num);";
+      $last_query .= "INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES('-pic_id-',$tag_id,$tag_id_num);";
 
       $query = "SELECT pics_name FROM tags WHERE tag_id=$tag_id";
       $res = pg_query($cn,$query);
