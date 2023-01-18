@@ -127,7 +127,7 @@
                            }
                            else
                            {
-                              $query = "SELECT "
+                              //$query = "SELECT "
 
                               $query = "SELECT kword_name FROM kwords WHERE tag_id_num=$tag_id_num";
                               $res2 = pg_query($cn,$query);
