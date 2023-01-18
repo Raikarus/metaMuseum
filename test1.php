@@ -95,6 +95,7 @@
                         <li><a href="#exampleModal" id="#example1" onclick="';
                  echo $str'" class="button8">Войти</a></li>
                       </ul>';
+                      
 
                  */
           ?>
