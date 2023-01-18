@@ -234,8 +234,8 @@ header {
    display: flex;
    align-items: center;
    justify-content: flex-start;
-
 }
+
 
 .comp_li_photo {
    width: 50%;
@@ -521,4 +521,10 @@ footer {
 
 #size_big {
    background-color: #24B47E;
+}
+
+.cloud_tag {
+   color:#24B47E;
+   text-align: center;
+   word-break: break-all;
 }
