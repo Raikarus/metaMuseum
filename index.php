@@ -88,7 +88,7 @@ function AddToBd($fsize) {
       $query = "INSERT INTO pictags(pic_id,tag_id_num) VALUES($pic_id,$tag_id_num)";
       echo "ЗАПРОСИК $query<br>";
       $res = pg_query($cn,$query);
-      $query "SELECT pics_name FROM tags WHERE tag_id=$tag_id";
+      $query = "SELECT pics_name FROM tags WHERE tag_id=$tag_id";
       $res = pg_query($cn,$query);
       $row = pg_fetch_object($res);
       echo "ЗАПРОСИК $query<br>";
