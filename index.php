@@ -64,7 +64,22 @@ function AddToBd($filename,$fsize,$ext) {
     $strValue = trim(substr($value, strpos($value, ":")+1,strlen($value)));
     if(in_array($strTag, $list)){
       echo "<br>";
+
       $tag_id = $list2[array_search($strTag, $list)];
+
+      $query = "SELECT pics_name FROM tags WHERE tag_id=$tag_id";
+      $res = pg_query($cn,$query);
+      $row = pg_fetch_object($res);
+      $pics_name = $row->pics_name;
+      echo "ЗАПРОСИК $query<br>";
+      if($pics_name=='date')
+      {
+        $str1 = substr($strValue,0, strpos($strValue, ' '));
+        $str1 = str_replace(':','-', $str1);
+        $str1 =  $str1.substr($strValue,strpos($str, ' '));
+        $str1 = substr($str1,0,strpos($str1,'+'));
+        $strValue = $str1;
+      }
       $query = "SELECT tag_id_num FROM kwords WHERE tag_id=$tag_id AND kword_name='".$strValue."'";
       $res = pg_query($cn,$query);
       echo "ЗАПРОСИК $query <br>";
@@ -74,8 +89,8 @@ function AddToBd($filename,$fsize,$ext) {
       {
         //Тут автоматически создаются тэги
         $query = "INSERT INTO kwords(tag_id,kword_name,status) VALUES($tag_id,'".$strValue."',0)";
-        echo "ЗАПРОСИК $query <br>";
         $res = pg_query($cn,$query);
+        echo "ЗАПРОСИК $query <br>";
         $newTag = 1;
       }
       $query = "SELECT tag_id_num FROM kwords WHERE tag_id=$tag_id AND kword_name='".$strValue."'";
@@ -84,18 +99,9 @@ function AddToBd($filename,$fsize,$ext) {
       $row = pg_fetch_object($res);
       $tag_id_num = $row->tag_id_num;
       $last_query .= "INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES('-pic_id-',$tag_id,$tag_id_num);";
-      $query = "SELECT pics_name FROM tags WHERE tag_id=$tag_id";
-      $res = pg_query($cn,$query);
-      $row = pg_fetch_object($res);
-      echo "ЗАПРОСИК $query<br>";
-      switch ($row->pics_name) {
+      
+      switch ($pics_name) {
         case 'date':
-          $str1 = substr($strValue,0, strpos($strValue, ' '));
-          $str1 = str_replace(':','-', $str1);
-          $str1 =  $str1.substr($strValue,strpos($str, ' '));
-          $str1 = substr($str1,0,strpos($str1,'+'));
-          
-          $strValue = $str1;
           $date = $strValue;
           break;
         case 'width':
