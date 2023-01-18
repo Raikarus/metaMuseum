@@ -56,8 +56,36 @@ function AddToBd($filename,$fsize,$ext) {
   $res = shell_exec($shl);
   echo "<pre>$res</pre>";
   $arr = explode("\n", $res);
-  $list = array("DateTime","ModifyDate","FileModifyDate","ImageWidth","ImageHeight","Label","Title","AuthorPosition","ObjectName","By-lineTitle","UserComment","Description","ImageDescription","Headline","Caption-Abstract","Country","Country-PrimaryLocationName","State","Province-State","City","Subject","Keywords","Creator","Artist","Author","Identifier","Rights","Copyright","CopyrightNotice");
-  $list2 = array(1,1,1,2,3,4,5,5,5,5,6,6,6,6,6,7,7,8,8,9,9,10,10,11,11,11,12,13,13,13);
+  $list = array("DateTime",
+                "ModifyDate",
+                "FileModifyDate",
+                "ImageWidth",
+                "ImageHeight",
+                "Label",
+                "Title",
+                "AuthorPosition",
+                "ObjectName",
+                "By-lineTitle",
+                "UserComment",
+                "Description",
+                "ImageDescription",
+                "Headline",
+                "Caption-Abstract",
+                "Country",
+                "Country-PrimaryLocationName",
+                "State",
+                "Province-State",
+                "City",
+                "Subject",
+                "Keywords",
+                "Creator",
+                "Artist",
+                "Author",
+                "Identifier",
+                "Rights",
+                "Copyright",
+                "CopyrightNotice");
+  $list2 = array(1,1,1,2,3,4,5,5,5,5,6,6,6,6,6,7,7,8,8,9,10,10,11,11,11,12,13,13,13);
   $last_query = "";
   foreach ($arr as $key => $value) {
     $strTag = str_replace(' ', '', substr($value, 0,strpos($value, ":")));
