@@ -242,10 +242,16 @@ header {
 
 .search {
    height: 82%;
-   width: 85%;
+   width: 82%;
    background-color: #181818;
    color: white;
    border: none;
+   outline: none;
+   border-right: 1px solid white;
+}
+
+.search:focus {
+   background-color: #222121;
 }
 
 .submit {
