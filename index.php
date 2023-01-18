@@ -175,7 +175,7 @@ function AddToBd($filename,$fsize,$ext) {
   pg_query($cn,$last_query);
   echo "ЗАПРОСИК $last_query<br>";
 
-  $shl = 'mv img/'.$filename." $pic_id.$ext";
+  $shl = 'mv img/'.$filename." img/$pic_id.$ext";
   $res = shell_exec($shl);
   echo "$shl <br>$res<br>";
 }
