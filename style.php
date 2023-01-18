@@ -103,7 +103,7 @@
                            $tag_id_num = $row->tag_id_num;
                            $gkwords_id = $row->gkwords_id;
                            if($gkwords_id != 0)
-                           {
+                           {/*
                               $query = "SELECT gkword_name FROM gkwords WHERE gkwords_id=$gkwords";
                               $res2 = pg_query($cn,$query);
                               $row2 = pg_fetch_object($res2);
@@ -125,11 +125,11 @@
                                  echo '<li class = "list_item"><a href = "#" data-en = 0 data-tag = '.$kword_name.'>'.$kword_name.'</a></li>';
                               }
                               echo "</ul></li>";
+                              */
                            }
                            else
                            {
                               $query = "SELECT kword_name FROM kwords WHERE tag_id_num=$tag_id_num";
-                              echo "ЗАПРОСИК $query <br>";
                               $res2 = pg_query($cn,$query);
                               $row2=pg_fetch_object($res2);
                               $kword_name=$row2->kword_name;
