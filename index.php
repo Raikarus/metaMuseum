@@ -34,7 +34,7 @@ function Download() {
       
       $files = array();
       echo "<pre>";
-      print_r($_FILES);
+      print_r($_FILES['imgfile']);
       echo "</pre>";
       foreach($_FILES as $k => $l) {
         foreach($l as $i => $v) {
@@ -298,7 +298,7 @@ function LinkKeyword(){
 <br>
 <form method="post" enctype="multipart/form-data">
   <input type="password" placeholder="пароль" name="passDownload">
-	<input id="img" name="imgfile" type="file">
+	<input id="img" name="imgfile[]" type="file" multiple>
   <input name="Download" value="Download" type="submit">
 </form>
 <br>
