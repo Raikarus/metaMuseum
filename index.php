@@ -43,13 +43,12 @@ function Download() {
       echo "<pre>";
       print_r($_FILES['imgfile']);
       echo "</pre>";
-      /*
-      foreach ($_FILES as $key => $value) {
+      foreach ($_FILES['imgfile'] as $key => $value) {
         $res = upload_file($value,$_POST['etc']);
         foreach($res as $a => $b){
               echo $a." ".$b."<br>";
         }
-      }*/
+      }
   }
   else
   {
