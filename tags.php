@@ -17,6 +17,7 @@
 
         	$query = "SELECT tag_id_num FROM kwords WHERE tag_id=10 AND kword_name='$kword_name'";
         	$res = pg_query($cn,$query);
+        	echo "ЗАПРОСИК $query<br>";
         	$row = pg_fetch_object($res);
         	$tag_id_num = $row->tag_id_num;
         	$query = "INSERT INTO kwgkw(gkword_id,tag_id,tag_id_num) VALUES(0,10,$tag_id_num)";
