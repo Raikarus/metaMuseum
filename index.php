@@ -34,7 +34,7 @@ function Download() {
       
       $files = array();
       
-      foreach($_FILES as $k => $l) {
+      foreach($_FILES['imgfile'] as $k => $l) {
         foreach($l as $i => $v) {
           $files[$i][$k] = $v;
         }
