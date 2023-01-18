@@ -83,7 +83,7 @@
                        <ul class="logreg">
                         <li><a href="#modal1" class="button7">Регистрация</a></li>
                         <li><a href="#exampleModal" id="#example1" 
-                         onclick="$(\'echo $str\').arcticmodal()" class="button8">Войти</a></li>
+                         onclick="$\'echo $str\'" class="button8">Войти</a></li>
                       </ul>';
                  
           ?>
