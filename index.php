@@ -40,7 +40,7 @@ function Download() {
       }   
       $_FILES['imgfile'] = $files;
       echo "<pre>";
-      print_r($_FILES);
+      print_r($files);
       echo "</pre>";
       /*
       foreach ($_FILES as $key => $value) {
