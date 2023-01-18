@@ -64,6 +64,7 @@ function AddToBd($filename,$fsize) {
     $strValue = substr($value, strpos($value, ":")+1,strlen($value));
     if(in_array($strTag, $list)){
       $tag_id = $list2[array_search($strTag, $list)];
+      print_r($list2);
       $query = "SELECT tag_id_num WHERE tag_id= AND kword_name='".$strValue."'";
       $res = pg_query($cn,$query);
       echo "ЗАПРОСИК $query <br>";
