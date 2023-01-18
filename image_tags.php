@@ -90,7 +90,7 @@
                            <?php 
                           $tags  = "japanese hentai lesbian milf korean asian step_mom massage anal ebony big_ass teen threesome public anime creampie ";
                           $tag = explode(" ", $tags);
-                        for($i = 0; $i < count(tag);$i++)
+                        for($i = 0; $i < 16;$i++)
                         {
                             echo $tag[i];
                         }
