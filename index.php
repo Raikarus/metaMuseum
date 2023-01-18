@@ -39,11 +39,12 @@ function Download() {
         }
       }   
       $_FILES['imgfile'] = $files;
-      print_r($_FILES['imgfile']);
-      /*$res=upload_file($_FILES['imgfile'],$_POST['etc']);
-      foreach($res as $a => $b){
+      foreach ($_FILES as $key => $value) {
+        $res = upload_file($value,$_POST['etc']);
+        foreach($res as $a => $b){
               echo $a." ".$b."<br>";
-      }*/
+        }
+      }
   }
   else
   {
