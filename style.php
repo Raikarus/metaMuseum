@@ -97,6 +97,7 @@
                		<?php
                         $query = "SELECT gkword_id,gkword_name FROM gkwords";
                         $res = pg_query($cn,$query);
+                        echo "ЗАПРОСИК $query<br>";
                         while($row=pg_fetch_object($res))
                         {
                            $gkword_id = $row->gkword_id;
