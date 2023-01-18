@@ -37,7 +37,7 @@
     <script>
 
     $(document).ready(function(){
-        $('.button').click(function(){
+        $('.comp_li_button').click(function(){
             var clickBtnValue = $(this).val();
             var ajaxurl = 'ajax.php';
             data =  {'action': clickBtnValue};
@@ -105,7 +105,7 @@
                      <input type = "submit" name = "submit" class = "submit" value="ADD">
                   </form>
                </div>
-               <div class = "tags">
+               <div class = "tags"  id="out">
                <?php 
                           
                           $query = "SELECT DISTINCT party FROM gallery";
@@ -157,6 +157,7 @@
                           }
                        ?>
                        </ul> --> 
+                        
                </div>
                <div class = "choosen_tags">
                   <ul class = "wrap">
@@ -172,6 +173,7 @@
                             echo "\n";
                         }
                         ?> 
+
                </div>
          </div>      
       </div>
