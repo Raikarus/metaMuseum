@@ -238,7 +238,6 @@ header {
    align-items: center;
    justify-content: space-between;
    border-bottom: 1px solid white;
-   padding-bottom: 10px;
 }
 
 .search {
@@ -267,7 +266,7 @@ header {
 
 .tags {
    width: 100%;
-   height:40%;
+   height:48%;
    word-break: break-all;
    overflow: auto;
    scrollbar-width: thin;
@@ -329,7 +328,7 @@ header {
 }
 
 .choosen_tags {
-   height: 40%;
+   height: 48%;
    width: 100%;
 }
 
