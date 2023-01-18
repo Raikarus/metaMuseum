@@ -1,6 +1,6 @@
 <?php
 	$cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
-	$res = pg_query($cn,"SELECT * FROM gallery");
+	//$res = pg_query($cn,"SELECT * FROM gallery");
 	//gallery(id,name,party,meta [0/1])
 	$form = $_GET['form'];
 	$msg = "";
@@ -54,14 +54,24 @@
       <div class = "main_left">
          <ul class = "photos" id = "wrapping">
          	<?php
-			    $dir='./img';
-				$files = scandir($dir);
-				foreach($files as $n => $img){
-					if ($img != '.' && $img != '..') echo '<li class = "photo_li" >
-               				<div class = "photo" style="background-image:url('."'".'img/'.$img."'".'"></div>
-               				<div class = "name">'.$img.'</div>           
-            			 </li>';
-				}
+            //сюда проверку на тэги
+               if(true)
+               {
+                  //$query = SELECT pic_id FROM pictags WHERE tag_id_num =
+                  //$query = SELECT title FROM pics WHERE pic_id = 
+                  $query = "SELECT title FROM pics";
+                  $res = pg_query($cn,$query);
+                  while($row=pg_fetch_object($res))
+                  {
+                     $title = $row->title;
+                     echo "
+                     <li class='photo_li'>
+                           <div class='photo' style='background-image:url('img/$title')'></div>
+                           <div class='name'>$title</div>           
+                      </li>
+                      "
+                  }
+               }
          	?>
 		</ul>
          <div class = "left_right_but">
