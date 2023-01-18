@@ -58,8 +58,10 @@
 				$files = scandir($dir);
 				foreach($files as $n => $img){
 					if ($img != '.' && $img != '..') echo '<li class = "compilation_li" >
-               				<div class = "comp_li_photo" style="background-image:url('."'".'img/'.$img."'".'"></div>
-               				<div class = "comp_li_name">'.$img.'</div>           
+                           <button class = "comp_li_button">
+               				   <div class = "comp_li_photo" style="background-image:url('."'".'img/'.$img."'".'"></div>
+               				   <div class = "comp_li_name">'.$img.'</div>   
+                           </button>        
             			 </li>';
 				}
          	?>               
