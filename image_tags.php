@@ -98,7 +98,7 @@
                </div>
                <div class = "choosen_tags">
                   <ul class = "wrap">
-                   </ul>
+                  </ul>
                </div>
          </div>      
       </div>
