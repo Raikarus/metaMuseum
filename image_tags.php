@@ -105,7 +105,7 @@
                      <input type = "submit" name = "submit" class = "submit" value="ADD">
                   </form>
                </div>
-               <div class = "tags">
+               <div class = "tags"  id="out">
                <?php 
                           
                           $query = "SELECT DISTINCT party FROM gallery";
@@ -157,8 +157,7 @@
                           }
                        ?>
                        </ul> --> 
-                         <div id="out" >
-                           </div>
+                        
                </div>
                <div class = "choosen_tags">
                   <ul class = "wrap">
