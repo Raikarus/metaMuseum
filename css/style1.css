@@ -232,6 +232,8 @@ header {
 }
 
 .searching_form {
+   padding: 0;
+   margin: 0;
    width: 100%;
    height: 100%;
    display: flex;
@@ -241,6 +243,7 @@ header {
 }
 
 .search {
+   padding-left: 2px;
    padding: 0;
    margin: 0;
    height: 100%;
