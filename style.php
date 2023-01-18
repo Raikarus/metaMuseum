@@ -64,6 +64,8 @@
                   while($row=pg_fetch_object($res))
                   {
                      $title = $row->title;
+                     $pic_id = $row->pic_id;
+                     $fmt = $row->fmt;
                      echo "
                      <li class='photo_li'>
                            <div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div>
