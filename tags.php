@@ -3,10 +3,22 @@
     {
         if($_POST['passAdd']=="schef2002"){
         echo "П4р0ль пр0йд3н <br>";
+        $kword_name = $_POST['kword_name'];
         $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
-        $query = "INSERT INTO kwords(tag_id,kword_name,status) VALUES(10,'".$_POST['kword_name']."',1)";
-        echo "<br>--- ".$query." ---<br>";
+        $query "SELECT tag_id_num FROM kwords WHERE tag_id=10 AND kword_name='$kword_name'";
+        echo "ЗАПРОСИК $query<br>";
         $res = pg_query($cn,$query);
+        $row = pg_fetch_object($res);
+        if(!$row->tag_id_num)
+        {
+        	$query = "INSERT INTO kwords(tag_id,kword_name,status) VALUES(10,'$kword_name',1)";
+        	$res = pg_query($cn,$query);
+        	echo "ЗАПРОСИК $query<br>";
+        }
+        else
+        {
+        	echo "Тэг $kword_name уже существует <br>";
+        }
         }
         else
         {
