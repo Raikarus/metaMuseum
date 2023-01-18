@@ -14,6 +14,14 @@
         	$query = "INSERT INTO kwords(tag_id,kword_name,status) VALUES(10,'$kword_name',1)";
         	$res = pg_query($cn,$query);
         	echo "ЗАПРОСИК $query<br>";
+
+        	$query = "SELECT tag_id_num FROM kwords WHERE tag_id=10 AND kword_name='$kword_name'";
+        	$res = pg_query($cn,$query);
+        	$row = pg_fetch_object($res);
+        	$tag_id_num = $row->tag_id_num;
+        	$query = "INSERT INTO kwgkw(gkword_id,tag_id,tag_id_num) VALUES(0,10,$tag_id_num)";
+        	echo "ЗАПРОСИК $query<br>";
+        	$res = pg_query($cn,$query);
         }
         else
         {
