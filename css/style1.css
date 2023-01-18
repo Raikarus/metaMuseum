@@ -245,7 +245,7 @@ header {
    width: 85%;
    background-color: #181818;
    color: white;
-   border: none;
+   outline: none;
 }
 
 .submit {
