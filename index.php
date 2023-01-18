@@ -80,7 +80,7 @@ function AddToBd($filename,$fsize,$ext) {
       $res = pg_query($cn,$query);
       $row = pg_fetch_object($res);
       $tag_id_num = $row->tag_id_num;
-      $last_query += "$tag_id_num ";
+      $last_query += "INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES('-pic_id-',$tag_id,$tag_id_num);";
 
       $query = "SELECT pics_name FROM tags WHERE tag_id=$tag_id";
       $res = pg_query($cn,$query);
@@ -115,6 +115,15 @@ function AddToBd($filename,$fsize,$ext) {
   $query = "INSERT INTO pics(fmt,subscr,title,width,height,date,fsize,md5,rights) VALUES('".$ext."','".$subscr."','".$title."',$width,$height,$date,$fsize,'".$md5."','".$rights."')";
   $res = pg_query($cn,$query);
   echo "ЗАПРОСИК $query<br>";
+
+  $query = "SELECT pic_id FROM pics WHERE title=$filename";
+  $res = pg_query($cn,$query);
+  echo "ЗАПРОСИК $query<br>";
+  $row = pg_fetch_object($res);
+  $pic_id = $row->pic_id;
+  $last_query = str_replace("-pic_id-", $pic_id, $last_query);
+  pg_query($cn,$last_query);
+  echo "ЗАПРОСИК $last_query<br>";
 }
 
 function LinkKeyword(){
