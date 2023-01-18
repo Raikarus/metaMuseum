@@ -79,9 +79,9 @@
         pg_query($cn,$query);
         $query = "DELETE FROM pictags";
         pg_query($cn,$query);
-        $query = "DELETE FROM kwords"
+        $query = "DELETE FROM kwords";
         pg_query($cn,$query);
-        $query = "DELETE FROM kwgkw"
+        $query = "DELETE FROM kwgkw";
         pg_query($cn,$query);
 
         $query = "rm img/*";
