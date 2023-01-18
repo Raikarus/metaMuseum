@@ -94,7 +94,7 @@
             </div>
          </li> 
          <li class = "compilation_li">
-            <div class="comp_li_photo" style = "background-image:url('https://klike.net/uploads/posts/2019-05/1556708032_1.jpg')">
+            <div class="comp_li_photo" style = "background-image:url('https://img4.goodfon.ru/wallpaper/nbig/1/7c/kartinka-loshadi-liubov-serdechki.jpg')">
 
             </div>
             <div class="comp_li_name">
