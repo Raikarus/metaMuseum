@@ -1,6 +1,17 @@
   <head>
     <title>ХАХАХАХАХАХА</title>
+    <script type="text/javascript">
+      
+      function ABS()
+      {
+        <?php 
+        echo 123;
+        ?>
+      }
+
+    </script>
   </head>
+
 
   <html>
         <body>
@@ -84,8 +95,9 @@
                         <li><a href="#exampleModal" id="#example1" onclick="';
                  echo $str'" class="button8">Войти</a></li>
                       </ul>';
+
                  
           ?>
-            
+            <a href="#exampleModal" id="#example1" onclick="ABS" class="button8">Войти</a>
           </body>
 </html>
