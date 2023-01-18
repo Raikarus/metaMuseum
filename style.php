@@ -59,14 +59,14 @@
                {
                   //$query = SELECT pic_id FROM pictags WHERE tag_id_num =
                   //$query = SELECT title FROM pics WHERE pic_id = 
-                  $query = "SELECT title FROM pics";
+                  $query = "SELECT pic_id,fmt,title FROM pics";
                   $res = pg_query($cn,$query);
                   while($row=pg_fetch_object($res))
                   {
                      $title = $row->title;
                      echo "
                      <li class='photo_li'>
-                           <div class='photo' style='background-image:url(".'"img/'.$title.'"'.")'></div>
+                           <div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div>
                            <div class='name'>$title</div>           
                       </li>
                       ";
