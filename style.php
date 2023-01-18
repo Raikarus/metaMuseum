@@ -143,6 +143,7 @@
                                              <a href = "javascript:flipflop('."'".$gkword_name."'".');">'.$gkword_name.'</a>
                                        </p>
                                        <ul class = "tag_list" id = '.$gkword_name.' style="display: none;">';
+                              echo '</ul></li>';
                            }
                         }
 
