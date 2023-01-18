@@ -79,10 +79,14 @@
                   $str1 = substr($str1,0,strpos($str1,'+'));
                   echo $str1;*/
 
-                 
+                 echo '
+                       <ul class="logreg">
+                        <li><a href="#modal1" class="button7">Регистрация</a></li>
+                        <li><a href="#exampleModal" id="#example1" 
+                         onclick="$(\'#exampleModal1\').arcticmodal()" class="button8">Войти</a></li>
+                      </ul>';
                  
           ?>
-            <td><a href="delete.php?id=php<?php echo $row['id']; ?>" onclick="return confirm('Are you sure you want to delete this entry?')"> <img src="images/del.png" alt="Del" style="width:20px;height:2 0px;"></a></td>
-
+            
           </body>
 </html>
