@@ -54,11 +54,11 @@
    <div class = "main_left">
       <ul class = "photos_compilation" id = "compilation">
          <li class = "compilation_li">
-            <div class="comp_li_photo">
+            <div class="comp_li_photo" style = "background-image:url('https://klike.net/uploads/posts/2019-05/1556708032_1.jpg')">
 
             </div>
             <div class="comp_li_name">
-               
+               Название блаблаблаблаблабалабла
             </div>
          </li>         
       </ul>

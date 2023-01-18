@@ -211,7 +211,7 @@ header {
 }
 
 .photos_compilation {
-   width: 93%;
+   width: 96%;
    height: 100%;
    padding: 0;
    margin: 0;
@@ -226,7 +226,7 @@ header {
 .compilation_li {
    list-style: none;
    width: 100%;
-   height: 100%;
+   height: auto;
    margin-bottom: 10px;
    display: flex;
    align-items: center;
@@ -234,7 +234,7 @@ header {
 }
 
 .comp_li_photo {
-   width: 40%;
+   width: 50%;
    height: 100%;
    background-size: contain;
    background-position: center;
@@ -243,7 +243,7 @@ header {
 }
 
 .comp_li_name {
-   width: 56%;
+   width: 46%;
    height: 100%;
    text-align: center;
    color: white;
@@ -320,6 +320,10 @@ header {
    border-bottom: 1px solid white;
 }
 
+.tags::-webkit-scrollbar {
+   width: 0;
+ }
+
 .list_of_groups {
    margin: 0;
    padding: 0 0 0 10px;
@@ -377,6 +381,10 @@ header {
    height: 48%;
    width: 100%;
 }
+
+.choosen_tags::-webkit-scrollbar {
+   width: 0;
+ }
 
 .wrap {
    margin: 0;
