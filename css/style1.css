@@ -219,6 +219,10 @@ header {
    overflow: auto;
 }
 
+.photos_compilation::-webkit-scrollbar {
+   width: 0;
+ }
+
 .compilation_li {
    list-style: none;
    width: 100%;
