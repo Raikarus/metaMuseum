@@ -57,8 +57,7 @@
             $files = scandir($dir);
             foreach($files as $n => $img){
                if ($img != '.' && $img != '..') echo '<li class = "photo_li" >
-                           <div class = "photo" style=" height: 85%;
-   width: 85%; background-image:url('."'".'img/'.$img."'".'"></div>
+                           <div class = "photo" style="background-image:url('."'".'img/'.$img."'".'"></div>
                            <div class = "name">'.$img.'</div>           
                       </li>';
             }
@@ -100,9 +99,11 @@
                            <?php 
                           $tags  = "japanese hentai lesbian milf korean asian step_mom massage anal ebony big_ass teen threesome public anime creampie ";
                           $tag = explode(" ", $tags);
+                          
                         for($i = 0; $i < 16;$i++)
                         {
-                            echo '<span style="color:#24B47E;text-align:center;font-size:30pt;word-break:normal;">'.$tag[$i]."\n".'</span>';
+                           $size = rand(14, 40);
+                            echo '<span style="color:#24B47E;text-align:center;font-size:'.$size'pt;word-break:normal;">'.$tag[$i]."\n".'</span>';
                             echo "\n";
                         }
                               
