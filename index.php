@@ -104,7 +104,7 @@ function AddToBd($fsize) {
           break;
         case 'title':
           $title = substr($strValue,0,".");
-          $ext = substr($strValue, "."+1,strlen($strValue))
+          $ext = substr($strValue, "."+1,strlen($strValue));
           break;
         case 'subscr':
           $subscr = $strValue;
