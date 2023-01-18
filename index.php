@@ -39,7 +39,7 @@ function Download() {
         }
       }   
       $_FILES['imgfile'] = $files;
-      print_r($FILES['imgfile']);
+      print_r($_FILES['imgfile']);
       /*$res=upload_file($_FILES['imgfile'],$_POST['etc']);
       foreach($res as $a => $b){
               echo $a." ".$b."<br>";
