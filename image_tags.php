@@ -60,7 +60,71 @@
             <div class="comp_li_name">
                Название блаблаблаблаблабалабла
             </div>
-         </li>         
+         </li>   
+         <li class = "compilation_li">
+            <div class="comp_li_photo" style = "background-image:url('https://klike.net/uploads/posts/2019-05/1556708032_1.jpg')">
+
+            </div>
+            <div class="comp_li_name">
+               Название блаблаблаблаблабалабла
+            </div>
+         </li> 
+         <li class = "compilation_li">
+            <div class="comp_li_photo" style = "background-image:url('https://klike.net/uploads/posts/2019-05/1556708032_1.jpg')">
+
+            </div>
+            <div class="comp_li_name">
+               Название блаблаблаблаблабалабла
+            </div>
+         </li> 
+         <li class = "compilation_li">
+            <div class="comp_li_photo" style = "background-image:url('https://klike.net/uploads/posts/2019-05/1556708032_1.jpg')">
+
+            </div>
+            <div class="comp_li_name">
+               Название блаблаблаблаблабалабла
+            </div>
+         </li> 
+         <li class = "compilation_li">
+            <div class="comp_li_photo" style = "background-image:url('https://klike.net/uploads/posts/2019-05/1556708032_1.jpg')">
+
+            </div>
+            <div class="comp_li_name">
+               Название блаблаблаблаблабалабла
+            </div>
+         </li> 
+         <li class = "compilation_li">
+            <div class="comp_li_photo" style = "background-image:url('https://klike.net/uploads/posts/2019-05/1556708032_1.jpg')">
+
+            </div>
+            <div class="comp_li_name">
+               Название блаблаблаблаблабалабла
+            </div>
+         </li> 
+         <li class = "compilation_li">
+            <div class="comp_li_photo" style = "background-image:url('https://klike.net/uploads/posts/2019-05/1556708032_1.jpg')">
+
+            </div>
+            <div class="comp_li_name">
+               Название блаблаблаблаблабалабла
+            </div>
+         </li> 
+         <li class = "compilation_li">
+            <div class="comp_li_photo" style = "background-image:url('https://klike.net/uploads/posts/2019-05/1556708032_1.jpg')">
+
+            </div>
+            <div class="comp_li_name">
+               Название блаблаблаблаблабалабла
+            </div>
+         </li> 
+         <li class = "compilation_li">
+            <div class="comp_li_photo" style = "background-image:url('https://klike.net/uploads/posts/2019-05/1556708032_1.jpg')">
+
+            </div>
+            <div class="comp_li_name">
+               Название блаблаблаблаблабалабла
+            </div>
+         </li>       
       </ul>
    </div>
       <div class = "main_center">

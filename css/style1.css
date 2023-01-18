@@ -226,7 +226,7 @@ header {
 .compilation_li {
    list-style: none;
    width: 100%;
-   height: 20vh;
+   height: 15vh;
    margin-bottom: 10px;
    display: flex;
    align-items: center;
@@ -239,14 +239,12 @@ header {
    background-size: contain;
    background-position: center;
    background-repeat: no-repeat;
-   border: 1px solid white;
 }
 
 .comp_li_name {
    width: 46%;
    height: 100%;
    color: white;
-   border: 1px solid white;
    display: flex;
    align-items: center;
    justify-content: center;
