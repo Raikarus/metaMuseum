@@ -229,7 +229,6 @@ header {
 .searching {
    width: 100%;
    height: 6%;
-   padding-bottom: 10px;
 }
 
 .searching_form {
@@ -239,6 +238,7 @@ header {
    align-items: center;
    justify-content: space-between;
    border-bottom: 1px solid white;
+   padding-bottom: 10px;
 }
 
 .search {
@@ -250,7 +250,6 @@ header {
    color: white;
    border: none;
    outline: none;
-   border-right: 1px solid white;
 }
 
 .search:focus {
@@ -260,8 +259,8 @@ header {
 .submit {
    padding: 0;
    margin: 0;
-   height: 85%;
-   width: 15%;
+   height: 90%;
+   width: 17%;
    background-color: #24B47E;
    color: white;
 }
