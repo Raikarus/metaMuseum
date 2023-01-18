@@ -53,7 +53,7 @@ function AddToBd($filename,$fsize) {
   $subscr = "";
   $rights = "";
   $ext = "";
-  $shl = 'exiftool '.$filename;
+  $shl = 'exiftool img/'.$filename;
   $res = shell_exec($shl);
   echo "<pre>$res</pre>";
   $arr = explode("\n", $res);
