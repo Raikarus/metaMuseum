@@ -69,7 +69,7 @@
                            <div class='photo' style='background-image:url('img/$title')'></div>
                            <div class='name'>$title</div>           
                       </li>
-                      "
+                      ";
                   }
                }
          	?>
