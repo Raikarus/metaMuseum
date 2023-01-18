@@ -1,13 +1,21 @@
   <head>
     <title>ХАХАХАХАХАХА</title>
-    <script type="text/javascript">
-      
-      function ABS()
-      {
-        <?php 
-        echo 123;
-        ?>
-      }
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+    <script>
+
+    $(document).ready(function(){
+        $('.button').click(function(){
+            var clickBtnValue = $(this).val();
+            var ajaxurl = 'ajax.php';
+            data =  {'action': clickBtnValue};
+            $.post(ajaxurl, data, function (response) {
+                  $('#out').html(response);
+            });
+        });
+    });
 
     </script>
   </head>
@@ -99,6 +107,8 @@
 
                  */
           ?>
-            <button id="#example1" onclick="ABS()" class="button8">Войти</button>
+            <button id="#example1" value= "read" class="button">Войти</button>
+            <div id="out" >
+            </div>
           </body>
 </html>
