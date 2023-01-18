@@ -238,7 +238,7 @@ function LinkKeyword(){
   <input type="password" placeholder="пароль" name="passLink">
     <select multiple name="kwords[]">
   <?php
-    $query = "SELECT kword_name FROM kwords";
+    $query = "SELECT kword_name FROM kwords WHERE tag_id=10";
     $res = pg_query($cn,$query);
     while($row=pg_fetch_object($res))
     {
