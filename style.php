@@ -101,10 +101,10 @@
                         $res = pg_query($cn,$query);
                         while($row=pg_fetch_object($res))
                         {
-                           echo "TEST<br>";
                            $gkword_id = $row->gkword_id;
                            if($gkword_id == 0)
                            {
+                              echo "TEST<br>";
                               //Если нет никакой группы
                               $query = "SELECT tag_id,tag_id_num FROM kwgkw WHERE gkword_id=$gkword_id";
                               $res2 = pg_query($cn,$query);
