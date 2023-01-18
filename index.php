@@ -23,7 +23,7 @@ function upload_file($file, $nameFile='default', $upload_dir= 'img', $allowed_ty
         if(!move_uploaded_file($file['tmp_name'],$upload_dir.$filename))//$upload_dir.$prefix.$nameFile.$ext)) // Загружаем файл в указанную папку.
             return array('error' => 'При загрузке возникли ошибки. Попробуйте ещё раз.');
 
-        AddToBd($filename,$file['size']);
+        AddToBd($filename,$file['size'],$ext);
             
         return Array('filename' => $prefix.$nameFile.$ext);
     }
@@ -44,15 +44,14 @@ function Download() {
 
 
 
-function AddToBd($filename,$fsize) {
+function AddToBd($filename,$fsize,$ext) {
   $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
-  $date = "";
+  $date = strtotime('2010-10-10 10:10:10');
   $width = 0;
   $height = 0;
   $title = $filename;
   $subscr = "";
   $rights = "";
-  $ext = "";
   $shl = 'exiftool img/'.$filename;
   $res = shell_exec($shl);
   echo "<pre>$res</pre>";
@@ -98,7 +97,6 @@ function AddToBd($filename,$fsize) {
           break;
         case 'title':
           $title = substr($strValue,0,".");
-          $ext = substr($strValue, "."+1,strlen($strValue));
           break;
         case 'subscr':
           $subscr = $strValue;
