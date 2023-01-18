@@ -146,6 +146,9 @@ function AddToBd($filename,$fsize,$ext) {
   $last_query = str_replace("'-pic_id-'", $pic_id, $last_query);
   pg_query($cn,$last_query);
   echo "ЗАПРОСИК $last_query<br>";
+
+  $shl = 'rename img/'.$filename." $pic_id.$ext";
+  shell_exec($shl);
 }
 
 function LinkKeyword(){
