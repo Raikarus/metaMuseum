@@ -69,11 +69,11 @@ function AddToBd($filename,$fsize,$ext) {
       $row = pg_fetch_object($res);
       if(!$row->tag_id_num)
       {
-        $query = "INSERT INTO keywords(tag_id,kword_name,status) VALUES($tag_id,'".$strValue."',0)";
+        $query = "INSERT INTO kwords(tag_id,kword_name,status) VALUES($tag_id,'".$strValue."',0)";
         echo "ЗАПРОСИК $query <br>";
         $res = pg_query($cn,$query);
       }
-      $query = "SELECT tag_id_num FROM keywords WHERE kword_name='".$strValue."'";
+      $query = "SELECT tag_id_num FROM kwords WHERE kword_name='".$strValue."'";
       echo "ЗАПРОСИК $query <br>";
       $res = pg_query($cn,$query);
       $row = pg_fetch_object($res);
