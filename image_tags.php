@@ -67,16 +67,7 @@
    </div>
       <div class = "main_center">
          <ul class = "photos" id = "wrapping">
-         	<?php
-			    $dir='./img';
-				$files = scandir($dir);
-				foreach($files as $n => $img){
-					if ($img != '.' && $img != '..') echo '<li class = "photo_li" >
-               				<div class = "photo" style="background-image:url('."'".'img/'.$img."'".'"></div>
-               				<div class = "name">'.$img.'</div>           
-            			 </li>';
-				}
-         	?>
+         	
 		   </ul>
       <div class = "left_right_but">
          <button class = "left">
