@@ -532,5 +532,5 @@ footer {
 .cloud_tag {
    color:#24B47E;
    text-align: center;
-   word-break: break-all;
+   word-break: normal;
 }
