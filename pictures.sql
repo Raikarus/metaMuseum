@@ -179,11 +179,7 @@ status		int DEFAULT 0	-- Статус тега:
 );
 -- задание затравочных значений индексов
 insert into kwords(tag_id,tag_id_num,kword_name) values
-(0,0,''),
-(4,0,''),
-(10,0,''),
-(11,0,'')
-;
+(0,0,'');
 grant all on kwords to sch;
 grant all on kwords to "www-data";
 

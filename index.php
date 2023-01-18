@@ -88,7 +88,7 @@ function AddToBd($filename,$fsize,$ext) {
       echo "ЗАПРОСИК $query<br>";
       switch ($row->pics_name) {
         case 'date':
-          $date = $strValue;
+          $date = substr($strValue, 0,"+");
           break;
         case 'width':
           $width = $strValue;
