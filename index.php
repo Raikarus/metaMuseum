@@ -116,7 +116,7 @@ function AddToBd($filename,$fsize,$ext) {
   $res = pg_query($cn,$query);
   echo "ЗАПРОСИК $query<br>";
 
-  $query = "SELECT pic_id FROM pics WHERE title=$filename";
+  $query = "SELECT pic_id FROM pics WHERE title='$filename'";
   $res = pg_query($cn,$query);
   echo "ЗАПРОСИК $query<br>";
   $row = pg_fetch_object($res);
