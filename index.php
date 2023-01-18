@@ -295,7 +295,7 @@ function LinkKeyword(){
 <br>
 <form method="post" enctype="multipart/form-data">
   <input type="password" placeholder="пароль" name="passDownload">
-	<input id="img" name="imgfile[]" type="file" multiple>
+	<input id="img" name="imgfile" type="file">
   <input name="Download" value="Download" type="submit">
 </form>
 <br>
