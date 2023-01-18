@@ -74,7 +74,7 @@
 
                   $str1 = substr($str,0, strpos($str, ' '));
                   $str1 = str_replace(':','-', $str1);
-                  $str1 =  $str1.substr($str,strpos(' '));
+                  //$str1 =  $str1.substr($str,strpos(' '));
                   echo $str1;
           ?>
 
