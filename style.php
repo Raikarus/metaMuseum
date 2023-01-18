@@ -138,7 +138,6 @@
                                        <input type="checkbox" name = "tags_on" class = tags_checkbox>
                                           $kword_name
                                     </p></li>';
-                              }
                            }
          					}
 					?>
