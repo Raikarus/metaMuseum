@@ -98,16 +98,13 @@
                   $str1 = substr($str1,0,strpos($str1,'+'));
                   echo $str1;*/
                   $str = 0;
-             /*    echo '
-                       <ul class="logreg">
-                        <li><a href="#exampleModal" id="#example1" onclick="';
-                 echo $str'" class="button8">Войти</a></li>
-                      </ul>';
+                 echo '<button id="#example1" value= "read" class="button">Войти</button>';
+              
 
 
-                 */
+                 
           ?>
-            <button id="#example1" value= "read" class="button">Войти</button>
+            
             <div id="out" >
             </div>
           </body>
