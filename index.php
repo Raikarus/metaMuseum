@@ -46,7 +46,7 @@ function Download() {
 
 function AddToBd($filename,$fsize,$ext) {
   $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
-  $date = strtotime('2010-10-10 10:10:10');
+  $date = '2010-10-10 10:10:10';
   $width = 0;
   $height = 0;
   $title = $filename;
@@ -110,7 +110,7 @@ function AddToBd($filename,$fsize,$ext) {
       }
     }
   }
-  $md5 = md5_file("img/".$title.".".$ext);
+  $md5 = md5_file("img/".$title);
   $query = "INSERT INTO pics(fmt,subscr,title,width,height,date,fsize,md5,rights) VALUES('".$ext."','".$subscr."','".$title."',$width,$height,$date,$fsize,'".$md5."','".$rights."')";
   $res = pg_query($cn,$query);
   echo "ЗАПРОСИК $query<br>";
