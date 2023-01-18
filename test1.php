@@ -70,16 +70,19 @@
            */
 
 
-                  $str =  "2023:01:18 18:38:55+00:00";
+                /*  $str =  "2023:01:18 18:38:55+00:00";
 
                   $str1 = substr($str,0, strpos($str, ' '));
                   $str1 = str_replace(':','-', $str1);
 
                   $str1 =  $str1.substr($str,strpos($str, ' '));
                   $str1 = substr($str1,0,strpos($str1,'+'));
-                  echo $str1;
-          ?>
+                  echo $str1;*/
 
+                 
+                 
+          ?>
+            <td><a href="delete.php?id=php<?php echo $row['id']; ?>" onclick="return confirm('Are you sure you want to delete this entry?')"> <img src="images/del.png" alt="Del" style="width:20px;height:2 0px;"></a></td>
 
           </body>
 </html>
