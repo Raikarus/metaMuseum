@@ -93,12 +93,13 @@ function AddToBd($filename,$fsize,$ext) {
         $res = pg_query($cn,$query);
         echo "ЗАПРОСИК $query <br>";
         $newTag = 1;
+        $query = "SELECT tag_id_num FROM kwords WHERE tag_id=$tag_id AND kword_name='".$strValue."'";
+        echo "ЗАПРОСИК $query <br>";
+        $res = pg_query($cn,$query);
+        $row = pg_fetch_object($res);
+        $tag_id_num = $row->tag_id_num;
       }
-      $query = "SELECT tag_id_num FROM kwords WHERE tag_id=$tag_id AND kword_name='".$strValue."'";
-      echo "ЗАПРОСИК $query <br>";
-      $res = pg_query($cn,$query);
-      $row = pg_fetch_object($res);
-      $tag_id_num = $row->tag_id_num;
+      
       $last_query .= "INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES('-pic_id-',$tag_id,$tag_id_num);";
       
       switch ($pics_name) {
