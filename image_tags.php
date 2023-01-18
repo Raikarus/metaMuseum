@@ -37,7 +37,7 @@
     <script>
 
     $(document).ready(function(){
-        $('.button').click(function(){
+        $('.comp_li_button').click(function(){
             var clickBtnValue = $(this).val();
             var ajaxurl = 'ajax.php';
             data =  {'action': clickBtnValue};
