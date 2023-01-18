@@ -95,24 +95,53 @@
                <div class = "tags">
                		<ul class = "list_of_groups">
                		<?php
-         					$query = "SELECT gkword_id,tag_id_num FROM kwgkw WHERE tag_id=10";
-         					$res = pg_query($cn,$query);
-         					while($row=pg_fetch_object($res))
-         					{
-                           $tag_id_num = $row->tag_id_num;
-                           $gkwords_id = $row->gkwords_id;
-                           if($gkwords_id != 0)
-                           {/*
-                              $query = "SELECT gkword_name FROM gkwords WHERE gkwords_id=$gkwords";
+                        $query = "SELECT gkword_id,gkword_name FROM gkwords";
+                        $res = pg_query($cn,$query);
+                        while($row=pg_fetch_object($res))
+                        {
+                           $gkword_id = $row->gkword_id;
+                           if($gkword_if != 0)
+                           {
+                              echo "";
+                              $query = "SELECT tag_id,tag_id_num FROM kwgkw WHERE gkword_id=$gkword_id";
                               $res2 = pg_query($cn,$query);
                               $row2 = pg_fetch_object($res2);
-                              $gkword_name = $row2->gkword_name;
+                              while($row2=pg_fetch_object($res2))
+                              {
+
+                              }
+                           }
+                           else
+                           {
+                              $query = "SELECT "
+
+                              $query = "SELECT kword_name FROM kwords WHERE tag_id_num=$tag_id_num";
+                              $res2 = pg_query($cn,$query);
+                              $row2=pg_fetch_object($res2);
+                              $kword_name=$row2->kword_name;
                               echo '<li class = "tag_group">
                                        <p class = "group_name">
                                           <input type="checkbox" name = "tags_on" class = tags_checkbox>
                                              <a href = "javascript:flipflop('."'".$gkword_name."'".');">'.$gkword_name.'</a>
                                        </p>
-                                       <ul class = "tag_list" id = '.$gkword_name.' style="display: none;">';   
+                                       <ul class = "tag_list" id = '.$gkword_name.' style="display: none;">';
+                           }
+                        }
+
+
+         					$query = "SELECT gkword_id,tag_id_num FROM kwgkw WHERE tag_id=10";
+         					$res = pg_query($cn,$query);
+         					while($row=pg_fetch_object($res))
+         					{
+                           $tag_id_num = $row->tag_id_num;
+                           $gkword_id = $row->gkword_id;
+                           if($gkword_id != 0)
+                           {
+                              $query = "SELECT gkword_name FROM gkwords WHERE gkword_id=$gkword";
+                              $res2 = pg_query($cn,$query);
+                              $row2 = pg_fetch_object($res2);
+                              $gkword_name = $row2->gkword_name;
+                              
                               $query = "SELECT tag_id_num FROM kwgkw WHERE gkword_id=$gkword_id";
                               $res2 = pg_query($cn,$query);
                               while($row2=pg_fetch_object($res2))
@@ -124,18 +153,10 @@
                                  echo '<li class = "list_item"><a href = "#" data-en = 0 data-tag = '.$kword_name.'>'.$kword_name.'</a></li>';
                               }
                               echo "</ul></li>";
-                              */
                            }
                            else
                            {
-                              $query = "SELECT kword_name FROM kwords WHERE tag_id_num=$tag_id_num";
-                              $res2 = pg_query($cn,$query);
-                              $row2=pg_fetch_object($res2);
-                              $kword_name=$row2->kword_name;
-                              echo "<li class = 'tag_group'>
-                                    <p class = 'group_name'>
-                                          $kword_name
-                                    </p></li>";
+                              
                            }
          					}
 					?>

@@ -84,21 +84,14 @@ function AddToBd($filename,$fsize,$ext) {
       $row = pg_fetch_object($res);
       $tag_id_num = $row->tag_id_num;
       $last_query .= "INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES('-pic_id-',$tag_id,$tag_id_num);";
-
-      if($newTag == 1)
-      {
-        $query = "INSERT INTO kwgkw(gkword_id,tag_id,tag_id_num) VALUES(0,$tag_id,$tag_id_num)";
-        echo "ЗАПРОСИК $query <br>";
-        $res = pg_query($cn,$query);
-      }
-
       $query = "SELECT pics_name FROM tags WHERE tag_id=$tag_id";
       $res = pg_query($cn,$query);
       $row = pg_fetch_object($res);
       echo "ЗАПРОСИК $query<br>";
       switch ($row->pics_name) {
         case 'date':
-          $date = substr($strValue, 0,"+");
+          $strValue = substr($strValue, 0,"+");
+          $date = $strValue;
           break;
         case 'width':
           $width = $strValue;
@@ -118,6 +111,12 @@ function AddToBd($filename,$fsize,$ext) {
         default:
           # code...
           break;
+      }
+      if($newTag == 1)
+      {
+        $query = "INSERT INTO kwgkw(gkword_id,tag_id,tag_id_num) VALUES(0,$tag_id,$tag_id_num)";
+        echo "ЗАПРОСИК $query <br>";
+        $res = pg_query($cn,$query);
       }
     }
   }
