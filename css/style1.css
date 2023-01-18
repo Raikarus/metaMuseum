@@ -235,7 +235,10 @@ header {
 
 }
 
-.compilation_li:active {
+.compilation_li::after {
+   width: 100%;
+   width: 100%;
+   z-index: 2;
    background-color: red;
 }
 
