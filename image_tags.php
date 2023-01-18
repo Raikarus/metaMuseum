@@ -92,7 +92,7 @@
                           $tag = explode(" ", $tags);
                         for($i = 0; $i < 16;$i++)
                         {
-                            echo $tag[0];
+                            echo $tag[1];
                         }
                               
                           
