@@ -51,7 +51,10 @@
    </header>
 
 <div class = "main">
-      <div class = "main_left">
+   <div class = "main_left">
+      
+   </div>
+      <div class = "main_center">
          <ul class = "photos" id = "wrapping">
          	<?php
 			    $dir='./img';
