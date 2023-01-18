@@ -95,10 +95,10 @@
                         <li><a href="#exampleModal" id="#example1" onclick="';
                  echo $str'" class="button8">Войти</a></li>
                       </ul>';
-                      
+
 
                  */
           ?>
-            <a href="#exampleModal" id="#example1" onclick="ABS" class="button8">Войти</a>
+            <a href="#exampleModal" id="#example1" onclick="ABS()" class="button8">Войти</a>
           </body>
 </html>
