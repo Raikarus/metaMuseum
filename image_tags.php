@@ -143,26 +143,20 @@
                <div class = "choosen_tags">
                   <ul class = "wrap">
                   </ul>
-               </div>
-         </div>      
-      </div>
-   </div>
-
-
-                        <?php 
-                        /*
+                  <?php 
                           $tags  = "japanese hentai lesbian milf korean asian step_mom massage anal ebony big_ass teen threesome public anime creampie ";
                           $tag = explode(" ", $tags);
                           
                         for($i = 0; $i < 16;$i++)
                         {
                            $size = rand(14, 40);
-                            echo '<span style="color:#24B47E;text-align:center;font-size:'.$size.'pt;word-break:normal;">'.$tag[$i]."($size)".'</span>';
+                            echo '<span class = "cloud_tag" style="font-size:'.$size.'pt;">'.$tag[$i]."($size)".'</span>';
                             echo "\n";
                         }
-                        */
                         ?> 
-
-
+               </div>
+         </div>      
+      </div>
+   </div>
 </body>
 </html>
