@@ -89,7 +89,7 @@ function AddToBd($filename,$fsize,$ext) {
       {
         $query = "INSERT INTO kwgkw(gkword_id,tag_id,tag_id_num) VALUES(0,$tag_id,$tag_id_num)";
         echo "ЗАПРОСИК $query <br>";
-        $res = pg_query($cn,$query);[]
+        $res = pg_query($cn,$query);
       }
 
       $query = "SELECT pics_name FROM tags WHERE tag_id=$tag_id";
