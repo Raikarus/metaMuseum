@@ -121,7 +121,7 @@ function AddToBd($filename,$fsize,$ext) {
   echo "ЗАПРОСИК $query<br>";
   $row = pg_fetch_object($res);
   $pic_id = $row->pic_id;
-  $last_query = str_replace("-pic_id-", $pic_id, $last_query);
+  $last_query = str_replace("'-pic_id-'", $pic_id, $last_query);
   pg_query($cn,$last_query);
   echo "ЗАПРОСИК $last_query<br>";
 }
