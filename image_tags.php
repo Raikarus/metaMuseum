@@ -69,7 +69,7 @@ function moveZeros(arr) {
               $(this).css('outline','none');
               $(this).data('val','0');
 
-              for(int i =0;i <document.getElementsByName("img");i++ )
+              for(var i =0;i <document.getElementsByName("img");i++ )
               {
                if(arr[i] == this)
                {
