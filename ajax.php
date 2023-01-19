@@ -178,6 +178,7 @@
             }
         }
         $res = pg_query($cn,$query);
+        echo "ЗАПРОСИК $query<br>";
         $start = 0;
         $end = 6;
         switch ($_POST['size']) {
