@@ -48,12 +48,13 @@ function moveZeros(arr) {
     }
     return arr;
 }
+ let arr = [(document.getElementsByName("img")).length];
+
     $(document).ready(function(){
         $('.comp_li_button').click(function(){
             var clickBtnValue = $(this).data('val');
             
-            let arr = [(document.getElementsByName("img")).length];
-
+           
             if(clickBtnValue=='0')
             {
               $(this).css('outline','1px solid red');
@@ -93,6 +94,7 @@ function moveZeros(arr) {
             for(var i = 0; i < count;i++)
             {
                //ss += arr[i] + '|';
+                  console.log(count);
                 console.log(arr[count]);
             }
             
