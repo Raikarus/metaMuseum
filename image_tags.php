@@ -83,12 +83,12 @@ function moveZeros(arr) {
             }
             
             console.log(arr[count]);
-            var ss = "arr[count]";
-          /*  
+            var ss = "";
+            
             for(var i = 0; i < count;i++)
             {
                ss += arr[i] + '|';
-            }*/
+            }
             
 
             var ajaxurl = 'ajax.php';

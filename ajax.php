@@ -12,7 +12,8 @@ if (isset($_POST['action'])) {
 $status = 0;
 function check()
 {
-	echo $_POST['img_string'];
+    $str = explode('|', $_POST['img_string']);
+	echo "sssss";
 	
 }
 ?>
