@@ -116,18 +116,66 @@
         if($result_tags == "") $query = "SELECT pic_id,fmt,title FROM pics";
         else
         {
-            $query = "SELECT tag_id_num FROM kwords WHERE kword_name"
             $result_tags_arr = explode("|", $result_tags);
             $result_tags_invers_arr = explode("|",$result_tags_invers);
-            if($result_tags_invers_arr[0]=="0") $query+="='$result_tags_arr'";
-            else $query+="<>'$result_tags_arr'";
+            $query = "SELECT tag_id_num FROM kwords WHERE kword_name='$result_tags_arr[0]'";
             for ($i=1; $i < count($result_tags_arr); $i++) {
-                $query += " AND kword_name"; 
-                if($result_tags_invers_arr[$i]=="0") $query+="='$result_tags_arr'";
-                else $query+="<>'$result_tags_arr'";
+                $query .= " OR kword_name=$result_tags_arr[$i]"; 
+            }
+            $res = pg_query($cn,$query);
+            echo "ЗАПРОСИК $query<br>";
+            $tag_id_num_array = pg_fetch_all($res);
+            echo "<pre>";
+            print_r($tag_id_num_array);
+            echo "</pre>";
+            $query = "SELECT pic_id FROM pics";
+            $res = pg_query($cn,$query);
+            $query = "SELECT title,fmt FROM pics";
+            $add_where = "yes";
+            while($row = pg_fetch_object($res))
+            {
+                $pic_id = $row->pic_id;
+                $query2 = "SELECT tag_id_num FROM pictags WHERE pic_id=$pic_id";
+                $res2 = pg_query($cn,$query2);
+                echo "ЗАПРОСИК $query2<br>";
+                $tag_id_num_array_from_pic_id = pg_fetch_all($res);
+                $ok = "ok";
+
+                for ($i=0; $i < count($tag_id_num_array); $i++) { 
+                    if($result_tags_invers_arr[$i] == "0")
+                    {
+                        if(!in_array($tag_id_num_array[$i],$tag_id_num_array_from_pic_id))
+                        {
+                            $ok = "not ok";
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        if(in_array($tag_id_num_array[$i], $tag_id_num_array_from_pic_id))
+                        {
+                            $ok = "not ok";
+                            break;
+                        }
+                    }
+                }
+                if($ok == "ok") 
+                {
+                    if($add_where == "yes")
+                    {
+                        $add_where = "no";
+                        $query .= " WHERE ";
+                        $query .= "pic_id = $pic_id";
+                    }
+                    else
+                    {
+                        $query .= " OR pic_id = $pic_id";
+                    }
+                }
             }
         }
         $res = pg_query($cn,$query);
+        echo "ЗАПРОСИК $query<br>";
         $start = 0;
         $end = 6;
         switch ($_POST['size']) {
