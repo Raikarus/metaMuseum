@@ -169,7 +169,7 @@
             }
             if($add_where == "yes") 
             {
-                echo "<script> alert('По этим тэгам нет картинок')</script>";
+                echo "<script> alert('Не найдено изображений по заданным ключевым словам')</script>";
             }
         }
         $res = pg_query($cn,$query);
