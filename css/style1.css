@@ -204,13 +204,6 @@ header {
    color: white;
 }
 
- #btnControl {
-        display: none;
-      }
-
-      #btnControl:checked + compilation_li {
-        background-color: green;
-      }
 
 .main_left {
    width: 25%;
