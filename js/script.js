@@ -127,7 +127,7 @@ $(document).ready(function(){
            else if (current_page!=1) current_page-=1;
            $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
            var ajaxurl = 'ajax.php';
-           data =  {'action': clickBtnValue, 'current_page': current_page,'size':size};
+           data =  {'action': 'update_grid', 'current_page': current_page,'size':size};
            $.post(ajaxurl, data, function (response) {
               $('#wrapping').html(response);
            });
