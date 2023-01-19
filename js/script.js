@@ -36,14 +36,14 @@ function tag_invers(e)  {
      $(e).data("inversed",1);
      $(e).attr("data-inversed",1)
      $(e).css("backgroundColor","rgb(228, 79, 79)");
-     result_tags_invers[index] = -1;
+     result_tags_invers[index] = 1;
   }
   else
   {
      $(e).data("inversed",0);
      $(e).attr("data-inversed",0);
      $(e).css("backgroundColor","#24B47E");
-     result_tags_invers[index] = 1;
+     result_tags_invers[index] = 0;
   }
   filtr_kword();
 }
