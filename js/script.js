@@ -132,7 +132,9 @@ $(document).ready(function(){
               $('#wrapping').html(response);
            });
     });
-     $.post(ajaxurl, {'action': 'update_grid', 'current_page': 1,'size':'3x2'}, function (response) {
+    var current_page = Number($('#current_page').data('val'));
+    data =  {'action': 'update_grid', 'current_page': current_page,'size':size};
+     $.post(ajaxurl,data, function (response) {
         $('#wrapping').html(response);
      });
 });
