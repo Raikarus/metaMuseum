@@ -12,9 +12,9 @@ if (isset($_POST['action'])) {
 $status = 0;
 function check()
 {
-    $str = explode('|', $_POST['img_string']);
+    //$str = explode('|', $_POST['img_string']);
 
-	echo "$str[0]";
+	echo "$_POST['img_string']";
 	
 }
 ?>
