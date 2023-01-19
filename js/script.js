@@ -93,7 +93,7 @@ $(document).ready(function(){
       wrap.style.gridTemplateRows = "repeat(4, 1fr)";
       limit_of_pages = 20;
       $(".name").css("padding-bottom", "2px" );
-      size = '3x2';
+      size = '5x4';
       preload();
    });
 
@@ -119,7 +119,7 @@ $(document).ready(function(){
       wrap.style.gridTemplateRows = "repeat(2, 1fr)";
       limit_of_pages = 6;
       $(".name").css("padding-bottom", "8px");
-      size='5x4';
+      size='3x2';
       preload();
    });
 
