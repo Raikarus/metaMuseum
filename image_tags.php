@@ -90,14 +90,14 @@ function moveZeros(arr) {
             var ss = "";
              
 
-           /* for(var i = 0; i < count;i++)
+            for(var i = 0; i < count;i++)
             {
-               ss += arr[i].data('val') + '|';
-            }*/
-             console.log(arr[count-1]);
+               ss += arr[i] + '|';
+            }
+             console.log(ss);
 
               //console.log((document.getElementsByName("img")).length);
-            ss = arr[count-1];
+        
             
             // ss = $(ss).data('val');
 
