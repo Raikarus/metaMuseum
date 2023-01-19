@@ -58,6 +58,7 @@ function moveZeros(arr) {
             if(clickBtnValue=='0')
             {
               $(this).css('outline','1px solid red');
+               $(this).css('background-color', '#24B47E');
               $(this).data('val','1');
           
                arr[count] =  String($(this).data('img'));
