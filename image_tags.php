@@ -51,14 +51,14 @@ function moveZeros(arr) {
         $('.comp_li_button').click(function(){
             var clickBtnValue = $(this).data('val');
             var count = 0;
-            let arr = [(document.getElementsById("img")).length];
+            let arr = [(document.getElementsByName("img")).length];
 
             if(clickBtnValue=='0')
             {
               $(this).css('outline','1px solid red');
               $(this).data('val','1');
               arr[count] = this;
-              if(count < document.getElementsById("img").length)
+              if(count < document.getElementsByName("img").length)
               {
                count+=1;
               }
@@ -90,7 +90,7 @@ function moveZeros(arr) {
                ss += arr[i] + '|';
             }
             
-              console.log((document.getElementsById("img")).length);
+              console.log((document.getElementsByName("img")).length);
               console.log(count);
             var ajaxurl = 'ajax.php';
             data =  {'action': 'set_img','img_string':ss};
@@ -129,7 +129,7 @@ function moveZeros(arr) {
 					if ($img != '.' && $img != '..') echo '  
                <li class = "compilation_li">
                            <button class = "comp_li_button" data-val= "0">
-               				   <div class = "comp_li_photo" id ="img" style="background-image:url('."'".'img/'.$img."'".'"></div>
+               				   <div class = "comp_li_photo" name ="img" style="background-image:url('."'".'img/'.$img."'".'"></div>
                				   <div class = "comp_li_name">'.$img.'</div>   
                            </button>        
             			 </li>';
