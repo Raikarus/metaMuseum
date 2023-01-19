@@ -41,7 +41,22 @@ $(document).ready(function(){
       }
     });
 
-  $('.tag_list li a').click(function(){
+
+  $('.tag_group .group_name .kword_solo').click(function (){
+    var index = result_tags.indexOf($(this).data("tag"));
+    if (index >= 0) {
+      result_tags.splice(index, 1);
+    }
+    else{
+      result_tags.push($(this).data("tag"))
+    }
+    $(".wrap").html("");
+    for (var i = 0; i <=result_tags.length - 1; i++) {
+      $(".wrap").append('<li class = "choose_item" data-selected = "0" onclick="tag_invers($(this))">'+result_tags[i]+'</li>');
+    }
+  });
+  
+  $('.tag_list li a').click(function (){
     var index = result_tags.indexOf($(this).data("tag"));
     if (index >= 0) {
       result_tags.splice(index, 1);

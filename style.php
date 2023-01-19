@@ -90,7 +90,7 @@
                                     $row3 = pg_num_rows($res3);
                                     echo "<li class = 'tag_group'>
                                              <p class = 'group_name'>
-                                                $kword_name ($row3)
+                                                <a class = 'kword_solo' href='#' data-en = 0 data-tag=$kword_name>$kword_name ($row3)</a>
                                              </p>
                                           </li>";
                                  }
