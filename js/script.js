@@ -14,10 +14,24 @@ function flipflop( id )
 var result_tags = [];
 var result_tags_invers = [];
 
+function check_invers(e)
+{
+  for (var i = result_tags.length - 1; i >= 0; i--) {
+    e = getElementById(result_tags[i]);
+    if($(e).data("inversed") == 0)
+    {
+      $(e).css("backgroundColor","#24B47E");
+    }
+    else
+    {
+      $(e).css("backgroundColor","rgb(228, 79, 79)"); 
+    }
+  }
+}
+
 function tag_invers(e)  {
   var index = $(e).data("index");
-  alert(index);
-  if ($(e).data("inversed") == "0")
+  if ($(e).data("inversed") == 0)
   {
      $(e).data("inversed",1);
      $(e).attr("data-inversed",1)
@@ -36,7 +50,7 @@ function tag_invers(e)  {
 
 function filtr_kword()
 {
-  //alert(result_tags_invers);
+  alert(result_tags_invers);
 }
 
 $(document).ready(function(){
@@ -64,8 +78,9 @@ $(document).ready(function(){
     }
     $(".wrap").html("");
     for (var i = 0; i <=result_tags.length - 1; i++) {
-      $(".wrap").append('<li class = "choose_item" data-inversed = "0" data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'</li>');
+      $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'"" data-inversed = '+result_tags_invers+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'</li>');
     }
+    check_invers();
     filtr_kword();
   });
 
@@ -81,8 +96,9 @@ $(document).ready(function(){
     }
     $(".wrap").html("");
     for (var i = 0; i <=result_tags.length - 1; i++) {
-      $(".wrap").append('<li class = "choose_item" data-inversed = "0" data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'</li>');
+      $(".wrap").append('<li class = "choose_item" data-inversed = '+result_tags_invers+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'</li>');
     }
+    check_invers();
     filtr_kword();
   });
 
