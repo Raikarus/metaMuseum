@@ -130,7 +130,7 @@
             echo "</pre>";
             $query = "SELECT pic_id FROM pics";
             $res = pg_query($cn,$query);
-            $query = "SELECT title,fmt FROM pics";
+            $query = "SELECT pic_id,title,fmt FROM pics";
             $add_where = "yes";
             while($row = pg_fetch_object($res))
             {
