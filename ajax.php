@@ -125,12 +125,9 @@
             $res = pg_query($cn,$query);
             echo "ЗАПРОСИК $query<br>";
             $tag_id_num_array = pg_fetch_all($res);
-            echo "<pre>";
-            print_r($tag_id_num_array);
-            echo "</pre>";
             $query = "SELECT pic_id FROM pics";
             $res = pg_query($cn,$query);
-            $query = "SELECT pic_id,title,fmt FROM pics";
+            $query = "SELECT pic_id,fmt,title FROM pics";
             $add_where = "yes";
             while($row = pg_fetch_object($res))
             {
