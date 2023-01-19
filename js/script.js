@@ -16,7 +16,7 @@ var result_tags_invers = [];
 
 function check_invers()
 {
-  for (var i = result_tags.length - 1; i >= 0; i--) {
+  for (var i = 0; i < result_tags.length; i++) {
     e = getElementById(result_tags[i]);
     if($(e).data("inversed") == 0)
     {
