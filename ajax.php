@@ -113,6 +113,7 @@
         $res = pg_query($cn,$query);
         $start = 0;
         $end = 6;
+        echo $_POST['size'];
         switch ($_POST['size']) {
             case '3x2':
                 $start = ($_POST['current_page']-1)*6;
