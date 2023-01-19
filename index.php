@@ -170,7 +170,6 @@ function AddToBd($filename,$fsize,$ext) {
             $res = pg_query($cn,$query);
 
             $last_query .= "INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES('-pic_id-',$tag_id,$tag_id_num);";
-            }
           }
         }
       }
@@ -178,7 +177,7 @@ function AddToBd($filename,$fsize,$ext) {
       {
         $last_query .= "INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES('-pic_id-',$tag_id,$tag_id_num);";
       }
-      
+    
       
       
       switch ($pics_name) {
