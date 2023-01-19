@@ -78,7 +78,7 @@ function moveZeros(arr) {
 
               for(var i =0;i <count;i++ )
               {
-               if(arr[i] == this)
+               if(arr[i] == $(this).data('img'))
                {
                    arr[i] = 0;
                    moveZeros(arr);
