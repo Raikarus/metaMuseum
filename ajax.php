@@ -135,13 +135,6 @@
                 $res2 = pg_query($cn,$query2);
                 $tag_id_num_array_from_pic_id = pg_fetch_all($res2);
                 $ok = "ok";
-                // echo "<pre>";
-                // print_r($tag_id_num_array);
-                // echo "</pre>";
-
-                // echo "<pre>";
-                // print_r($tag_id_num_array_from_pic_id);
-                // echo "</pre>";
                 for ($i=0; $i < count($tag_id_num_array); $i++) { 
                     echo "$tag_id_num_array[$i] !-! $result_tags_invers_arr[$i]<br>";
                     if($result_tags_invers_arr[$i] == "0")
@@ -177,7 +170,6 @@
             }
         }
         $res = pg_query($cn,$query);
-        echo "ЗАПРОСИК $query<br>";
         $start = 0;
         $end = 6;
         switch ($_POST['size']) {
