@@ -209,8 +209,7 @@ header {
       }
 
       #btnControl:checked + compilation_li {
-        width: 150px;
-        height: 170px;
+        background-color: green;
       }
 
 .main_left {
