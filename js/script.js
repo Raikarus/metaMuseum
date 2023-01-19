@@ -17,7 +17,7 @@ var result_tags_invers = [];
 function check_invers()
 {
   for (var i = 0; i < result_tags.length; i++) {
-    e = getElementById(result_tags[i]);
+    e = document.getElementById(result_tags[i]);
     if($(e).data("inversed") == 0)
     {
       $(e).css("backgroundColor","#24B47E");
