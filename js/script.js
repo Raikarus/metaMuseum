@@ -13,6 +13,7 @@ function flipflop( id ) {
 
 var result_tags = [];
 var result_tags_invers = [];
+var size = '3x2';
 
 function check_invers() {
   for (var i = 0; i < result_tags.length; i++) {
@@ -129,8 +130,6 @@ $(document).ready(function(){
    let size2 = document.getElementById('size_normal');
    let size3 = document.getElementById('size_big');
    let wrap = document.getElementById('wrapping');
-
-   var size = '3x2';
 
    $(but1).click(function()
    {
