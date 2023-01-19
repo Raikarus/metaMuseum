@@ -127,15 +127,23 @@
                 $end = $start + 20;
                 break;
         }
-        for ($i=$start; $i < $end; $i++) { 
-         $pic_id = pg_fetch_result($res, $i, 0);
-         $fmt = pg_fetch_result($res, $i, 1);
-         $title = pg_fetch_result($res, $i, 2);
-         echo "
-         <li class='photo_li'>
-               <div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div>
-               <div class='name'>$title</div>
-          </li>";
-        }
-    }    
+        if(pg_fetch_result($res, $start, 0))
+        {
+	        for ($i=$start; $i < $end; $i++) { 
+	         $pic_id = pg_fetch_result($res, $i, 0);
+	         $fmt = pg_fetch_result($res, $i, 1);
+	         $title = pg_fetch_result($res, $i, 2);
+	         echo "
+	         <li class='photo_li'>
+	               <div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div>
+	               <div class='name'>$title</div>
+	          </li>";
+	        }
+    	}
+    	else
+    	{
+    		echo "error";
+    	}
+    }
+
 ?>
