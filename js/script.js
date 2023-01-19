@@ -137,6 +137,7 @@ $(document).ready(function(){
             }
             else {
               current_page-=1;
+              $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
               preload();
             } 
           });
@@ -153,6 +154,7 @@ $(document).ready(function(){
         }
         else {
           current_page-=1;
+          $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
           preload();
         } 
       });
