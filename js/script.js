@@ -130,9 +130,9 @@ $(document).ready(function(){
            else if (current_page!=1) current_page-=1;
            var ajaxurl = 'ajax.php';
            data =  {'action': 'update_grid', 'current_page': current_page,'size':size};
-           $.post(ajaxurl, data, function (response) {
-              if(response != 'error') {
-                alert(response);
+           $.post(ajaxurl, data, function (response,status,error) {
+              if(response.responseText != 'error') {
+                alert(response.responseText);
                 $('#wrapping').html(response);
                 $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
               }
