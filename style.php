@@ -52,7 +52,7 @@
                {
                   $query = "SELECT pic_id,fmt,title FROM pics";
                   $res = pg_query($cn,$query);
-                  for ($i=0; $i < ; $i++) { 
+                  for ($i=0; $i < 10; $i++) { 
                      $pic_id = pg_fetch_result($res, $i, 0);
                      $fmt = pg_fetch_result($res, $i, 1);
                      $title = pg_fetch_result($res, $i, 2);
