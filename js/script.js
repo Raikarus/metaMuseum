@@ -54,7 +54,7 @@ $(document).ready(function(){
     for (var i = 0; i <=result_tags.length - 1; i++) {
       $(".wrap").append('<li class = "choose_item" data-selected = "0" onclick="tag_invers($(this))">'+result_tags[i]+'</li>');
     }
-
+    filtr_kword();
   });
 
   $('.tag_list li a').click(function (){
@@ -69,6 +69,7 @@ $(document).ready(function(){
     for (var i = 0; i <=result_tags.length - 1; i++) {
       $(".wrap").append('<li class = "choose_item" data-selected = "0" onclick="tag_invers($(this))">'+result_tags[i]+'</li>');
     }
+    filtr_kword();
   });
 
   function filtr_kword()
