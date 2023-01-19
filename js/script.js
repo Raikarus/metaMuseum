@@ -120,7 +120,7 @@ $(document).ready(function(){
       size='5x4';
    });
 
-    $('.button').click(function update_grid(){
+   function update_grid(){
            var clickBtnValue = $(this).data('val');
            var current_page = Number($('#current_page').data('val'));
            if(clickBtnValue == "right") current_page+=1;
@@ -131,6 +131,7 @@ $(document).ready(function(){
            $.post(ajaxurl, data, function (response) {
               $('#wrapping').html(response);
            });
-    });
+    }
+    $('.button').click(update_grid());
     update_grid();
 });
