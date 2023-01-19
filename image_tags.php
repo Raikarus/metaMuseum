@@ -36,6 +36,7 @@
 
     <script>
       var count = 0;
+      let arr = [(document.getElementsByName("img")).length];
 function moveZeros(arr) {
     let upperBound = arr.length;
     for (let i = 0; i < upperBound; i++) {
@@ -48,7 +49,7 @@ function moveZeros(arr) {
     }
     return arr;
 }
- let arr = [(document.getElementsByName("img")).length];
+ 
 
     $(document).ready(function(){
         $('.comp_li_button').click(function(){
@@ -59,8 +60,8 @@ function moveZeros(arr) {
             {
               $(this).css('outline','1px solid red');
               $(this).data('val','1');
-              console.log($(this));
-            console.log($(this).data('img'));
+            //  console.log($(this));
+           // console.log($(this).data('img'));
 
                arr[count] =  String($(this).data('img'));
               
@@ -95,8 +96,8 @@ function moveZeros(arr) {
             for(var i = 0; i < count;i++)
             {
                //ss += arr[i] + '|';
-                  console.log(count);
-                console.log(arr[count]);
+                  console.log(i);
+                console.log(arr[i]);
             }
             
 
