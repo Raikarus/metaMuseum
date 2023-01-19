@@ -120,7 +120,7 @@ $(document).ready(function(){
       size='5x4';
    });
 
-    $('.button').click(function update_grid(){
+    $('.button').click(function (){
            var clickBtnValue = $(this).data('val');
            var current_page = Number($('#current_page').data('val'));
            if(clickBtnValue == "right") current_page+=1;
@@ -132,9 +132,15 @@ $(document).ready(function(){
               $('#wrapping').html(response);
            });
     });
-    var current_page = Number($('#current_page').data('val'));
-    data =  {'action': 'update_grid', 'current_page': current_page,'size':size};
-     $.post(ajaxurl,data, function (response) {
+    function preload()
+    {
+      var current_page = Number($('#current_page').data('val'));
+      $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
+      var ajaxurl = 'ajax.php';
+      data =  {'action': 'update_grid', 'current_page': current_page,'size':size};
+      $.post(ajaxurl, data, function (response) {
         $('#wrapping').html(response);
-     });
+      });
+    }
+    preload();
 });
