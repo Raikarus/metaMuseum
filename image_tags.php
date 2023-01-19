@@ -51,14 +51,14 @@ function moveZeros(arr) {
         $('.comp_li_button').click(function(){
             var clickBtnValue = $(this).data('val');
             var count = 0;
-            let arr = [(document.getElementsByName("img")).length];
+            let arr = [(document.getElementsById("img")).length];
 
             if(clickBtnValue=='0')
             {
               $(this).css('outline','1px solid red');
               $(this).data('val','1');
               arr[count] = this;
-              if(count < document.getElementsByName("img").length)
+              if(count < document.getElementsById("img").length)
               {
                count+=1;
               }
@@ -90,7 +90,7 @@ function moveZeros(arr) {
                ss += arr[i] + '|';
             }
             
-              console.log((document.getElementsByName("img")).length);
+              console.log((document.getElementsById("img")).length);
               console.log(count);
             var ajaxurl = 'ajax.php';
             data =  {'action': 'set_img','img_string':ss};
