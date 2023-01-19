@@ -13,8 +13,11 @@ $status = 0;
 function check()
 {
     $str = explode('|', $_POST['img_string']);
-
-	echo '<div class = "comp_li_photo" name ="img" style="background-image:url('."'".'img/'.$str[0]."'".'" data-val = "'.$img.'""></div>' ;
+    for($i = 0; $i < count(str);$i++)
+    {
+        echo '<div class = "comp_li_photo" name ="img" style="background-image:url('."'".'img/'.$str[$i]."'".'" data-val = "'.$img.'""></div>' ;
+    }
+	
 	
 }
 ?>
