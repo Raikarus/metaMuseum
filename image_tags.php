@@ -54,7 +54,7 @@
               $(this).data('val','0');
             }
             
-            
+            Debug.log(arr[0]);
             /*var clickBtnValue = $(this).val();
             var ajaxurl = 'ajax.php';
             data =  {'action': clickBtnValue};
