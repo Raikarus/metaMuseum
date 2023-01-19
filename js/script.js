@@ -133,7 +133,7 @@ $(document).ready(function(){
            $.post(ajaxurl, data, function (response,status,error) {
               if(response.responseText != 'error') {
                 alert(response.responseText);
-                $('#wrapping').html(response);
+                $('#wrapping').html(response.responseText);
                 $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
               }
               else {
