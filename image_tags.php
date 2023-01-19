@@ -99,7 +99,8 @@ function moveZeros(arr) {
              
             var ajaxurl = 'ajax.php';
             data =  {'action': 'set_img','img_string':ss};
-            $.post(ajaxurl, data, function (response) {
+            
+            $.post(ajaxurl, data).done(function (response) {
                   $('#wrapping').html(response);
             });
         });
