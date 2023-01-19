@@ -68,6 +68,7 @@ function preload()  {
       $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
       preload();
     } 
+    console.log(result_tags_invers_string);
   });
 }
 
@@ -195,20 +196,6 @@ $(document).ready(function(){
            else if (current_page!=1) current_page-=1;
            $('#current_page').data('val',current_page).attr('data-val',current_page);
            preload();
-           /*
-           var ajaxurl = 'ajax.php';
-           data =  {'action': 'update_grid', 'current_page': current_page,'size':size};
-           $.post(ajaxurl, data).done(function (response) {
-            if(response != 'error') {
-              $('#wrapping').html(response);
-              $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
-            }
-            else {
-              current_page-=1;
-              $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
-              preload();
-            } 
-          });*/
     });
     
     preload();

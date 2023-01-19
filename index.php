@@ -279,6 +279,7 @@ function LinkKeyword(){
       echo "ЗАПРОСИК $query<br>";
       if(!pg_fetch_object($res))
       {
+        
         $shl = 'exiftool -XMP-dc:subject+="'.$selected_kword.'" img/'.$_POST['img_name'];
         $res = shell_exec($shl);
         echo "<br><pre>$res</pre>"; 
