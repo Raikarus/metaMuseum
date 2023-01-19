@@ -13,7 +13,8 @@ $status = 0;
 function check()
 {
     $str = explode('|', $_POST['img_string']);
-	echo "sssss";
+
+	echo $str[0];
 	
 }
 ?>
