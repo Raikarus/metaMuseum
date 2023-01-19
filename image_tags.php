@@ -58,7 +58,10 @@ function moveZeros(arr) {
             {
               $(this).css('outline','1px solid red');
               $(this).data('val','1');
-              arr[count] = document.getElementsByName("img")[count];
+              
+            
+               arr[count] =  $(this).data('img');
+              
               if(count < document.getElementsByName("img").length)
               {
                count++;
@@ -92,10 +95,11 @@ function moveZeros(arr) {
                ss += arr[i].data('val') + '|';
             }*/
              console.log(arr[count-1]);
+
               //console.log((document.getElementsByName("img")).length);
             ss = arr[count-1];
             
-             ss = $(ss).data('val');
+            // ss = $(ss).data('val');
 
             
              
@@ -136,8 +140,8 @@ function moveZeros(arr) {
 				foreach($files as $n => $img){
 					if ($img != '.' && $img != '..') echo '  
                <li class = "compilation_li">
-                           <button class = "comp_li_button" data-val= "0">
-               				   <div class = "comp_li_photo" name ="img" style="background-image:url('."'".'img/'.$img."'".'" data-val = "'.$img.'""></div>
+                           <button class = "comp_li_button" data-val= "0" name ="img" " data-img = "'.$img.'>
+               				   <div class = "comp_li_photo" style="background-image:url('."'".'img/'.$img."'".'"data-tag = '$n'></div>
                				   <div class = "comp_li_name">'.$img.'</div>   
                            </button>        
             			 </li>';
