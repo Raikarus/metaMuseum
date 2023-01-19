@@ -95,7 +95,7 @@ function moveZeros(arr) {
               //console.log((document.getElementsByName("img")).length);
             ss = (document.getElementsByName("img"))[0];
              console.log(ss);
-            ss= ss.replace(/'/gi, '"');
+          
              
             var ajaxurl = 'ajax.php';
             data =  {'action': 'set_img','img_string':ss};
