@@ -99,12 +99,11 @@
                		<?php
                         $query = "SELECT gkword_id,gkword_name FROM gkwords";
                         $res = pg_query($cn,$query);
+                        $gkword_id = $row->gkword_id;
                         while($row=pg_fetch_object($res))
                         {
-                           $gkword_id = $row->gkword_id;
                            if($gkword_id == 0)
                            {
-                              echo "TEST<br>";
                               //Если нет никакой группы
                               $query = "SELECT tag_id,tag_id_num FROM kwgkw WHERE gkword_id=$gkword_id";
                               $res2 = pg_query($cn,$query);
@@ -131,8 +130,6 @@
                            else
                            {
                               echo "$gkword_id<br>";
-                              //Если есть группа, то выпадающий список для каждого слова
-                              //$query = "SELECT "
 
                               $query = "SELECT kword_name FROM kwords WHERE tag_id_num=$tag_id_num";
                               $res2 = pg_query($cn,$query);
