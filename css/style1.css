@@ -204,12 +204,22 @@ header {
    color: white;
 }
 
+ #btnControl {
+        display: none;
+      }
+
+      #btnControl:checked + compilation_li {
+        width: 150px;
+        height: 170px;
+      }
+
 .main_left {
    width: 25%;
    height: 100%;
    border-right: 1px solid white;
    display: flex;
    justify-content: flex-start;
+    cursor: pointer;
 }
 
 .photos_compilation {

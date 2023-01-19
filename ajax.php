@@ -1,7 +1,7 @@
 <?php 
 if (isset($_POST['action'])) {
         switch ($_POST['action']) {
-            case 'choosen_tags':
+            case 'read':
                 check();
                 break;
          
