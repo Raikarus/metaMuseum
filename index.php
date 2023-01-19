@@ -262,9 +262,9 @@ function LinkKeyword(){
 
 
     //ТУТ НАЗВАНИЕ НЕ КАК В БАЗЕ
-    echo "img_name = ".substr($_POST['img_name'],0,'.');
-    $pic_id = substr($_POST['img_name'],0, '.');
-    echo "pic_id = $pic_id<br>";
+
+    $pic_id = substr($_POST['img_name'],0,strpos('.',$_POST['img_name']));
+    
     
     foreach($_POST['kwords'] as $selected_kword)
     {
