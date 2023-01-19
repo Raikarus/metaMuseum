@@ -14,7 +14,7 @@ function check()
 {
     //$str = explode('|', $_POST['img_string']);
 
-	echo '<div class = "comp_li_photo" name ="img" style="background-image:url('."'".'img/'.$_POST['img_string']."'".'" data-val = "'.$img.'""></div>' 
+	echo '<div class = "comp_li_photo" name ="img" style="background-image:url('."'".'img/'.$_POST['img_string']."'".'" data-val = "'.$img.'""></div>' ;
 	
 }
 ?>
