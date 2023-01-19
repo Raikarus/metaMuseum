@@ -14,7 +14,7 @@ function flipflop( id )
 var result_tags = [];
 var result_tags_invers = [];
 
-function check_invers(e)
+function check_invers()
 {
   for (var i = result_tags.length - 1; i >= 0; i--) {
     e = getElementById(result_tags[i]);
