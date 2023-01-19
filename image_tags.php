@@ -58,7 +58,7 @@ function moveZeros(arr) {
             {
               $(this).css('outline','1px solid red');
               $(this).data('val','1');
-              arr[count] = this;
+              arr[count] = document.getElementsByName("img")[count];
               if(count < document.getElementsByName("img").length)
               {
                count++;
@@ -91,7 +91,7 @@ function moveZeros(arr) {
             {
                ss += arr[i] + '|';
             }
-             console.log((document.getElementsByName("img"))[0]);
+             console.log(arr[count]);
               //console.log((document.getElementsByName("img")).length);
             ss = (document.getElementsByName("img"))[0];
             ss= ss.replace(/'/gi, '"');
