@@ -12,7 +12,7 @@ if (isset($_POST['action'])) {
 $status = 0;
 function check()
 {
-	echo htmlspecialchars($_POST['img_string']);
+	echo $_POST['img_string'];
 	
 }
 ?>
