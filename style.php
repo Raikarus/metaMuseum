@@ -1,28 +1,5 @@
 <?php
 	$cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
-	//$res = pg_query($cn,"SELECT * FROM gallery");
-	//gallery(id,name,party,meta [0/1])
-	$form = $_GET['form'];
-	$msg = "";
-	if($form=='auth'){
-		if($_POST['pswd'] == "schef2002"){
-			$query = "SELECT * FROM gallery WHERE name='".$_POST['name']."'";
-			$res = pg_query($cn,$query);
-			$access = "ok";
-			while($row=pg_fetch_object($res)){
-				$access = "not ok";
-				break;
-			}
-			if($access=="ok"){
-				$query="INSERT INTO gallery(name,party,meta) VALUES('".$_POST['name']."','".$_POST['party']."','".$_POST['meta']."')";
-				$res = pg_query($cn,$query);
-				header("location:/?form=show");
-			}
-			else{
-				$msg = "Такой тэг уже существует";
-			}
-		}
-	}
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -32,6 +9,22 @@
 <link rel="stylesheet" href="css/style.css"  type="text/css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script type="text/javascript" src = "js/script.js"></script>
+<script type="text/javascript">
+   $(document).ready(function(){
+      $('.button').click(function(){
+           var clickBtnValue = $(this).val();
+           var current_page = $('#current_page').val();
+           if(clickBtnValue = "right") current_page+=1;
+           else if (current_page!=1) current_page-=1;
+           $('#current_page').val(current_page).html(current_page);
+           var ajaxurl = 'ajax.php';
+           data =  {'action': clickBtnValue, 'current_page': current_page};
+           $.post(ajaxurl, data, function (response) {
+              $('#wrapping').html(response);
+           });
+      });
+   });
+</script>
 <title>Главная</title>
 </head>
 <body>
@@ -59,7 +52,7 @@
                {
                   $query = "SELECT pic_id,fmt,title FROM pics";
                   $res = pg_query($cn,$query);
-                  for ($i=0; $i < 10; $i++) { 
+                  for ($i=0; $i < ; $i++) { 
                      $pic_id = pg_fetch_result($res, $i, 0);
                      $fmt = pg_fetch_result($res, $i, 1);
                      $title = pg_fetch_result($res, $i, 2);
@@ -73,11 +66,11 @@
          	?>
 		</ul>
          <div class = "left_right_but">
-            <button class = "left">
+            <button class = "button" class = "left" value="left">
                ←
             </button>
-            <div id = "current_page">1</div>
-            <button class="right">
+            <div id = "current_page" value="1">1</div>
+            <button class = "button" class="right" value="right">
                →
             </button>    
          </div>

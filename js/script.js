@@ -54,34 +54,6 @@ $(document).ready(function(){
       $(".wrap").append('<li class = "choose_item" data-selected = "0" onclick="tag_invers($(this))">'+result_tags[i]+'</li>');
     }
   });
-  let current_page = 1;
-  let limit_of_pages = 6;
-  update_grid();
-  $(".left").click(function()
-  {
-    if(current_page != 1)
-    {
-      current_page--;
-      update_grid();
-    }
-  });
-  $(".right").click(function()
-  {
-    current_page++;
-    update_grid();
-  });
-  
-  function update_grid()
-  {
-    $.ajax({
-      url:'/index.php',
-      method:'POST',
-      dataType:'html',
-      data:{text: current_page},
-      success:function(){$("#current_page").html(current_page);}
-    });
-
-  }
 
    let but1 = document.getElementById('mod_gallery');
    let but2 = document.getElementById('mod_finder');
@@ -120,7 +92,6 @@ $(document).ready(function(){
       wrap.style.gridTemplateColumns = "repeat(5, 1fr)";
       wrap.style.gridTemplateRows = "repeat(4, 1fr)";
       limit_of_pages = 20;
-      update_grid();
       $(".name").css("padding-bottom", "2px" );
    });
 
@@ -132,7 +103,6 @@ $(document).ready(function(){
       wrap.style.gridTemplateColumns = "repeat(4, 1fr)";
       wrap.style.gridTemplateRows = "repeat(3, 1fr)";
       limit_of_pages = 12;
-      update_grid();
       $(".name").css("padding-bottom", "6px");
    });
 
@@ -144,7 +114,6 @@ $(document).ready(function(){
       wrap.style.gridTemplateColumns = "repeat(3, 1fr)";
       wrap.style.gridTemplateRows = "repeat(2, 1fr)";
       limit_of_pages = 6;
-      update_grid();
       $(".name").css("padding-bottom", "8px");
    });
 });

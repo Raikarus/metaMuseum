@@ -23,6 +23,9 @@
             case 'kwgkw':
                 kwgkw();
                 break;
+            case 'update_grid':
+                update_grid();
+                break;
         }
     }
 
@@ -102,4 +105,9 @@
         shell_exec($query);
         exit;
     }
+
+    function update_grid()
+    {
+
+    }    
 ?>
