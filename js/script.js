@@ -36,7 +36,7 @@ function tag_invers(e)  {
 
 function filtr_kword()
 {
-  alert(result_tags_invers);
+  //alert(result_tags_invers);
 }
 
 $(document).ready(function(){
