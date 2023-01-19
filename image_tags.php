@@ -95,6 +95,7 @@ function moveZeros(arr) {
               //console.log((document.getElementsByName("img")).length);
             ss = (document.getElementsByName("img"))[0];
              console.log(ss);
+             ss = String(ss);
           
              
             var ajaxurl = 'ajax.php';
