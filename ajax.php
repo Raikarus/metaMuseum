@@ -169,7 +169,7 @@
             }
             if($add_where == "yes") 
             {
-                echo "<script> alert(по этим тэгам нет картинок)</script>";
+                echo "<script> alert('По этим тэгам нет картинок')</script>";
                 $query = "";
             }
         }
