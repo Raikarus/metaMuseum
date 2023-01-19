@@ -14,7 +14,7 @@
       $('.button').click(function(){
            var clickBtnValue = $(this).data('val');
            var current_page = Number($('#current_page').data('val'));
-           if(clickBtnValue = "right") current_page+=1;
+           if(clickBtnValue == "right") current_page+=1;
            else if (current_page!=1) current_page-=1;
            $('#current_page').data('val',current_page).html(current_page);
            var ajaxurl = 'ajax.php';
