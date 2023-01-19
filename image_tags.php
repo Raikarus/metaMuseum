@@ -38,12 +38,24 @@
 
     $(document).ready(function(){
         $('.comp_li_button').click(function(){
-            var clickBtnValue = $(this).val();
+            var clickBtnValue = $(this).data('val');
+            if(clickBtnValue=='0')
+            {
+              $(this).css('outline','1px solid red');
+              $(this).data('val','1');
+            }
+            else
+            {
+              $(this).css('outline','none');
+              $(this).data('val','0');
+            }
+            
+            /*var clickBtnValue = $(this).val();
             var ajaxurl = 'ajax.php';
             data =  {'action': clickBtnValue};
             $.post(ajaxurl, data, function (response) {
                   $('#out').html(response);
-            });
+            });*/
         });
     });
 
@@ -74,8 +86,8 @@
 				$files = scandir($dir);
 				foreach($files as $n => $img){
 					if ($img != '.' && $img != '..') echo '  
-               <li class = "compilation_li"  id="out">
-                           <button class = "comp_li_button" value= "read">
+               <li class = "compilation_li">
+                           <button class = "comp_li_button" data-val= "0">
                				   <div class = "comp_li_photo" style="background-image:url('."'".'img/'.$img."'".'"></div>
                				   <div class = "comp_li_name">'.$img.'</div>   
                            </button>        
