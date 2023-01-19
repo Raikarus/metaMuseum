@@ -93,12 +93,11 @@ function moveZeros(arr) {
             }
              console.log(arr[count-1]);
               //console.log((document.getElementsByName("img")).length);
-            ss = (document.getElementsByName("img"))[0];
+            ss = arr[count-1];
             
              ss = $(ss).data('val');
-             
-             console.log(ss);
 
+            
              
             var ajaxurl = 'ajax.php';
             data =  {'action': 'set_img','img_string':ss};
