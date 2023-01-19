@@ -153,7 +153,7 @@
                                  {
                                     $query = "SELECT kword_name FROM kwords WHERE tag_id_num = $tag_id_num";
                                     $res3 = pg_query($cn,$query);
-                                    $row3 = pg_fetch_object($res);
+                                    $row3 = pg_fetch_object($res3);
                                     $kword_name = $row3->kword_name;
                                     $query = "SELECT pic_id FROM pictags WHERE tag_id_num=$tag_id_num";
                                     $res3 = pg_query($cn,$query);
