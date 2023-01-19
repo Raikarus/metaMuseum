@@ -15,19 +15,19 @@ var result_tags = [];
 var result_tags_invers = [];
 
 function tag_invers(e)  {
-  var index = result_tags.indexOf($(e).data("tag"));
+  var index = $(e).data("index");
   alert(index);
-  if ($(e).data("selected") == "0")
+  if ($(e).data("inversed") == "0")
   {
-     $(e).data("selected",1);
-     $(e).attr("data-selected",1)
+     $(e).data("inversed",1);
+     $(e).attr("data-inversed",1)
      $(e).css("backgroundColor","rgb(228, 79, 79)");
      result_tags_invers[index] = -1;
   }
   else
   {
-     $(e).data("selected",0);
-     $(e).attr("data-selected",0);
+     $(e).data("inversed",0);
+     $(e).attr("data-inversed",0);
      $(e).css("backgroundColor","#24B47E");
      result_tags_invers[index] = 1;
   }
@@ -60,11 +60,11 @@ $(document).ready(function(){
     }
     else{
       result_tags.push($(this).data("tag"));
-      result_tags_invers.push(1);
+      result_tags_invers.push(0);
     }
     $(".wrap").html("");
     for (var i = 0; i <=result_tags.length - 1; i++) {
-      $(".wrap").append('<li class = "choose_item" data-selected = "0" onclick="tag_invers($(this))">'+result_tags[i]+'</li>');
+      $(".wrap").append('<li class = "choose_item" data-inversed = "0" data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'</li>');
     }
     filtr_kword();
   });
@@ -77,11 +77,11 @@ $(document).ready(function(){
     }
     else{
       result_tags.push($(this).data("tag"))
-      result_tags_invers.push($(this).data("tag"));
+      result_tags_invers.push(0);
     }
     $(".wrap").html("");
     for (var i = 0; i <=result_tags.length - 1; i++) {
-      $(".wrap").append('<li class = "choose_item" data-selected = "0" onclick="tag_invers($(this))">'+result_tags[i]+'</li>');
+      $(".wrap").append('<li class = "choose_item" data-inversed = "0" data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'</li>');
     }
     filtr_kword();
   });
