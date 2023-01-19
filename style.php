@@ -59,22 +59,15 @@
                {
                   $query = "SELECT pic_id,fmt,title FROM pics";
                   $res = pg_query($cn,$query);
-                  while($row=pg_fetch_object($res))
-                  {
-                     $title = $row->title;
-                     $pic_id = $row->pic_id;
-                     $fmt = $row->fmt;
+                  for ($i=0; $i < 10; $i++) { 
+                     $pic_id = pg_fetch_result($res, $i, 0);
+                     $fmt = pg_fetch_result($res, $i, 1);
+                     $title = pg_fetch_result($res, $i, 2);
                      echo "
                      <li class='photo_li'>
                            <div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div>
                            <div class='name'>$title</div>
                       </li>";
-                  }
-
-                  for ($i=0; $i < 10; $i++) { 
-                     $pic_id = pg_fetch_result($res, $i, 0);
-                     $fmt = pg_fetch_result($res, $i, 1);
-                     $title = pg_fetch_result($res, $i, 2);
                   }
                }
          	?>
