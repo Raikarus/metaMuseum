@@ -123,26 +123,61 @@ function AddToBd($filename,$fsize,$ext) {
         $strValue = $str1;
         echo "$strValue<br>";
       }
+
       $query = "SELECT tag_id_num FROM kwords WHERE tag_id=$tag_id AND kword_name='".$strValue."'";
       $res = pg_query($cn,$query);
       echo "ЗАПРОСИК $query <br>";
       $row = pg_fetch_object($res);
-      $newTag = 0;
+
       if(!$row->tag_id_num)
       {
         //Тут автоматически создаются тэги
-        $query = "INSERT INTO kwords(tag_id,kword_name,status) VALUES($tag_id,'".$strValue."',0)";
-        $res = pg_query($cn,$query);
-        echo "ЗАПРОСИК $query <br>";
-        $newTag = 1;
-        $query = "SELECT tag_id_num FROM kwords WHERE tag_id=$tag_id AND kword_name='".$strValue."'";
-        echo "ЗАПРОСИК $query <br>";
-        $res = pg_query($cn,$query);
-        $row = pg_fetch_object($res);
-        $tag_id_num = $row->tag_id_num;
+        if($tag_id != 10)
+        {
+          $query = "INSERT INTO kwords(tag_id,kword_name,status) VALUES($tag_id,'$strValue',0)";
+          $res = pg_query($cn,$query);
+          
+          $query = "SELECT tag_id_num FROM kwords WHERE tag_id=$tag_id AND kword_name='$strValue'";
+          $res = pg_query($cn,$query);
+          $row = pg_fetch_object($res);
+          $tag_id_num = $row->tag_id_num;
+
+          $query = "INSERT INTO kwgkw(gkword_id,tag_id,tag_id_num) VALUES(0,$tag_id,$tag_id_num)";
+          $res = pg_query($cn,$query);
+
+          $last_query .= "INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES('-pic_id-',$tag_id,$tag_id_num)";
+        }
+        else
+        {
+          $kword_names = explode(",", $strValue);
+          foreach ($kword_name as $a => $kword_name) {
+            $kword_name = trim($kword_name);
+            $query = "SELECT tag_id_num FROM kwords WHERE kword_name = '$kword_name'";
+            $res = pg_query($cn,$query);
+            if(!pg_fetch_object($res))
+            {
+              $query = "INSERT INTO kwords(tag_id,kword_name,status) VALUES($tag_id,'$kword_name',0)";
+              $res = pg_query($cn,$query);
+
+              $query = "SELECT tag_id_num FROM kwords WHERE tag_id=$tag_id AND kword_name='$kword_name'";
+              $res = pg_query($cn,$query);
+              $row = pg_fetch_object($res);
+              $tag_id_num = $row->tag_id_num;
+
+              $query = "INSERT INTO kwgkw(gkword_id,tag_id,tag_id_num) VALUES(0,$tag_id,$tag_id_num)";
+              $res = pg_query($cn,$query);
+
+              $last_query .= "INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES('-pic_id-',$tag_id,$tag_id_num)";
+            }
+          }
+        }
+      }
+      else
+      {
+        $last_query .= "INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES('-pic_id-',$tag_id,$tag_id_num)";
       }
       
-      $last_query .= "INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES('-pic_id-',$tag_id,$tag_id_num);";
+      
       
       switch ($pics_name) {
         case 'date':
@@ -166,12 +201,6 @@ function AddToBd($filename,$fsize,$ext) {
         default:
           # code...
           break;
-      }
-      if($newTag == 1)
-      {
-        $query = "INSERT INTO kwgkw(gkword_id,tag_id,tag_id_num) VALUES(0,$tag_id,$tag_id_num)";
-        echo "ЗАПРОСИК $query <br>";
-        $res = pg_query($cn,$query);
       }
     }
   }
