@@ -51,7 +51,7 @@ function moveZeros(arr) {
         $('.comp_li_button').click(function(){
             var clickBtnValue = $(this).data('val');
             var count = 0;
-            let arr = [document.getElementsByName("img")];
+            let arr = [(document.getElementsByName("img")).length];
 
             if(clickBtnValue=='0')
             {
