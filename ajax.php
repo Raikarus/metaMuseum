@@ -15,7 +15,7 @@ function check()
     //$str = explode('|', $_POST['img_string']);
    // for($i = 0; $i < count(str);$i++)
    // {
-        echo '<div class = "comp_li_photo" name ="img" style="background-image:url('."'".'img/'.$_POST['img_string']."'".'" data-val = "'.$img.'""></div>' ;
+   //     echo '<div class = "comp_li_photo" name ="img" style="background-image:url('."'".'img/'.$_POST['img_string']."'".'" data-val = "'.$img.'""></div>' ;
   //  }
 	
 	
