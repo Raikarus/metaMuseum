@@ -91,8 +91,8 @@ function moveZeros(arr) {
                ss += arr[i] + '|';
             }
             
-              console.log((document.getElementsByName("img")).length);
-              console.log(count);
+              //console.log((document.getElementsByName("img")).length);
+              console.log(arr[count]);
             var ajaxurl = 'ajax.php';
             data =  {'action': 'set_img','img_string':ss};
             $.post(ajaxurl, data, function (response) {
