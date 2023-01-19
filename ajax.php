@@ -108,8 +108,25 @@
 
     function update_grid()
     {
+        $result_tags = $_POST['result_tags'];
+        $result_tags_invers = $_POST['result_tags_invers'];
+
+
         $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
-        $query = "SELECT pic_id,fmt,title FROM pics";
+        if($result_tags == "") $query = "SELECT pic_id,fmt,title FROM pics";
+        else
+        {
+            $query = "SELECT tag_id_num FROM kwords WHERE kword_name"
+            $result_tags_arr = explode("|", $result_tags);
+            $result_tags_invers_arr = explode("|",$result_tags_invers);
+            if($result_tags_invers_arr[0]=="0") $query+="='$result_tags_arr'";
+            else $query+="<>'$result_tags_arr'";
+            for ($i=1; $i < count($result_tags_arr); $i++) {
+                $query += " AND kword_name"; 
+                if($result_tags_invers_arr[$i]=="0") $query+="='$result_tags_arr'";
+                else $query+="<>'$result_tags_arr'";
+            }
+        }
         $res = pg_query($cn,$query);
         $start = 0;
         $end = 6;

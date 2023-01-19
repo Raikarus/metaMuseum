@@ -1,5 +1,4 @@
-function flipflop( id )
-{
+function flipflop( id ) {
 
    // id -- идентификатор элемента, который надо скрыть или показать
 
@@ -11,11 +10,11 @@ function flipflop( id )
     // меняем ему видимость
     element.style.display = element.style.display == "none" ? "" : "none";   
 }
+
 var result_tags = [];
 var result_tags_invers = [];
 
-function check_invers()
-{
+function check_invers() {
   for (var i = 0; i < result_tags.length; i++) {
     e = document.getElementById(result_tags[i]);
     if($(e).data("inversed") == 0)
@@ -45,12 +44,30 @@ function tag_invers(e)  {
      $(e).css("backgroundColor","#24B47E");
      result_tags_invers[index] = 0;
   }
-  filtr_kword();
+  preload();
 }
 
-function filtr_kword()
-{
-  alert(result_tags_invers);
+function preload()  {
+  var current_page = Number($('#current_page').data('val'));
+  var ajaxurl = 'ajax.php';
+  var result_tags_string = "";
+  var result_tags_invers_string = "";
+  for (var i = 0; i < result_tags.length; i++) {
+    result_tags_string += result_tags[i]+"|";
+    result_tags_invers_string += result_tags_invers[i]+"|";
+  }
+  data =  {'action': 'update_grid', 'current_page': current_page,'size':size,'result_tags':result_tags_string,'result_tags_invers':result_tags_invers_string}; 
+  $.post(ajaxurl, data).done(function (response) {
+    if(response != 'error') {
+      $('#wrapping').html(response);
+      $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
+    }
+    else {
+      current_page-=1;
+      $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
+      preload();
+    } 
+  });
 }
 
 $(document).ready(function(){
@@ -81,7 +98,7 @@ $(document).ready(function(){
       $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'</li>');
     }
     check_invers();
-    filtr_kword();
+    preload();
   });
 
   $('.tag_list li a').click(function (){
@@ -99,7 +116,7 @@ $(document).ready(function(){
       $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'</li>');
     }
     check_invers();
-    filtr_kword();
+    preload();
   });
 
 
@@ -191,22 +208,6 @@ $(document).ready(function(){
             } 
           });
     });
-    function preload()
-    {
-      var current_page = Number($('#current_page').data('val'));
-      var ajaxurl = 'ajax.php';
-      data =  {'action': 'update_grid', 'current_page': current_page,'size':size};   
-      $.post(ajaxurl, data).done(function (response) {
-        if(response != 'error') {
-          $('#wrapping').html(response);
-          $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
-        }
-        else {
-          current_page-=1;
-          $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
-          preload();
-        } 
-      });
-    }
+    
     preload();
 });
