@@ -119,7 +119,7 @@
             $result_tags_arr = explode("|", $result_tags);
             $result_tags_invers_arr = explode("|",$result_tags_invers);
             $query = "SELECT tag_id_num FROM kwords WHERE kword_name='$result_tags_arr[0]'";
-            for ($i=1; $i < count($result_tags_arr); $i++) {
+            for ($i=1; $i < count($result_tags_arr)-1; $i++) {
                 $query .= " OR kword_name=$result_tags_arr[$i]"; 
             }
             $res = pg_query($cn,$query);
@@ -141,7 +141,7 @@
                 $tag_id_num_array_from_pic_id = pg_fetch_all($res);
                 $ok = "ok";
 
-                for ($i=0; $i < count($tag_id_num_array); $i++) { 
+                for ($i=0; $i < count($tag_id_num_array)-1; $i++) { 
                     if($result_tags_invers_arr[$i] == "0")
                     {
                         if(!in_array($tag_id_num_array[$i],$tag_id_num_array_from_pic_id))
