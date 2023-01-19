@@ -140,7 +140,7 @@ $(document).ready(function(){
       var current_page = Number($('#current_page').data('val'));
       $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
       var ajaxurl = 'ajax.php';
-      data =  {'action': 'update_grid', 'current_page': current_page,'size':size};
+      data =  {'action': 'update_grid', 'current_page': current_page,'size':size};   
       $.post(ajaxurl, data, function (response) {
         $('#wrapping').html(response);
       });
