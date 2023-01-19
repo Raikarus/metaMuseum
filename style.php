@@ -13,7 +13,7 @@
    $(document).ready(function(){
       $('.button').click(function(){
            var clickBtnValue = $(this).val();
-           var current_page = $('#current_page').val();
+           var current_page = Number($('#current_page').val());
            if(clickBtnValue = "right") current_page+=1;
            else if (current_page!=1) current_page-=1;
            $('#current_page').val(current_page).html(current_page);
