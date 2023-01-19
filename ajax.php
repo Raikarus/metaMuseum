@@ -14,7 +14,7 @@ function check()
 {
     //$str = explode('|', $_POST['img_string']);
 
-	echo "$_POST['img_string']";
+	echo $_POST['img_string'];
 	
 }
 ?>
