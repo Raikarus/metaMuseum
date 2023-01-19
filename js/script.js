@@ -130,25 +130,25 @@ $(document).ready(function(){
            else if (current_page!=1) current_page-=1;
            var ajaxurl = 'ajax.php';
            data =  {'action': 'update_grid', 'current_page': current_page,'size':size};
-           $.post(ajaxurl, data, function (response) {
-              if(response.responseText != 'error') {
-                alert(JSON.parse(response.responseText));
-                $('#wrapping').html(response.responseText);
-                $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
-              }
-              else {
-                current_page-=1;
-              } 
-           });
+           $.post(ajaxurl, data).done(function (response) {
+            alert(response);
+            if(response != 'error') {
+              $('#wrapping').html(response);
+              $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
+            }
+            else {
+              current_page-=1;
+            } 
+          });
     });
     function preload()
     {
       var current_page = Number($('#current_page').data('val'));
       var ajaxurl = 'ajax.php';
       data =  {'action': 'update_grid', 'current_page': current_page,'size':size};   
-      $.post(ajaxurl, data, function (response) {
-        alert(response.responseText);
-        if(response.responseText != 'error') {
+      $.post(ajaxurl, data).done(function (response) {
+        alert(response);
+        if(response != 'error') {
           $('#wrapping').html(response);
           $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
         }
