@@ -68,7 +68,6 @@ function preload()  {
       $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
       preload();
     } 
-    console.log(result_tags_string);
   });
 }
 

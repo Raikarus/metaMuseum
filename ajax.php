@@ -153,6 +153,11 @@
                         }
                     }
                 }
+                
+                echo "<pre>";
+                print_r($tag_id_num_array_from_pic_id);
+                echo "</pre>";
+
                 if($ok == "ok") 
                 {
                     if($add_where == "yes")
