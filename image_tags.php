@@ -74,7 +74,7 @@
 				$files = scandir($dir);
 				foreach($files as $n => $img){
 					if ($img != '.' && $img != '..') echo '  <input type="checkbox" id="btnControl" /> 
-               <li class = "compilation_li" >
+               <li class = "compilation_li" for="btnControl>
                            <button class = "comp_li_button" value= "read">
                				   <div class = "comp_li_photo" style="background-image:url('."'".'img/'.$img."'".'"></div>
                				   <div class = "comp_li_name">'.$img.'</div>   
