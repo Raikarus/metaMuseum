@@ -170,7 +170,6 @@
             if($add_where == "yes") 
             {
                 echo "<script> alert('По этим тэгам нет картинок')</script>";
-                $query = "";
             }
         }
         $res = pg_query($cn,$query);
