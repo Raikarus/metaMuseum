@@ -60,7 +60,7 @@ function moveZeros(arr) {
               arr[count] = this;
               if(count < document.getElementsByName("img"))
               {
-               count++;
+               count+=1;
               }
 
             }
@@ -90,7 +90,7 @@ function moveZeros(arr) {
                ss += arr[i] + '|';
             }
             
-              console.log(count);
+              console.log(document.getElementsByName("img"));
             var ajaxurl = 'ajax.php';
             data =  {'action': 'set_img','img_string':ss};
             $.post(ajaxurl, data, function (response) {
