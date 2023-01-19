@@ -135,6 +135,9 @@
                 $res2 = pg_query($cn,$query2);
                 $tag_id_num_array_from_pic_id = pg_fetch_all($res2);
                 $ok = "ok";
+                echo "<pre>";
+                print_r($tag_id_num_array_from_pic_id);
+                echo "</pre>";
                 for ($i=0; $i < count($tag_id_num_array); $i++) { 
                     if($result_tags_invers_arr[$i] == "0")
                     {
