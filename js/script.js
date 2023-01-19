@@ -132,7 +132,11 @@ $(document).ready(function(){
            var ajaxurl = 'ajax.php';
            data =  {'action': 'update_grid', 'current_page': current_page,'size':size};
            $.post(ajaxurl, data, function (response) {
-              $('#wrapping').html(response);
+              if(response != 'error') $('#wrapping').html(response);
+              else {
+                $('#current_page').data('val',current_page-1).html(current_page-1).attr('data-val',current_page-1);
+                preload();
+              } 
            });
     });
     function preload()
@@ -142,7 +146,11 @@ $(document).ready(function(){
       var ajaxurl = 'ajax.php';
       data =  {'action': 'update_grid', 'current_page': current_page,'size':size};   
       $.post(ajaxurl, data, function (response) {
-        $('#wrapping').html(response);
+        if(response != 'error') $('#wrapping').html(response);
+        else {
+          $('#current_page').data('val',current_page-1).html(current_page-1).attr('data-val',current_page-1);
+          preload();
+        } 
       });
     }
     preload();
