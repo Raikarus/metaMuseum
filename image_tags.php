@@ -62,7 +62,7 @@ function moveZeros(arr) {
               console.log($(this));
             console.log($(this).data('img'));
 
-               arr[count] =  $(this).data('img');
+               arr[count] =  String($(this).data('img'));
               
               if(count < document.getElementsByName("img").length)
               {
