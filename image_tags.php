@@ -35,26 +35,54 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
     <script>
-
+function moveZeros(arr) {
+    let upperBound = arr.length;
+    for (let i = 0; i < upperBound; i++) {
+        if (arr[i] === 0) {
+            arr.push(0);
+            arr.splice(i, 1);
+            upperBound--;
+            i--;
+        }
+    }
+    return arr;
+}
     $(document).ready(function(){
         $('.comp_li_button').click(function(){
             var clickBtnValue = $(this).data('val');
-
+            var count = 0;
             let arr = [document.getElementsByName("img")];
 
             if(clickBtnValue=='0')
             {
               $(this).css('outline','1px solid red');
               $(this).data('val','1');
-              arr[0] = this;
+              arr[count] = this;
+              if(count < document.getElementsByName("img"))
+              {
+               count++;
+              }
+
             }
             else
             {
               $(this).css('outline','none');
               $(this).data('val','0');
+
+              for(int i =0;i <document.getElementsByName("img");i++ )
+              {
+               if(arr[i] == this)
+               {
+                   arr[i] = 0;
+                   moveZeros(arr);
+                   break;
+               }
+              }
+             
+              count--;
             }
             
-            console.log(arr[0]);
+            console.log(arr[count]);
             /*var clickBtnValue = $(this).val();
             var ajaxurl = 'ajax.php';
             data =  {'action': clickBtnValue};
