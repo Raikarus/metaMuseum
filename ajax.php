@@ -120,7 +120,7 @@
             $result_tags_invers_arr = explode("|",$result_tags_invers);
             $query = "SELECT tag_id_num FROM kwords WHERE kword_name='$result_tags_arr[0]'";
             for ($i=1; $i < count($result_tags_arr)-1; $i++) {
-                $query .= " UNION SELECT tag_id_num FROM kwords WHERE kword_name='$result_tags_arr[$i]'"; 
+                $query .= " UNION ALL SELECT tag_id_num FROM kwords WHERE kword_name='$result_tags_arr[$i]'"; 
                 //ТУТ НАДО UNION
             }
             $res = pg_query($cn,$query);
