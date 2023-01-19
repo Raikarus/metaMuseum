@@ -85,13 +85,13 @@ function moveZeros(arr) {
             
           
             var ss = "";
-              console.log(arr[count]);
-              
+             
+
             for(var i = 0; i < count;i++)
             {
                ss += arr[i] + '|';
             }
-            
+             console.log(ss);
               //console.log((document.getElementsByName("img")).length);
             
             var ajaxurl = 'ajax.php';
