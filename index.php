@@ -151,7 +151,7 @@ function AddToBd($filename,$fsize,$ext) {
         {
           $kword_names = explode(",", $strValue);
           echo "<b style='color:green'><pre>";
-          print_r($kword_names)
+          print_r($kword_names);
           echo "</pre></b><br>";
           foreach ($kword_names as $a => $kword_name) {
             $kword_name = trim($kword_name);
