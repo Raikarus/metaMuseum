@@ -139,7 +139,7 @@ $(document).ready(function(){
               else {
                 current_page-=1;
               } 
-           });
+           },"html");
     });
     function preload()
     {
@@ -155,7 +155,7 @@ $(document).ready(function(){
         else {
           current_page-=1;
         } 
-      });
+      },"html");
     }
     preload();
 });
