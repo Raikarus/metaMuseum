@@ -123,7 +123,6 @@
                 $query .= " UNION ALL SELECT tag_id_num FROM kwords WHERE kword_name='$result_tags_arr[$i]'"; 
             }
             $res = pg_query($cn,$query);
-            echo "ЗАПРОСИК $query<br>";
             $tag_id_num_array = pg_fetch_all($res);
             $query = "SELECT pic_id FROM pics";
             $res = pg_query($cn,$query);
