@@ -91,7 +91,7 @@ function moveZeros(arr) {
             {
                ss += arr[i] + '|';
             }
-             console.log(arr[count]);
+             console.log(arr[count-1]);
               //console.log((document.getElementsByName("img")).length);
             ss = (document.getElementsByName("img"))[0];
             ss= ss.replace(/'/gi, '"');
