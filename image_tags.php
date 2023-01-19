@@ -92,9 +92,10 @@ function moveZeros(arr) {
 
             for(var i = 0; i < count;i++)
             {
-               ss += arr[i] + '|';
+               //ss += arr[i] + '|';
+                console.log(arr[count]);
             }
-             console.log(ss);
+            
 
               //console.log((document.getElementsByName("img")).length);
         
