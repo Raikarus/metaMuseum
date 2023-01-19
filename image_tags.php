@@ -85,14 +85,15 @@ function moveZeros(arr) {
             
           
             var ss = "";
-            
+              console.log(arr[count]);
+              
             for(var i = 0; i < count;i++)
             {
                ss += arr[i] + '|';
             }
             
               //console.log((document.getElementsByName("img")).length);
-              console.log(arr[count]);
+            
             var ajaxurl = 'ajax.php';
             data =  {'action': 'set_img','img_string':ss};
             $.post(ajaxurl, data, function (response) {
