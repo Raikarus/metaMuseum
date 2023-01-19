@@ -136,7 +136,6 @@
                 $tag_id_num_array_from_pic_id = pg_fetch_all($res2);
                 $ok = "ok";
                 for ($i=0; $i < count($tag_id_num_array); $i++) { 
-                    echo "$tag_id_num_array[$i] !-! $result_tags_invers_arr[$i]<br>";
                     if($result_tags_invers_arr[$i] == "0")
                     {
                         if(!in_array($tag_id_num_array[$i],$tag_id_num_array_from_pic_id))
