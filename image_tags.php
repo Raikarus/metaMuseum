@@ -69,7 +69,7 @@ function moveZeros(arr) {
               $(this).css('outline','none');
               $(this).data('val','0');
 
-              for(var i =0;i <document.getElementsByName("img");i++ )
+              for(var i =0;i <count;i++ )
               {
                if(arr[i] == this)
                {
@@ -83,7 +83,12 @@ function moveZeros(arr) {
             }
             
             console.log(arr[count]);
-            var ss = "ssss";
+            var ss = "";
+            for(var i = 0; i < count;i++)
+            {
+               ss += arr[i] + '|';
+            }
+            
 
             var ajaxurl = 'ajax.php';
             data =  {'action': 'set_img','img_string':ss};
