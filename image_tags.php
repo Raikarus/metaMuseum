@@ -90,7 +90,7 @@ function moveZeros(arr) {
                ss += arr[i] + '|';
             }
             
-              console.log(ss);
+              console.log(count);
             var ajaxurl = 'ajax.php';
             data =  {'action': 'set_img','img_string':ss};
             $.post(ajaxurl, data, function (response) {
