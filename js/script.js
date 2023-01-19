@@ -64,7 +64,7 @@ $(document).ready(function(){
    let size3 = document.getElementById('size_big');
    let wrap = document.getElementById('wrapping');
 
-
+   var size = '3x2';
 
    $(but1).click(function()
    {
@@ -93,6 +93,7 @@ $(document).ready(function(){
       wrap.style.gridTemplateRows = "repeat(4, 1fr)";
       limit_of_pages = 20;
       $(".name").css("padding-bottom", "2px" );
+      size = '3x2';
    });
 
    $(size2).click(function()
@@ -104,6 +105,7 @@ $(document).ready(function(){
       wrap.style.gridTemplateRows = "repeat(3, 1fr)";
       limit_of_pages = 12;
       $(".name").css("padding-bottom", "6px");
+      size='4x3';
    });
 
    $(size3).click(function()
@@ -115,5 +117,19 @@ $(document).ready(function(){
       wrap.style.gridTemplateRows = "repeat(2, 1fr)";
       limit_of_pages = 6;
       $(".name").css("padding-bottom", "8px");
+      size='5x4'
    });
+
+    $('.button').click(function(){
+           var clickBtnValue = $(this).data('val');
+           var current_page = Number($('#current_page').data('val'));
+           if(clickBtnValue == "right") current_page+=1;
+           else if (current_page!=1) current_page-=1;
+           $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
+           var ajaxurl = 'ajax.php';
+           data =  {'action': clickBtnValue, 'current_page': current_page,'size':size};
+           $.post(ajaxurl, data, function (response) {
+              $('#wrapping').html(response);
+           });
+    });
 });

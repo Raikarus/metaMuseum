@@ -9,22 +9,6 @@
 <link rel="stylesheet" href="css/style.css"  type="text/css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script type="text/javascript" src = "js/script.js"></script>
-<script type="text/javascript">
-   $(document).ready(function(){
-      $('.button').click(function(){
-           var clickBtnValue = $(this).data('val');
-           var current_page = Number($('#current_page').data('val'));
-           if(clickBtnValue == "right") current_page+=1;
-           else if (current_page!=1) current_page-=1;
-           $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
-           var ajaxurl = 'ajax.php';
-           data =  {'action': clickBtnValue, 'current_page': current_page};
-           $.post(ajaxurl, data, function (response) {
-              $('#wrapping').html(response);
-           });
-      });
-   });
-</script>
 <title>Главная</title>
 </head>
 <body>
@@ -50,18 +34,7 @@
             //сюда проверку на тэги
                if(true)
                {
-                  $query = "SELECT pic_id,fmt,title FROM pics";
-                  $res = pg_query($cn,$query);
-                  for ($i=0; $i < 10; $i++) { 
-                     $pic_id = pg_fetch_result($res, $i, 0);
-                     $fmt = pg_fetch_result($res, $i, 1);
-                     $title = pg_fetch_result($res, $i, 2);
-                     echo "
-                     <li class='photo_li'>
-                           <div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div>
-                           <div class='name'>$title</div>
-                      </li>";
-                  }
+                  
                }
          	?>
 		</ul>

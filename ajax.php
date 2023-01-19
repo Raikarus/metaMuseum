@@ -108,6 +108,18 @@
 
     function update_grid()
     {
-
+        $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+        $query = "SELECT pic_id,fmt,title FROM pics";
+        $res = pg_query($cn,$query);
+        for ($i=0; $i < 6; $i++) { 
+         $pic_id = pg_fetch_result($res, $i, 0);
+         $fmt = pg_fetch_result($res, $i, 1);
+         $title = pg_fetch_result($res, $i, 2);
+         echo "
+         <li class='photo_li'>
+               <div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div>
+               <div class='name'>$title</div>
+          </li>";
+        }
     }    
 ?>
