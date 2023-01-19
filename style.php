@@ -123,9 +123,12 @@
                                     $res3 = pg_query($cn,$query);
                                     $row3 = pg_fetch_object($res3);
                                     $kword_name = $row3->kword_name;
+                                    $query = "SELECT pic_id FROM pictags WHERE tag_id_num=$tag_id_num";
+                                    $res3 = pg_query($cn,$query);
+                                    $row3 = pg_num_rows($res3);
                                     echo "<li class = 'tag_group'>
                                              <p class = 'group_name'>
-                                                $kword_name
+                                                $kword_name ($row3)
                                              </p>
                                           </li>";
                                  }
@@ -155,8 +158,10 @@
                                     $res3 = pg_query($cn,$query);
                                     $row3 = pg_fetch_object($res);
                                     $kword_name = $row3->kword_name;
-
-                                    echo "<li class='list_item'><a href='#' data-en = 0 data-tag = $kword_name>$kword_name</a></li>";
+                                    $query = "SELECT pic_id FROM pictags WHERE tag_id_num=$tag_id_num";
+                                    $res3 = pg_query($cn,$query);
+                                    $row3 = pg_num_rows($res3);
+                                    echo "<li class='list_item'><a href='#' data-en = 0 data-tag = $kword_name>$kword_name ($row3)</a></li>";
                                  }
                               }
                               echo '</ul></li>';
