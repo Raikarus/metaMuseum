@@ -128,14 +128,16 @@ $(document).ready(function(){
            var current_page = Number($('#current_page').data('val'));
            if(clickBtnValue == "right") current_page+=1;
            else if (current_page!=1) current_page-=1;
-           $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
            var ajaxurl = 'ajax.php';
            data =  {'action': 'update_grid', 'current_page': current_page,'size':size};
            $.post(ajaxurl, data, function (response) {
-              if(response != 'error') $('#wrapping').html(response);
+              if(response != 'error') {
+                alert(response);
+                $('#wrapping').html(response);
+                $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
+              }
               else {
-                $('#current_page').data('val',current_page-1).html(current_page-1).attr('data-val',current_page-1);
-                preload();
+                current_page-=1;
               } 
            });
     });
