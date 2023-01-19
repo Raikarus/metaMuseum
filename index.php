@@ -262,7 +262,7 @@ function LinkKeyword(){
 
 
     //ТУТ НАЗВАНИЕ НЕ КАК В БАЗЕ
-    echo "img_name = ".$_POST['img_name']."<br>";
+    echo "img_name = ".substr($_POST['img_name'],0,'.');
     $pic_id = substr($_POST['img_name'],0, '.');
     echo "pic_id = $pic_id<br>";
     
