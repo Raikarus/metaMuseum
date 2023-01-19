@@ -123,7 +123,6 @@
                 $query .= " OR kword_name=$result_tags_arr[$i]"; 
             }
             $res = pg_query($cn,$query);
-            echo "ЗАПРОСИК $query<br>";
             $tag_id_num_array = pg_fetch_all($res);
             $query = "SELECT pic_id FROM pics";
             $res = pg_query($cn,$query);
@@ -134,9 +133,15 @@
                 $pic_id = $row->pic_id;
                 $query2 = "SELECT tag_id_num FROM pictags WHERE pic_id=$pic_id";
                 $res2 = pg_query($cn,$query2);
-                echo "ЗАПРОСИК $query2<br>";
                 $tag_id_num_array_from_pic_id = pg_fetch_all($res);
                 $ok = "ok";
+                echo "<pre>";
+                print_r($tag_id_num_array);
+                echo "</pre>";
+
+                echo "<pre>";
+                print_r($tag_id_num_array_from_pic_id);
+                echo "</pre>";
 
                 for ($i=0; $i < count($tag_id_num_array)-1; $i++) { 
                     if($result_tags_invers_arr[$i] == "0")
@@ -172,7 +177,6 @@
             }
         }
         $res = pg_query($cn,$query);
-        echo "ЗАПРОСИК $query<br>";
         $start = 0;
         $end = 6;
         switch ($_POST['size']) {
