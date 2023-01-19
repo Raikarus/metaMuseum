@@ -83,12 +83,13 @@ function moveZeros(arr) {
             }
             
             console.log(arr[count]);
-            /*var clickBtnValue = $(this).val();
+            var ss = "ssss";
+
             var ajaxurl = 'ajax.php';
-            data =  {'action': clickBtnValue};
+            data =  {'action': 'set_img','img_string':ss};
             $.post(ajaxurl, data, function (response) {
-                  $('#out').html(response);
-            });*/
+                  $('#wrapping').html(response);
+            });
         });
     });
 

@@ -1,7 +1,7 @@
 <?php 
 if (isset($_POST['action'])) {
         switch ($_POST['action']) {
-            case 'read':
+            case 'set_img':
                 check();
                 break;
          
@@ -12,7 +12,7 @@ if (isset($_POST['action'])) {
 $status = 0;
 function check()
 {
-	$status = !$status;
+	echo $_POST['img_string'];
 	
 }
 ?>
