@@ -119,7 +119,7 @@ $(document).ready(function(){
       $(".name").css("padding-bottom", "8px");
       size='5x4';
    });
-   update_grid();
+
     $('.button').click(function update_grid(){
            var clickBtnValue = $(this).data('val');
            var current_page = Number($('#current_page').data('val'));
@@ -132,4 +132,5 @@ $(document).ready(function(){
               $('#wrapping').html(response);
            });
     });
+    update_grid();
 });
