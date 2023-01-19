@@ -70,6 +70,12 @@
                            <div class='name'>$title</div>
                       </li>";
                   }
+
+                  for ($i=0; $i < 10; $i++) { 
+                     $pic_id = pg_fetch_result($res, $i, 0);
+                     $fmt = pg_fetch_result($res, $i, 1);
+                     $title = pg_fetch_result($res, $i, 2);
+                  }
                }
          	?>
 		</ul>
