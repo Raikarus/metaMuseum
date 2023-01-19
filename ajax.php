@@ -121,7 +121,6 @@
             $query = "SELECT tag_id_num FROM kwords WHERE kword_name='$result_tags_arr[0]'";
             for ($i=1; $i < count($result_tags_arr)-1; $i++) {
                 $query .= " UNION ALL SELECT tag_id_num FROM kwords WHERE kword_name='$result_tags_arr[$i]'"; 
-                //ТУТ НАДО UNION
             }
             $res = pg_query($cn,$query);
             echo "ЗАПРОСИК $query<br>";
