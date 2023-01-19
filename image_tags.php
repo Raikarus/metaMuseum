@@ -140,7 +140,7 @@ function moveZeros(arr) {
 				foreach($files as $n => $img){
 					if ($img != '.' && $img != '..') echo '  
                <li class = "compilation_li">
-                           <button class = "comp_li_button" data-val= "0" name ="img" " data-img = "'.$img.'>
+                           <button class = "comp_li_button" data-val= "0" name ="img" data-img = "'.$img.'">
                				   <div class = "comp_li_photo" style="background-image:url('."'".'img/'.$img."'".'"></div>
                				   <div class = "comp_li_name">'.$img.'</div>   
                            </button>        
