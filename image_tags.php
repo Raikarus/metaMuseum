@@ -50,7 +50,6 @@ function moveZeros(arr) {
     return arr;
 }
  
-
     $(document).ready(function(){
         $('.comp_li_button').click(function(){
             var clickBtnValue = $(this).data('val');
@@ -60,9 +59,7 @@ function moveZeros(arr) {
             {
               $(this).css('outline','1px solid red');
               $(this).data('val','1');
-            //  console.log($(this));
-           // console.log($(this).data('img'));
-
+          
                arr[count] =  String($(this).data('img'));
               
               if(count < document.getElementsByName("img").length)
@@ -91,7 +88,6 @@ function moveZeros(arr) {
             
           
             var ss = "";
-             
 
             for(var i = 0; i < count;i++)
             {
@@ -99,14 +95,7 @@ function moveZeros(arr) {
                  
             }
              console.log(ss);
-             //   console.log(arr[i]);
-
-              //console.log((document.getElementsByName("img")).length);
-        
-            
-            // ss = $(ss).data('val');
-
-            
+           
              
             var ajaxurl = 'ajax.php';
             data =  {'action': 'set_img','img_string':ss};
