@@ -124,6 +124,7 @@
                 //ТУТ НАДО UNION
             }
             $res = pg_query($cn,$query);
+            echo "ЗАПРОСИК $query<br>";
             $tag_id_num_array = pg_fetch_all($res);
             $query = "SELECT pic_id FROM pics";
             $res = pg_query($cn,$query);
@@ -155,11 +156,11 @@
                     }
                 }
 
-                 // echo "$pic_id <pre>";
+                  echo "<pre>";
                  // print_r($result_tags_invers_arr);
-                 // print_r($tag_id_num_array);
+                  print_r($tag_id_num_array);
                  // print_r($tag_id_num_array_from_pic_id);
-                 // echo "</pre>";
+                  echo "</pre>";
 
                 if($ok == "ok") 
                 {
