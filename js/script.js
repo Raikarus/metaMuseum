@@ -132,7 +132,7 @@ $(document).ready(function(){
            data =  {'action': 'update_grid', 'current_page': current_page,'size':size};
            $.post(ajaxurl, data, function (response,status,error) {
               if(response.responseText != 'error') {
-                alert(response.responseText);
+                alert(JSON.parse(response.responseText));
                 $('#wrapping').html(response.responseText);
                 $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
               }
