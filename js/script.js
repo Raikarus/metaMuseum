@@ -139,7 +139,7 @@ $(document).ready(function(){
               else {
                 current_page-=1;
               } 
-           },"html");
+           });
     });
     function preload()
     {
@@ -147,15 +147,15 @@ $(document).ready(function(){
       var ajaxurl = 'ajax.php';
       data =  {'action': 'update_grid', 'current_page': current_page,'size':size};   
       $.post(ajaxurl, data, function (response) {
-        alert(response);
-        if(response != 'error') {
+        alert(response.responseText);
+        if(response.responseText != 'error') {
           $('#wrapping').html(response);
           $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
         }
         else {
           current_page-=1;
         } 
-      },"html");
+      });
     }
     preload();
 });
