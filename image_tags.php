@@ -95,9 +95,10 @@ function moveZeros(arr) {
               //console.log((document.getElementsByName("img")).length);
             ss = (document.getElementsByName("img"))[0];
             
-             ss = String(ss);
+             ss = $(ss).data('val');
+             
              console.log(ss);
-            
+
              
             var ajaxurl = 'ajax.php';
             data =  {'action': 'set_img','img_string':ss};
@@ -137,7 +138,7 @@ function moveZeros(arr) {
 					if ($img != '.' && $img != '..') echo '  
                <li class = "compilation_li">
                            <button class = "comp_li_button" data-val= "0">
-               				   <div class = "comp_li_photo" name ="img" style="background-image:url('."'".'img/'.$img."'".'"></div>
+               				   <div class = "comp_li_photo" name ="img" style="background-image:url('."'".'img/'.$img."'".'" data-val = "'.$img.'""></div>
                				   <div class = "comp_li_name">'.$img.'</div>   
                            </button>        
             			 </li>';
