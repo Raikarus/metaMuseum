@@ -117,7 +117,7 @@ $(document).ready(function(){
       wrap.style.gridTemplateRows = "repeat(2, 1fr)";
       limit_of_pages = 6;
       $(".name").css("padding-bottom", "8px");
-      size='5x4'
+      size='5x4';
    });
 
     $('.button').click(function(){
