@@ -154,7 +154,7 @@
                     }
                 }
 
-                 echo "<pre>";
+                 echo "$pic_id <br><pre>";
                  print_r($result_tags_invers_arr);
                  print_r($tag_id_num_array);
                  print_r($tag_id_num_array_from_pic_id);
