@@ -219,29 +219,21 @@ function LinkKeyword(){
     echo "<br><pre>$res</pre>";
 
     $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
-    $query="SELECT pic_id FROM pics WHERE title='".$_POST['img_name']."'";
-    $res = pg_query($cn,$query);
-    while ($row=pg_fetch_object($res)) {
-      $pic_id = $row->pic_id; 
-      echo $pic_id."<br>";
-    }      
+
+    $pic_id = substr($_POST['img_name',0, '.');
       
     foreach($_POST['kwords'] as $selected_kword)
     {
-      $query="SELECT tag_id,tag_id_num FROM kwords WHERE kword_name='".$selected_kword."'";
+      $query="SELECT tag_id,tag_id_num FROM kwords WHERE kword_name='$selected_kword'";
       $res = pg_query($cn,$query);
-      while ($row=pg_fetch_object($res)) {
-        $tag_id = $row->tag_id;
-        $tag_id_num = $row->tag_id_num;
-      }
+      $row=pg_fetch_object($res);
+      $tag_id = $row->tag_id;
+      $tag_id_num = $row->tag_id_num;
+      
 
-      $query = "SELECT pic_id FROM pictags WHERE pic_id='".$pic_id."' AND tag_id_num='".$tag_id_num."'";
+      $query = "SELECT pic_id FROM pictags WHERE pic_id=$pic_id AND tag_id_num=$tag_id_num";
       $res = pg_query($cn,$query);
-      $access = 1;
-      while ($row=pg_fetch_object($res)) {
-        $access = 0;
-      }
-      if($access == 1)
+      if(!pg_fetch_object($res))
       {
         $shl = 'exiftool -XMP-dc:subject+="'.$selected_kword.'" img/'.$_POST['img_name'];
         $res = shell_exec($shl);
