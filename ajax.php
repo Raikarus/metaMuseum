@@ -133,7 +133,7 @@
                 $pic_id = $row->pic_id;
                 $query2 = "SELECT tag_id_num FROM pictags WHERE pic_id=$pic_id";
                 $res2 = pg_query($cn,$query2);
-                $tag_id_num_array_from_pic_id = pg_fetch_all($res);
+                $tag_id_num_array_from_pic_id = pg_fetch_all($res2);
                 $ok = "ok";
                 echo "<pre>";
                 print_r($tag_id_num_array);
