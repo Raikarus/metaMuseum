@@ -150,7 +150,10 @@ function AddToBd($filename,$fsize,$ext) {
         else
         {
           $kword_names = explode(",", $strValue);
-          foreach ($kword_name as $a => $kword_name) {
+          echo "<b style='color:green'><pre>";
+          print_r($kword_names)
+          echo "</pre></b><br>";
+          foreach ($kword_names as $a => $kword_name) {
             $kword_name = trim($kword_name);
             $query = "SELECT tag_id_num FROM kwords WHERE kword_name = '$kword_name'";
             $res = pg_query($cn,$query);
