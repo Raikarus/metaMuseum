@@ -193,7 +193,7 @@ $(document).ready(function(){
            var current_page = Number($('#current_page').data('val'));
            if(clickBtnValue == "right") current_page+=1;
            else if (current_page!=1) current_page-=1;
-           $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
+           $('#current_page').data('val',current_page).attr('data-val',current_page);
            preload();
            /*
            var ajaxurl = 'ajax.php';
