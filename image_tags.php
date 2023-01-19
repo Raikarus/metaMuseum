@@ -95,11 +95,11 @@ function moveZeros(arr) {
 
             for(var i = 0; i < count;i++)
             {
-               //ss += arr[i] + '|';
-                  console.log(i);
-                console.log(arr[i]);
+               ss += arr[i] + '|';
+                 
             }
-            
+             console.log(ss);
+             //   console.log(arr[i]);
 
               //console.log((document.getElementsByName("img")).length);
         
