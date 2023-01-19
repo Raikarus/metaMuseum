@@ -110,7 +110,7 @@
     {
         $result_tags = $_POST['result_tags'];
         $result_tags_invers = $_POST['result_tags_invers'];
-
+        $add_where = "yes";
 
         $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
         if($result_tags == "") $query = "SELECT pic_id,fmt,title FROM pics";
@@ -166,6 +166,11 @@
                         $query .= " OR pic_id = $pic_id";
                     }
                 }
+            }
+            if($add_where == "yes") 
+            {
+                echo "<script> alert(по этим тэгам нет картинок)</script>";
+                $query = "";
             }
         }
         $res = pg_query($cn,$query);
