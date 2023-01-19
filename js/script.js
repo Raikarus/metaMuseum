@@ -11,27 +11,30 @@ function flipflop( id )
     // меняем ему видимость
     element.style.display = element.style.display == "none" ? "" : "none";   
 }
+var result_tags = [];
+var result_tags_invers = [];
+
+function tag_invers(e)  {
+  var index = result_tags.indexOf($(e).data("tag"));
+  if ($(e).data("selected") == "0")
+  {
+     $(e).data("selected",1);
+     $(e).attr("data-selected",1)
+     $(e).css("backgroundColor","rgb(228, 79, 79)");
+     result_tags_invers[index] = -1;
+  }
+  else
+  {
+     $(e).data("selected",0);
+     $(e).attr("data-selected",0);
+     $(e).css("backgroundColor","#24B47E");
+     result_tags_invers[index] = 1;
+  }
+  filtr_kword();
+}
 
 $(document).ready(function(){
-    var result_tags = [];
-    var result_tags_invers = [];
 
-    function tag_invers(e)
-    {
-      if ($(e).data("selected") == "0")
-      {
-         $(e).data("selected",1);
-         $(e).attr("data-selected",1)
-         $(e).css("backgroundColor","rgb(228, 79, 79)");
-      }
-      else
-      {
-         $(e).data("selected",0);
-         $(e).attr("data-selected",0);
-         $(e).css("backgroundColor","#24B47E");
-      }
-    }
-    
     $(".pic img").click(function(){
         $("#bigPic").fadeIn(100);
         $("#bigPic div img").attr("src",$(this).attr("src"));
@@ -43,7 +46,6 @@ $(document).ready(function(){
       }
     });
 
-
   $('.tag_group .group_name .kword_solo').click(function (){
     var index = result_tags.indexOf($(this).data("tag"));
     if (index >= 0) {
@@ -52,7 +54,7 @@ $(document).ready(function(){
     }
     else{
       result_tags.push($(this).data("tag"));
-      result_tags_invers.push($(this).data("tag"));
+      result_tags_invers.push(1);
     }
     $(".wrap").html("");
     for (var i = 0; i <=result_tags.length - 1; i++) {
@@ -80,7 +82,7 @@ $(document).ready(function(){
 
   function filtr_kword()
   {
-    alert(result_tags);
+    alert(result_tags_invers);
   }
 
    let but1 = document.getElementById('mod_gallery');
