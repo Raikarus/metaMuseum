@@ -33,6 +33,11 @@ function tag_invers(e)  {
   filtr_kword();
 }
 
+function filtr_kword()
+{
+  alert(result_tags_invers);
+}
+
 $(document).ready(function(){
 
     $(".pic img").click(function(){
@@ -80,10 +85,7 @@ $(document).ready(function(){
     filtr_kword();
   });
 
-  function filtr_kword()
-  {
-    alert(result_tags_invers);
-  }
+
 
    let but1 = document.getElementById('mod_gallery');
    let but2 = document.getElementById('mod_finder');
