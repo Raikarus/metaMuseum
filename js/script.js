@@ -54,8 +54,9 @@ $(document).ready(function(){
     for (var i = 0; i <=result_tags.length - 1; i++) {
       $(".wrap").append('<li class = "choose_item" data-selected = "0" onclick="tag_invers($(this))">'+result_tags[i]+'</li>');
     }
+
   });
-  
+
   $('.tag_list li a').click(function (){
     var index = result_tags.indexOf($(this).data("tag"));
     if (index >= 0) {
@@ -69,6 +70,11 @@ $(document).ready(function(){
       $(".wrap").append('<li class = "choose_item" data-selected = "0" onclick="tag_invers($(this))">'+result_tags[i]+'</li>');
     }
   });
+
+  function filtr_kword()
+  {
+    alert(result_tags);
+  }
 
    let but1 = document.getElementById('mod_gallery');
    let but2 = document.getElementById('mod_finder');
