@@ -16,7 +16,7 @@ function check()
     //print_r($str);
     for($i = 0; $i < count($str)-1;$i++)
     {
-        echo '<div class = "comp_li_photo" name ="img" style="background-image:url('."'".'img/'.$str[$i]."'".'" data-val = "'.$img.'""></div>' ;
+        echo '<div class = "comp_li_photo" name ="img" width="100%" height="100%" style="background-image:url('."'".'img/'.$str[$i]."'".'" data-val = "'.$img.'""></div>' ;
     }
 	
 	
