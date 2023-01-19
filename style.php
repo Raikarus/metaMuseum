@@ -12,11 +12,11 @@
 <script type="text/javascript">
    $(document).ready(function(){
       $('.button').click(function(){
-           var clickBtnValue = $(this).val();
-           var current_page = Number($('#current_page').val());
+           var clickBtnValue = $(this).data('val');
+           var current_page = Number($('#current_page').data('val'));
            if(clickBtnValue = "right") current_page+=1;
            else if (current_page!=1) current_page-=1;
-           $('#current_page').val(current_page).html(current_page);
+           $('#current_page').data('val',current_page).html(current_page);
            var ajaxurl = 'ajax.php';
            data =  {'action': clickBtnValue, 'current_page': current_page};
            $.post(ajaxurl, data, function (response) {
@@ -66,11 +66,11 @@
          	?>
 		</ul>
          <div class = "left_right_but">
-            <button class = "button" class = "left" value="left">
+            <button class = "button left" data-val="left">
                ←
             </button>
-            <div id = "current_page" value="1">1</div>
-            <button class = "button" class="right" value="right">
+            <div id = "current_page" data-val="1">1</div>
+            <button class = "button right" data-val="right">
                →
             </button>    
          </div>
