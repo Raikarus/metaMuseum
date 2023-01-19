@@ -16,6 +16,7 @@ var result_tags_invers = [];
 
 function tag_invers(e)  {
   var index = result_tags.indexOf($(e).data("tag"));
+  alert(index);
   if ($(e).data("selected") == "0")
   {
      $(e).data("selected",1);
