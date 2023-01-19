@@ -117,14 +117,17 @@
             case '3x2':
                 $start = ($_POST['current_page']-1)*6;
                 $end = $start + 6;
+                echo $_POST['size'];
                 break;
             case '4x3':
                 $start = ($_POST['current_page']-1)*12;
                 $end = $start + 12;
+                echo $_POST['size'];
                 break;
             case '5x4':
                 $start = ($_POST['current_page']-1)*20;
                 $end = $start + 20;
+                echo $_POST['size'];
                 break;
         }
         for ($i=$start; $i < $end; $i++) { 

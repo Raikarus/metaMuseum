@@ -94,6 +94,7 @@ $(document).ready(function(){
       limit_of_pages = 20;
       $(".name").css("padding-bottom", "2px" );
       size = '3x2';
+      preload();
    });
 
    $(size2).click(function()
@@ -106,6 +107,7 @@ $(document).ready(function(){
       limit_of_pages = 12;
       $(".name").css("padding-bottom", "6px");
       size='4x3';
+      preload();
    });
 
    $(size3).click(function()
@@ -118,6 +120,7 @@ $(document).ready(function(){
       limit_of_pages = 6;
       $(".name").css("padding-bottom", "8px");
       size='5x4';
+      preload();
    });
 
     $('.button').click(function (){
