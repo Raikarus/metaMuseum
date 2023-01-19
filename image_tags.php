@@ -58,7 +58,7 @@ function moveZeros(arr) {
               $(this).css('outline','1px solid red');
               $(this).data('val','1');
               arr[count] = this;
-              if(count < document.getElementsByName("img"))
+              if(count < document.getElementsByName("img").length)
               {
                count+=1;
               }
@@ -90,6 +90,7 @@ function moveZeros(arr) {
                ss += arr[i] + '|';
             }
             
+              console.log((document.getElementsByName("img")).length);
               console.log(count);
             var ajaxurl = 'ajax.php';
             data =  {'action': 'set_img','img_string':ss};
