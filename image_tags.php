@@ -35,6 +35,7 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
     <script>
+      var count = 0;
 function moveZeros(arr) {
     let upperBound = arr.length;
     for (let i = 0; i < upperBound; i++) {
@@ -50,7 +51,7 @@ function moveZeros(arr) {
     $(document).ready(function(){
         $('.comp_li_button').click(function(){
             var clickBtnValue = $(this).data('val');
-            var count = 0;
+            
             let arr = [(document.getElementsByName("img")).length];
 
             if(clickBtnValue=='0')
@@ -60,7 +61,7 @@ function moveZeros(arr) {
               arr[count] = this;
               if(count < document.getElementsByName("img").length)
               {
-               count+=1;
+               count++;
               }
 
             }
