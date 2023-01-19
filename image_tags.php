@@ -83,7 +83,8 @@ function moveZeros(arr) {
             }
             
             console.log(arr[count]);
-          /*  var ss = "";
+            var ss = arr[count];
+          /*  
             for(var i = 0; i < count;i++)
             {
                ss += arr[i] + '|';
