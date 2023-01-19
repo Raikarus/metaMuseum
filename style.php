@@ -57,8 +57,6 @@
             //сюда проверку на тэги
                if(true)
                {
-                  //$query = SELECT pic_id FROM pictags WHERE tag_id_num =
-                  //$query = SELECT title FROM pics WHERE pic_id = 
                   $query = "SELECT pic_id,fmt,title FROM pics";
                   $res = pg_query($cn,$query);
                   while($row=pg_fetch_object($res))
@@ -69,9 +67,8 @@
                      echo "
                      <li class='photo_li'>
                            <div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div>
-                           <div class='name'>$title</div>           
-                      </li>
-                      ";
+                           <div class='name'>$title</div>
+                      </li>";
                   }
                }
          	?>
@@ -143,7 +140,7 @@
                                              <a href = "javascript:flipflop('."'".$gkword_name."'".');">'.$gkword_name.'</a>
                                        </p>
                                        <ul class = "tag_list" id = '.$gkword_name.' style="display: none;">';
-                              
+
                               $query = "SELECT tag_id,tag_id_num FROM kwgkw WHERE gkword_id=$gkword_id";
                               $res2 = pg_query($cn,$query);
 
@@ -167,39 +164,6 @@
                               echo '</ul></li>';
                            }
                         }
-
-                        /*
-         					$query = "SELECT gkword_id,tag_id_num FROM kwgkw WHERE tag_id=10";
-         					$res = pg_query($cn,$query);
-         					while($row=pg_fetch_object($res))
-         					{
-                           $tag_id_num = $row->tag_id_num;
-                           $gkword_id = $row->gkword_id;
-                           if($gkword_id != 0)
-                           {
-                              $query = "SELECT gkword_name FROM gkwords WHERE gkword_id=$gkword";
-                              $res2 = pg_query($cn,$query);
-                              $row2 = pg_fetch_object($res2);
-                              $gkword_name = $row2->gkword_name;
-                              
-                              $query = "SELECT tag_id_num FROM kwgkw WHERE gkword_id=$gkword_id";
-                              $res2 = pg_query($cn,$query);
-                              while($row2=pg_fetch_object($res2))
-                              {
-                                 $query = "SELECT kword_name FROM kwords WHERE tag_id_num=$tag_id_num";
-                                 $res3 = pg_query($cn,$query);
-                                 $row3 = pg_fetch_object($res3);
-                                 $kword_name = $row3->kword_name;
-                                 echo '<li class = "list_item"><a href = "#" data-en = 0 data-tag = '.$kword_name.'>'.$kword_name.'</a></li>';
-                              }
-                              echo "</ul></li>";
-                           }
-                           else
-                           {
-                              
-                           }
-
-         					}*/
 					?>
 					</ul>
                </div>

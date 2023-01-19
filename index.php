@@ -218,31 +218,32 @@ function LinkKeyword(){
     $res = shell_exec($shl);
     echo "<br><pre>$res</pre>";
 
+
     $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
 
     $pic_id = substr($_POST['img_name'],0, '.');
-      
+
     foreach($_POST['kwords'] as $selected_kword)
     {
       $query="SELECT tag_id,tag_id_num FROM kwords WHERE kword_name='$selected_kword'";
       $res = pg_query($cn,$query);
+      echo "ЗАПРОСИК $query<br>";
       $row=pg_fetch_object($res);
       $tag_id = $row->tag_id;
       $tag_id_num = $row->tag_id_num;
-      
 
       $query = "SELECT pic_id FROM pictags WHERE pic_id=$pic_id AND tag_id_num=$tag_id_num";
       $res = pg_query($cn,$query);
+      echo "ЗАПРОСИК $query<br>";
       if(!pg_fetch_object($res))
       {
         $shl = 'exiftool -XMP-dc:subject+="'.$selected_kword.'" img/'.$_POST['img_name'];
         $res = shell_exec($shl);
         echo "<br><pre>$res</pre>"; 
-        
-        
+
         $query="INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES (".$pic_id.",".$tag_id.",".$tag_id_num.")";
         $res = pg_query($cn,$query);
-
+        echo "ЗАПРОСИК $query<br>";
         echo $query."<br>";
         }
       else
