@@ -57,8 +57,8 @@ function moveZeros(arr) {
            
             if(clickBtnValue=='0')
             {
-              $(this).css('outline','1px solid red');
-               $(this).css('background-color', '#24B47E');
+              $(this).css('outline','5px solid #24B47E');
+             //  $(this).css('background-color', '#24B47E');
               $(this).data('val','1');
           
                arr[count] =  String($(this).data('img'));
@@ -71,7 +71,8 @@ function moveZeros(arr) {
             }
             else
             {
-              $(this).css('outline','none');
+              //$(this).css('outline','none');
+               $(this).css('background-color', 'rgba(255, 255, 255, 0)');
               $(this).data('val','0');
 
               for(var i =0;i <count;i++ )
