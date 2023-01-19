@@ -12,9 +12,9 @@ if (isset($_POST['action'])) {
 $status = 0;
 function check()
 {
-    //$str = explode('|', $_POST['img_string']);
+    $str = explode('|', $_POST['img_string']);
 
-	echo '<div class = "comp_li_photo" name ="img" style="background-image:url('."'".'img/'.$_POST['img_string']."'".'" data-val = "'.$img.'""></div>' ;
+	echo '<div class = "comp_li_photo" name ="img" style="background-image:url('."'".'img/'.$str[0]."'".'" data-val = "'.$img.'""></div>' ;
 	
 }
 ?>
