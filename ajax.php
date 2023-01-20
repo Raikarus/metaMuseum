@@ -223,13 +223,30 @@
                 for ($i=1; $i < count($podborka)-1; $i++) { 
                     $query .= "UNION ALL SELECT pic_id,title,fmt FROM pics WHERE pic_id=$podborka[$i]";
                 }
+                
+
+                $start = 0;
+                $end = 6;
+                switch ($_POST['size']) {
+                    case '3x2':
+                        $start = ($_POST['current_page']-1)*6;
+                        $end = $start + 6;
+                        break;
+                    case '4x3':
+                        $start = ($_POST['current_page']-1)*12;
+                        $end = $start + 12;
+                        break;
+                    case '5x4':
+                        $start = ($_POST['current_page']-1)*20;
+                        $end = $start + 20;
+                        break;
+                }
                 $res = pg_query($cn,$query);
-                while($row = pg_fetch_object($res))
-                {
-                    $pic_id = $row->pic_id;
-                    $fmt = $row->fmt;
-                    $title = $row->title;
-                   echo "<li class='photo_li' data-id=$pic_id><div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div><div class='name'>$title</div></li>";  
+                for ($i=$start; $i < $end; $i++) { 
+                 $pic_id = pg_fetch_result($res, $i, 0);
+                 $fmt = pg_fetch_result($res, $i, 1);
+                 $title = pg_fetch_result($res, $i, 2);
+                 if($pic_id) echo "<li class='photo_li' data-id=$pic_id><div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div><div class='name'>$title</div></li>";  
                 }
             }
         }
