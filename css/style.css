@@ -148,7 +148,8 @@ input {
    display: flex;
    align-items: center;
    justify-content: center;
-   font-size: 1.5vh;
+   font-size: 10px;
+   white-space: nowrap;
    overflow: hidden;
 }
 
