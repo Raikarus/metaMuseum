@@ -126,8 +126,9 @@ function AddToBd($filename,$fsize,$ext) {
       $query = "SELECT tag_id_num FROM kwords WHERE tag_id=$tag_id AND kword_name='".$strValue."'";
       $res = pg_query($cn,$query);
       echo "ЗАПРОСИК $query <br>";
-      
-      if(!($row = pg_fetch_object($res))
+      $row = pg_fetch_object($res);
+      $tag_id_num = $row->tag_id_num;
+      if(!$tag_id_num)
       {
         echo "СОЗДАНИЕ ТЭГА $strValue<br>";
         //Тут автоматически создаются тэги
@@ -184,7 +185,6 @@ function AddToBd($filename,$fsize,$ext) {
       }
       else
       {
-        $tag_id_num  = $row->tag_id_num;
         echo "ТЭГ $strValue уже есть tag_id_num = $tag_id_num <br>";
         $last_query .= "INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES('-pic_id-',$tag_id,$tag_id_num);";
       }
