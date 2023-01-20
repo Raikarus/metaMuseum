@@ -316,7 +316,6 @@ $(document).ready(function(){
       
       size = '5x4';
       load();
-      $(".name").css("font-size", "1px");
    });
 
    $(size2).click(function()
@@ -328,9 +327,6 @@ $(document).ready(function(){
       wrap.style.gridTemplateRows = "repeat(3, 1fr)";
       limit_of_pages = 12;
       var names = document.querySelectorAll(".name");
-      for(var i = 0; i < names.length;i++){
-        $(names[i]).css("padding-bottom", "6px");
-      }
       size='4x3';
       load();
    });
@@ -343,7 +339,6 @@ $(document).ready(function(){
       wrap.style.gridTemplateColumns = "repeat(3, 1fr)";
       wrap.style.gridTemplateRows = "repeat(2, 1fr)";
       limit_of_pages = 6;
-      $(".name").css("padding-bottom", "8px");
       size='3x2';
       load();
    });
