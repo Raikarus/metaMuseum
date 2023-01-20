@@ -270,7 +270,8 @@
         $sel_name = $_POST['name_podborka'];
         $query = "SELECT sel_id FROM selections WHERE sel_name='$sel_name'";
         $res = pg_query($cn,$query);
-        if(pg_fetch_object($res))
+
+        if(!pg_fetch_object($res))
         {
             $podborka = explode("|", $_POST['podborka']);
             if(count($podborka)>2)
