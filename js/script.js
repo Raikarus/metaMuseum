@@ -483,6 +483,7 @@ $(document).ready(function(){
     if(podborka.length > 1)
     {
       $("#name_podborka_form_back").css('display','flex');  
+      $("#myInput").setAttribute('disabled', 'disabled');
     }
     else
     {
