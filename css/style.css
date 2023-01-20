@@ -155,6 +155,10 @@ input {
    text-overflow: ellipsis;
 }
 
+.name_span {
+   text-align: start;
+}
+
 .left_right_but {
    padding-bottom: 6px;
    width: 15%;
