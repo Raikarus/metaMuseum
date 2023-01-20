@@ -313,7 +313,10 @@ $(document).ready(function(){
       wrap.style.gridTemplateColumns = "repeat(5, 1fr)";
       wrap.style.gridTemplateRows = "repeat(4, 1fr)";
       limit_of_pages = 20;
-      $(".name").css("font-size" , "1px");
+      var names = querySelectorAll(".name");
+      for(var i = 0; i < names.length;i++){
+        $(names[i]).css("padding-bottom", "6px");
+      }
       size = '5x4';
       load();
    });
