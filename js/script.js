@@ -242,22 +242,33 @@ $(document).ready(function(){
 
   $('#addtag').on("click",function()
   {
-    elem = $('.kword_solo[data-tag="'+$('#myInput').val()+'"]');
-    var index = result_tags.indexOf($(elem).data("tag"));
-    if (index >= 0) {
-      result_tags.splice(index, 1);
-      result_tags_invers.splice(index, 1);
+    if(mod == "gallery")
+    {
+      elem = $('.kword_solo[data-tag="'+$('#myInput').val()+'"]');
+      var index = result_tags.indexOf($(elem).data("tag"));
+      if (index >= 0) {
+        result_tags.splice(index, 1);
+        result_tags_invers.splice(index, 1);
+      }
+      else{
+        result_tags.push($(elem).data("tag"));
+        result_tags_invers.push(0);
+      }
+      $(".wrap").html("");
+      for (var i = 0; i <=result_tags.length - 1; i++) {
+        $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'<button data-tag = "'+result_tags[i]+'" onclick="tag_delete($(this))">×</button></li>');
+      }
+      check_invers();
+      load();
     }
-    else{
-      result_tags.push($(elem).data("tag"));
-      result_tags_invers.push(0);
+    else
+    {
+
+      $('.podborka:not([data-sel_name="'+$('#myInput').val()+'"])').css('color',"#24B47E");
+      $('.podborka([data-sel_name="'+$('#myInput').val()+'"])').css('color',"red");
+      active_podborka = $('.podborka:not([data-sel_name="'+$('#myInput').val()+'"])').data('sel_id');
+      load();
     }
-    $(".wrap").html("");
-    for (var i = 0; i <=result_tags.length - 1; i++) {
-      $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'<button data-tag = "'+result_tags[i]+'" onclick="tag_delete($(this))">×</button></li>');
-    }
-    check_invers();
-    load();
   });
 
   $('.list_of_groups ').on("click",".tag_group .group_name .kword_solo",function (){
