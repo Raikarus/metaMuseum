@@ -338,7 +338,7 @@
         $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
         $query = "SELECT sel_id,sel_name FROM selections";
         $res = pg_query($cn,$query);
-        echo "<li class = 'tag_group'><p class='group_name'><a class='podborka' href = '#' data-id='-1'>Локальная</a></p></li>";
+        echo "<li class = 'tag_group'><p class='group_name'><a class='podborka' href = '#' data-id='-1' data-sel_name='Локальная'>Локальная</a></p></li>";
         while($row = pg_fetch_object($res))
         {
             $sel_id = $row->sel_id;
