@@ -361,8 +361,6 @@
              //Если нет никакой группы
              $query = "SELECT tag_id,tag_id_num FROM kwgkw WHERE gkword_id=$gkword_id";
              $res2 = pg_query($cn,$query);
-             $row2 = pg_fetch_object($res2);
-             
              while($row2=pg_fetch_object($res2))
              {
                 $tag_id = $row2->tag_id;
@@ -373,9 +371,6 @@
                    $query = "SELECT kword_name FROM kwords WHERE tag_id_num=$tag_id_num";
                    $res3 = pg_query($cn,$query);
                    $row3 = pg_fetch_object($res3);
-                   echo "<b style='color:green'><pre> МАССИВ ТЭГОВ 10";
-                 print_r(pg_fetch_all($res3));
-                    echo "</pre></b><br>";
                    $kword_name = $row3->kword_name;
                    $query = "SELECT pic_id FROM pictags WHERE tag_id_num=$tag_id_num";
                    $res3 = pg_query($cn,$query);
