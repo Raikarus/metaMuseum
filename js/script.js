@@ -270,12 +270,12 @@ $(document).ready(function(){
 
   $('#mod_finder').click(function(){
     mod = "podborka";
+    show_podborki();
     load();
   });
 
   $('#mod_gallery').click(function(){
     mod = "gallery";
-    show_podborki();
     load();
   });
   $('#add_to_podborka').click(function(){
