@@ -78,7 +78,7 @@ function tag_add_delete(e)  {
     result_tags_invers.splice(index, 1);
   }
   else{
-    result_tags.push($(this).data("tag"));
+    result_tags.push($(e).data("tag"));
     result_tags_invers.push(0);
   }
   $(".wrap").html("");
