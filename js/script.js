@@ -252,6 +252,7 @@ $(document).ready(function(){
   $('#add_to_podborka').click(function(){
     podborka = pre_podborka;
     pre_podborka = [];
+    alert(podborka);
     load();
   });
     load();
