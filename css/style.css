@@ -489,6 +489,6 @@ footer {
 }
 .autocomplete-active {
   /* при навигации по элементам используются клавиши со стрелками: */
-  background-color: DodgerBlue !important;
+  background-color: #24B47E !important;
   color: #ffffff;
 }
