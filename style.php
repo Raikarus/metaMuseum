@@ -68,7 +68,7 @@
                   <div class = "autocomplete">
                      <input id = "myInput" class = "searchbar" type = "text" name = "myCountry" placeholder = "Search tags!">
                      <script>
-                        autocomplete(document.getElementById("myInput"), countries);
+                        autocomplete(document.getElementById("myInput"), poisk);
                      </script>
                   </div>
                   <input type = "button" class = "addtag" value = "ADD">

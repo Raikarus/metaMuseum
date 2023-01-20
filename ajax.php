@@ -38,6 +38,9 @@
             case 'switch_podborka':
                 switch_podborka();
                 break;
+            case 'return_massiv':
+                return_massiv();
+                break;
         }
     }
 
