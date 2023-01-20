@@ -23,7 +23,7 @@ function check()
 	}
     else
     {
-         echo '<img src="document.png" alt="s" width="150%" height="150%"> Загрузите ваше говно сюда' ;
+         echo '<img src="document.png" alt="s" width="150%" height="150%"><span class = "cloud_tag" style="font-size: 40 px;">Загрузите ваше говно сюда</span>'; ;
     }
 	
 }
