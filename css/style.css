@@ -435,6 +435,7 @@ footer {
    justify-content: flex-start;
    width: 100%;
    height: 12%;
+   font-size: 17px;
 }
 
 .autocomplete {
@@ -454,14 +455,13 @@ footer {
    padding: 0;
    margin: 0;
    box-sizing: border-box;
-   font-size: 20px;
 }
 
 .addtag {
    background-color: #24B47E;
    color: white;
    height: 100%;
-   width: 10%;
+   width: 15%;
    text-align: center;
 }
 
