@@ -30,25 +30,22 @@ function check_invers() {
 }
 
 function tag_invers(e)  {
-  if (e.target == this)
+  var index = $(e).data("index");
+  if ($(e).data("inversed") == 0)
   {
-    var index = $(e).data("index");
-    if ($(e).data("inversed") == 0)
-    {
-       $(e).data("inversed",1);
-       $(e).attr("data-inversed",1)
-       $(e).css("backgroundColor","rgb(228, 79, 79)");
-       result_tags_invers[index] = 1;
-    }
-    else
-    {
-       $(e).data("inversed",0);
-       $(e).attr("data-inversed",0);
-       $(e).css("backgroundColor","#24B47E");
-       result_tags_invers[index] = 0;
-    }
-    preload();
+     $(e).data("inversed",1);
+     $(e).attr("data-inversed",1)
+     $(e).css("backgroundColor","rgb(228, 79, 79)");
+     result_tags_invers[index] = 1;
   }
+  else
+  {
+     $(e).data("inversed",0);
+     $(e).attr("data-inversed",0);
+     $(e).css("backgroundColor","#24B47E");
+     result_tags_invers[index] = 0;
+  }
+  preload();
 }
 
 function preload()  {
