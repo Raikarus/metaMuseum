@@ -18,7 +18,7 @@
 }
 #name_podborka_form
 {
-   width:300px;height: 250px;background-color: white;display: flex;justify-content: center;align-items: center;border-radius: 5px;
+   width:300px;height: 250px;background-color: white;display: flex;justify-content: center;align-items: center;border-radius: 5px;flex-direction: column;color:black;
 }
 </style>
 </head>
