@@ -29,7 +29,7 @@
          $str = 'ЯПОМНЮПЕНИСБОЛЬШОЙ.jpg';
 
          $str1 = substr($str,0,20);
-         for($i = 0; $i < count($str);$i++)
+         for($i = 0; $i < strlen($str);$i++)
          {
 
           echo $str[$i];
