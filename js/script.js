@@ -76,8 +76,7 @@ function preload()  {
 
 function tag_delete(e)
 {
-  var index = result_tags.indexOf($(this).data("tag"));
-  alert($(this).data("tag"));
+  var index = result_tags.indexOf($(e).data("tag"));
   result_tags.splice(index, 1);
   result_tags_invers.splice(index, 1);
   $(".wrap").html("");
