@@ -315,6 +315,12 @@ input {
    scrollbar-color: hsl(0 0% 50%);
 }
 
+@media (max-width: 1281px) {
+   .wrap {
+      grid-template-columns: 1fr 1fr;
+   }
+}
+
 .choose_item {
    list-style-type: none;
    height: 25px;
@@ -506,3 +512,4 @@ footer {
    width: 10%;
    margin-left: 5px;
 }
+
