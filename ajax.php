@@ -120,6 +120,7 @@
             if($result_tags == "") $query = "SELECT pic_id,fmt,title FROM pics";
             else
             {
+                //Если есть kwords
                 $result_tags_arr = explode("|", $result_tags);
                 $result_tags_invers_arr = explode("|",$result_tags_invers);
                 $query = "SELECT tag_id_num FROM kwords WHERE kword_name='$result_tags_arr[0]'";
@@ -210,7 +211,7 @@
         	}
         	else
         	{
-        		echo "error";
+        		echo "error1";
         	}
         }
         else
