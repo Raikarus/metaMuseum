@@ -238,6 +238,11 @@ header {
    display: none;
 }
 
+.tags {
+   -ms-overflow-style: none;  /* IE и Edge */
+   scrollbar-width: none;  /* Firefox */
+ }
+
 .tag_group {
    width: auto;
    height: auto;
@@ -419,7 +424,13 @@ footer {
 }
 
 
-
+.searching {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   width: 100%;
+   height: 10%;
+}
 
 .autocomplete {
   /* контейнер должен быть расположен относительно: */
