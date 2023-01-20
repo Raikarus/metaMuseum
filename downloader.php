@@ -128,7 +128,7 @@ function moveZeros(arr) {
    </header>
 
 <div class = "main">
-   <div class = "main_left">
+   <div class = "main_top">
       <ul class = "photos_compilation" id = "compilation">
          <?php
 			    $dir='./img';
