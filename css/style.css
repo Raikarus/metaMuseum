@@ -215,7 +215,7 @@ header {
    justify-content: space-between;
 }
 
-.list_of_groups::-webkit-scrollbar {
+.tags:-webkit-scrollbar {
    width: 0;
 }
 
