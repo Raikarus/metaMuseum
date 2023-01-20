@@ -247,16 +247,17 @@ function AddToBd($filename,$fsize,$ext) {
 function LinkKeyword(){
   if($_POST['passLink']=="schef2002"){
     echo "П4р0ль пр0йд3н <br>";
-
-    $shl = 'exiftool -TagsFromFile img/'.$_POST['img_name'].' img/file.xmp';
+    // ВОТ ТУТ ЭКРАНИРОВАНИЕ
+    $img_name = addcslashes($_POST['img_name']," ");
+    $shl = 'exiftool -TagsFromFile img/'.$img_name.' img/file.xmp';
     $res = shell_exec($shl);
     echo "<pre>$res</pre>";
 
-    $shl = 'exiftool -XMP=img/'.$_POST['img_name'];
+    $shl = 'exiftool -XMP=img/'.$img_name;
     $res = shell_exec($shl);
     echo "<br><pre>$res</pre>";
 
-    $shl = 'exiftool -TagsFromFile img/file.xmp img/'.$_POST['img_name'];
+    $shl = 'exiftool -TagsFromFile img/file.xmp img/'.$img_name;
     $res = shell_exec($shl);
     echo "<br><pre>$res</pre>";
 
@@ -280,7 +281,7 @@ function LinkKeyword(){
       if(!pg_fetch_object($res))
       {
         
-        $shl = 'exiftool -XMP-dc:subject+="'.$selected_kword.'" img/'.$_POST['img_name'];
+        $shl = 'exiftool -XMP-dc:subject+="'.$selected_kword.'" img/'.$img_name;
         $res = shell_exec($shl);
         echo "<br><pre>$res</pre>"; 
 
@@ -295,7 +296,7 @@ function LinkKeyword(){
       }
     }
 
-    $shl = 'exiftool -XMP-dc:ALL img/'.$_POST['img_name']." -b";
+    $shl = 'exiftool -XMP-dc:ALL img/'.$img_name." -b";
     $res = shell_exec($shl);
     echo "<br><pre>$res</pre>";
 
