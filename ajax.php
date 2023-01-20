@@ -202,8 +202,8 @@
     	         $title = pg_fetch_result($res, $i, 2);
                  if($pic_id)
                  {
-                    if(in_array($pic_id, $pre_podborka))echo "<li class='photo_li' style='outline:3px solid red;outline-offset:-3px' data-id=$pic_id><div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div><div class='name'>$title</div></li>";   
-                    else if(in_array($pic_id, $podborka)) echo "<li class='photo_li' style='outline:3px solid green;outline-offset:-3px' data-id=$pic_id><div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div><div class='name'>$title</div></li>"
+                    if(in_array($pic_id, $pre_podborka)) echo "<li class='photo_li' style='outline:3px solid red;outline-offset:-3px' data-id=$pic_id><div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div><div class='name'>$title</div></li>";   
+                    else if(in_array($pic_id, $podborka)) echo "<li class='photo_li' style='outline:3px solid green;outline-offset:-3px' data-id=$pic_id><div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div><div class='name'>$title</div></li>";
                     else echo "<li class='photo_li' data-id=$pic_id><div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div><div class='name'>$title</div></li>";
                  }
     	        }
