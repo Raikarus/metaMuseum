@@ -30,13 +30,6 @@
 <div class = "main">
       <div class = "main_left">
          <ul class = "photos" id = "wrapping">
-         	<?php
-            //сюда проверку на тэги
-               if(true)
-               {
-                  
-               }
-         	?>
 		</ul>
          <div class = "left_right_but">
             <button class = "button left" data-val="left">
@@ -178,21 +171,21 @@
       </div>
    </footer>
 
-<main class = "main">
+<!-- <main class = "main">
 <a href="/?form=auth">Добавить тэг</a><br>
 <a href="/?form=obr">Обработка картинок</a><br>
 <a href="/?form=add">Добавить картинку</a><br>
 <a href="/?form=write">Прикрутить тэг</a><br>
 <?php
-echo $msg;
-switch($form){
-case 'auth': include('auth.php');break;
-case 'obr': include('obrabotka.php');break;
-case 'add': include('add.php');break;
-case 'write': include('write.php');break;
-default:include('home.php');break;
+// echo $msg;
+// switch($form){
+// case 'auth': include('auth.php');break;
+// case 'obr': include('obrabotka.php');break;
+// case 'add': include('add.php');break;
+// case 'write': include('write.php');break;
+// default:include('home.php');break;
 }
 ?>
-</main>
+</main> -->
 </body>
 </html>

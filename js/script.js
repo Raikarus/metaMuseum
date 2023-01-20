@@ -14,7 +14,8 @@ function flipflop( id ) {
 var result_tags = [];
 var result_tags_invers = [];
 var size = '3x2';
-var podborka = [];
+var pre_podborka = [];
+var mod = 'gallery';
 function check_invers() {
   for (var i = 0; i < result_tags.length; i++) {
     e = document.getElementById(result_tags[i]);
@@ -47,25 +48,25 @@ function tag_invers(e)  {
        $(e).css("backgroundColor","#24B47E");
        result_tags_invers[index] = 0;
     }
-    preload();
+    load();
   }
 }
 
-function preload()  {
+function load()  {
   var current_page = Number($('#current_page').data('val'));
   var ajaxurl = 'ajax.php';
   var result_tags_string = "";
   var result_tags_invers_string = "";
-  var podborka_string = "";
+  var pre_podborka_string = "";
   for (var i = 0; i < result_tags.length; i++) {
     result_tags_string += result_tags[i]+"|";
     result_tags_invers_string += result_tags_invers[i]+"|";
   }
-  for(var i = 0; i < podborka.length; i++)
+  for(var i = 0; i < pre_podborka.length; i++)
   {
-    podborka_string += podborka[i]+"|";
+    pre_podborka_string += pre_podborka[i]+"|";
   }
-  data =  {'action': 'update_grid', 'current_page': current_page,'size':size,'result_tags':result_tags_string,'result_tags_invers':result_tags_invers_string,'podborka':podborka_string}; 
+  data =  {'action': 'update_grid', 'current_page': current_page,'size':size,'result_tags':result_tags_string,'result_tags_invers':result_tags_invers_string,'pre_podborka':pre_podborka_string,'mod':mod}; 
   $.post(ajaxurl, data).done(function (response) {
     if(response != 'error') {
       $('#wrapping').html(response);
@@ -74,7 +75,7 @@ function preload()  {
     else {
       current_page-=1;
       $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
-      preload();
+      load();
     } 
   });
 }
@@ -89,7 +90,7 @@ function tag_delete(e)
       $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'<button data-tag = "'+result_tags[i]+'" onclick="tag_delete($(this))">×</button></li>');
     }
   check_invers();
-  preload();
+  load();
 }
 
 $(document).ready(function(){
@@ -120,7 +121,7 @@ $(document).ready(function(){
       $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'<button data-tag = "'+result_tags[i]+'" onclick="tag_delete($(this))">×</button></li>');
     }
     check_invers();
-    preload();
+    load();
   });
 
   $('.tag_list li a').click(function (){
@@ -138,7 +139,7 @@ $(document).ready(function(){
       $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'<button data-tag = '+result_tags[i]+'onclick="tag_delete($(this))">×</button></li>');
     }
     check_invers();
-    preload();
+    load();
   });
 
 
@@ -180,7 +181,7 @@ $(document).ready(function(){
       limit_of_pages = 20;
       $(".name").css("padding-bottom", "2px" );
       size = '5x4';
-      preload();
+      load();
    });
 
    $(size2).click(function()
@@ -193,7 +194,7 @@ $(document).ready(function(){
       limit_of_pages = 12;
       $(".name").css("padding-bottom", "6px");
       size='4x3';
-      preload();
+      load();
    });
 
    $(size3).click(function()
@@ -206,7 +207,7 @@ $(document).ready(function(){
       limit_of_pages = 6;
       $(".name").css("padding-bottom", "8px");
       size='3x2';
-      preload();
+      load();
    });
 
     $('.button').click(function (){
@@ -215,24 +216,34 @@ $(document).ready(function(){
       if(clickBtnValue == "right") current_page+=1;
       else if (current_page!=1) current_page-=1;
       $('#current_page').data('val',current_page).attr('data-val',current_page);
-      preload();
+      load();
     });
     
   $('#wrapping ').on("click",".photo_li", function(){
     var pic_id = $(this).data('id');
-    var index = podborka.indexOf(pic_id);
+    var index = pre_podborka.indexOf(pic_id);
     if(index>=0)
     {
-      podborka.splice(index,1);
+      pre_podborka.splice(index,1);
       $(this).css('outline','none');
     }
     else
     {
-      podborka.push(pic_id);
+      pre_podborka.push(pic_id);
       $(this).css('outline','3px solid red');
       $(this).css('outline-offset','-3px');
     }
   });
 
-    preload();
+  $('#mod_finder').click(function(){
+    mod = "podborka";
+    load();
+  });
+
+  $('#mod_gallery').click(function(){
+    mod = "gallery";
+    load();
+  });
+
+    load();
 });
