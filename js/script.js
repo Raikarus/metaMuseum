@@ -72,6 +72,7 @@ function preload()  {
 }
 
 function tag_add_delete(e)  {
+  console.log(e);
   var index = result_tags.indexOf($(e).data("tag"));
   if (index >= 0) {
     result_tags.splice(index, 1);
