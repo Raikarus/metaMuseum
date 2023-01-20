@@ -22,13 +22,16 @@ var selected_in_podborka = [];
 var mod = 'gallery';
 var active_podborka = "-1";
 
-var poisk = ["ARARA", "aboba", "avoba", "agoba", "aroba", "ajoba", "aloba", "acoba", "afoba", "agoba", "aooba", "amoba", "akoba", "axoba", "azoba", "a7oba", "a8oba", "a9oba","boba","clopa","dropa","eboba","fboba","gboba","hboba","iboba","jboba","kboba","lboba","mboba","nboba","oboba","pboba","rboba","sboba","tboba","uboba","vboba","wboba","xboba","yboba","zboba"];
+var poisk = [];
 function build_poisk()
 {
   if(mod == "gallery")
   {
-    alert("1");
-    alert(document.querySelectorAll(".tag_group"));
+    var kwords = document.querySelectorAll(".kword_solo");
+    for (var i = 0; i < kwords.length; i++) {
+      alert($(kwords[i]).data("tag"));
+      poisk.push($(kwords[i]).data("tag"));
+    }
   }
   else
   {
