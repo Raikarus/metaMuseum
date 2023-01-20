@@ -44,6 +44,7 @@ function build_poisk()
 }
 
 function autocomplete(inp, arr) {
+  alert("2");
   alert(inp);
   alert(arr);
    /* функция автозаполнения принимает два аргумента,
