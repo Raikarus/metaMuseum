@@ -304,86 +304,15 @@
         }
     }
 
-    function show_kwords_podborki()
+    function show_podborki()
     {
-        //
-        // Добавить работу со status в таблице kwords
-        //
         $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
-        $query = "SELECT gkword_id,gkword_name FROM gkwords";
+        $query = "SELECT sel_name FROM selections";
         $res = pg_query($cn,$query);
-        while($row=pg_fetch_object($res))
+        while($row = pg_fetch_object($res))
         {
-           $gkword_id = $row->gkword_id;
-           $gkword_name = $row->gkword_name;
-           if($gkword_id == 0)
-           {
-              //Если нет никакой группы
-              $query = "SELECT tag_id,tag_id_num FROM kwgkw WHERE gkword_id=$gkword_id";
-              $res2 = pg_query($cn,$query);
-              $row2 = pg_fetch_object($res2);
-              while($row2=pg_fetch_object($res2))
-              {
-                 $tag_id = $row2->tag_id;
-                 $tag_id_num = $row2->tag_id_num;
-
-                 if($tag_id == 10)
-                 {
-                    $query = "SELECT kword_name FROM kwords WHERE tag_id_num=$tag_id_num";
-                    $res3 = pg_query($cn,$query);
-                    $row3 = pg_fetch_object($res3);
-                    $kword_name = $row3->kword_name;
-                    $query = "SELECT pic_id FROM pictags WHERE tag_id_num=$tag_id_num";
-                    $res3 = pg_query($cn,$query);
-                    $row3 = pg_num_rows($res3);
-                    $query = "SELECT pic_id FROM pictags WHERE tag_id = $tag_id";
-                    $res3 = pg_query($cn,$query);
-                    $total = pg_num_rows($res3);
-                    $font_size = (round(($row3/$total)*100)+15)."px";
-                    echo "<li class = 'tag_group'>
-                             <p class = 'group_name'>
-                                <a class = 'kword_solo' href='#' data-en = 0 data-tag='$kword_name' style='font-size:$font_size'>$kword_name ($row3)</a>
-                             </p>
-                          </li>";
-                 }
-              }
-           }
-           else
-           {
-              //Если группа есть
-              echo '<li class = "tag_group">
-                       <p class = "group_name">
-                          <input type="checkbox" name = "tags_on" class = tags_checkbox>
-                             <a href = "javascript:flipflop('."'".$gkword_name."'".');">'.$gkword_name.'</a>
-                       </p>
-                       <ul class = "tag_list" id = '.$gkword_name.' style="display: none;">';
-
-              $query = "SELECT tag_id,tag_id_num FROM kwgkw WHERE gkword_id=$gkword_id";
-              $res2 = pg_query($cn,$query);
-
-              while($row2=pg_fetch_object($res2))
-              {
-                 $tag_id=$row2->tag_id;
-                 $tag_id_num=$row2->tag_id_num;
-                 
-                 if($tag_id == 10)
-                 {
-                    $query = "SELECT kword_name FROM kwords WHERE tag_id_num = $tag_id_num";
-                    $res3 = pg_query($cn,$query);
-                    $row3 = pg_fetch_object($res3);
-                    $kword_name = $row3->kword_name;
-                    $query = "SELECT pic_id FROM pictags WHERE tag_id_num=$tag_id_num";
-                    $res3 = pg_query($cn,$query);
-                    $row3 = pg_num_rows($res3);
-                    $query = "SELECT pic_id FROM pictags WHERE tag_id = $tag_id";
-                    $res3 = pg_query($cn,$query);
-                    $total = pg_num_rows($res3);
-                    $font_size = (round(($row3/$total)*100)+15)."px";
-                    echo "<li class='list_item'><a href='#' data-en = 0 data-tag = $kword_name style='font-size:$font_size'>$kword_name ($row3)</a></li>";
-                 }
-              }
-              echo '</ul></li>';
-           }
+            $sel_name = $row->sel_name;
+            echo "<li>$sel_name</li>";
         }
     }
 

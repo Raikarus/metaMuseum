@@ -275,6 +275,7 @@ $(document).ready(function(){
 
   $('#mod_gallery').click(function(){
     mod = "gallery";
+    show_podborki();
     load();
   });
   $('#add_to_podborka').click(function(){
@@ -359,7 +360,7 @@ $(document).ready(function(){
      });
   });
 
-  function show_kwords_podborki()
+  function show_podborki()
   {
    var ajaxurl = 'ajax.php';
    data =  {'action': 'show_kwords_podborki','active_podborka':"", 'mod': mod}; 
@@ -367,6 +368,6 @@ $(document).ready(function(){
     $(".list_of_groups").html(response);
    });
   }
-  show_kwords_podborki();
+  
   load();
 });
