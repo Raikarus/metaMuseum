@@ -316,18 +316,6 @@ input {
    font-size: 15px;
 }
 
-@media (max-width: 1281px) {
-   .wrap {
-      grid-template-columns: 1fr 1fr;
-      font-size: 75%;
-   }
-
-   .tag_button {
-      width: 10px;
-      height: 10px;
-   }
-}
-
 .choose_item {
    list-style-type: none;
    height: 25px;
@@ -529,3 +517,14 @@ footer {
    background-color: rgb(147, 148, 150);
 }
 
+@media (max-width: 1281px) {
+   .wrap {
+      grid-template-columns: 1fr 1fr;
+      font-size: 75%;
+   }
+
+   .tag_button {
+      width: 10px;
+      height: 10px;
+   }
+}
