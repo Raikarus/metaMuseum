@@ -229,6 +229,7 @@
         	else
         	{
         		echo "error";
+                exit();
         	}
         }
         else
@@ -275,10 +276,15 @@
                     else
                     {
                         echo "error";
+                        exit();
                     }
                 }
                 {
-                    if($_POST['current_page']>1)echo"error";
+                    if($_POST['current_page']>1)
+                        {
+                            echo"error";
+                            exit();
+                        }
                 }
             }
             else
@@ -424,6 +430,7 @@
         if($sel_id == "-1")
         {
             echo "error";
+            exit();
         }
         else
         {
@@ -473,6 +480,7 @@
             else
             {
                 echo "error";
+                exit();
             }
         }
     }
