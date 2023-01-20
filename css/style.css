@@ -498,3 +498,10 @@ footer {
   background-color: #24B47E !important;
   color: #ffffff;
 }
+
+.tag_button {
+   padding: 0;
+   margin: 0;
+   height: 75%;
+   width: auto;
+}
