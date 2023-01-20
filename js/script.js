@@ -214,7 +214,6 @@ $(document).ready(function(){
     });
     
   $('#wrapping ').on("click",".photo_li", function(){
-    alert("1");
     var pic_id = $(this).data('id');
     var index = podborka.indexOf(pic_id);
     if(index>0)
@@ -228,6 +227,7 @@ $(document).ready(function(){
       $(this).css('outline','3px solid red');
       $(this).css('outline-offset','20px');
     }
+    alert(podborka);
   });
 
     preload();
