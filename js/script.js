@@ -29,7 +29,6 @@ function build_poisk()
   {
     var kwords = document.querySelectorAll(".kword_solo");
     for (var i = 0; i < kwords.length; i++) {
-      alert($(kwords[i]).data("tag"));
       poisk.push($(kwords[i]).data("tag"));
     }
   }
