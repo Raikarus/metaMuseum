@@ -120,7 +120,7 @@ function moveZeros(arr) {
         });
 
          $('.switch').click(function(){
-            $(document.getElementsByName("img")[0]).css('display:none');
+            $(document.getElementsByName("img")[0]).css('display:none !important');
               console.log(document.getElementsByName("img")[0]);
               status++;
               if(status == 1) //download mode
