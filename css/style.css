@@ -434,7 +434,7 @@ footer {
 
 .autocomplete {
    height: 100%;
-   width: 94%;
+   width: 80%;
   /* контейнер должен быть расположен относительно: */
   position: relative;
   display: inline-block;
