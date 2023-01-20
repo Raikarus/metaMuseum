@@ -107,7 +107,7 @@ function moveZeros(arr) {
             });
         });
 
-         $('.checkbox').click(function(){
+         $('.switch').click(function(){
 
               console.log("click");
          });
