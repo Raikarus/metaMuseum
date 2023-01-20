@@ -354,14 +354,15 @@ function LinkKeyword(){
   <input type="text" name="img_name" placeholder="Название изображения">
   <input type="password" placeholder="пароль" name="passLink">
     <select multiple name="kwords[]">
-  <?php
-    $query = "SELECT kword_name FROM kwords WHERE tag_id=10";
-    $res = pg_query($cn,$query);
-    while($row=pg_fetch_object($res))
-    {
-      echo "<option>".$row->kword_name."</option>";
-    }
-  ?>
+      <?php
+         $query = "SELECT kword_name FROM kwords WHERE tag_id=10";
+         $res = pg_query($cn,$query);
+         while($row=pg_fetch_object($res))
+         {
+            echo "<option>".$row->kword_name."</option>";
+         }
+      ?>
+  </select>
   <input name="LinkKeyword" value="LinkKeyword" type="submit">
 </form>
 <br>
