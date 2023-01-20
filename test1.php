@@ -29,7 +29,7 @@
 
          $str = "Cum  ♂  dadw dadaw123455d.jpg";
          $str1 ="";
-         if(strlen(str) > 20)
+         if(strlen($str) > 20)
          {
            $str1 =substr($str,0, 20);
         // echo $str;
