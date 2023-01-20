@@ -30,7 +30,6 @@ function check_invers() {
 }
 
 function tag_invers(e)  {
-  alert(event.target.tagName);//add
   if(event.target.tagName == "LI")
   {
     var index = $(e).data("index");
@@ -49,10 +48,6 @@ function tag_invers(e)  {
        result_tags_invers[index] = 0;
     }
     preload();
-  }
-  else
-  {
-    alert(event.target.tagName);
   }
 }
 
