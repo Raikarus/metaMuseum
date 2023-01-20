@@ -74,6 +74,7 @@ function preload()  {
 function tag_delete(e)
 {
   console.log(e);
+  alert("1");
 }
 
 
