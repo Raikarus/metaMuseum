@@ -211,8 +211,12 @@ header {
    width: 100%;
    display: flex;
    flex-direction: column;
-   align-items: center;
+   align-items: flex-start;
    justify-content: space-between;
+}
+
+.all_tags::-webkit-scrollbar {
+   width: 0;
 }
 
 .tags {
@@ -281,6 +285,10 @@ header {
 .choosen_tags {
    height: 40%;
    width: 100%;
+}
+
+.choosen_tags::-webkit-scrollbar {
+   width: 0;
 }
 
 .wrap {
@@ -414,6 +422,11 @@ footer {
 
 #size_big {
    background-color: #24B47E;
+}
+
+
+.searching {
+
 }
 
 .autocomplete {

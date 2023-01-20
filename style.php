@@ -64,7 +64,7 @@
       </div>
       <div class = "main_right">
          <div class = "all_tags">
-               <form autocomplete = "off">
+               <form autocomplete = "off" class = "searching">
                   <div class = "autocomplete" style = "width:300px;">
                      <input id = "myInput" type = "text" name = "myCountry" placeholder = "Search tags!">
                      <script>
