@@ -315,7 +315,7 @@
         while($row = pg_fetch_object($res))
         {
             $sel_name = $row->sel_name;
-            echo "<li>$sel_name</li>";
+            echo "<li class = 'tag_group'><p class='group_name'><a href = '#'>$sel_name</a></p></li>";
         }
     }
 
