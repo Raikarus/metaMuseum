@@ -215,7 +215,7 @@ header {
    justify-content: space-between;
 }
 
-.all_tags::-webkit-scrollbar {
+.list_of_groups::-webkit-scrollbar {
    width: 0;
 }
 
@@ -287,7 +287,7 @@ header {
    width: 100%;
 }
 
-.choosen_tags::-webkit-scrollbar {
+.wrap::-webkit-scrollbar {
    width: 0;
 }
 
