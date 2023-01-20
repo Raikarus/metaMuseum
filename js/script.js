@@ -354,14 +354,7 @@ $(document).ready(function(){
       }
      data =  {'action': 'save_podborka','name_podborka':$('#podborka_name').val(), 'podborka': podborka_string}; 
      $.post(ajaxurl, data).done(function (response) {
-    //   if(response != 'error') {
-    //     $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
-    //   }
-    //   else {
-    //     current_page-=1;
-    //     $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
-    //     load();
-    //   } 
+      $("#response").html(response);
      });
   });
 

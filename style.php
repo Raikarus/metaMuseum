@@ -29,6 +29,7 @@
                <h3>Введите название:</h3>
                <input id = "podborka_name"type="text" name="name_for_podborka">
                <input id = "create_podborka" type="submit" value = "Создать">
+               <div id = "response"></div>
             </div>
          </div>
 <!-- ТУТ ПОМЕНЯТЬ СТИЛИ -->

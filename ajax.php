@@ -291,12 +291,12 @@
             }
             else 
             {
-                echo "<script>alert('Для создания подборки необходимо минимум два изображения')</script>";
+                echo "<b style='color:red'>Для создания подборки необходимо минимум два изображения</b>";
             }
         }
         else
         {
-            echo "<script>alert('Подборка $sel_name уже существует')</script>";
+            echo "<b style='color:red'>Подборка $sel_name уже существует</b>";
         }
     }
 
