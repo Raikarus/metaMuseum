@@ -70,7 +70,7 @@ autocomplete(document.getElementById("search"), countries);
                <div class = "searching">
                   <form class = "searching_form" autocomplete = "off">
                      <div class="autocomplete">
-                        <input type = "text" id = "search" name = "search" class = "search" placeholder="Search tags!">
+                        
                      </div>
                      <input type = "submit" name = "submit" class = "submit" value="ADD">
                   </form>
