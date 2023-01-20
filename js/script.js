@@ -495,6 +495,8 @@ $(document).ready(function(){
   $("#name_podborka_form_back").click(function(event){
     if(event.target == this) {
       $("#name_podborka_form_back").css('display','none');
+      document.getElementById('myInput').removeAttribute('disabled');
+      $('#myInput').css('display','block')
     }
   });
 
