@@ -23,7 +23,7 @@ function check()
 	}
     else
     {
-         echo '<img src="document.png" alt="s" width="100%" height="100%">' ;
+         echo '<img src="document.png" alt="s" width="300%" height="300%"> Загрузите ваше говно сюда' ;
     }
 	
 }
