@@ -259,5 +259,28 @@ $(document).ready(function(){
     pre_podborka = [];
     load();
   });
+
+  $("#select_all").click(function(){
+    var pictures = document.querySelectorAll('.photo_li');
+    for (var i = 0; i < pictures.length; i++) {
+      var pic_id = $(pictures[i]).data('id');
+      var index = pre_podborka.indexOf(pic_id);
+      if(podborka.indexOf(pic_id) < 0)
+      {
+        if(index>=0)
+        {
+          pre_podborka.splice(index,1);
+          $(pictures[i]).css('outline','none');
+        }
+        else
+        {
+          pre_podborka.push(pic_id);
+          $(pictures[i]).css('outline','3px solid red');
+          $(pictures[i]).css('outline-offset','-3px');
+        }  
+      }  
+    }
+    
+  });
     load();
 });
