@@ -227,16 +227,19 @@ $(document).ready(function(){
   $('#wrapping ').on("click",".photo_li", function(){
     var pic_id = $(this).data('id');
     var index = pre_podborka.indexOf(pic_id);
-    if(index>=0)
+    if(podborka.indexOf(pic_id) < 0)
     {
-      pre_podborka.splice(index,1);
-      $(this).css('outline','none');
-    }
-    else
-    {
-      pre_podborka.push(pic_id);
-      $(this).css('outline','3px solid red');
-      $(this).css('outline-offset','-3px');
+      if(index>=0)
+      {
+        pre_podborka.splice(index,1);
+        $(this).css('outline','none');
+      }
+      else
+      {
+        pre_podborka.push(pic_id);
+        $(this).css('outline','3px solid red');
+        $(this).css('outline-offset','-3px');
+      }  
     }
   });
 
@@ -250,7 +253,9 @@ $(document).ready(function(){
     load();
   });
   $('#add_to_podborka').click(function(){
-    podborka = pre_podborka;
+    for (var i = 0; i < pre_podborka.length; i++) {
+      podborka.push(pre_podborka);
+    }
     pre_podborka = [];
     load();
   });
