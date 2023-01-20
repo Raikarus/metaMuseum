@@ -30,7 +30,7 @@ function check_invers() {
 }
 
 function tag_invers(e)  {
-  if(event.target.tagName == "li")
+  if(event.target.tagName == "LI")
   {
     var index = $(e).data("index");
     if ($(e).data("inversed") == 0)
