@@ -27,11 +27,19 @@
                 ^^^^^^^^^^^^^^^^^^^^ <BR>
          <?php
 
-         $str = "Cum    dadw dadaw123455d.jpg";
+         $str = "Cum  ♂  dadw dadaw123455d.jpg";
          $str1 ="";
-         $str1 =substr($str,0, 20);
+         if(strlen(str) > 20)
+         {
+           $str1 =substr($str,0, 20);
         // echo $str;
          echo "     ".$str1."...";
+         }
+         else
+         {
+           echo "     ".$str;
+         }
+        
 /*
            // echo $text;
             $sub1 = substr($text,strpos($text, $tag2) + strlen($tag2) + 1,strpos($text, $tag2.'>'));
