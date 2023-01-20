@@ -9,6 +9,9 @@
 <link rel="stylesheet" href="css/style.css"  type="text/css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script type="text/javascript" src = "js/script.js"></script>
+<script>
+autocomplete(document.getElementById("search"), countries);
+</script>
 <title>Главная</title>
 <style>
 
@@ -65,8 +68,8 @@
       <div class = "main_right">
          <div class = "all_tags">
                <div class = "searching">
-                  <form class = "searching_form">
-                     <input type = "text" name = "search" class = "search" placeholder="Search tags!">
+                  <form class = "searching_form" autocomplete = "off" action = "">
+                     <input type = "text" id = "search" name = "search" class = "search" placeholder="Search tags!">
                      <input type = "submit" name = "submit" class = "submit" value="ADD">
                   </form>
                </div>
