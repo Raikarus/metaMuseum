@@ -132,7 +132,7 @@ function moveZeros(arr) {
               {
 
               }
-              console.log("click");
+              console.log(status);
          });
     });
 
