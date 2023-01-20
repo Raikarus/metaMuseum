@@ -71,7 +71,6 @@ function load()  {
   for (var i = 0; i < podborka.length; i++) {
     podborka_string += podborka[i]+"|";
   }
-  alert(podborka_string);
   data =  {'action': 'update_grid', 'current_page': current_page,'size':size,'result_tags':result_tags_string,'result_tags_invers':result_tags_invers_string,'pre_podborka':pre_podborka_string,'podborka':podborka_string,'mod':mod}; 
   $.post(ajaxurl, data).done(function (response) {
     if(response != 'error') {
