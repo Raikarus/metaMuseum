@@ -313,6 +313,7 @@ input {
    overflow: auto;
    scrollbar-width: thin;
    scrollbar-color: hsl(0 0% 50%);
+   font-size: 20px;
 }
 
 @media (max-width: 1281px) {
