@@ -69,7 +69,7 @@
                      <input id = "myInput" class = "searchbar" type = "text" placeholder = "Search tags!">
                     
                   </div>
-                  <input type = "button" class = "addtag" value = "ADD">
+                  <input type = "button" id = "addtag" class = "addtag" value = "ADD">
 
                </form>
                <div class = "tags">
