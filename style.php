@@ -11,6 +11,7 @@
 <script type="text/javascript" src = "js/script.js"></script>
 <title>Главная</title>
 <style>
+
 #name_podborka_form_back
 {
    position: absolute;display: none; width: 100%;height: 100vh;background-color: rgba(1,1,1,0.6);justify-content: center;align-items: center;
