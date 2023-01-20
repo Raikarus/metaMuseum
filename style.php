@@ -160,8 +160,8 @@
             <li><input type = "submit" name = "funtional" value="Скачать"></li>
             <li><input type = "submit" name = "funtional" value="Сохранить в подборку"></li>
             <li><input type = "submit" name = "funtional" value="Удалить из подборки"></li>
-            <li><input type = "submit" name = "funtional" value="Выделить всё"></li>
-            <li><input type = "submit" name = "funtional" value="Снять выделение"></li>
+            <li><input id = "select_all" type = "submit" name = "funtional" value="Выделить всё"></li>
+            <li><input id = "unselect_all" type = "submit" name = "funtional" value="Снять выделение"></li>
          </ul>        
       </div>
       <div class = "switch_size">

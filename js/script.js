@@ -16,6 +16,7 @@ var result_tags_invers = [];
 var size = '3x2';
 var pre_podborka = [];
 var podborka = [];
+var selected_in_podborka = [];
 var mod = 'gallery';
 function check_invers() {
   for (var i = 0; i < result_tags.length; i++) {
@@ -60,6 +61,7 @@ function load()  {
   var result_tags_invers_string = "";
   var pre_podborka_string = "";
   var podborka_string = "";
+  var selected_in_podborka_string = "";
   for (var i = 0; i < result_tags.length; i++) {
     result_tags_string += result_tags[i]+"|";
     result_tags_invers_string += result_tags_invers[i]+"|";
@@ -71,7 +73,11 @@ function load()  {
   for (var i = 0; i < podborka.length; i++) {
     podborka_string += podborka[i]+"|";
   }
-  data =  {'action': 'update_grid', 'current_page': current_page,'size':size,'result_tags':result_tags_string,'result_tags_invers':result_tags_invers_string,'pre_podborka':pre_podborka_string,'podborka':podborka_string,'mod':mod}; 
+  for(var i = 0; i < selected_in_podborka.length; i++)
+  {
+    selected_in_podborka_string += selected_in_podborka[i]+"|";
+  }
+  data =  {'action': 'update_grid', 'current_page': current_page,'size':size,'result_tags':result_tags_string,'result_tags_invers':result_tags_invers_string,'pre_podborka':pre_podborka_string,'podborka':podborka_string,'selected_in_podborka': selected_in_podborka_string,'mod':mod}; 
   $.post(ajaxurl, data).done(function (response) {
     if(response != 'error') {
       $('#wrapping').html(response);
@@ -226,17 +232,35 @@ $(document).ready(function(){
     
   $('#wrapping ').on("click",".photo_li", function(){
     var pic_id = $(this).data('id');
-    var index = pre_podborka.indexOf(pic_id);
-    if(podborka.indexOf(pic_id) < 0)
+    if(mod == 'gallery')
     {
+      var index = pre_podborka.indexOf(pic_id);
+      if(podborka.indexOf(pic_id) < 0)
+      {
+        if(index>=0)
+        {
+          pre_podborka.splice(index,1);
+          $(this).css('outline','none');
+        }
+        else
+        {
+          pre_podborka.push(pic_id);
+          $(this).css('outline','3px solid red');
+          $(this).css('outline-offset','-3px');
+        }  
+      }
+    }
+    else
+    {
+      var index = selected_in_podborka.indexOf(pic_id);
       if(index>=0)
       {
-        pre_podborka.splice(index,1);
+        selected_in_podborka.splice(index,1);
         $(this).css('outline','none');
       }
       else
       {
-        pre_podborka.push(pic_id);
+        selected_in_podborka.push(pic_id);
         $(this).css('outline','3px solid red');
         $(this).css('outline-offset','-3px');
       }  
