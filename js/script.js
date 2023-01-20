@@ -483,7 +483,6 @@ $(document).ready(function(){
     if(podborka.length > 1)
     {
       $("#name_podborka_form_back").css('display','flex');  
-      document.getElementById('myInput').setAttribute('disabled', 'disabled');
       $('#myInput').css('display','none')
     }
     else
@@ -495,7 +494,6 @@ $(document).ready(function(){
   $("#name_podborka_form_back").click(function(event){
     if(event.target == this) {
       $("#name_podborka_form_back").css('display','none');
-      document.getElementById('myInput').removeAttribute('disabled');
       $('#myInput').css('display','block')
     }
   });
