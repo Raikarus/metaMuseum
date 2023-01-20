@@ -26,11 +26,12 @@
 <!-- ТУТ ПОМЕНЯТЬ СТИЛИ -->
          <div id = "name_podborka_form_back">
             <div id = "name_podborka_form">
+               <h3>Введите название:</h3>
                <input type="text" name="name_for_podborka">
                <input type="submit" value = "Создать">
             </div>
          </div>
-         <!-- ТУТ ПОМЕНЯТЬ СТИЛИ -->
+<!-- ТУТ ПОМЕНЯТЬ СТИЛИ -->
 <header>
       <div class = "container">
          <div class = "logo_container">
