@@ -155,8 +155,10 @@ input {
    text-overflow: ellipsis;
 }
 
-.name_span {
-   text-align: start;
+.name_div {
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
 }
 
 .left_right_but {
