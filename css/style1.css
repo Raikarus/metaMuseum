@@ -114,6 +114,15 @@ header {
    justify-content: space-between;
 }
 
+.main_center_2 {
+   width: 50%;
+   height: 80%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-between;
+}
+
 .photos {
    padding: 0;
    margin: 0;
