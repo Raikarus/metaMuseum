@@ -369,5 +369,14 @@ $(document).ready(function(){
    });
   }
   
+  function show_kwords()
+  {
+    var ajaxurl = 'ajax.php';
+    data =  {'action': 'show_kwords'}; 
+    $.post(ajaxurl, data).done(function (response) {
+      $(".list_of_groups").html(response);
+    }); 
+  }
+
   load();
 });
