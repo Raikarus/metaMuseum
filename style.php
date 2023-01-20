@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html">
 <link rel="stylesheet" href="css/style.css"  type="text/css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-<script type="text/javascript" src = "js/script.js"></script>
+<script type="text/javascript" src = "js/script.js">autocomplete(document.getElementById("myInput"), poisk);</script>
 <title>Главная</title>
 <style>
 
@@ -67,9 +67,7 @@
                <form autocomplete = "off" class = "searching">
                   <div class = "autocomplete">
                      <input id = "myInput" class = "searchbar" type = "text" placeholder = "Search tags!">
-                     <script>
-                        autocomplete(document.getElementById("myInput"), poisk);
-                     </script>
+                    
                   </div>
                   <input type = "button" class = "addtag" value = "ADD">
 
