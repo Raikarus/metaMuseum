@@ -139,6 +139,17 @@ function moveZeros(arr) {
                {
                      $(document.getElementsByName("img")[i]).css('display','flex');  // надо сделать норм удаление 
                }
+                var ss = "";
+
+               for(var i = 0; i < count;i++)
+               {
+                  ss += arr[i] + '|';
+                    
+               }
+               var ajaxurl = 'ajax.php';
+                  data =  {'action': 'set_img','img_string':ss};
+                  $.post(ajaxurl, data).done(function (response) {
+                  $('#wrapping').html(response); });
                status = 0;
               }
               console.log(status);
