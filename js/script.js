@@ -382,26 +382,22 @@ $(document).ready(function(){
     }); 
   }
 
-  // $('.list_of_groups').on("click",".tag_group .group_name .podborka",function(){
-  //   var ajaxurl = 'ajax.php';
-  //   var sel_id = $(this).data("id");
-  //   var podborka_string = "";
-  //   for (var i = 0; i < podborka.length; i++) {
-  //     podborka_string += podborka[i] + "|";
-  //   }
-  //   var current_page = Number($('#current_page').data('val'));
-  //   data =  {'action': 'switch_podborka','sel_id' : sel_id,'size':size,'current_page': current_page}; 
-  //   $.post(ajaxurl, data).done(function (response) {
-  //     if(response!="error"){
-  //       $("#wrapping").html(response);
-  //     }
-  //     else
-  //     {
-  //      load();
-  //     }
+  $('.list_of_groups').on("click",".tag_group .group_name .podborka",function(){
+    var ajaxurl = 'ajax.php';
+    var sel_id = $(this).data("id");
+    var current_page = Number($('#current_page').data('val'));
+    data =  {'action': 'switch_podborka','sel_id' : sel_id,'size':size,'current_page': current_page}; 
+    $.post(ajaxurl, data).done(function (response) {
+      if(response!="error"){
+        $("#wrapping").html(response);
+      }
+      else
+      {
+       load();
+      }
       
-  //   });
-  // });
+    });
+  });
 
   show_kwords();
   load();
