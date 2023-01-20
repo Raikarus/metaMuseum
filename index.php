@@ -129,6 +129,7 @@ function AddToBd($filename,$fsize,$ext) {
       
       if($row = pg_fetch_object($res))
       {
+        echo "СОЗДАНИЕ ТЭГА $strValue<br>";
         //Тут автоматически создаются тэги
         if($tag_id != 10)
         {
@@ -184,6 +185,7 @@ function AddToBd($filename,$fsize,$ext) {
       else
       {
         $tag_id_num  = $row->tag_id_num;
+        echo "ТЭГ $strValue уже есть tag_id_num = $tag_id_num <br>";
         $last_query .= "INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES('-pic_id-',$tag_id,$tag_id_num);";
       }
     
