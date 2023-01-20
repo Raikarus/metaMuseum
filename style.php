@@ -14,11 +14,9 @@
 
 #name_podborka_form_back
 {
-   position: absolute;display: none; width: 100%;height: 100vh;background-color: rgba(1,1,1,0.6);justify-content: center;align-items: center;
 }
 #name_podborka_form
 {
-   width:300px;height: 250px;background-color: white;display: flex;justify-content: center;align-items: center;border-radius: 5px;flex-direction: column;color:black;
 }
 </style>
 </head>
@@ -27,7 +25,7 @@
          <div id = "name_podborka_form_back">
             <div id = "name_podborka_form">
                <h3>Введите название:</h3>
-               <input id = "podborka_name"type="text" name="name_for_podborka">
+               <input id = "podborka_name" type="text" name="name_for_podborka">
                <input id = "create_podborka" type="submit" value = "Создать">
                <div id = "response"></div>
             </div>
