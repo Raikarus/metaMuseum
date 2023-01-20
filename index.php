@@ -127,9 +127,10 @@ function AddToBd($filename,$fsize,$ext) {
       $res = pg_query($cn,$query);
       echo "ЗАПРОСИК $query <br>";
       $row = pg_fetch_object($res);
-      $tag_id_num  = $row->tag_id_num;
-      if($tag_id_num)
+      $tag_id_num = $row->tag_id_num;
+      if(!$tag_id_num)
       {
+        echo "СОЗДАНИЕ ТЭГА $strValue<br>";
         //Тут автоматически создаются тэги
         if($tag_id != 10)
         {
@@ -184,6 +185,7 @@ function AddToBd($filename,$fsize,$ext) {
       }
       else
       {
+        echo "ТЭГ $strValue уже есть tag_id_num = $tag_id_num <br>";
         $last_query .= "INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES('-pic_id-',$tag_id,$tag_id_num);";
       }
     
@@ -245,16 +247,20 @@ function AddToBd($filename,$fsize,$ext) {
 function LinkKeyword(){
   if($_POST['passLink']=="schef2002"){
     echo "П4р0ль пр0йд3н <br>";
-
-    $shl = 'exiftool -TagsFromFile img/'.$_POST['img_name'].' img/file.xmp';
+    // ВОТ ТУТ ЭКРАНИРОВАНИЕ
+    $img_name = addcslashes($_POST['img_name']," ");
+    $shl = 'exiftool -TagsFromFile img/'.$img_name.' img/file.xmp';
+    echo "<pre>$shl</pre>";
     $res = shell_exec($shl);
     echo "<pre>$res</pre>";
 
-    $shl = 'exiftool -XMP=img/'.$_POST['img_name'];
+    $shl = 'exiftool -XMP=img/'.$img_name;
+    echo "<pre>$shl</pre>";
     $res = shell_exec($shl);
     echo "<br><pre>$res</pre>";
 
-    $shl = 'exiftool -TagsFromFile img/file.xmp img/'.$_POST['img_name'];
+    $shl = 'exiftool -TagsFromFile img/file.xmp img/'.$img_name;
+    echo "<pre>$shl</pre>";
     $res = shell_exec($shl);
     echo "<br><pre>$res</pre>";
 
@@ -278,7 +284,7 @@ function LinkKeyword(){
       if(!pg_fetch_object($res))
       {
         
-        $shl = 'exiftool -XMP-dc:subject+="'.$selected_kword.'" img/'.$_POST['img_name'];
+        $shl = 'exiftool -XMP-dc:subject+="'.$selected_kword.'" img/'.$img_name;
         $res = shell_exec($shl);
         echo "<br><pre>$res</pre>"; 
 
@@ -293,7 +299,7 @@ function LinkKeyword(){
       }
     }
 
-    $shl = 'exiftool -XMP-dc:ALL img/'.$_POST['img_name']." -b";
+    $shl = 'exiftool -XMP-dc:ALL img/'.$img_name." -b";
     $res = shell_exec($shl);
     echo "<br><pre>$res</pre>";
 

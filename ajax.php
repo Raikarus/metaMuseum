@@ -361,7 +361,6 @@
              //Если нет никакой группы
              $query = "SELECT tag_id,tag_id_num FROM kwgkw WHERE gkword_id=$gkword_id";
              $res2 = pg_query($cn,$query);
-             $row2 = pg_fetch_object($res2);
              while($row2=pg_fetch_object($res2))
              {
                 $tag_id = $row2->tag_id;
