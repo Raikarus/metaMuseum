@@ -268,10 +268,9 @@
     function save_podborka(){
         $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
         $sel_name = $_POST['name_podborka'];
-        $query = "SELECT sel_id WHERE sel_name='$sel_name'";
+        $query = "SELECT sel_id FROM selections WHERE sel_name='$sel_name'";
         $res = pg_query($cn,$query);
-        $row = pg_num_rows($res);
-        if($row==0)
+        if(pg_fetch_object($res))
         {
             $podborka = explode("|", $_POST['podborka']);
             if(count($podborka)>2)
