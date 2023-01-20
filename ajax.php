@@ -197,7 +197,7 @@
 	         $fmt = pg_fetch_result($res, $i, 1);
 	         $title = pg_fetch_result($res, $i, 2);
 	         echo "
-	         <li class='photo_li'>
+	         <li class='photo_li' data-id=$pic_id>
 	               <div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div>
 	               <div class='name'>$title</div>
 	          </li>";

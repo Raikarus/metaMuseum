@@ -14,7 +14,7 @@ function flipflop( id ) {
 var result_tags = [];
 var result_tags_invers = [];
 var size = '3x2';
-
+var podborka = [];
 function check_invers() {
   for (var i = 0; i < result_tags.length; i++) {
     e = document.getElementById(result_tags[i]);
@@ -206,13 +206,17 @@ $(document).ready(function(){
    });
 
     $('.button').click(function (){
-           var clickBtnValue = $(this).data('val');
-           var current_page = Number($('#current_page').data('val'));
-           if(clickBtnValue == "right") current_page+=1;
-           else if (current_page!=1) current_page-=1;
-           $('#current_page').data('val',current_page).attr('data-val',current_page);
-           preload();
+       var clickBtnValue = $(this).data('val');
+       var current_page = Number($('#current_page').data('val'));
+       if(clickBtnValue == "right") current_page+=1;
+       else if (current_page!=1) current_page-=1;
+       $('#current_page').data('val',current_page).attr('data-val',current_page);
+       preload();
     });
     
+    $('.photo_li').click(function(){
+      
+    })
+
     preload();
 });
