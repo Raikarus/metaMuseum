@@ -78,7 +78,7 @@ function load()  {
   {
     selected_in_podborka_string += selected_in_podborka[i]+"|";
   }
-  data =  {'action': 'update_grid', 'current_page': current_page,'size':size,'result_tags':result_tags_string,'result_tags_invers':result_tags_invers_string,'pre_podborka':pre_podborka_string,'podborka':podborka_string,'selected_in_podborka': selected_in_podborka_string,'mod':mod}; 
+  data =  {'action': 'update_grid', 'current_page': current_page,'size':size,'result_tags':result_tags_string,'result_tags_invers':result_tags_invers_string,'pre_podborka':pre_podborka_string,'podborka':podborka_string,'selected_in_podborka': selected_in_podborka_string,'mod':mod,'active_podborka':active_podborka,'sel_id':active_podborka}; 
   $.post(ajaxurl, data).done(function (response) {
     if(response != 'error') {
       $('#wrapping').html(response);
@@ -385,8 +385,9 @@ $(document).ready(function(){
   $('.list_of_groups').on("click",".tag_group .group_name .podborka",function(){
     var ajaxurl = 'ajax.php';
     var sel_id = $(this).data("id");
+    active_podborka = sel_id;
     var current_page = Number($('#current_page').data('val'));
-    data =  {'action': 'switch_podborka','sel_id' : sel_id,'size':size,'current_page': current_page}; 
+    data =  {'action': 'switch_podborka','sel_id' : sel_id,'size':size,'current_page': current_page};
     $.post(ajaxurl, data).done(function (response) {
       if(response!="error"){
         $("#wrapping").html(response);
