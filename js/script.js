@@ -292,7 +292,9 @@ $(document).ready(function(){
     var pictures = document.querySelectorAll('.photo_li');
     for (var i = 0; i < pictures.length; i++) {
       var pic_id = $(pictures[i]).data('id');
-      var index = pre_podborka.indexOf(pic_id);
+      var index = 0;
+      if(mod == "podborka") index = selected_in_podborka.indexOf(pic_id);
+      else index = pre_podborka.indexOf(pic_id); 
       if(podborka.indexOf(pic_id) < 0 || mod=='podborka')
       {
         if(index < 0)
@@ -309,7 +311,9 @@ $(document).ready(function(){
     var pictures = document.querySelectorAll('.photo_li');
     for (var i = 0; i < pictures.length; i++) {
       var pic_id = $(pictures[i]).data('id');
-      var index = pre_podborka.indexOf(pic_id);
+      var index = 0;
+      if(mod == "podborka") index = selected_in_podborka.indexOf(pic_id);
+      else index = pre_podborka.indexOf(pic_id); 
       if(podborka.indexOf(pic_id) < 0 || mod=='podborka')
       {
         if(index>=0)
