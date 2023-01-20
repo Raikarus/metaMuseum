@@ -149,7 +149,7 @@ function AddToBd($filename,$fsize,$ext) {
         else
         {
           $kword_names = explode(",", $strValue);
-          echo "<b style='color:green'><pre>";
+          echo "<b style='color:green'><pre> МАССИВ ТЭГОВ 10";
           print_r($kword_names);
           echo "</pre></b><br>";
           foreach ($kword_names as $a => $kword_name) {
