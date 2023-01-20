@@ -362,7 +362,6 @@ function LinkKeyword(){
             echo "<option>".$row->kword_name."</option>";
          }
       ?>
-  </select>
   <input name="LinkKeyword" value="LinkKeyword" type="submit">
 </form>
 <br>
