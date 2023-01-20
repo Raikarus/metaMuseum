@@ -88,7 +88,7 @@
                                     $query = "SELECT pic_id FROM pictags WHERE tag_id_num=$tag_id_num";
                                     $res3 = pg_query($cn,$query);
                                     $row3 = pg_num_rows($res3);
-                                    $query = "SELECT pic_id FROM pictags";
+                                    $query = "SELECT pic_id FROM pictags WHERE tag_id = $tag_id";
                                     $res3 = pg_query($cn,$query);
                                     $total = pg_num_rows($res3);
                                     echo "$row3 / $total = ".($res/$total);
