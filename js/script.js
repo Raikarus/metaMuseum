@@ -226,6 +226,7 @@ $(document).ready(function(){
     {
       podborka.push(pic_id);
       $(this).css('outline','3px solid red');
+      $(this).css('outline-offset','20px');
     }
   });
 
