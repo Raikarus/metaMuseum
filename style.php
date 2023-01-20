@@ -66,7 +66,7 @@
          <div class = "all_tags">
                <form autocomplete = "off" class = "searching">
                   <div class = "autocomplete">
-                     <input id = "myInput" class = "searchbar" type = "text" name = "myCountry" placeholder = "Search tags!">
+                     <input id = "myInput" class = "searchbar" type = "text" placeholder = "Search tags!">
                      <script>
                         autocomplete(document.getElementById("myInput"), poisk);
                      </script>
