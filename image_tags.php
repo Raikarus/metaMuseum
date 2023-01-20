@@ -120,14 +120,17 @@ function moveZeros(arr) {
         });
 
          $('.switch').click(function(){
-            $(document.getElementsByName("img")[0]).css('display','none');
-              console.log(document.getElementsByName("img")[0]);
+            
               status++;
               if(status == 1) //download mode
               {
+               for(var i =0; i < document.getElementsByName("img").length;i++)
+               {
+                     $(document.getElementsByName("img")[i]).css('display','none');
+               }
                   var ajaxurl = 'ajax.php';
-                 data =  {'action': 'set_img','img_string':"download_mode"};
-               $.post(ajaxurl, data).done(function (response) {
+                  data =  {'action': 'set_img','img_string':"download_mode"};
+                  $.post(ajaxurl, data).done(function (response) {
                   $('#wrapping').html(response); });
               }
               else //default mode
