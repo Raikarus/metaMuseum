@@ -23,7 +23,7 @@ function check()
 	}
     else
     {
-         echo '<div class = "comp_li_photo" name ="img" style="background-image:url("document.png""></div>' ;
+         echo '<img src="document.png" alt="Girl in a jacket" width="500" height="600">' ;
     }
 	
 }
