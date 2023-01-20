@@ -288,6 +288,7 @@
                     $query = "INSERT INTO selpics(sel_id,pic_id) VALUES($sel_id,$pic_id)";
                     $res = pg_query($cn,$query);
                 }
+                echo "<b style='color:green'>Подборка $sel_name успешно создана</b>";
             }
             else 
             {
