@@ -260,9 +260,6 @@ function LinkKeyword(){
 
     $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
 
-
-    //ТУТ НАЗВАНИЕ НЕ КАК В БАЗЕ
-
     $pic_id = substr($_POST['img_name'],0,strpos($_POST['img_name'],'.'));
 
     foreach($_POST['kwords'] as $selected_kword)
