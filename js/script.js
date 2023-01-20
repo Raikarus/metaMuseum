@@ -313,7 +313,7 @@ $(document).ready(function(){
       wrap.style.gridTemplateColumns = "repeat(5, 1fr)";
       wrap.style.gridTemplateRows = "repeat(4, 1fr)";
       limit_of_pages = 20;
-      var names = querySelectorAll(".name");
+      var names = document.querySelectorAll(".name");
       for(var i = 0; i < names.length;i++){
         $(names[i]).css("padding-bottom", "6px");
       }
@@ -329,7 +329,7 @@ $(document).ready(function(){
       wrap.style.gridTemplateColumns = "repeat(4, 1fr)";
       wrap.style.gridTemplateRows = "repeat(3, 1fr)";
       limit_of_pages = 12;
-      var names = querySelectorAll(".name");
+      var names = document.querySelectorAll(".name");
       for(var i = 0; i < names.length;i++){
         $(names[i]).css("padding-bottom", "6px");
       }
