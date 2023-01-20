@@ -539,6 +539,7 @@ footer {
    border-radius: 5px;
    flex-direction: column;
    color:black;
+   z-index: 3;
 }
 
 #name_podborka_form_back {
@@ -549,4 +550,5 @@ footer {
    background-color: rgba(1,1,1,0.8);
    justify-content: center;
    align-items: center;
+   z-index: 2;
 }
