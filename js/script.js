@@ -286,6 +286,7 @@ $(document).ready(function(){
    let size2 = document.getElementById('size_normal');
    let size3 = document.getElementById('size_big');
    let wrap = document.getElementById('wrapping');
+   let searching = document.getElementById('myInput');
 
    $(but1).click(function()
    {
@@ -390,9 +391,10 @@ $(document).ready(function(){
   });
 
   $('#mod_finder').click(function(){
-    mod = "podborka";
-    show_podborki();
-    load();
+      searching.placeholder = "hui";
+      mod = "podborka";
+      show_podborki();
+      load();
   });
 
   $('#mod_gallery').click(function(){
