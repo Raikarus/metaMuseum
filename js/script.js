@@ -30,7 +30,7 @@ function check_invers() {
 }
 
 function tag_invers(e)  {
-  if(e.target.class == "choose_item")
+  if(e.target.tagName == "li")
   {
     var index = $(e).data("index");
     if ($(e).data("inversed") == 0)
