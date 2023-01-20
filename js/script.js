@@ -27,6 +27,7 @@ function build_poisk()
 {
   if(mod == "gallery")
   {
+    alert("1");
     alert(document.querySelectorAll(".tag_group"));
   }
   else
