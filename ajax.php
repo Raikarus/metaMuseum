@@ -234,7 +234,7 @@
             }
             $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
             $podborka = explode("|", $_POST['podborka']);
-            $selected_in_podborka = explode("|",$_POST['selected_in_podborka']});
+            $selected_in_podborka = explode("|",$_POST['selected_in_podborka']);
             if($_POST['podborka'])
             {
                 $query = "SELECT pic_id,fmt,title FROM pics WHERE pic_id=$podborka[0]";
