@@ -211,7 +211,7 @@
         	}
         	else
         	{
-        		echo "error1";
+        		echo "error";
         	}
         }
         else
@@ -254,7 +254,7 @@
                 }
                 else
                 {
-                    echo "error";
+                    echo "error1";
                 }
             }
 
