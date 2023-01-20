@@ -120,7 +120,7 @@ $(document).ready(function(){
     preload();
   });
 
-  $(".choose_item button").click(function((){
+  $(".choose_item button").click(function(){
     alert('A');
   });
 
