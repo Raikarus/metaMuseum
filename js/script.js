@@ -71,9 +71,10 @@ function preload()  {
   });
 }
 
-$(".choose_item button").click(function(){
-  alert('A');
-});
+function tag_delete(e)
+{
+  console.log(e);
+}
 
 
 $(document).ready(function(){
