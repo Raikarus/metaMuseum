@@ -329,7 +329,7 @@ $(document).ready(function(){
   });
 
   $("#save_podborka").click(function(){
-    $("#name_podborka_form").fadeIn();
+    $("#name_podborka_form_back").css('display','flex');
     // var ajaxurl = 'ajax.php';
     // data =  {'action': 'save_podborka'}; 
     // $.post(ajaxurl, data).done(function (response) {
@@ -342,6 +342,12 @@ $(document).ready(function(){
     //     load();
     //   } 
     // });
+  });
+  $("#name_podborka_form_back").click(function(){
+    if(event.target == this)
+    {
+      $("name_podborka_form_back").css('display','none');
+    }
   });
     load();
 });

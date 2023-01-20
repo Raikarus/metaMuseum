@@ -29,8 +29,13 @@
 
 <div class = "main">
       <div class = "main_left">
-         <div id = "#name_podborka_form" style="position: absolute;display: none; width: 400px;height: 250px;background-color: rgba(255,255,255,0.8);">
+         <!-- ТУТ ПОМЕНЯТЬ СТИЛИ -->
+         <div id = "#name_podborka_form_back" style="position: absolute;display: none; width: 100%;height: 100vh;background-color: rgba(1,1,1,0.6);justify-content: center;align-items: center;">
+            <div id = "#name_podborka_form" style = "width:300px;height: 250px;background-color: white;display: flex;justify-content: center;align-items: center">
+               <input type="text" name="name_for_podborka">
+            </div>
          </div>
+         <!-- ТУТ ПОМЕНЯТЬ СТИЛИ -->
          <ul class = "photos" id = "wrapping">
 		</ul>
          <div class = "left_right_but">
