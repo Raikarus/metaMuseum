@@ -10,7 +10,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script type="text/javascript" src = "js/script.js"></script>
 <script>
-autocomplete(document.getElementById("search"), countries);
+autocomplete(document.getElementById("myInput"), countries);
 </script>
 <title>Главная</title>
 <style>
@@ -67,11 +67,17 @@ autocomplete(document.getElementById("search"), countries);
       </div>
       <div class = "main_right">
          <div class = "all_tags">
-               
+               <form autocomplete = "off">
+                  <div class = "autocomplete">
+                     <input id = "myInput" type = "text" name = "myCountry" placeholder = "Search tags!">
+                  </div>
+                  <input type = "submit">
+
+               </form>
                <div class = "tags">
-               		<ul class = "list_of_groups">
+               	<ul class = "list_of_groups">
                      <!-- Два режима: kwords И подборки (SELECTIONS) -->
-					</ul>
+					   </ul>
                </div>
          </div>
          <div class = "choosen_tags">
