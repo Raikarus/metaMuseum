@@ -418,7 +418,7 @@
                    $query = "SELECT pic_id FROM pictags WHERE tag_id = $tag_id";
                    $res3 = pg_query($cn,$query);
                    $total = pg_num_rows($res3);
-                   $font_size = (round(($row3/$total)*100)+15)."px";
+                   $font_size = (round(($row3/$total)*100)+10)."px";
                    echo "<li class='list_item'><a href='#' data-en = 0 data-tag = $kword_name style='font-size:$font_size'>$kword_name ($row3)</a></li>";
                 }
              }
