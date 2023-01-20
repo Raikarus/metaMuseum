@@ -120,7 +120,7 @@ function moveZeros(arr) {
         });
 
          $('.switch').click(function(){
-
+            document.getElementsByName("img")[0].css('display:none');
               status++;
               if(status == 1) //download mode
               {
@@ -131,7 +131,7 @@ function moveZeros(arr) {
               }
               else //default mode
               {
-               document.getElementsByName("img")[0].css('display:none');
+               
                status = 0;
               }
               console.log(status);
