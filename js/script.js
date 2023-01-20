@@ -15,6 +15,7 @@ var result_tags = [];
 var result_tags_invers = [];
 var size = '3x2';
 var pre_podborka = [];
+var podborka = [];
 var mod = 'gallery';
 function check_invers() {
   for (var i = 0; i < result_tags.length; i++) {
@@ -58,6 +59,7 @@ function load()  {
   var result_tags_string = "";
   var result_tags_invers_string = "";
   var pre_podborka_string = "";
+  var podborka_string = "";
   for (var i = 0; i < result_tags.length; i++) {
     result_tags_string += result_tags[i]+"|";
     result_tags_invers_string += result_tags_invers[i]+"|";
@@ -66,7 +68,10 @@ function load()  {
   {
     pre_podborka_string += pre_podborka[i]+"|";
   }
-  data =  {'action': 'update_grid', 'current_page': current_page,'size':size,'result_tags':result_tags_string,'result_tags_invers':result_tags_invers_string,'pre_podborka':pre_podborka_string,'mod':mod}; 
+  for (var i = 0; i < podborka.length; i++) {
+    podborka_string += podborka[i]+"|";
+  }
+  data =  {'action': 'update_grid', 'current_page': current_page,'size':size,'result_tags':result_tags_string,'result_tags_invers':result_tags_invers_string,'pre_podborka':pre_podborka_string,'podborka':podborka,'mod':mod}; 
   $.post(ajaxurl, data).done(function (response) {
     if(response != 'error') {
       $('#wrapping').html(response);
@@ -244,6 +249,10 @@ $(document).ready(function(){
     mod = "gallery";
     load();
   });
-
+  $('#add_to_podborka').click(function(){
+    podborka = pre_podborka;
+    pre_podborka = [];
+    load();
+  });
     load();
 });
