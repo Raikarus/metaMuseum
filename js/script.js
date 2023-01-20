@@ -329,7 +329,7 @@ $(document).ready(function(){
   });
 
   $("#save_podborka").click(function(){
-    
+    alert("1");
     $("#name_for_podborka_fon").fadeTo(1000);
     // var ajaxurl = 'ajax.php';
     // data =  {'action': 'save_podborka'}; 
