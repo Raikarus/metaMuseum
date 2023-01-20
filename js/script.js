@@ -49,6 +49,10 @@ function tag_invers(e)  {
     }
     preload();
   }
+  else
+  {
+    alert(event.target.tagName);
+  }
 }
 
 function preload()  {
