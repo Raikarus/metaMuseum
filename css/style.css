@@ -209,11 +209,10 @@ header {
 .all_tags {
    height: 60%;
    width: 100%;
-   display: flex;
+   display: none;
    flex-direction: column;
    align-items: flex-start;
    justify-content: space-between;
-   display: none;
 }
 
 .tags {
