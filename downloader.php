@@ -145,7 +145,7 @@ function moveZeros(arr) {
          	?>               
       </ul>
    </div>
-      <div class = "main_center">
+      <div class = "main_center_2">
          <ul class = "photos" id = "wrapping">
          	
 		   </ul>
