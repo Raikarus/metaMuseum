@@ -362,8 +362,9 @@ $(document).ready(function(){
 
   function show_podborki()
   {
+    alert("КАЙФ");
    var ajaxurl = 'ajax.php';
-   data =  {'action': 'show_podborki','active_podborka':"", 'mod': mod}; 
+   data =  {'action': 'show_podborki','active_podborka':""}; 
    $.post(ajaxurl, data).done(function (response) {
     $(".list_of_groups").html(response);
    });
