@@ -289,7 +289,7 @@ $(document).ready(function(){
     for (var i = 0; i < pictures.length; i++) {
       var pic_id = $(pictures[i]).data('id');
       var index = pre_podborka.indexOf(pic_id);
-      if(podborka.indexOf(pic_id) < 0)
+      if(podborka.indexOf(pic_id) < 0 || mod=='podborka')
       {
         if(index>=0)
         {
@@ -310,7 +310,7 @@ $(document).ready(function(){
     for (var i = 0; i < pictures.length; i++) {
       var pic_id = $(pictures[i]).data('id');
       var index = pre_podborka.indexOf(pic_id);
-      if(podborka.indexOf(pic_id) < 0)
+      if(podborka.indexOf(pic_id) < 0 || mod=='podborka')
       {
         if(index>=0)
         {
