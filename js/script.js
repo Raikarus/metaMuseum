@@ -357,7 +357,9 @@ $(document).ready(function(){
      data =  {'action': 'save_podborka','name_podborka':$('#podborka_name').val(), 'podborka': podborka_string}; 
      $.post(ajaxurl, data).done(function (response) {
       $("#response").html(response);
+      show_podborki();
      });
+
   });
 
   function show_podborki()
