@@ -227,7 +227,6 @@ $(document).ready(function(){
       $(this).css('outline','3px solid red');
       $(this).css('outline-offset','-3px');
     }
-    alert(podborka);
   });
 
     preload();
