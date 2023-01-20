@@ -308,7 +308,7 @@ $(document).ready(function(){
       wrap.style.gridTemplateColumns = "repeat(5, 1fr)";
       wrap.style.gridTemplateRows = "repeat(4, 1fr)";
       limit_of_pages = 20;
-      $(".name").css("padding-bottom", "2px" ).css("font-size" , "100px");
+      $(".name").css("padding-bottom", "2px" ).css("font-size" , "5px");
       size = '5x4';
       load();
    });
