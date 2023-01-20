@@ -10,6 +10,16 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script type="text/javascript" src = "js/script.js"></script>
 <title>Главная</title>
+<style>
+#name_podborka_form_back
+{
+   position: absolute;display: none; width: 100%;height: 100vh;background-color: rgba(1,1,1,0.6);justify-content: center;align-items: center;
+}
+#name_podborka_form
+{
+   width:300px;height: 250px;background-color: white;display: flex;justify-content: center;align-items: center
+}
+</style>
 </head>
 <body>
 
@@ -30,8 +40,8 @@
 <div class = "main">
       <div class = "main_left">
          <!-- ТУТ ПОМЕНЯТЬ СТИЛИ -->
-         <div id = "#name_podborka_form_back" style="position: absolute;display: none; width: 100%;height: 100vh;background-color: rgba(1,1,1,0.6);justify-content: center;align-items: center;">
-            <div id = "#name_podborka_form" style = "width:300px;height: 250px;background-color: white;display: flex;justify-content: center;align-items: center">
+         <div id = "#name_podborka_form_back">
+            <div id = "#name_podborka_form">
                <input type="text" name="name_for_podborka">
             </div>
          </div>
