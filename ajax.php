@@ -29,6 +29,9 @@
             case 'save_podborka':
                 save_podborka();
                 break;
+            case 'show_kwords_podborki':
+                show_kwords_podborki();
+                break;
         }
     }
 
