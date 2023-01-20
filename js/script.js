@@ -393,7 +393,7 @@ $(document).ready(function(){
     data =  {'action': 'switch_podborka','sel_id' : sel_id,'size':size,'current_page': current_page}; 
     $.post(ajaxurl, data).done(function (response) {
       if(response!="error"){
-        $(".wrap").html(response);
+        $("#wrapping").html(response);
       }
       else
       {
