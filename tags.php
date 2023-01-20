@@ -65,7 +65,7 @@
 <body>
 <a href="index.php">Дом</a>
 <a href="tags.php">Тэги</a>
-<a href="style.php">Главная страница</a>
+<a href="style.php">Главная</a>
 <br>
 <input type="text" id="img_name" placeholder="Название изображения">
 <input type="submit" class="button" name="read" value="read" />
