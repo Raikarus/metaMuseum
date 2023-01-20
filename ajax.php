@@ -409,7 +409,7 @@
         $sel_id = $_POST['sel_id'];
         if($sel_id == "-1")
         {
-            echo "error1";
+            echo "error";
         }
         else
         {
