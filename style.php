@@ -23,7 +23,13 @@
 </style>
 </head>
 <body>
-
+<!-- ТУТ ПОМЕНЯТЬ СТИЛИ -->
+         <div id = "name_podborka_form_back">
+            <div id = "name_podborka_form">
+               <input type="text" name="name_for_podborka">
+            </div>
+         </div>
+         <!-- ТУТ ПОМЕНЯТЬ СТИЛИ -->
 <header>
       <div class = "container">
          <div class = "logo_container">
@@ -40,13 +46,7 @@
 
 <div class = "main">
       <div class = "main_left">
-         <!-- ТУТ ПОМЕНЯТЬ СТИЛИ -->
-         <div id = "name_podborka_form_back">
-            <div id = "name_podborka_form">
-               <input type="text" name="name_for_podborka">
-            </div>
-         </div>
-         <!-- ТУТ ПОМЕНЯТЬ СТИЛИ -->
+         
          <ul class = "photos" id = "wrapping">
 		</ul>
          <div class = "left_right_but">
