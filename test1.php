@@ -31,7 +31,7 @@
          $str1 = substr($str,0,20);
          for($i = 0; $i < count($str);$i++)
          {
-          echo $str[$i];
+          echo htmlspecialchars($str[$i]);
          }
         // echo $str;
        //  echo "     ".$str1;
