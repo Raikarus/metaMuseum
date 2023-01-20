@@ -159,7 +159,7 @@
          <ul class = "panel">
             <li><input type = "submit" name = "funtional" value="Скачать"></li>
             <li><input type = "submit" name = "funtional" value="Сохранить в подборку"></li>
-            <li><input type = "submit" name = "funtional" value="Удалить из подборки"></li>
+            <li><input id="delete_from_podborka" type = "submit" name = "funtional" value="Удалить из подборки"></li>
             <li><input class = "select_all" type = "submit" name = "funtional" value="Выделить всё"></li>
             <li><input class = "unselect_all" type = "submit" name = "funtional" value="Снять выделение"></li>
          </ul>        
