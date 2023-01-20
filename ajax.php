@@ -237,14 +237,11 @@
             if($_POST['podborka'])
             {
                 $query = "SELECT pic_id,fmt,title FROM pics WHERE pic_id=$podborka[0]";
+                for ($i=1; $i < count($podborka)-1; $i++) { 
+                    $query .= "UNION ALL SELECT pic_id,fmt,title FROM pics WHERE pic_id=$podborka[$i]";
+                }
                 $res = pg_query($cn,$query);
                 if(pg_fetch_result($res, $start, 0)){
-                    $query = "SELECT pic_id,fmt,title FROM pics WHERE pic_id=$podborka[0]";
-                    for ($i=1; $i < count($podborka)-1; $i++) { 
-                        $query .= "UNION ALL SELECT pic_id,fmt,title FROM pics WHERE pic_id=$podborka[$i]";
-                    }
-                    
-                    $res = pg_query($cn,$query);
                     for ($i=$start; $i < $end; $i++) { 
                      $pic_id = pg_fetch_result($res, $i, 0);
                      $fmt = pg_fetch_result($res, $i, 1);
@@ -254,7 +251,7 @@
                 }
                 else
                 {
-                    echo "error1";
+                    echo "error";
                 }
             }
 
