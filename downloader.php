@@ -29,7 +29,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html">
-<link rel="stylesheet" href="css/style1.css"  type="text/css">
+<link rel="stylesheet" href="css/style.css"  type="text/css">
 <script type="text/javascript" src = "js/jq.js"></script>
 <script type="text/javascript" src = "js/script.js"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
