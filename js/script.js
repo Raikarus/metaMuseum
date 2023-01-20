@@ -363,7 +363,7 @@ $(document).ready(function(){
   function show_podborki()
   {
    var ajaxurl = 'ajax.php';
-   data =  {'action': 'show_kwords_podborki','active_podborka':"", 'mod': mod}; 
+   data =  {'action': 'show_podborki','active_podborka':"", 'mod': mod}; 
    $.post(ajaxurl, data).done(function (response) {
     $(".list_of_groups").html(response);
    });
