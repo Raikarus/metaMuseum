@@ -275,6 +275,7 @@ $(document).ready(function(){
 
   $('#mod_gallery').click(function(){
     mod = "gallery";
+    show_kwords();
     load();
   });
   $('#add_to_podborka').click(function(){
@@ -378,5 +379,6 @@ $(document).ready(function(){
     }); 
   }
 
+  show_kwords();
   load();
 });
