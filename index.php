@@ -29,6 +29,7 @@ function upload_file($file, $nameFile='default', $upload_dir= 'img', $allowed_ty
     }
 
 function Download() {
+  //ДОБАВИТЬ ПРОВЕРКУ НА СЛУЧАЙ, ЕСЛИ title УЖЕ СУЩЕСТВУЕТ 
   if($_POST['passDownload']=="schef2002"){
       echo "П4р0ль пр0йд3н <br>";
       
