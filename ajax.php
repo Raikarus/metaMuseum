@@ -23,7 +23,7 @@ function check()
 	}
     else
     {
-         echo "Грузи говно";
+         echo '<div class = "comp_li_photo" name ="img" style="background-image:url('."'".'img/'.$str[$i]."'".'" data-val = "'."document.png".'""></div>' ;
     }
 	
 }
