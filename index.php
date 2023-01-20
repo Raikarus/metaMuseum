@@ -66,7 +66,9 @@ function AddToBd($filename,$fsize,$ext) {
   $title = $filename;
   $subscr = "";
   $rights = "";
-  $shl = 'exiftool img/'.$filename;
+  echo "ФОРМИРОВАНИЕ КОМАНД НА ЧТЕНИЕ МЕТАИНФОРМАЦИИ <br>";
+  $shl = 'exiftool img/'.addcslashes($filename, " ");
+  echo "$shl <br>";
   $res = shell_exec($shl);
   echo "<pre>$res</pre>";
   $arr = explode("\n", $res);
@@ -247,20 +249,17 @@ function AddToBd($filename,$fsize,$ext) {
 function LinkKeyword(){
   if($_POST['passLink']=="schef2002"){
     echo "П4р0ль пр0йд3н <br>";
-    // ВОТ ТУТ ЭКРАНИРОВАНИЕ
+    
     $img_name = addcslashes($_POST['img_name']," ");
     $shl = 'exiftool -TagsFromFile img/'.$img_name.' img/file.xmp';
-    echo "<pre>$shl</pre>";
     $res = shell_exec($shl);
     echo "<pre>$res</pre>";
 
     $shl = 'exiftool -XMP=img/'.$img_name;
-    echo "<pre>$shl</pre>";
     $res = shell_exec($shl);
     echo "<br><pre>$res</pre>";
 
     $shl = 'exiftool -TagsFromFile img/file.xmp img/'.$img_name;
-    echo "<pre>$shl</pre>";
     $res = shell_exec($shl);
     echo "<br><pre>$res</pre>";
 
