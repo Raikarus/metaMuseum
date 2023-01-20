@@ -281,10 +281,6 @@ header {
    width: 100%;
 }
 
-.wrap::-webkit-scrollbar {
-   width: 0;
-}
-
 .wrap {
    margin: 0;
    padding: 10px 10px 0 10px;
