@@ -235,7 +235,7 @@ header {
 }
 
 .list_of_groups::-webkit-scrollbar {
-   width: 0;
+   display:none;
 }
 
 .tag_group {
