@@ -121,6 +121,7 @@ function moveZeros(arr) {
 
          $('.switch').click(function(){
             
+            console.log(status);
               status++;
               if(status == 1) //download mode
               {
@@ -152,7 +153,7 @@ function moveZeros(arr) {
                   $('#wrapping').html(response); });
                status = 0;
               }
-              console.log(status);
+              
          });
     });
 
