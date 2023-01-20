@@ -380,6 +380,7 @@ function LinkKeyword(){
   ?>
 </div>
 <script type="text/javascript">
+  alert("1");
   autocomplete(document.getElementById("myInput"), poisk);
 </script>
 </body>
