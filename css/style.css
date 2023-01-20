@@ -434,7 +434,7 @@ footer {
 
 .autocomplete {
    height: 100%;
-   width: 90%;
+   width: 80%;
   /* контейнер должен быть расположен относительно: */
   position: relative;
   display: inline-block;
@@ -454,7 +454,7 @@ footer {
    background-color: #24B47E;
    color: white;
    height: 100%;
-   width: 5%;
+   width: 10%;
 }
 
 .autocomplete-items {
