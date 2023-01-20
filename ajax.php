@@ -26,6 +26,9 @@
             case 'update_grid':
                 update_grid();
                 break;
+            case 'save_podborka':
+                save_podborka();
+                break;
         }
     }
 
@@ -248,8 +251,8 @@
                      $fmt = pg_fetch_result($res, $i, 1);
                      $title = pg_fetch_result($res, $i, 2);
                      if($pic_id){
-                        if(in_array($pic_id, $selected_in_podborka)) echo "<li class='photo_li' style='outline:3px solid red;outline-offset:-3px' data-id=$pic_id><div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div><div class='name'>$title</div></li>"; 
-                        else echo "<li class='photo_li' data-id=$pic_id><div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div><div class='name'>$title</div></li>";   
+                        if(in_array($pic_id, $selected_in_podborka)) echo "<li class='photo_li' style='outline:3px solid red;outline-offset:-3px' data-id=$pic_id><div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div><div class='name'>$title</div></li>";
+                        else echo "<li class='photo_li' data-id=$pic_id><div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div><div class='name'>$title</div></li>";
                      } 
                     }
                 }
@@ -259,6 +262,41 @@
                 }
             }
 
+        }
+    }
+
+    function save_podborka(){
+        $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+        $sel_name = $_POST['name_podborka'];
+        $query = "SELECT sel_id WHERE sel_name='$sel_name'";
+        $res = pg_query($cn,$query);
+        $row = pg_num_rows($res);
+        if($row==0)
+        {
+            $podborka = explode("|", $_POST['podborka']);
+            if(count($podborka)>2)
+            {
+                $query = "INSERT INTO selections(sel_name) VALUES('$sel_name')";
+                $res = pg_query($cn,$query);
+
+                $query = "SELECT sel_id FROM selections WHERE sel_name='$sel_name'";
+                $res = pg_query($cn,$query);
+                $sel_id = pg_fetch_object($res)->sel_id;
+
+                for ($i=0; $i < count($podborka)-1; $i++) { 
+                    $pic_id  = $podborka[$i];
+                    $query = "INSERT INTO selpics(sel_id,pic_id) VALUES($sel_id,$pic_id)";
+                    $res = pg_query($cn,$query);
+                }
+            }
+            else 
+            {
+                echo "<script>alert('Для создания подборки необходимо минимум два изображения')</script>";
+            }
+        }
+        else
+        {
+            echo "<script>alert('Подборка $sel_name уже существует')</script>";
         }
     }
 

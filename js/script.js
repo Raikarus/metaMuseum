@@ -337,9 +337,23 @@ $(document).ready(function(){
     {
       alert("Невозможно сохранить пустую подборку или подборку из одного изображения");
     }
-    // var ajaxurl = 'ajax.php';
-    // data =  {'action': 'save_podborka'}; 
-    // $.post(ajaxurl, data).done(function (response) {
+
+  });
+  $("#name_podborka_form_back").click(function(event){
+    if(event.target == this) {
+      $("#name_podborka_form_back").css('display','none');
+    }
+  });
+
+  $("#create_podborka").click(function(){
+      var ajaxurl = 'ajax.php';
+      var podborka_string = [];
+      for(var i = 0; i < podborka.length;i++)
+      {
+        podborka_string+=podborka[i]+"|";
+      }
+     data =  {'action': 'save_podborka','name_podborka':$('#podborka_name').val(), 'podborka': podborka_string}; 
+     $.post(ajaxurl, data).done(function (response) {
     //   if(response != 'error') {
     //     $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
     //   }
@@ -348,12 +362,8 @@ $(document).ready(function(){
     //     $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
     //     load();
     //   } 
-    // });
+     });
   });
-  $("#name_podborka_form_back").click(function(event){
-    if(event.target == this) {
-      $("#name_podborka_form_back").css('display','none');
-    }
-  });
-    load();
+
+  load();
 });
