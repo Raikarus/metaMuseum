@@ -29,7 +29,7 @@
          $str = "ЯПОМНЮПЕНИСБОЛЬШОЙ.jpg";
           echo strlen($str);
          $str1 ="";
-         for($i = 0; $i < 1;$i++)
+         for($i = 0; $i < 2;$i++)
          {
          $str1 .= $str[$i];
          }
