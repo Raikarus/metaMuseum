@@ -383,6 +383,7 @@ $(document).ready(function(){
   }
 
   $('.list_of_groups').on("click",".tag_group .group_name .podborka",function(){
+    alert("1");
     var ajaxurl = 'ajax.php';
     var sel_id = $(this).data("id");
     var podborka_string = "";
