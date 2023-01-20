@@ -549,11 +549,6 @@ footer {
 }
 
 /* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
 
 /* The slider */
 .slider {
