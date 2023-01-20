@@ -254,7 +254,7 @@ $(document).ready(function(){
   });
   $('#add_to_podborka').click(function(){
     for (var i = 0; i < pre_podborka.length; i++) {
-      podborka.push(pre_podborka);
+      podborka.push(pre_podborka[i]);
     }
     pre_podborka = [];
     load();
