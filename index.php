@@ -127,8 +127,8 @@ function AddToBd($filename,$fsize,$ext) {
       $res = pg_query($cn,$query);
       echo "ЗАПРОСИК $query <br>";
       $row = pg_fetch_object($res);
-
-      if(!$row->tag_id_num)
+      $tag_id_num  = $row->tag_id_num;
+      if($tag_id_num)
       {
         //Тут автоматически создаются тэги
         if($tag_id != 10)
