@@ -113,6 +113,10 @@
         pg_query($cn,$query);
         $query = "DELETE FROM kwgkw";
         pg_query($cn,$query);
+        $query = "DELETE FROM selections";
+        pg_query($cn,$query);
+        $query = "DELETE FROM selpics";
+        pg_query($cn,$query);
 
         $query = "rm img/*";
         shell_exec($query);
