@@ -121,7 +121,7 @@ function moveZeros(arr) {
 
          $('.switch').click(function(){
 
-              status = !status;
+              status++;
               if(status == 1) //download mode
               {
                  data =  {'action': 'set_img','img_string':"download_mode"};
@@ -130,7 +130,7 @@ function moveZeros(arr) {
               }
               else //default mode
               {
-
+               status = 0;
               }
               console.log(status);
          });
