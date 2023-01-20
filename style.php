@@ -88,9 +88,12 @@
                                     $query = "SELECT pic_id FROM pictags WHERE tag_id_num=$tag_id_num";
                                     $res3 = pg_query($cn,$query);
                                     $row3 = pg_num_rows($res3);
+                                    $query = "SELECT pic_id FROM pictags";
+                                    $res3 = pg_query($cn,$query);
+                                    $font_size = round(($row3/pg_num_rows($res3))*20)+15;
                                     echo "<li class = 'tag_group'>
                                              <p class = 'group_name'>
-                                                <a class = 'kword_solo' href='#' data-en = 0 data-tag='$kword_name'>$kword_name ($row3)</a>
+                                                <a class = 'kword_solo' href='#' data-en = 0 data-tag='$kword_name' style='font-size:$font_size px'>$kword_name ($row3)</a>
                                              </p>
                                           </li>";
                                  }
