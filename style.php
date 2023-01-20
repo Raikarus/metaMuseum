@@ -65,7 +65,7 @@
       <div class = "main_right">
          <div class = "all_tags">
                <form autocomplete = "off" class = "searching">
-                  <div class = "autocomplete" style = "width:300px;">
+                  <div class = "autocomplete">
                      <input id = "myInput" class = "searchbar" type = "text" name = "myCountry" placeholder = "Search tags!">
                      <script>
                         autocomplete(document.getElementById("myInput"), countries);
