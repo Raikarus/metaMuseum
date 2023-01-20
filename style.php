@@ -51,7 +51,7 @@
       <div class = "main_left">
          
          <ul class = "photos" id = "wrapping">
-		</ul>
+		   </ul>
          <div class = "left_right_but">
             <button class = "button left" data-val="left">
                ←

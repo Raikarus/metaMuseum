@@ -348,7 +348,6 @@ $(document).ready(function(){
       wrap.style.gridTemplateColumns = "repeat(4, 1fr)";
       wrap.style.gridTemplateRows = "repeat(3, 1fr)";
       limit_of_pages = 12;
-      var names = document.querySelectorAll(".name");
       size='4x3';
       load();
    });
