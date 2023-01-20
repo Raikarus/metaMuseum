@@ -25,6 +25,7 @@ var active_podborka = "-1";
 var poisk = [];
 function build_poisk()
 {
+  poisk = [];
   if(mod == "gallery")
   {
     var kwords = document.querySelectorAll(".kword_solo");
@@ -34,7 +35,11 @@ function build_poisk()
   }
   else
   {
-
+    var podborki = document.querySelectorAll(".podborka");
+    for (var i = 0; i < podborki.length;i++)
+    {
+      poisk.push($(podborki[i]).data("sel_name"));
+    }
   }
 }
 

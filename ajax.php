@@ -343,7 +343,7 @@
         {
             $sel_id = $row->sel_id;
             $sel_name = $row->sel_name;
-            echo "<li class = 'tag_group'><p class='group_name'><a class='podborka' href = '#' data-id='$sel_id'>$sel_name</a></p></li>";
+            echo "<li class = 'tag_group'><p class='group_name'><a class='podborka' href = '#' data-id='$sel_id' data-sel_name='$sel_name'>$sel_name</a></p></li>";
         }
     }
 
