@@ -223,10 +223,6 @@ header {
    border-bottom: 1px solid white;
 }
 
-.tags::-webkit-scrollbar {
-   width: 0;
-}
-
 .list_of_groups {
    margin: 0;
    padding: 0 0 0 10px;
@@ -236,6 +232,10 @@ header {
    flex-direction: column;
    align-items: flex-start;
    justify-content: space-between;
+}
+
+.list_of_groups::-webkit-scrollbar {
+   width: 0;
 }
 
 .tag_group {
