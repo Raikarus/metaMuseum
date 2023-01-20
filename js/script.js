@@ -484,7 +484,7 @@ $(document).ready(function(){
     {
       $("#name_podborka_form_back").css('display','flex');  
       document.getElementById('myInput').setAttribute('disabled', 'disabled');
-      $('#myInput').css('color', 'black')
+      $('#myInput').css('display','none')
     }
     else
     {
