@@ -262,6 +262,7 @@ $(document).ready(function(){
 
   $("#select_all").click(function(){
     var pictures = document.querySelectorAll('.photo_li');
+    alert("1");
     alert(pictures);
     for (var i = 0; i < pictures.length; i++) {
       var pic_id = $(pictures[i]).data('id');
