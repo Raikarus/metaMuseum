@@ -115,8 +115,8 @@
       </div>
    </footer>
    <script type="text/javascript">
-  alert("1");
-  autocomplete(document.getElementById("myInput"), poisk);
+      setTimeout(autocomplete(document.getElementById("myInput"), poisk), 10);
+  
 </script>
 </body>
 </html>
