@@ -17,6 +17,11 @@ header {
    align-items: top;
 }
 
+input {
+   padding: 0;
+   margin: 0;
+}
+
 .exit {
    text-decoration: none;
    color: white;
