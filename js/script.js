@@ -117,7 +117,7 @@ $(document).ready(function(){
       }
     });
 
-  $('.wrap ').on("click",".tag_group .group_name .kword_solo",function (){
+  $('.list_of_groups ').on("click",".tag_group .group_name .kword_solo",function (){
     var index = result_tags.indexOf($(this).data("tag"));
     if (index >= 0) {
       result_tags.splice(index, 1);
@@ -135,7 +135,7 @@ $(document).ready(function(){
     load();
   });
 
-  $('.wrap ').on("click", ".tag_list li a",function (){
+  $('.list_of_groups ').on("click", ".tag_list li a",function (){
     var index = result_tags.indexOf($(this).data("tag"));
     if (index >= 0) {
       result_tags.splice(index, 1);
