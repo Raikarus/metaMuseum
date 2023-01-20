@@ -379,5 +379,8 @@ function LinkKeyword(){
     LinkKeyword();
   ?>
 </div>
+<script type="text/javascript">
+  autocomplete(document.getElementById("myInput"), poisk);
+</script>
 </body>
 </html>
