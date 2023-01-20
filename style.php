@@ -29,7 +29,7 @@
 
 <div class = "main">
       <div class = "main_left">
-         <div id = "#name_for_podborka_fon" style="position: absolute;display: none; width: 400px;height: 250px;background-color: rgba(0,0,0,0.8);">
+         <div id = "#name_for_podborka_fon" style="position: absolute;display: none; width: 400px;height: 250px;background-color: rgba(255,255,255,0.8);">
          </div>
          <ul class = "photos" id = "wrapping">
 		</ul>
