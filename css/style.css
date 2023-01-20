@@ -318,7 +318,7 @@ input {
 @media (max-width: 1281px) {
    .wrap {
       grid-template-columns: 1fr 1fr;
-      font-size: 50%;
+      font-size: 75%;
    }
 
    .tag_button {
