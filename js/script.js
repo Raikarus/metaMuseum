@@ -102,8 +102,8 @@ $(document).ready(function(){
       }
     });
 
-  $('.tag_group .group_name .kword_solo').click(tag_add_delete(this));
-  $('.tag_list li a').click(tag_add_delete(this));
+  $('.tag_group .group_name .kword_solo').click(tag_add_delete($(this)));
+  $('.tag_list li a').click(tag_add_delete($(this)));
 
 
 
