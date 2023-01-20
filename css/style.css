@@ -149,6 +149,7 @@ input {
    align-items: center;
    justify-content: center;
    font-size: 8px;
+   white-space: nowrap;
    overflow: hidden;
 }
 
