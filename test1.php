@@ -28,11 +28,10 @@
 
          $str = 'ЯПОМНЮПЕНИСБОЛЬШОЙ.jpg';
 
-         $str1 = substr($str,0,20);
-         for($i = 0; $i < strlen($str);$i++)
+         $str1 ="";
+         for($i = 0; $i < 20;$i++)
          {
-
-          echo $str[$i];
+         $str1 .= $str[$i];
          }
         // echo $str;
          echo "     ".$str1;
