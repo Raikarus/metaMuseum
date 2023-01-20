@@ -291,17 +291,13 @@ $(document).ready(function(){
       var index = pre_podborka.indexOf(pic_id);
       if(podborka.indexOf(pic_id) < 0 || mod=='podborka')
       {
-        if(index>=0)
+        if(index < 0)
         {
-          //pre_podborka.splice(index,1);
-          //$(pictures[i]).css('outline','none');
-        }
-        else
-        {
-          pre_podborka.push(pic_id);
+          if(mod == "gallery") pre_podborka.push(pic_id);
+          else selected_in_podborka.push(pic_id);
           $(pictures[i]).css('outline','3px solid red');
-          $(pictures[i]).css('outline-offset','-3px');
-        }  
+          $(pictures[i]).css('outline-offset','-3px'); 
+        }
       }  
     }
   });
@@ -314,15 +310,10 @@ $(document).ready(function(){
       {
         if(index>=0)
         {
-          pre_podborka.splice(index,1);
+          if(mod == "gallery") pre_podborka.splice(index,1);
+          else selected_in_podborka.splice(index,1);
           $(pictures[i]).css('outline','none');
         }
-        else
-        {
-          //pre_podborka.push(pic_id);
-          //$(pictures[i]).css('outline','3px solid red');
-          //$(pictures[i]).css('outline-offset','-3px');
-        }  
       }  
     }
   });
