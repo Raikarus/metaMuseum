@@ -91,7 +91,6 @@
                                     $query = "SELECT pic_id FROM pictags WHERE tag_id = $tag_id";
                                     $res3 = pg_query($cn,$query);
                                     $total = pg_num_rows($res3);
-                                    echo "$row3 / $total = ".($res/$total);
                                     $font_size = (round(($row3/$total)*100)+15)."px";
                                     echo "<li class = 'tag_group'>
                                              <p class = 'group_name'>
@@ -128,9 +127,10 @@
                                     $query = "SELECT pic_id FROM pictags WHERE tag_id_num=$tag_id_num";
                                     $res3 = pg_query($cn,$query);
                                     $row3 = pg_num_rows($res3);
-                                    $query = "SELECT pic_id FROM pictags";
+                                    $query = "SELECT pic_id FROM pictags WHERE tag_id = $tag_id";
                                     $res3 = pg_query($cn,$query);
-                                    $font_size = (round(($row3/pg_num_rows($res3))*50)+15)."px";
+                                    $total = pg_num_rows($res3);
+                                    $font_size = (round(($row3/$total)*100)+15)."px";
                                     echo "<li class='list_item'><a href='#' data-en = 0 data-tag = $kword_name style='font-size:$font_size'>$kword_name ($row3)</a></li>";
                                  }
                               }
