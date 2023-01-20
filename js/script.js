@@ -87,7 +87,7 @@ function tag_delete(e)
   preload();
 }
 
-$('.photo_li').click(function(){
+$('.photo_li').on("click",function(){
   alert("1");
   var pic_id = $(this).data('id');
   var index = podborka.indexOf(pic_id);
