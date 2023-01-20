@@ -111,6 +111,7 @@
         $result_tags = $_POST['result_tags'];
         $result_tags_invers = $_POST['result_tags_invers'];
         $add_where = "yes";
+        $podborka = explode("|",$_POST['podborka']);
 
         $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
         if($result_tags == "") $query = "SELECT pic_id,fmt,title FROM pics";
@@ -196,11 +197,8 @@
 	         $pic_id = pg_fetch_result($res, $i, 0);
 	         $fmt = pg_fetch_result($res, $i, 1);
 	         $title = pg_fetch_result($res, $i, 2);
-	         echo "
-	         <li class='photo_li' data-id=$pic_id>
-	               <div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div>
-	               <div class='name'>$title</div>
-	          </li>";
+             if(!in_array($pic_id, $podborka))echo "<li class='photo_li' data-id=$pic_id><div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div><div class='name'>$title</div></li>";   
+             else echo echo "<li class='photo_li' data-id=$pic_id><div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.");outline:3px solid red;outline-offset:-3px'></div><div class='name'>$title</div></li>";   
 	        }
     	}
     	else

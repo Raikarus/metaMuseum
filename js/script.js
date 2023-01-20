@@ -56,11 +56,16 @@ function preload()  {
   var ajaxurl = 'ajax.php';
   var result_tags_string = "";
   var result_tags_invers_string = "";
+  var podborka_string = "";
   for (var i = 0; i < result_tags.length; i++) {
     result_tags_string += result_tags[i]+"|";
     result_tags_invers_string += result_tags_invers[i]+"|";
   }
-  data =  {'action': 'update_grid', 'current_page': current_page,'size':size,'result_tags':result_tags_string,'result_tags_invers':result_tags_invers_string}; 
+  for(var i = 0; i < podborka.length; i++)
+  {
+    podborka_string += podborka[i]+"|";
+  }
+  data =  {'action': 'update_grid', 'current_page': current_page,'size':size,'result_tags':result_tags_string,'result_tags_invers':result_tags_invers_string,'podborka':podborka_string}; 
   $.post(ajaxurl, data).done(function (response) {
     if(response != 'error') {
       $('#wrapping').html(response);
