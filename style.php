@@ -67,14 +67,7 @@ autocomplete(document.getElementById("search"), countries);
       </div>
       <div class = "main_right">
          <div class = "all_tags">
-               <div class = "searching">
-                  <form class = "searching_form" autocomplete = "off">
-                     <div class="autocomplete">
-                        <input type = "text" id = "search" name = "search" class = "search" placeholder="Search tags!">
-                     </div>
-                     <input type = "submit" name = "submit" class = "submit" value="ADD">
-                  </form>
-               </div>
+               
                <div class = "tags">
                		<ul class = "list_of_groups">
                      <!-- Два режима: kwords И подборки (SELECTIONS) -->
