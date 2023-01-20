@@ -27,14 +27,9 @@
                 ^^^^^^^^^^^^^^^^^^^^ <BR>
          <?php
 
-         $str = "ЯПОМНЮПЕНИСБОЛЬШОЙ.jpg";
-         $str = utf8_encode($str);
-          echo strlen($str);
+         $str = "Cum dadw dadaw123455d.jpg";
          $str1 ="";
-         for($i = 0; $i < 2;$i++)
-         {
-         $str1 .= $str[$i];
-         }
+         $str1 =substr($str, 20);
         // echo $str;
          echo "     ".$str1;
 /*
