@@ -6,6 +6,7 @@ body {
    font-family: Arial;
    color: white;
    overflow: hidden;
+   display: none;
 }
 
 header {
@@ -209,7 +210,7 @@ header {
 .all_tags {
    height: 60%;
    width: 100%;
-   display: none;
+   display: flex;
    flex-direction: column;
    align-items: flex-start;
    justify-content: space-between;
