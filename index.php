@@ -230,7 +230,8 @@ function AddToBd($filename,$fsize,$ext) {
     pg_query($cn,$last_query);
     echo "ЗАПРОСИК $last_query<br>";
 
-    $shl = 'mv img/'.str_replace(" ","\ ",$filename)." img/$pic_id.$ext";
+    $shl = 'mv img/'.addcslashes($filename," ")." img/$pic_id.$ext";
+    echo "Попытка переименовать $shl <br>";
     $res = shell_exec($shl);
     echo "$shl <br>$res<br>";  
   }
