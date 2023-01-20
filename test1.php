@@ -30,8 +30,8 @@
 
          $str1 = substr($str,0,20)."...";
 
-         echo $str.'\n';
-         echo $str1;
+         echo $str;
+         echo "     ".$str1;
 /*
            // echo $text;
             $sub1 = substr($text,strpos($text, $tag2) + strlen($tag2) + 1,strpos($text, $tag2.'>'));
@@ -99,15 +99,13 @@
                   $str1 =  $str1.substr($str,strpos($str, ' '));
                   $str1 = substr($str1,0,strpos($str1,'+'));
                   echo $str1;*/
-                  $str = 0;
-                 echo '<button id="#example1" value= "read" class="button">Войти</button>';
+          //        $str = 0;
+         //        echo '<button id="#example1" value= "read" class="button">Войти</button>';
               
 
 
                  
           ?>
-            
-            <div id="out" >
-            </div>
+    
           </body>
 </html>
