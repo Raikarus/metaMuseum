@@ -27,7 +27,7 @@
          <?php
 
          $str = 'ЯПОМНЮПЕНИСБОЛЬШОЙ.jpg';
-
+          echo strlen($str);
          $str1 ="";
          for($i = 0; $i < 20;$i++)
          {
