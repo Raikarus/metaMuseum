@@ -23,7 +23,7 @@ function check()
 	}
     else
     {
-         echo '<img src="document.png" alt="Girl in a jacket" width="500" height="600">' ;
+         echo '<img src="document.png" alt="s" width="100%" height="100%">' ;
     }
 	
 }
