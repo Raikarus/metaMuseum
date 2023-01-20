@@ -27,7 +27,8 @@
          <?php
 
          $str = "ЯПОМНЮПЕНИСБОЛЬШОЙ.jpg";
-          echo strlen($str);
+
+          echo strlen(utf8_encode($str));
          $str1 ="";
          for($i = 0; $i < 2;$i++)
          {
