@@ -44,6 +44,8 @@ function build_poisk()
 }
 
 function autocomplete(inp, arr) {
+  alert(inp);
+  alert(arr);
    /* функция автозаполнения принимает два аргумента,
    элемент текстового поля и массив возможных значений автозаполнения: */
    var currentFocus;
