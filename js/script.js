@@ -391,13 +391,14 @@ $(document).ready(function(){
   });
 
   $('#mod_finder').click(function(){
-      searching.placeholder = "hui";
+      searching.placeholder = "Search compilation!";
       mod = "podborka";
       show_podborki();
       load();
   });
 
   $('#mod_gallery').click(function(){
+   searching.placeholder = "Search tags!";
     mod = "gallery";
     show_kwords();
     load();
