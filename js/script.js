@@ -117,7 +117,7 @@ $(document).ready(function(){
       }
     });
 
-  $('.tag_group .group_name .kword_solo').click(function (){
+  $('.tag_group .group_name ').on("click",".kword_solo",function (){
     var index = result_tags.indexOf($(this).data("tag"));
     if (index >= 0) {
       result_tags.splice(index, 1);
@@ -135,7 +135,7 @@ $(document).ready(function(){
     load();
   });
 
-  $('.tag_list li a').click(function (){
+  $('.tag_list li').on("click", "a",function (){
     var index = result_tags.indexOf($(this).data("tag"));
     if (index >= 0) {
       result_tags.splice(index, 1);
