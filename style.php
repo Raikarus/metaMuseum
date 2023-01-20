@@ -114,9 +114,5 @@
          <input type = "submit" name = "sizes" id = "size_big" value = "3x2">
       </div>
    </footer>
-   <script type="text/javascript">
-      //setTimeout(autocomplete(document.getElementById("myInput"), poisk), 10);
-  
-</script>
 </body>
 </html>
