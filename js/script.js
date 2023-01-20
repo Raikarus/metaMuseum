@@ -213,7 +213,7 @@ $(document).ready(function(){
       preload();
     });
     
-  $('.photo_li').on("click", function(){
+  $('#wrapping ').on("click",".photo_li", function(){
     alert("1");
     var pic_id = $(this).data('id');
     var index = podborka.indexOf(pic_id);
