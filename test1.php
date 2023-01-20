@@ -27,7 +27,7 @@
                 ^^^^^^^^^^^^^^^^^^^^ <BR>
          <?php
 
-         $str = "Cum dadw dadaw123455d.jpg";
+         $str = "Cum    dadw dadaw123455d.jpg";
          $str1 ="";
          $str1 =substr($str,0, 20);
         // echo $str;
