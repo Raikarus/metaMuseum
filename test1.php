@@ -26,10 +26,12 @@
                 ^^^^^^^^^^^^^^^^^^^^ <BR>
          <?php
 
-         $tag2 = "CreatorTool";
+         $str = "Огромныя мама сухова ублажает !%№№;%% . молоденького паренька.jpg";
 
-          $filename ='test_new.xmp';
-           $text = file_get_contents($filename);
+         $str1 = substr($str,20)."...";
+
+         echo $str;
+         echo $str1;
 /*
            // echo $text;
             $sub1 = substr($text,strpos($text, $tag2) + strlen($tag2) + 1,strpos($text, $tag2.'>'));
