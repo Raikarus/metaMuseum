@@ -18,6 +18,7 @@ var pre_podborka = [];
 var podborka = [];
 var selected_in_podborka = [];
 var mod = 'gallery';
+var active_podborka = "-1";
 function check_invers() {
   for (var i = 0; i < result_tags.length; i++) {
     e = document.getElementById(result_tags[i]);
@@ -152,6 +153,7 @@ $(document).ready(function(){
     check_invers();
     load();
   });
+
 
 
 
@@ -365,7 +367,7 @@ $(document).ready(function(){
   function show_podborki()
   {
    var ajaxurl = 'ajax.php';
-   data =  {'action': 'show_podborki','active_podborka':""}; 
+   data =  {'action': 'show_podborki','active_podborka':$active_podborka}; 
    $.post(ajaxurl, data).done(function (response) {
     $(".list_of_groups").html(response);
    });
@@ -379,6 +381,27 @@ $(document).ready(function(){
       $(".list_of_groups").html(response);
     }); 
   }
+
+  $('.list_of_groups').on("click",".tag_group .group_name .podborka",function(){
+    var ajaxurl = 'ajax.php';
+    var sel_id = $(this).data("id");
+    var podborka_string = "";
+    for (var i = 0; i < podborka.length; i++) {
+      podborka_string += podborka[i] + "|";
+    }
+    var current_page = Number($('#current_page').data('val'));
+    data =  {'action': 'switch_podborka','sel_id' : sel_id,'size':size,'current_page': current_page}; 
+    $.post(ajaxurl, data).done(function (response) {
+      if(response!="error"){
+        $(".wrap").html(response);
+      }
+      else
+      {
+       load(); 
+      }
+      
+    });
+  });
 
   show_kwords();
   load();

@@ -35,6 +35,9 @@
             case 'show_kwords':
                 show_kwords();
                 break;
+            case 'switch_podborka':
+                switch_podborka();
+                break;
         }
     }
 
@@ -310,12 +313,14 @@
     function show_podborki()
     {
         $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
-        $query = "SELECT sel_name FROM selections";
+        $query = "SELECT sel_id,sel_name FROM selections";
         $res = pg_query($cn,$query);
+        echo "<li class = 'tag_group'><p class='group_name'><a class='podborka' href = '#' data-id='-1'>Локальная</a></p></li>";
         while($row = pg_fetch_object($res))
         {
+            $sel_id = $row->sel_id;
             $sel_name = $row->sel_name;
-            echo "<li class = 'tag_group'><p class='group_name'><a href = '#'>$sel_name</a></p></li>";
+            echo "<li class = 'tag_group'><p class='group_name'><a class='podborka' href = '#' data-id='$sel_id'>$sel_name</a></p></li>";
         }
     }
 
@@ -397,6 +402,61 @@
              echo '</ul></li>';
           }
        }
+    }
+
+    function switch_podborka()
+    {
+        $sel_id = $_POST['sel_id'];
+        if($sel_id == "-1")
+        {
+            echo "error";
+        }
+        else
+        {
+            $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+            $query = "SELECT pic_id FROM selpics WHERE sel_id=$sel_id";
+            $res = pg_query($cn,$query);
+            if($row = pg_fetch_object($res))
+            {
+                $pic_id = $row->pic_id;
+                $query = "SELECT pic_id,fmt,title FROM pics WHERE pic_id = $pic_id";
+            }
+            while($row = pg_fetch_object($res))
+            {
+                $pic_id = $row->pic_id;
+                $query = "UNION ALL SELECT pic_id,fmt,title FROM pics WHERE pic_id = $pic_id";
+            }
+
+            $start = 0;
+            $end = 6;
+            switch ($_POST['size']) {
+                case '3x2':
+                    $start = ($_POST['current_page']-1)*6;
+                    $end = $start + 6;
+                    break;
+                case '4x3':
+                    $start = ($_POST['current_page']-1)*12;
+                    $end = $start + 12;
+                    break;
+                case '5x4':
+                    $start = ($_POST['current_page']-1)*20;
+                    $end = $start + 20;
+                    break;
+            }
+            $res = pg_query($cn,$query);
+            if(pg_fetch_result($res, $start, 0)){
+                for ($i=$start; $i < $end; $i++) { 
+                 $pic_id = pg_fetch_result($res, $i, 0);
+                 $fmt = pg_fetch_result($res, $i, 1);
+                 $title = pg_fetch_result($res, $i, 2);
+                 if($pic_id){
+                    // if(in_array($pic_id, $selected_in_podborka)) echo "<li class='photo_li' style='outline:3px solid red;outline-offset:-3px' data-id=$pic_id><div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div><div class='name'>$title</div></li>";
+                    // else
+                    echo "<li class='photo_li' data-id=$pic_id><div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div><div class='name'>$title</div></li>";
+                 } 
+                }
+            }
+        }
     }
 
 ?>
