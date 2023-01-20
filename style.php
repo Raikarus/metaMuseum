@@ -40,8 +40,8 @@
 <div class = "main">
       <div class = "main_left">
          <!-- ТУТ ПОМЕНЯТЬ СТИЛИ -->
-         <div id = "#name_podborka_form_back">
-            <div id = "#name_podborka_form">
+         <div id = "name_podborka_form_back">
+            <div id = "name_podborka_form">
                <input type="text" name="name_for_podborka">
             </div>
          </div>
