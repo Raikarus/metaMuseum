@@ -285,6 +285,7 @@ $(document).ready(function(){
   });
 
   $("#select_all").click(function(){
+    alert("1");
     var pictures = document.querySelectorAll('.photo_li');
     for (var i = 0; i < pictures.length; i++) {
       var pic_id = $(pictures[i]).data('id');
