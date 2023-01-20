@@ -206,16 +206,27 @@ $(document).ready(function(){
    });
 
     $('.button').click(function (){
-       var clickBtnValue = $(this).data('val');
-       var current_page = Number($('#current_page').data('val'));
-       if(clickBtnValue == "right") current_page+=1;
-       else if (current_page!=1) current_page-=1;
-       $('#current_page').data('val',current_page).attr('data-val',current_page);
-       preload();
+      var clickBtnValue = $(this).data('val');
+      var current_page = Number($('#current_page').data('val'));
+      if(clickBtnValue == "right") current_page+=1;
+      else if (current_page!=1) current_page-=1;
+      $('#current_page').data('val',current_page).attr('data-val',current_page);
+      preload();
     });
     
     $('.photo_li').click(function(){
-      
+      var pic_id = $(this).data('id');
+      var index = podborka.indexOf(pic_id);
+      if(index>0)
+      {
+        podborka.splice(index,1);
+        $(this).css('outline','none');
+      }
+      else
+      {
+        podborka.push(pic_id);
+        $(this).css('outline','3px solid red');
+      }
     })
 
     preload();
