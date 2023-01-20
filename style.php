@@ -37,7 +37,7 @@
       <div class = "container">
          <div class = "logo_container">
             <a class = "logo" href = "/?form=home">
-               DATABASEРОТЕБАЛ
+               DATABASE
             </a>
          </div>
          <ul class = username_exit>
