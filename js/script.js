@@ -265,7 +265,7 @@ $(document).ready(function(){
     {
 
       $('.podborka:not([data-sel_name="'+$('#myInput').val()+'"])').css('color',"#24B47E");
-      $('.podborka([data-sel_name="'+$('#myInput').val()+'"])').css('color',"red");
+      $('.podborka[data-sel_name="'+$('#myInput').val()+'"]').css('color',"red");
       active_podborka = $('.podborka:not([data-sel_name="'+$('#myInput').val()+'"])').data('sel_id');
       load();
     }
