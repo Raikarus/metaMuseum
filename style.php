@@ -170,22 +170,5 @@
          <input type = "submit" name = "sizes" id = "size_big" value = "3x2">
       </div>
    </footer>
-
-<!-- <main class = "main">
-<a href="/?form=auth">Добавить тэг</a><br>
-<a href="/?form=obr">Обработка картинок</a><br>
-<a href="/?form=add">Добавить картинку</a><br>
-<a href="/?form=write">Прикрутить тэг</a><br>
-<?php
-// echo $msg;
-// switch($form){
-// case 'auth': include('auth.php');break;
-// case 'obr': include('obrabotka.php');break;
-// case 'add': include('add.php');break;
-// case 'write': include('write.php');break;
-// default:include('home.php');break;
-}
-?>
-</main> -->
 </body>
 </html>
