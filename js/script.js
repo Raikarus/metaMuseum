@@ -71,10 +71,23 @@ function preload()  {
   });
 }
 
-$(".choose_item button").click(function(){
-  alert('A');
-});
-
+function tag_add_delete(e)  {
+  var index = result_tags.indexOf($(e).data("tag"));
+  if (index >= 0) {
+    result_tags.splice(index, 1);
+    result_tags_invers.splice(index, 1);
+  }
+  else{
+    result_tags.push($(this).data("tag"));
+    result_tags_invers.push(0);
+  }
+  $(".wrap").html("");
+  for (var i = 0; i <=result_tags.length - 1; i++) {
+    $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'<button onclick="tag_delete($(this).parent)">×</button></li>');
+  }
+  check_invers();
+  preload();
+}
 
 $(document).ready(function(){
 
@@ -89,41 +102,8 @@ $(document).ready(function(){
       }
     });
 
-  $('.tag_group .group_name .kword_solo').click(function (){
-    var index = result_tags.indexOf($(this).data("tag"));
-    if (index >= 0) {
-      result_tags.splice(index, 1);
-      result_tags_invers.splice(index, 1);
-    }
-    else{
-      result_tags.push($(this).data("tag"));
-      result_tags_invers.push(0);
-    }
-    $(".wrap").html("");
-    for (var i = 0; i <=result_tags.length - 1; i++) {
-      $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'<button>×</button></li>');
-    }
-    check_invers();
-    preload();
-  });
-
-  $('.tag_list li a').click(function (){
-    var index = result_tags.indexOf($(this).data("tag"));
-    if (index >= 0) {
-      result_tags.splice(index, 1);
-      result_tags_invers.splice(index, 1);
-    }
-    else{
-      result_tags.push($(this).data("tag"))
-      result_tags_invers.push(0);
-    }
-    $(".wrap").html("");
-    for (var i = 0; i <=result_tags.length - 1; i++) {
-      $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'<button>×</button></li>');
-    }
-    check_invers();
-    preload();
-  });
+  $('.tag_group .group_name .kword_solo').click(tag_add_delete(this));
+  $('.tag_list li a').click(tag_add_delete(this));
 
 
 
