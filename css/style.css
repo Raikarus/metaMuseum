@@ -155,13 +155,6 @@ input {
    text-overflow: ellipsis;
 }
 
-.name_div {
-   display: flex;
-   align-items: center;
-   justify-content: flex-start;
-   margin-left: auto;
-}
-
 .left_right_but {
    padding-bottom: 6px;
    width: 15%;
