@@ -128,24 +128,7 @@ function moveZeros(arr) {
    </header>
 
 <div class = "main">
-   <div class = "main_top">
-      <ul class = "photos_compilation" id = "compilation">
-         <?php
-			    $dir='./img';
-				$files = scandir($dir);
-				foreach($files as $n => $img){
-					if ($img != '.' && $img != '..') echo '  
-               <li class = "compilation_li">
-                           <button class = "comp_li_button" data-val= "0" name ="img" data-img = "'.$img.'">
-               				   <div class = "comp_li_photo" style="background-image:url('."'".'img/'.$img."'".'"></div>
-               				   <div class = "comp_li_name">'.$img.'</div>   
-                           </button>        
-            			 </li>';
-				}
-         	?>               
-      </ul>
-   </div>
-      <div class = "main_center_2">
+      <div class = "main_center">
          <ul class = "photos" id = "wrapping">
          	
 		   </ul>
