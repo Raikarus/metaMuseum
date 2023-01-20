@@ -29,6 +29,8 @@
 
 <div class = "main">
       <div class = "main_left">
+         <div id = "#name_for_podborka_fon" style="position: absolute;display: none; width: 400px;height: 250px;background-color: rgba(0,0,0,0.8);">
+         </div>
          <ul class = "photos" id = "wrapping">
 		</ul>
          <div class = "left_right_but">
@@ -152,13 +154,13 @@
             <li><input id = "add_to_podborka" type = "submit" name = "funtional" value="Добавить в подборку"></li>
             <li><input class = "select_all" type = "submit" name = "funtional" value="Выделить всё"></li>
             <li><input class = "unselect_all" type = "submit" name = "funtional" value="Снять выделение"></li>
-            <li><input type = "submit" name = "funtional" value="Отменить"></li>
+            <!-- <li><input type = "submit" name = "funtional" value="Отменить"></li> -->
          </ul> 
       </div>
       <div class = "instruments" id = "fin_ins">
          <ul class = "panel">
             <li><input type = "submit" name = "funtional" value="Скачать"></li>
-            <li><input type = "submit" name = "funtional" value="Сохранить в подборку"></li>
+            <li><input id = "save_podborka" type = "submit" name = "funtional" value="Сохранить в подборку"></li>
             <li><input id="delete_from_podborka" type = "submit" name = "funtional" value="Удалить из подборки"></li>
             <li><input class = "select_all" type = "submit" name = "funtional" value="Выделить всё"></li>
             <li><input class = "unselect_all" type = "submit" name = "funtional" value="Снять выделение"></li>

@@ -327,5 +327,22 @@ $(document).ready(function(){
     selected_in_podborka = [];
     load();
   });
+
+  $("#save_podborka").click(function(){
+    
+    $("#name_for_podborka_fon").fadeTo(1000);
+    // var ajaxurl = 'ajax.php';
+    // data =  {'action': 'save_podborka'}; 
+    // $.post(ajaxurl, data).done(function (response) {
+    //   if(response != 'error') {
+    //     $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
+    //   }
+    //   else {
+    //     current_page-=1;
+    //     $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
+    //     load();
+    //   } 
+    // });
+  });
     load();
 });
