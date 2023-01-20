@@ -67,7 +67,7 @@ function AddToBd($filename,$fsize,$ext) {
   $subscr = "";
   $rights = "";
   echo "ФОРМИРОВАНИЕ КОМАНД НА ЧТЕНИЕ МЕТАИНФОРМАЦИИ <br>";
-  $shl = 'exiftool img/'.addcslashes($filename, "");
+  $shl = 'exiftool img/'.addcslashes($filename, " ");
   echo "$shl <br>";
   $res = shell_exec($shl);
   echo "<pre>$res</pre>";
