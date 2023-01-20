@@ -216,7 +216,7 @@ header {
 }
 
 .all-tags::-webkit-scrollbar {
-   width: 0;
+   display: none;
 }
 
 .tags {
