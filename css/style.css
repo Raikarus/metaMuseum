@@ -148,7 +148,7 @@ input {
    display: flex;
    align-items: center;
    justify-content: center;
-   font-size: 2vh;
+   font-size: 1.5vh;
 }
 
 .left_right_but {
