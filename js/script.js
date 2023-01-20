@@ -30,22 +30,25 @@ function check_invers() {
 }
 
 function tag_invers(e)  {
-  var index = $(e).data("index");
-  if ($(e).data("inversed") == 0)
+  if (e.target == this)
   {
-     $(e).data("inversed",1);
-     $(e).attr("data-inversed",1)
-     $(e).css("backgroundColor","rgb(228, 79, 79)");
-     result_tags_invers[index] = 1;
+    var index = $(e).data("index");
+    if ($(e).data("inversed") == 0)
+    {
+       $(e).data("inversed",1);
+       $(e).attr("data-inversed",1)
+       $(e).css("backgroundColor","rgb(228, 79, 79)");
+       result_tags_invers[index] = 1;
+    }
+    else
+    {
+       $(e).data("inversed",0);
+       $(e).attr("data-inversed",0);
+       $(e).css("backgroundColor","#24B47E");
+       result_tags_invers[index] = 0;
+    }
+    preload();
   }
-  else
-  {
-     $(e).data("inversed",0);
-     $(e).attr("data-inversed",0);
-     $(e).css("backgroundColor","#24B47E");
-     result_tags_invers[index] = 0;
-  }
-  preload();
 }
 
 function preload()  {
@@ -96,7 +99,7 @@ $(document).ready(function(){
     }
     $(".wrap").html("");
     for (var i = 0; i <=result_tags.length - 1; i++) {
-      $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'</li>');
+      $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'<button>×</button></li>');
     }
     check_invers();
     preload();
@@ -114,7 +117,7 @@ $(document).ready(function(){
     }
     $(".wrap").html("");
     for (var i = 0; i <=result_tags.length - 1; i++) {
-      $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'</li>');
+      $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'<button>×</button></li>');
     }
     check_invers();
     preload();
