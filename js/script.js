@@ -321,7 +321,7 @@ $(document).ready(function(){
   $("#delete_from_podborka").click(function(){
     var index = 0;
     for (var i = 0; i < selected_in_podborka.length; i++) {
-      index = podborka.indexOf($selected_in_podborka[i]);
+      index = podborka.indexOf(selected_in_podborka[i]);
       podborka.splice(index,1);
     }
     selected_in_podborka = [];
