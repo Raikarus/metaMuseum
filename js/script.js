@@ -361,7 +361,7 @@ $(document).ready(function(){
   function show_kwords_podborki()
   {
    var ajaxurl = 'ajax.php';
-   data =  {'action': 'save_podborka','active_podborka':"", 'mod': mod}; 
+   data =  {'action': 'show_kwords_podborki','active_podborka':"", 'mod': mod}; 
    $.post(ajaxurl, data).done(function (response) {
     $(".list_of_groups").html(response);
    });
