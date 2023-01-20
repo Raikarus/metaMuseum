@@ -21,7 +21,19 @@ var podborka = [];
 var selected_in_podborka = [];
 var mod = 'gallery';
 var active_podborka = "-1";
-var countries = ["ARARA", "aboba", "avoba", "agoba", "aroba", "ajoba", "aloba", "acoba", "afoba", "agoba", "aooba", "amoba", "akoba", "axoba", "azoba", "a7oba", "a8oba", "a9oba","boba","clopa","dropa","eboba","fboba","gboba","hboba","iboba","jboba","kboba","lboba","mboba","nboba","oboba","pboba","rboba","sboba","tboba","uboba","vboba","wboba","xboba","yboba","zboba"];
+
+var poisk = ["ARARA", "aboba", "avoba", "agoba", "aroba", "ajoba", "aloba", "acoba", "afoba", "agoba", "aooba", "amoba", "akoba", "axoba", "azoba", "a7oba", "a8oba", "a9oba","boba","clopa","dropa","eboba","fboba","gboba","hboba","iboba","jboba","kboba","lboba","mboba","nboba","oboba","pboba","rboba","sboba","tboba","uboba","vboba","wboba","xboba","yboba","zboba"];
+function build_poisk()
+{
+  if(mod == "gallery")
+  {
+    alert(document.querySelectorAll(".tag_group"));
+  }
+  else
+  {
+
+  }
+}
 
 function autocomplete(inp, arr) {
    /* функция автозаполнения принимает два аргумента,
@@ -475,6 +487,7 @@ $(document).ready(function(){
    data =  {'action': 'show_podborki','active_podborka':active_podborka}; 
    $.post(ajaxurl, data).done(function (response) {
     $(".list_of_groups").html(response);
+    build_poisk();
    });
   }
   
@@ -484,6 +497,7 @@ $(document).ready(function(){
     data =  {'action': 'show_kwords'}; 
     $.post(ajaxurl, data).done(function (response) {
       $(".list_of_groups").html(response);
+      build_poisk();
     }); 
   }
 
@@ -506,5 +520,6 @@ $(document).ready(function(){
   });
 
   show_kwords();
+  build_poisk();
   load();
 });
