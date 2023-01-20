@@ -87,6 +87,21 @@ function tag_delete(e)
   preload();
 }
 
+$('.photo_li').click(function(){
+  alert("1");
+  var pic_id = $(this).data('id');
+  var index = podborka.indexOf(pic_id);
+  if(index>0)
+  {
+    podborka.splice(index,1);
+    $(this).css('outline','none');
+  }
+  else
+  {
+    podborka.push(pic_id);
+    $(this).css('outline','3px solid red');
+  }
+});
 
 $(document).ready(function(){
 
@@ -214,21 +229,7 @@ $(document).ready(function(){
       preload();
     });
     
-    $('.photo_li').click(function(){
-      alert("1");
-      var pic_id = $(this).data('id');
-      var index = podborka.indexOf(pic_id);
-      if(index>0)
-      {
-        podborka.splice(index,1);
-        $(this).css('outline','none');
-      }
-      else
-      {
-        podborka.push(pic_id);
-        $(this).css('outline','3px solid red');
-      }
-    });
+
 
     preload();
 });
