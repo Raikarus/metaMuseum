@@ -221,7 +221,7 @@
             {
                 $query = "SELECT pic_id,fmt,title FROM pics WHERE pic_id=$podborka[0]";
                 for ($i=1; $i < count($podborka)-1; $i++) { 
-                    $query .= "UNION ALL SELECT pic_id,title,fmt FROM pics WHERE pic_id=$podborka[$i]";
+                    $query .= "UNION ALL SELECT pic_id,fmt,title FROM pics WHERE pic_id=$podborka[$i]";
                 }
                 
 
