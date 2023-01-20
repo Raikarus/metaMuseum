@@ -316,7 +316,7 @@ $(document).ready(function(){
       
       size = '5x4';
       load();
-      $(".names").css("font-size", "6px");
+      $(".name").css("font-size", "6px");
    });
 
    $(size2).click(function()
