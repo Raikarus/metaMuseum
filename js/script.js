@@ -71,6 +71,11 @@ function preload()  {
   });
 }
 
+$(".choose_item button").click(function(){
+  alert('A');
+});
+
+
 $(document).ready(function(){
 
     $(".pic img").click(function(){
@@ -120,9 +125,6 @@ $(document).ready(function(){
     preload();
   });
 
-  $(".choose_item button").click(function(){
-    alert('A');
-  });
 
 
    let but1 = document.getElementById('mod_gallery');
