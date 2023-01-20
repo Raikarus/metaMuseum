@@ -18,7 +18,7 @@
 }
 #name_podborka_form
 {
-   width:300px;height: 250px;background-color: white;display: flex;justify-content: center;align-items: center
+   width:300px;height: 250px;background-color: white;display: flex;justify-content: center;align-items: center;border-radius: 5px;
 }
 </style>
 </head>
@@ -27,6 +27,7 @@
          <div id = "name_podborka_form_back">
             <div id = "name_podborka_form">
                <input type="text" name="name_for_podborka">
+               <input type="submit" value = "Создать">
             </div>
          </div>
          <!-- ТУТ ПОМЕНЯТЬ СТИЛИ -->

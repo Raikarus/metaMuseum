@@ -329,7 +329,14 @@ $(document).ready(function(){
   });
 
   $("#save_podborka").click(function(){
-    $("#name_podborka_form_back").css('display','flex');
+    if(podborka.length > 1)
+    {
+      $("#name_podborka_form_back").css('display','flex');  
+    }
+    else
+    {
+      alert("Невозможно сохранить пустую подборку или подборку из одного изображения");
+    }
     // var ajaxurl = 'ajax.php';
     // data =  {'action': 'save_podborka'}; 
     // $.post(ajaxurl, data).done(function (response) {
@@ -344,8 +351,7 @@ $(document).ready(function(){
     // });
   });
   $("#name_podborka_form_back").click(function(event){
-    if(event.target == this)
-    {
+    if(event.target == this) {
       $("#name_podborka_form_back").css('display','none');
     }
   });
