@@ -41,6 +41,7 @@ function build_poisk()
       poisk.push($(podborki[i]).data("sel_name"));
     }
   }
+  autocomplete(document.getElementById('myInput'),poisk);
 }
 
 function autocomplete(inp, arr) {
@@ -535,5 +536,4 @@ $(document).ready(function(){
   show_kwords();
   build_poisk();
   load();
-  setTimeout(autocomplete(document.getElementById("myInput"), poisk), 10);
 });
