@@ -168,9 +168,9 @@ function moveZeros(arr) {
             <a class = "logo" href = "/?form=home">
                DATABASE
             </a>
-             
+              <label class="switch">
               <input type="checkbox">
-             
+              
             </label>
          </div>
          <ul class = username_exit>
