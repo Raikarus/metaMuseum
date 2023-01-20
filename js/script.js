@@ -21,7 +21,7 @@ var podborka = [];
 var selected_in_podborka = [];
 var mod = 'gallery';
 var active_podborka = "-1";
-var countries = ["ARARA", "aboba", "avoba", "agoba", "boba","clopa","dropa","eboba","fboba","gboba","hboba","iboba","jboba","kboba","lboba","mboba","nboba","oboba","pboba","rboba","sboba","tboba","uboba","vboba","wboba","xboba","yboba","zboba"];
+var countries = ["ARARA", "aboba", "avoba", "agoba", "aroba", "ajoba", "aloba", "acoba", "afoba","boba","clopa","dropa","eboba","fboba","gboba","hboba","iboba","jboba","kboba","lboba","mboba","nboba","oboba","pboba","rboba","sboba","tboba","uboba","vboba","wboba","xboba","yboba","zboba"];
 
 function autocomplete(inp, arr) {
    /* функция автозаполнения принимает два аргумента,
