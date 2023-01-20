@@ -90,7 +90,7 @@
                                     $row3 = pg_num_rows($res3);
                                     $query = "SELECT pic_id FROM pictags";
                                     $res3 = pg_query($cn,$query);
-                                    $font_size = (round(($row3/pg_num_rows($res3))*50)+15)."px";
+                                    $font_size = (round(($row3/pg_num_rows($res3))*100)+15)."px";
                                     echo "<li class = 'tag_group'>
                                              <p class = 'group_name'>
                                                 <a class = 'kword_solo' href='#' data-en = 0 data-tag='$kword_name' style='font-size:$font_size'>$kword_name ($row3)</a>
