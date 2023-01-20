@@ -124,9 +124,9 @@ function moveZeros(arr) {
               status++;
               if(status == 1) //download mode
               {
-                 data =  {'action': 'set_img','img_string':"download_mode"};
+             /*    data =  {'action': 'set_img','img_string':"download_mode"};
                $.post(ajaxurl, data).done(function (response) {
-                  $('#wrapping').html(response); });
+                  $('#wrapping').html(response); });*/
               }
               else //default mode
               {
