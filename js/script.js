@@ -367,7 +367,7 @@ $(document).ready(function(){
   function show_podborki()
   {
    var ajaxurl = 'ajax.php';
-   data =  {'action': 'show_podborki','active_podborka':$active_podborka}; 
+   data =  {'action': 'show_podborki','active_podborka':active_podborka}; 
    $.post(ajaxurl, data).done(function (response) {
     $(".list_of_groups").html(response);
    });
