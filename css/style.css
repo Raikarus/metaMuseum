@@ -234,7 +234,7 @@ header {
    justify-content: space-between;
 }
 
-.all_tags::-webkit-scrollbar {
+.all_tags {
    display:none;
 }
 
