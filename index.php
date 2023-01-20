@@ -250,14 +250,17 @@ function LinkKeyword(){
     // ВОТ ТУТ ЭКРАНИРОВАНИЕ
     $img_name = addcslashes($_POST['img_name']," ");
     $shl = 'exiftool -TagsFromFile img/'.$img_name.' img/file.xmp';
+    echo "<pre>$shl</pre>";
     $res = shell_exec($shl);
     echo "<pre>$res</pre>";
 
     $shl = 'exiftool -XMP=img/'.$img_name;
+    echo "<pre>$shl</pre>";
     $res = shell_exec($shl);
     echo "<br><pre>$res</pre>";
 
     $shl = 'exiftool -TagsFromFile img/file.xmp img/'.$img_name;
+    echo "<pre>$shl</pre>";
     $res = shell_exec($shl);
     echo "<br><pre>$res</pre>";
 
