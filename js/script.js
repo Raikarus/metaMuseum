@@ -127,7 +127,7 @@ $(document).ready(function(){
       result_tags.push($(this).data("tag"));
       result_tags_invers.push(0);
     }
-    $("").html("");
+    $(".wrap").html("");
     for (var i = 0; i <=result_tags.length - 1; i++) {
       $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'<button data-tag = "'+result_tags[i]+'" onclick="tag_delete($(this))">×</button></li>');
     }
@@ -145,7 +145,7 @@ $(document).ready(function(){
       result_tags.push($(this).data("tag"))
       result_tags_invers.push(0);
     }
-    $("").html("");
+    $(".wrap").html("");
     for (var i = 0; i <=result_tags.length - 1; i++) {
       $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'<button data-tag = '+result_tags[i]+'onclick="tag_delete($(this))">×</button></li>');
     }
