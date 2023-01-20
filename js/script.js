@@ -329,8 +329,7 @@ $(document).ready(function(){
   });
 
   $("#save_podborka").click(function(){
-    alert("1");
-    $("#name_for_podborka_fon").fadeIn();
+    $("#name_podborka_form").fadeIn();
     // var ajaxurl = 'ajax.php';
     // data =  {'action': 'save_podborka'}; 
     // $.post(ajaxurl, data).done(function (response) {
