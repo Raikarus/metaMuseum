@@ -12,13 +12,19 @@ if (isset($_POST['action'])) {
 $status = 0;
 function check()
 {
-    $str = explode('|', $_POST['img_string']);
-    //print_r($str);
-    for($i = 0; $i < count($str)-1;$i++)
+    if($_POST['img_string'] != "download_mode")
     {
-        echo '<div class = "comp_li_photo" name ="img" style="background-image:url('."'".'img/'.$str[$i]."'".'" data-val = "'.$img.'""></div>' ;
+        $str = explode('|', $_POST['img_string']);
+        //print_r($str);
+        for($i = 0; $i < count($str)-1;$i++)
+        {
+            echo '<div class = "comp_li_photo" name ="img" style="background-image:url('."'".'img/'.$str[$i]."'".'" data-val = "'.$img.'""></div>' ;
+        }
+	}
+    else
+    {
+         echo "Грузи говно";
     }
-	
 	
 }
 ?>

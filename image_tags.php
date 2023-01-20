@@ -36,6 +36,7 @@
 
     <script>
       var count = 0;
+      var status = 0;
       let arr = [(document.getElementsByName("img")).length];
 function moveZeros(arr) {
     let upperBound = arr.length;
@@ -97,18 +98,40 @@ function moveZeros(arr) {
                  
             }
              console.log(ss);
-           
-             
+
             var ajaxurl = 'ajax.php';
-            data =  {'action': 'set_img','img_string':ss};
-            
-            $.post(ajaxurl, data).done(function (response) {
+
+            if(status == 0)
+            {
+               
+                data =  {'action': 'set_img','img_string':ss};
+               $.post(ajaxurl, data).done(function (response) {
                   $('#wrapping').html(response);
             });
+            } 
+            else
+            {
+                 data =  {'action': 'set_img','img_string':"download_mode"};
+               $.post(ajaxurl, data).done(function (response) {
+                  $('#wrapping').html(response); });
+            }
+            
+         
         });
 
          $('.switch').click(function(){
 
+              status = !status;
+              if(status == 1) //download mode
+              {
+                 data =  {'action': 'set_img','img_string':"download_mode"};
+               $.post(ajaxurl, data).done(function (response) {
+                  $('#wrapping').html(response); });
+              }
+              else //default mode
+              {
+
+              }
               console.log("click");
          });
     });
