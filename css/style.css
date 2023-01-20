@@ -220,7 +220,7 @@ header {
    height: 83%;
    word-break: break-all;
    overflow: auto;
-   scrollbar-width: thin;
+   scrollbar-width: 0;
    scrollbar-color: hsl(0 0% 50%);
    border-bottom: 1px solid white;
 }
