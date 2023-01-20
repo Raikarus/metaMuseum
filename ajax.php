@@ -409,12 +409,13 @@
         $sel_id = $_POST['sel_id'];
         if($sel_id == "-1")
         {
-            echo "error";
+            echo "error1";
         }
         else
         {
             $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
             $query = "SELECT pic_id FROM selpics WHERE sel_id=$sel_id";
+            echo "ЗАПРОСИК $query<br>";
             $res = pg_query($cn,$query);
             if($row = pg_fetch_object($res))
             {
@@ -444,6 +445,7 @@
                     break;
             }
             $res = pg_query($cn,$query);
+            echo "ЗАПРОСИК $query<br>";
             if(pg_fetch_result($res, $start, 0)){
                 for ($i=$start; $i < $end; $i++) { 
                  $pic_id = pg_fetch_result($res, $i, 0);
