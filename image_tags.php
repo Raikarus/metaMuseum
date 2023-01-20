@@ -126,7 +126,7 @@ function moveZeros(arr) {
               {
                for(var i =0; i < document.getElementsByName("img").length;i++)
                {
-                     $(document.getElementsByName("img")[i]).css('display','none');
+                     $(document.getElementsByName("img")[i]).css('display','none');  // надо сделать норм удаление 
                }
                   var ajaxurl = 'ajax.php';
                   data =  {'action': 'set_img','img_string':"download_mode"};
@@ -135,7 +135,10 @@ function moveZeros(arr) {
               }
               else //default mode
               {
-
+                 for(var i =0; i < document.getElementsByName("img").length;i++)
+               {
+                     $(document.getElementsByName("img")[i]).css('display','flex');  // надо сделать норм удаление 
+               }
                status = 0;
               }
               console.log(status);
