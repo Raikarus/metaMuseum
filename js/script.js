@@ -284,8 +284,7 @@ $(document).ready(function(){
     load();
   });
 
-  $("#select_all").click(function(){
-    alert("1");
+  $(".select_all").click(function(){
     var pictures = document.querySelectorAll('.photo_li');
     for (var i = 0; i < pictures.length; i++) {
       var pic_id = $(pictures[i]).data('id');
@@ -306,7 +305,7 @@ $(document).ready(function(){
       }  
     }
   });
-  $("#unselect_all").click(function(){
+  $(".unselect_all").click(function(){
     var pictures = document.querySelectorAll('.photo_li');
     for (var i = 0; i < pictures.length; i++) {
       var pic_id = $(pictures[i]).data('id');
