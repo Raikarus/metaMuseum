@@ -346,7 +346,7 @@ $(document).ready(function(){
   $("#name_podborka_form_back").click(function(event){
     if(event.target == this)
     {
-      $("name_podborka_form_back").css('display','none');
+      $("#name_podborka_form_back").css('display','none');
     }
   });
     load();
