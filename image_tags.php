@@ -119,6 +119,10 @@ function moveZeros(arr) {
             <a class = "logo" href = "/?form=home">
                DATABASE
             </a>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
          </div>
          <ul class = username_exit>
             <li class = "usit_elem username">Username</li>
