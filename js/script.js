@@ -31,6 +31,7 @@ function build_poisk()
     for (var i = 0; i < kwords.length; i++) {
       poisk.push(kwords[i].data("tag"));
     }
+    alert(poisk);
   }
   else
   {
