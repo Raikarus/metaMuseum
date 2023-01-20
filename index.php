@@ -341,6 +341,7 @@ function LinkKeyword(){
 <body>
 <a href="index.php">Дом</a>
 <a href="tags.php">Тэги</a>
+<a href="style.php">Главная страница</a>
 <br>
 <br>
 <form method="post" enctype="multipart/form-data">
