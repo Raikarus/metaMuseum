@@ -242,8 +242,7 @@ $(document).ready(function(){
 
   $('#addtag').on("click",function()
   {
-    elem = $('.kword_solo[data-dag="'+$('#myInput').val()+'"]');
-    alert('.kword_solo[data-dag="'+$('#myInput').val()+'"]');
+    elem = $('.kword_solo[data-tag="'+$('#myInput').val()+'"]');
     var index = result_tags.indexOf($(elem).data("tag"));
     if (index >= 0) {
       result_tags.splice(index, 1);
