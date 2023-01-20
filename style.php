@@ -71,7 +71,7 @@
                         autocomplete(document.getElementById("myInput"), countries);
                      </script>
                   </div>
-                  <input type = "submit">
+                  <input type = "submit" class = "addtag">
 
                </form>
                <div class = "tags">
