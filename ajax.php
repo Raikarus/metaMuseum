@@ -425,7 +425,7 @@
             while($row = pg_fetch_object($res))
             {
                 $pic_id = $row->pic_id;
-                $query = "UNION ALL SELECT pic_id,fmt,title FROM pics WHERE pic_id = $pic_id";
+                $query .= "UNION ALL SELECT pic_id,fmt,title FROM pics WHERE pic_id = $pic_id";
             }
 
             $start = 0;
