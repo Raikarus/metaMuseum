@@ -319,6 +319,11 @@ input {
    .wrap {
       grid-template-columns: 1fr 1fr;
    }
+
+   .tag_button {
+      width: 10px;
+      height: 10px;
+   }
 }
 
 .choose_item {
