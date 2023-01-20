@@ -534,5 +534,5 @@ $(document).ready(function(){
   show_kwords();
   build_poisk();
   load();
-  autocomplete(document.getElementById("myInput"), poisk);
+  
 });
