@@ -234,6 +234,7 @@
             }
             $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
             $podborka = explode("|", $_POST['podborka']);
+            $selected_in_podborka = explode("|",$_POST['selected_in_podborka']});
             if($_POST['podborka'])
             {
                 $query = "SELECT pic_id,fmt,title FROM pics WHERE pic_id=$podborka[0]";
@@ -246,7 +247,10 @@
                      $pic_id = pg_fetch_result($res, $i, 0);
                      $fmt = pg_fetch_result($res, $i, 1);
                      $title = pg_fetch_result($res, $i, 2);
-                     if($pic_id) echo "<li class='photo_li' data-id=$pic_id><div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div><div class='name'>$title</div></li>";  
+                     if($pic_id){
+                        if(in_array($pic_id, $selected_in_podborka)) echo "<li class='photo_li' style='outline:3px solid red;outline-offset:-3px' data-id=$pic_id><div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div><div class='name'>$title</div></li>"; 
+                        echo "<li class='photo_li' data-id=$pic_id><div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div><div class='name'>$title</div></li>";   
+                     } 
                     }
                 }
                 else
