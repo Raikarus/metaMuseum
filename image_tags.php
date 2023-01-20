@@ -106,6 +106,11 @@ function moveZeros(arr) {
                   $('#wrapping').html(response);
             });
         });
+
+         $('.checkbox').click(function(){
+
+              console.log("click");
+         });
     });
 
     </script>
@@ -119,7 +124,7 @@ function moveZeros(arr) {
             <a class = "logo" href = "/?form=home">
                DATABASE
             </a>
-            <label class="switch">
+              <label class="switch">
               <input type="checkbox">
               <span class="slider round"></span>
             </label>
