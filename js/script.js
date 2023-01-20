@@ -78,7 +78,7 @@ function tag_delete(e)
   result_tags_invers.splice(index, 1);
   $(".wrap").html("");
     for (var i = 0; i <=result_tags.length - 1; i++) {
-      $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'<button data-tag = '+result_tags[i]+'onclick="tag_delete($(this))">×</button></li>');
+      $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'<button data-tag = "'+result_tags[i]+'" onclick="tag_delete($(this))">×</button></li>');
     }
   check_invers();
   preload();
@@ -110,7 +110,7 @@ $(document).ready(function(){
     }
     $(".wrap").html("");
     for (var i = 0; i <=result_tags.length - 1; i++) {
-      $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'<button data-tag = '+result_tags[i]+'onclick="tag_delete($(this))">×</button></li>');
+      $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'<button data-tag = "'+result_tags[i]+'" onclick="tag_delete($(this))">×</button></li>');
     }
     check_invers();
     preload();
