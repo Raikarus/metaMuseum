@@ -120,8 +120,8 @@ function moveZeros(arr) {
         });
 
          $('.switch').click(function(){
-            
-            console.log(status);
+
+            console.log(status); 
               status++;
               if(status == 1) //download mode
               {
@@ -168,9 +168,9 @@ function moveZeros(arr) {
             <a class = "logo" href = "/?form=home">
                DATABASE
             </a>
-              <label class="switch">
+             
               <input type="checkbox">
-              <span class="slider round"></span>
+             
             </label>
          </div>
          <ul class = username_exit>
