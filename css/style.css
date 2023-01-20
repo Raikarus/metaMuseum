@@ -439,18 +439,18 @@ footer {
 
 
 .search {
-   height: 82%;
-   width: 85%;
+   height: 100%;
+   width: 100%;
    background-color: #181818;
    color: white;
-   position: relative;
-   display: inline-block;
 }
 
 .autocomplete {
   /* контейнер должен быть расположен относительно: */
   position: relative;
   display: inline-block;
+  height: 82%;
+  width: 85%;
 }
 input {
   border: 1px solid transparent;
