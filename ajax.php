@@ -274,7 +274,7 @@
                     }
                 }
                 {
-                    echo "Тут пока ничего нет";
+                    if($_POST['current_page']>1)echo"error";
                 }
             }
             else
