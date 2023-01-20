@@ -28,9 +28,9 @@
 
          $str = "Огромныя мама сухова ублажает !%№№;%% . молоденького паренька.jpg";
 
-         $str1 = substr($str,20)."...";
+         $str1 = substr($str,0,20)."...";
 
-         echo $str;
+         echo $str.'\n';
          echo $str1;
 /*
            // echo $text;
