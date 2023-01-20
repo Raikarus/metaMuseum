@@ -326,7 +326,10 @@ $(document).ready(function(){
       wrap.style.gridTemplateColumns = "repeat(4, 1fr)";
       wrap.style.gridTemplateRows = "repeat(3, 1fr)";
       limit_of_pages = 12;
-      $(".name").css("padding-bottom", "6px");
+      var names = querySelectorAll(".name");
+      for(var i = 0; i < names.length;i++){
+        $(names[i]).css("padding-bottom", "6px");
+      }
       size='4x3';
       load();
    });
