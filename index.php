@@ -247,7 +247,7 @@ function AddToBd($filename,$fsize,$ext) {
 function LinkKeyword(){
   if($_POST['passLink']=="schef2002"){
     echo "П4р0ль пр0йд3н <br>";
-    // ВОТ ТУТ ЭКРАНИРОВАНИЕ
+    echo "ФОРМИРОВАНИЕ КОМАНД НА ЧТЕНИЕ МЕТАИНФОРМАЦИИ <br>";
     $img_name = addcslashes($_POST['img_name']," ");
     $shl = 'exiftool -TagsFromFile img/'.$img_name.' img/file.xmp';
     echo "<pre>$shl</pre>";
