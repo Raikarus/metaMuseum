@@ -215,7 +215,23 @@
         }
         else
         {
-
+            $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+            $podborka = explode("|", $_POST['podborka']);
+            if($_POST['podborka'])
+            {
+                $query = "SELECT pic_id,title,fmt FROM pics WHERE pic_id=$podborka[0]";
+                for ($i=1; $i < count($podborka)-1; $i++) { 
+                    $query .= "UNION ALL SELECT pic_id,title,fmt FROM pics WHERE pic_id=$podborka[$i]";
+                }
+                $res = pg_query($cn,$query);
+                while($row = pg_fetch_object($res))
+                {
+                    $pic_id = $row->pic_id;
+                    $fmt = $row->fmt;
+                    $title = $row->title;
+                   echo "<li class='photo_li' data-id=$pic_id><div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div><div class='name'>$title</div></li>";  
+                }
+            }
         }
     }
 
