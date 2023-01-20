@@ -117,7 +117,7 @@ $(document).ready(function(){
       }
     });
 
-  $('.wrap').on("click",".tag_group .group_name .kword_solo",function (){
+  $('.wrap ').on("click",".tag_group .group_name .kword_solo",function (){
     var index = result_tags.indexOf($(this).data("tag"));
     if (index >= 0) {
       result_tags.splice(index, 1);
