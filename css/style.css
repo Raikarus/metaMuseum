@@ -476,6 +476,7 @@ footer {
   top: 100%;
   left: 0;
   right: 0;
+  background-color: #181818;
 }
 .autocomplete-items div {
   padding: 10px;
