@@ -1,6 +1,5 @@
-<?php
 
-?ead>
+<head>
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html">
 <link rel="stylesheet" href="css/style.css"  type="text/css">
