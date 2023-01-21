@@ -99,7 +99,7 @@ function moveZeros(arr) {
             }
              console.log(ss);
 
-            var ajaxurl = 'ajax.php';
+            var ajaxurl = 'ajax_pictags.php';
 
             if(status == 0)
             {
@@ -160,25 +160,6 @@ function moveZeros(arr) {
 <title>Главная</title>
 </head>
 <body>
-
-<header>
-      <div class = "container">
-         <div class = "logo_container">
-            <a class = "logo" href = "/?form=home">
-               DATABASE
-            </a>
-              <label class="switch">
-              <input type="checkbox">
-              <span class="slider round"></span>
-            </label>
-         </div>
-         <ul class = username_exit>
-            <li class = "usit_elem username">Username</li>
-            <li class = "usit_elem exit"><a class = "exit" href = "#">Exit</a></li>
-         </ul>
-      </div>
-   </header>
-
 <div class = "main">
    <div class = "main_left">
       <ul class = "photos_compilation" id = "compilation">
