@@ -591,6 +591,7 @@ footer {
 }
 
 #response {
+   height: 20px;
    position: absolute;
    bottom: 20px;
 }
