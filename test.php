@@ -1,4 +1,7 @@
 <script type="text/javascript">
-	console.log("podborka"+podborka);
+	function test()
+	{
+		console.log("podborka"+podborka);
+	}
 </script>
 
