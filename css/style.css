@@ -538,10 +538,10 @@ footer {
    color:white;
    z-index: 3;
 
+   flex-direction: column;
    display: flex;
    justify-content:  space-between;
    align-items: center;
-   flex-direction: column;
 }
 
 #name_podborka_form  h3 {
@@ -563,11 +563,12 @@ footer {
 
 #create_podborka {
    height: 35px;
-   width: 45px;
+   width: 100px;
    background-color: rgba(0, 0, 0, 0.5);
    color: white;
    border: 1px solid white;
    font-size: 20px;
+   border-radius: 50%;
 }
 
 #name_podborka_form_back {
