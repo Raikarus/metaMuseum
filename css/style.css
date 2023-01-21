@@ -548,7 +548,7 @@ footer {
    text-transform: uppercase;
    font-size: 25px;
    padding: 0;
-   margin: 50px 0 30px 0;
+   margin: 50px 0 15px 0;
 }
 
 #podborka_name {
@@ -559,6 +559,15 @@ footer {
    color: white;
    margin: 0;
    padding: 0;
+}
+
+#create_podborka {
+   height: 35px;
+   width: 45px;
+   background-color: rgba(0, 0, 0, 0.5);
+   color: white;
+   border: 1px solid white;
+   font-size: 20px;
 }
 
 #name_podborka_form_back {
