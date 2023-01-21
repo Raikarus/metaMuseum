@@ -53,6 +53,7 @@ function moveZeros(arr) {
 }
  
     $(document).ready(function(){
+      console.log("я живой");
         $('.comp_li_button').click(function(){
             var clickBtnValue = $(this).data('val');
             
