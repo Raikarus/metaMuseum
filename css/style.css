@@ -558,6 +558,7 @@ footer {
    background-color: rgba(0, 0, 0, 0.5);
    color: white;
    margin: 0;
+   margin-bottom: auto;
    padding: 0;
 }
 
@@ -568,7 +569,8 @@ footer {
    color: white;
    border: 1px solid white;
    font-size: 20px;
-   border-radius: 50%;
+   border-radius: 10px;
+   margin-bottom: 10px;
 }
 
 #name_podborka_form_back {
