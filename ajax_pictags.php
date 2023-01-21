@@ -67,7 +67,7 @@ function pre_load()
 
 function test()
 {
-    echo "<sctipt>alert($_SESSION['podborka']);</script>";
+    echo "$_SESSION['podborka']";
 }
 
 ?>
