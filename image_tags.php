@@ -23,6 +23,7 @@
 			}
 		}
 	}
+  // УДАЛИТЬ ВСЁ, КРОМЕ body
 ?>
 <!DOCTYPE HTML>
 <html>

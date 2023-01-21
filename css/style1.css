@@ -211,7 +211,6 @@ header {
    border-right: 1px solid white;
    display: flex;
    justify-content: flex-start;
-   cursor: pointer;
 }
 
 .photos_compilation {
