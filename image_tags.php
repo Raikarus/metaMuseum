@@ -16,7 +16,6 @@
 }
  
 $(document).ready(function(){
-  console.log("я живой");
     $('.comp_li_button').click(function(){
         var clickBtnValue = $(this).data('val');
         
@@ -62,8 +61,6 @@ $(document).ready(function(){
            ss += arr[i] + '|';
              
         }
-         console.log(ss);
-
         var ajaxurl = 'ajax_pictags.php';
 
         if(status == 0)
@@ -117,7 +114,6 @@ $(document).ready(function(){
               $('#wrapping').html(response); });
            status = 0;
           }
-          console.log(status);
      });
 });
 
