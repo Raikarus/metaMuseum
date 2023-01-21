@@ -378,6 +378,7 @@ function LinkKeyword(){
   <?php
     Download();
     LinkKeyword();
+    include 'test.php';
   ?>
 </div>
 </body>
