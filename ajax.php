@@ -1,5 +1,5 @@
 <?php 
-echo "<script> alert("sosi") </script>"
+echo "<script> alert("sosi"); </script>"
 
 if (isset($_POST['action'])) {
         switch ($_POST['action']) {
