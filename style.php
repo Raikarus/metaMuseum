@@ -32,13 +32,13 @@
    <header>
    <div class = "container">
       <div class = "logo_container">
-         <a class = "logo" href = "<?php echo $adding_path; ?>/?form=home">
+         <a class = "logo" href = "?form=home">
             DATABASE
          </a>
       </div>
       <!-- ТУТ ПОМЕНЯТЬ СТИЛИ -->
       <div>
-         <a href="<?php echo $adding_path; ?>/?form=pictags">
+         <a href="?form=pictags">
             ПРИСВОИТЬ ТЭГ
          </a>
       </div>
