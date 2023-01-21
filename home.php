@@ -8,19 +8,7 @@
          </div>
       </div>
 <!-- ТУТ ПОМЕНЯТЬ СТИЛИ -->
-<header>
-   <div class = "container">
-      <div class = "logo_container">
-         <a class = "logo" href = "/?form=home">
-            DATABASE
-         </a>
-      </div>
-      <ul class = username_exit>
-         <li class = "usit_elem username">Username</li>
-         <li class = "usit_elem exit"><a class = "exit" href = "#">Exit</a></li>
-      </ul>
-   </div>
-</header>
+
 
 <div class = "main">
    <div class = "main_left">

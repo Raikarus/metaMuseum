@@ -35,28 +35,125 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
     <script>
-
+      var count = 0;
+      var status = 0;
+      let arr = [(document.getElementsByName("img")).length];
+function moveZeros(arr) {
+    let upperBound = arr.length;
+    for (let i = 0; i < upperBound; i++) {
+        if (arr[i] === 0) {
+            arr.push(0);
+            arr.splice(i, 1);
+            upperBound--;
+            i--;
+        }
+    }
+    return arr;
+}
+ 
     $(document).ready(function(){
         $('.comp_li_button').click(function(){
             var clickBtnValue = $(this).data('val');
+            
+           
             if(clickBtnValue=='0')
             {
-              $(this).css('outline','1px solid red');
+             // $(this).css('outline','5px solid #24B47E');
+               $(this).css('background-color', '#24B47E');
               $(this).data('val','1');
+          
+               arr[count] =  String($(this).data('img'));
+              
+              if(count < document.getElementsByName("img").length)
+              {
+               count++;
+              }
+
             }
             else
             {
-              $(this).css('outline','none');
+              //$(this).css('outline','none');
+               $(this).css('background-color', 'rgba(255, 255, 255, 0)');
               $(this).data('val','0');
+
+              for(var i =0;i <count;i++ )
+              {
+               if(arr[i] == $(this).data('img'))
+               {
+                   arr[i] = 0;
+                   moveZeros(arr);
+                   break;
+               }
+              }
+             
+              count--;
             }
             
-            /*var clickBtnValue = $(this).val();
+          
+            var ss = "";
+
+            for(var i = 0; i < count;i++)
+            {
+               ss += arr[i] + '|';
+                 
+            }
+             console.log(ss);
+
             var ajaxurl = 'ajax.php';
-            data =  {'action': clickBtnValue};
-            $.post(ajaxurl, data, function (response) {
-                  $('#out').html(response);
-            });*/
+
+            if(status == 0)
+            {
+               
+                data =  {'action': 'set_img','img_string':ss};
+               $.post(ajaxurl, data).done(function (response) {
+                  $('#wrapping').html(response);
+            });
+            } 
+            else
+            {
+                 data =  {'action': 'set_img','img_string':"download_mode"};
+               $.post(ajaxurl, data).done(function (response) {
+                  $('#wrapping').html(response); });
+            }
+            
+         
         });
+
+         $('.switch').click(function(){
+            
+              status++;
+              if(status == 1) //download mode
+              {
+               for(var i =0; i < document.getElementsByName("img").length;i++)
+               {
+                     $(document.getElementsByName("img")[i]).css('display','none');  // надо сделать норм удаление 
+               }
+                  var ajaxurl = 'ajax.php';
+                  data =  {'action': 'set_img','img_string':"download_mode"};
+                  $.post(ajaxurl, data).done(function (response) {
+                  $('#wrapping').html(response); });
+              }
+              else //default mode
+              {
+                 for(var i =0; i < document.getElementsByName("img").length;i++)
+               {
+                     $(document.getElementsByName("img")[i]).css('display','flex');  // надо сделать норм удаление 
+               }
+                var ss = "";
+
+               for(var i = 0; i < count;i++)
+               {
+                  ss += arr[i] + '|';
+                    
+               }
+               var ajaxurl = 'ajax.php';
+                  data =  {'action': 'set_img','img_string':ss};
+                  $.post(ajaxurl, data).done(function (response) {
+                  $('#wrapping').html(response); });
+               status = 0;
+              }
+              console.log(status);
+         });
     });
 
     </script>
@@ -70,6 +167,10 @@
             <a class = "logo" href = "/?form=home">
                DATABASE
             </a>
+              <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
          </div>
          <ul class = username_exit>
             <li class = "usit_elem username">Username</li>
@@ -87,7 +188,7 @@
 				foreach($files as $n => $img){
 					if ($img != '.' && $img != '..') echo '  
                <li class = "compilation_li">
-                           <button class = "comp_li_button" data-val= "0">
+                           <button class = "comp_li_button" data-val= "0" name ="img" data-img = "'.$img.'">
                				   <div class = "comp_li_photo" style="background-image:url('."'".'img/'.$img."'".'"></div>
                				   <div class = "comp_li_name">'.$img.'</div>   
                            </button>        
