@@ -1,3 +1,7 @@
+<?php
+  $_SESSION['test'] = "AAAAA";
+?>
+
 <script>
 var mod_2 = "podborka";
 let selected_images = [];
@@ -5,6 +9,15 @@ let selected_images = [];
  
 $(document).ready(function(){
     
+    function test()
+    {
+      data = {'action': 'test'}
+      $.post(ajaxurl,data).done(function(response){
+        $('.photos_compilation').html(response);
+      })
+    }
+    test();
+
     function pre_load()
     {
       var ajaxurl = 'ajax_pictags.php';

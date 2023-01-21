@@ -1,4 +1,5 @@
 <?php
+   session_start();
 	$form = $_GET['form'];
    $load_page = "";
    switch ($form) {
@@ -7,6 +8,10 @@
          break;
       case 'pictags':
          $load_page = "image_tags.php";
+         break;
+      case 'exit':
+         session_destroy();
+         header('location:/');
          break;
       default:
          $load_page = "home.php";
@@ -53,7 +58,7 @@ switch ($load_page) {
       <!-- ТУТ ПОМЕНЯТЬ СТИЛИ -->
       <ul class = username_exit>
          <li class = "usit_elem username">Username</li>
-         <li class = "usit_elem exit"><a class = "exit" href = "#">Exit</a></li>
+         <li class = "usit_elem exit"><a class = "exit" href = "/?form=exit">Exit</a></li>
       </ul>
    </div>
 </header>

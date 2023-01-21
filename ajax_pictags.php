@@ -1,4 +1,5 @@
 <?php 
+session_start();
 if (isset($_POST['action'])) {
         switch ($_POST['action']) {
             case 'load_podborka':
@@ -9,6 +10,9 @@ if (isset($_POST['action'])) {
                 break;
             case 'pre_load':
                 pre_load();
+                break;
+            case 'test'
+                test();
                 break;
         }
     }
@@ -60,4 +64,10 @@ function pre_load()
         echo "Локальная подборка пуста";
     }
 }
+
+function test()
+{
+    echo "<sctipt>alert($_SESSION['podborka']);</script>";
+}
+
 ?>
