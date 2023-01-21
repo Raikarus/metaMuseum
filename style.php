@@ -6,7 +6,7 @@
          $load_page = "home.php";
          break;
       case 'pictags':
-         $load_page = "pictags.php";
+         $load_page = "img_tags.php";
          break;
       default:
          $load_page = "home.php";
