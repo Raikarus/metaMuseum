@@ -104,5 +104,8 @@
          <input type = "submit" name = "sizes" id = "size_big" value = "3x2">
       </div>
    </footer>
+   <?php 
+    include 'test.php';
+   ?>
 </body>
 </html>
