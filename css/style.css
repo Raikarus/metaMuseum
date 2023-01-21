@@ -539,9 +539,9 @@ footer {
    z-index: 3;
 
    display: flex;
-   justify-content: center;
+   justify-content:  space-between;
    align-items: center;
-   flex-direction: space-between;
+   flex-direction: column;
 }
 
 #name_podborka_form  h3 {
