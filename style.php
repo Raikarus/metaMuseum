@@ -12,6 +12,10 @@
          $load_page = "home.php";
          break;
    }
+
+   // УДАЛИТЬ ЭТО ПОСЛЕ ПЕРЕНОСА САЙТА В КОРЕНЬ
+   // ЭТОТ ФАЙЛ ПЕРЕИМЕНОВАТЬ В index.php
+   $adding_path = "Schef/metaMuseum/style.php"
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -28,13 +32,13 @@
    <header>
    <div class = "container">
       <div class = "logo_container">
-         <a class = "logo" href = "/?form=home">
+         <a class = "logo" href = "<?php echo $adding_path; ?>/?form=home">
             DATABASE
          </a>
       </div>
       <!-- ТУТ ПОМЕНЯТЬ СТИЛИ -->
       <div>
-         <a href="/?form=pictags">
+         <a href="<?php echo $adding_path; ?>/?form=pictags">
             ПРИСВОИТЬ ТЭГ
          </a>
       </div>
