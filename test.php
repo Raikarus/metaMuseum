@@ -1,4 +1,4 @@
 <script type="text/javascript">
-	console.log(podborka);
+	console.log("podborka"+podborka);
 </script>
 
