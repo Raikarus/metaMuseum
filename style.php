@@ -1,5 +1,17 @@
 <?php
-	
+	$form = $_GET['form'];
+   $load_page = "";
+   switch ($form) {
+      case 'home':
+         $load_page = "home.php";
+         break;
+      case 'pictags':
+         $load_page = "pictags.php";
+         break;
+      default:
+         $load_page = "home.php";
+         break;
+   }
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -13,7 +25,8 @@
 
 </head>
 <body>
-<!-- ТУТ ПОМЕНЯТЬ СТИЛИ -->
+<!-- 
+ТУТ ПОМЕНЯТЬ СТИЛИ 
          <div id = "name_podborka_form_back">
             <div id = "name_podborka_form">
                <h3>Введите название:</h3>
@@ -22,7 +35,7 @@
                <div id = "response"></div>
             </div>
          </div>
-<!-- ТУТ ПОМЕНЯТЬ СТИЛИ -->
+ТУТ ПОМЕНЯТЬ СТИЛИ 
 <header>
       <div class = "container">
          <div class = "logo_container">
@@ -64,7 +77,7 @@
                </form>
                <div class = "tags">
                	<ul class = "list_of_groups">
-                     <!-- Два режима: kwords И подборки (SELECTIONS) -->
+                      Два режима: kwords И подборки (SELECTIONS) 
 					   </ul>
                </div>
          </div>
@@ -86,7 +99,7 @@
             <li><input id = "add_to_podborka" type = "submit" name = "funtional" value="Добавить в подборку"></li>
             <li><input class = "select_all" type = "submit" name = "funtional" value="Выделить всё"></li>
             <li><input class = "unselect_all" type = "submit" name = "funtional" value="Снять выделение"></li>
-            <!-- <li><input type = "submit" name = "funtional" value="Отменить"></li> -->
+             <li><input type = "submit" name = "funtional" value="Отменить"></li> 
          </ul> 
       </div>
       <div class = "instruments" id = "fin_ins">
@@ -103,9 +116,9 @@
          <input type = "submit" name = "sizes" id = "size_normal" value = "4x3">
          <input type = "submit" name = "sizes" id = "size_big" value = "3x2">
       </div>
-   </footer>
+   </footer> -->
    <?php 
-    include 'test.php';
+    include $load_page;
    ?>
 </body>
 </html>
