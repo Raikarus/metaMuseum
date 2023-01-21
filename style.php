@@ -12,10 +12,6 @@
          $load_page = "home.php";
          break;
    }
-
-   // УДАЛИТЬ ЭТО ПОСЛЕ ПЕРЕНОСА САЙТА В КОРЕНЬ
-   // ЭТОТ ФАЙЛ ПЕРЕИМЕНОВАТЬ В index.php
-   $adding_path = "Schef/metaMuseum/style.php"
 ?>
 <!DOCTYPE HTML>
 <html>
