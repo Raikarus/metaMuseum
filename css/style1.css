@@ -209,6 +209,7 @@ header {
    width: 25%;
    height: 100%;
    border-right: 1px solid white;
+   display: flex;
    justify-content: flex-start;
    flex-direction: column;
 }
