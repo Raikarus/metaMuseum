@@ -537,6 +537,7 @@ footer {
    border-radius: 10px;
    color:white;
    z-index: 3;
+   position: relative;
 
    flex-direction: column;
    display: flex;
@@ -587,4 +588,9 @@ footer {
    justify-content: center;
    align-items: center;
    z-index: 2;
+}
+
+#response {
+   position: absolute;
+   bottom: 20px;
 }
