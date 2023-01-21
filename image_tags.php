@@ -1,5 +1,5 @@
 <?php
-  $_SESSION['test'] = "AAAAA";
+  $_SESSION['podborka'] = "AAAAA";
 ?>
 
 <script>
