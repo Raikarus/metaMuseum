@@ -1,5 +1,5 @@
 <?php 
-echo "<script> alert("sosi"); </script>"
+echo "<script>console.log("ss");</script>"
 
 if (isset($_POST['action'])) {
         switch ($_POST['action']) {
