@@ -11,7 +11,7 @@ if (isset($_POST['action'])) {
             case 'pre_load':
                 pre_load();
                 break;
-            case 'test'
+            case 'test':
                 test();
                 break;
         }
