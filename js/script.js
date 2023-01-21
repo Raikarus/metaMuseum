@@ -556,5 +556,9 @@ $(document).ready(function(){
     build_poisk();
     load();  
   }
+  catch
+  {
+  
+  }
   
 });
