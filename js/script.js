@@ -207,9 +207,12 @@ function load()  {
       $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
     }
     else {
-      current_page-=1;
-      $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
-      load();
+      if(current_page != 1)
+        {
+          current_page-=1;
+          $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
+          load();
+        }
     } 
   });
 }
@@ -558,7 +561,7 @@ $(document).ready(function(){
   }
   catch
   {
-  
+
   }
   
 });

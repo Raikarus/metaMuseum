@@ -235,7 +235,7 @@
                 exit();
         	}
         }
-        else if ($mod == "podborka")
+        else if ($_POST['mod'] == "podborka")
         {
             $start = 0;
             $end = 6;
