@@ -235,7 +235,7 @@
                 exit();
         	}
         }
-        else
+        else if ($mod == "podborka")
         {
             $start = 0;
             $end = 6;
@@ -282,6 +282,7 @@
                         exit();
                     }
                 }
+                else
                 {
                     if($_POST['current_page']>1)
                         {
