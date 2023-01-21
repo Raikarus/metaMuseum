@@ -550,8 +550,11 @@ $(document).ready(function(){
       
     });
   });
-
-  show_kwords();
-  build_poisk();
-  load();
+  try()
+  {
+    show_kwords();
+    build_poisk();
+    load();  
+  }
+  
 });
