@@ -11,6 +11,7 @@ $(document).ready(function(){
     
     function test()
     {
+      var ajaxurl = 'ajax_pictags.php';
       data = {'action': 'test'}
       $.post(ajaxurl,data).done(function(response){
         $('.photos_compilation').html(response);
