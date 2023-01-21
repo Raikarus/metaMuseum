@@ -1,38 +1,34 @@
 <?php
-  $_SESSION['podborka'] = "AAAAA";
+  //$_SESSION['podborka'] = "AAAAA";
 ?>
 
 <script>
 var mod_2 = "podborka";
 let selected_images = [];
-
+var podborka = "";
  
 $(document).ready(function(){
     
-    function test()
+    function get_podborka_value()
     {
       var ajaxurl = 'ajax_pictags.php';
       data = {'action': 'test'}
       $.post(ajaxurl,data).done(function(response){
-        $('.photos_compilation').html(response);
+        podborka = response;
       })
     }
-    test();
 
     function pre_load()
     {
       var ajaxurl = 'ajax_pictags.php';
-      //$cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
-      var podborka_string = "";
-      for (var i = 0; i < podborka.length; i++) {
-        podborka_string += podborka[i] + "|";
-      }
       data = {'action': 'pre_load', 'podborka':podborka_string}
       $.post(ajaxurl,data).done(function(response){
         $('.photos_compilation').html(response);
       })
     }
-    //pre_load();
+    
+    get_podborka_value();
+    pre_load();
 
     function load_page()
     {

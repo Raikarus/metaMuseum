@@ -564,4 +564,13 @@ $(document).ready(function(){
 
   }
   
+  $('.logo').click(function(){
+    var ajaxurl = 'ajax.php';
+    var podborka_string = "";
+    for (var i = 0; i < podborka.length; i++) {
+      podborka_string += podborka[i]+"|";
+    }
+    data = {'action':'set_value_podborka', 'podborka':podborka_string};
+    $.ajax(ajaxurl,data);
+  });
 });

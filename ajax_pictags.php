@@ -11,8 +11,8 @@ if (isset($_POST['action'])) {
             case 'pre_load':
                 pre_load();
                 break;
-            case 'test':
-                test();
+            case 'get_podborka_value':
+                get_podborka_value();
                 break;
         }
     }
@@ -65,9 +65,9 @@ function pre_load()
     }
 }
 
-function test()
+function get_podborka_value()
 {
-    echo $_SESSION['podborka']."123";
+    $podborka = explode("|",$_SESSION['podborka']);
 }
 
 ?>

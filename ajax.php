@@ -1,5 +1,5 @@
 <?php
-    
+    session_start();
     if (isset($_POST['action'])) {
         switch ($_POST['action']) {
             case 'read':
@@ -486,6 +486,11 @@
                 exit();
             }
         }
+    }
+
+    function set_podborka_value()
+    {
+        $_SESSION['podborka']=$_POST['podborka'];   
     }
 
 ?>
