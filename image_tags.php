@@ -1,5 +1,4 @@
 <script>
-var count = 0;
 var mod_2 = "podborka";
 let selected_images = [];
 
@@ -60,40 +59,6 @@ $(document).ready(function(){
       mod2_ = "download";
       load_page();
     });
-     $('.switch').click(function(){
-        
-          status++;
-          if(status == 1) //download mode
-          {
-           for(var i =0; i < document.getElementsByName("img").length;i++)
-           {
-                 $(document.getElementsByName("img")[i]).css('display','none');  // надо сделать норм удаление 
-           }
-              var ajaxurl = 'ajax.php';
-              data =  {'action': 'set_img','img_string':"download_mode"};
-              $.post(ajaxurl, data).done(function (response) {
-              $('#wrapping').html(response); });
-          }
-          else //default mode
-          {
-             for(var i =0; i < document.getElementsByName("img").length;i++)
-           {
-                 $(document.getElementsByName("img")[i]).css('display','flex');  // надо сделать норм удаление 
-           }
-            var ss = "";
-
-           for(var i = 0; i < count;i++)
-           {
-              ss += selected_images[i] + '|';
-                
-           }
-           var ajaxurl = 'ajax.php';
-              data =  {'action': 'set_img','img_string':ss};
-              $.post(ajaxurl, data).done(function (response) {
-              $('#wrapping').html(response); });
-           status = 0;
-          }
-     });
 });
 
 </script>
