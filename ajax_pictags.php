@@ -24,6 +24,6 @@ function load_podborka()
 
 function load_download()
 {
-    echo '<img src="document.png" alt="s" width="150%" height="150%"><span class = "cloud_tag" style="font-size: 40 me;">Загрузка</span>';
+    echo '<img src="Шефердия.png" alt="s" width="150%" height="150%"><span class = "cloud_tag" style="font-size: 40 me;">Загрузка</span>';
 }
 ?>

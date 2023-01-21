@@ -15,7 +15,7 @@ $(document).ready(function(){
         }
 
         var ajaxurl = 'ajax_pictags.php';
-        if(status == "podborka")
+        if(mod_2 == "podborka")
         {
           data =  {'action': 'load_podborka','img_string':selected_images_string};
           $.post(ajaxurl, data).done(function (response) {
@@ -53,7 +53,11 @@ $(document).ready(function(){
     });
     
     $('#mod_podborka').click(function(){
-      status = 0;
+      mod_2 = "podborka";
+      load_page();
+    });
+    $('#mod_download').click(function(){
+      mod2_ = "download";
       load_page();
     });
      $('.switch').click(function(){
