@@ -67,7 +67,7 @@ function pre_load()
 
 function test()
 {
-    echo "$_SESSION['podborka']";
+    echo $_SESSION['podborka'];
 }
 
 ?>
