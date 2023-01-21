@@ -1,64 +1,35 @@
 <script>
-      var count = 0;
-      var status = 0;
-      let arr = [(document.getElementsByName("img")).length];
-    function moveZeros(arr) {
-    let upperBound = arr.length;
-    for (let i = 0; i < upperBound; i++) {
-        if (arr[i] === 0) {
-            arr.push(0);
-            arr.splice(i, 1);
-            upperBound--;
-            i--;
-        }
-    }
-    return arr;
-}
+var count = 0;
+var status = 0;
+let selected_images = [];
+
  
 $(document).ready(function(){
     $('.comp_li_button').click(function(){
         var clickBtnValue = $(this).data('val');
-        
-       
         if(clickBtnValue=='0')
         {
-         // $(this).css('outline','5px solid #24B47E');
-           $(this).css('background-color', '#24B47E');
+          $(this).css('background-color', '#24B47E');
           $(this).data('val','1');
-      
-           arr[count] =  String($(this).data('img'));
-          
-          if(count < document.getElementsByName("img").length)
-          {
-           count++;
-          }
 
+          selected_images.push(String($(this).data('img')));
+          count++;
         }
         else
         {
-          //$(this).css('outline','none');
-           $(this).css('background-color', 'rgba(255, 255, 255, 0)');
+          $(this).css('background-color', 'rgba(255, 255, 255, 0)');
           $(this).data('val','0');
 
-          for(var i =0;i <count;i++ )
-          {
-           if(arr[i] == $(this).data('img'))
-           {
-               arr[i] = 0;
-               moveZeros(arr);
-               break;
-           }
-          }
-         
+          selected_images.splice(selected_images.indexOf($(this).data('img')),1);
           count--;
         }
         
       
-        var ss = "";
+        var selected_images_string = "";
 
-        for(var i = 0; i < count;i++)
+        for(var i = 0; i < selected_images.length;i++)
         {
-           ss += arr[i] + '|';
+           selected_images_string += selected_images[i] + '|';
              
         }
         var ajaxurl = 'ajax_pictags.php';
@@ -66,16 +37,16 @@ $(document).ready(function(){
         if(status == 0)
         {
            
-            data =  {'action': 'set_img','img_string':ss};
+           data =  {'action': 'set_img','img_string':selected_images_string};
            $.post(ajaxurl, data).done(function (response) {
-              $('#wrapping').html(response);
+           $('#wrapping').html(response);
         });
         } 
         else
         {
-             data =  {'action': 'set_img','img_string':"download_mode"};
-           $.post(ajaxurl, data).done(function (response) {
-              $('#wrapping').html(response); });
+          data =  {'action': 'set_img','img_string':"download_mode"};
+          $.post(ajaxurl, data).done(function (response) {
+          $('#wrapping').html(response); });
         }
         
      
@@ -105,7 +76,7 @@ $(document).ready(function(){
 
            for(var i = 0; i < count;i++)
            {
-              ss += arr[i] + '|';
+              ss += selected_images[i] + '|';
                 
            }
            var ajaxurl = 'ajax.php';
@@ -120,6 +91,12 @@ $(document).ready(function(){
 </script>
 <div class = "main">
 <div class = "main_left">
+  <!-- ТУТ ПОМЕНЯТЬ СТИЛИ (style1.css) -->
+  <div id = "mod_swapper"style="display:flex;justify-content: center;align-items: center;width: 100%;height: 10%;">
+    <button id = "mod_podborka" style = "width:50%;height: 100%">Подборка</button>
+    <button id = "mod_download" style = "width:50%;height: 100%">Загруженное</button>
+  </div>
+  <!-- ТУТ ПОМЕНЯТЬ СТИЛИ -->  
   <ul class = "photos_compilation" id = "compilation">
      <?php
       $dir='./img';
