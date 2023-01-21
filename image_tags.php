@@ -4,6 +4,21 @@ let selected_images = [];
 
  
 $(document).ready(function(){
+    
+    function pre_load()
+    {
+      var ajaxurl = 'ajax_pictags.php';
+      //$cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+      var podborka_string = "";
+      for (var i = 0; i < podborka.length; i++) {
+        podborka_string += podborka[i] + "|";
+      }
+      data = {'action': 'pre_load', 'podborka':podborka_string}
+      $.post(ajaxurl,data).done(function(response){
+        $('.photos_compilation').html(response);
+      })
+    }
+    pre_load();
 
     function load_page()
     {
@@ -69,19 +84,7 @@ $(document).ready(function(){
   </div>
   <!-- ТУТ ПОМЕНЯТЬ СТИЛИ -->  
   <ul class = "photos_compilation" id = "compilation">
-     <?php
-      $dir='./img';
-  	$files = scandir($dir);
-  	foreach($files as $n => $img){
-  		if ($img != '.' && $img != '..') echo '  
-           <li class = "compilation_li">
-                     <button class = "comp_li_button" data-val= "0" name ="img" data-img = "'.$img.'">
-           				   <div class = "comp_li_photo" style="background-image:url('."'".'img/'.$img."'".'"></div>
-           				   <div class = "comp_li_name">'.$img.'</div>   
-                     </button>        
-        			 </li>';
-  	}
-     	?>               
+            
   </ul>
 </div>
 <div class = "main_center">
