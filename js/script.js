@@ -550,7 +550,7 @@ $(document).ready(function(){
       
     });
   });
-  try()
+  try
   {
     show_kwords();
     build_poisk();
