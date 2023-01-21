@@ -1,10 +1,36 @@
 <script>
 var count = 0;
-var status = 0;
+var mod_2 = "podborka";
 let selected_images = [];
 
  
 $(document).ready(function(){
+
+    function load_page()
+    {
+        var selected_images_string = "";
+        for(var i = 0; i < selected_images.length;i++)
+        {
+           selected_images_string += selected_images[i] + '|';
+        }
+
+        var ajaxurl = 'ajax_pictags.php';
+        if(status == "podborka")
+        {
+          data =  {'action': 'load_podborka','img_string':selected_images_string};
+          $.post(ajaxurl, data).done(function (response) {
+            $('#wrapping').html(response);
+          });
+        } 
+        else
+        {
+          data =  {'action': 'load_download'};
+          $.post(ajaxurl, data).done(function (response) {
+            $('#wrapping').html(response);
+          });
+        }
+    }
+
     $('.comp_li_button').click(function(){
         var clickBtnValue = $(this).data('val');
         if(clickBtnValue=='0')
@@ -23,35 +49,13 @@ $(document).ready(function(){
           selected_images.splice(selected_images.indexOf($(this).data('img')),1);
           count--;
         }
-        
-      
-        var selected_images_string = "";
-
-        for(var i = 0; i < selected_images.length;i++)
-        {
-           selected_images_string += selected_images[i] + '|';
-             
-        }
-        var ajaxurl = 'ajax_pictags.php';
-
-        if(status == 0)
-        {
-           
-           data =  {'action': 'set_img','img_string':selected_images_string};
-           $.post(ajaxurl, data).done(function (response) {
-           $('#wrapping').html(response);
-        });
-        } 
-        else
-        {
-          data =  {'action': 'set_img','img_string':"download_mode"};
-          $.post(ajaxurl, data).done(function (response) {
-          $('#wrapping').html(response); });
-        }
-        
-     
+        load_page();
     });
-
+    
+    $('#mod_podborka').click(function(){
+      status = 0;
+      load_page();
+    });
      $('.switch').click(function(){
         
           status++;
@@ -104,10 +108,10 @@ $(document).ready(function(){
   	foreach($files as $n => $img){
   		if ($img != '.' && $img != '..') echo '  
            <li class = "compilation_li">
-                       <button class = "comp_li_button" data-val= "0" name ="img" data-img = "'.$img.'">
+                     <button class = "comp_li_button" data-val= "0" name ="img" data-img = "'.$img.'">
            				   <div class = "comp_li_photo" style="background-image:url('."'".'img/'.$img."'".'"></div>
            				   <div class = "comp_li_name">'.$img.'</div>   
-                       </button>        
+                     </button>        
         			 </li>';
   	}
      	?>               
