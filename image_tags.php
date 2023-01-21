@@ -38,7 +38,6 @@ $(document).ready(function(){
           $(this).data('val','1');
 
           selected_images.push(String($(this).data('img')));
-          count++;
         }
         else
         {
@@ -46,7 +45,6 @@ $(document).ready(function(){
           $(this).data('val','0');
 
           selected_images.splice(selected_images.indexOf($(this).data('img')),1);
-          count--;
         }
         load_page();
     });
