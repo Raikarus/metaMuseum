@@ -32,7 +32,7 @@ $(document).ready(function(){
         $('.photos_compilation').html(response);
       })
     }
-    pre_load();
+    //pre_load();
 
     function load_page()
     {
