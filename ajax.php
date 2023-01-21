@@ -1,4 +1,6 @@
 <?php 
+echo "<script> alert("sosi") </script>"
+
 if (isset($_POST['action'])) {
         switch ($_POST['action']) {
             case 'set_img':
