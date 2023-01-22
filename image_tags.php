@@ -6,6 +6,7 @@
 
 <script>
 var mod_2 = "podborka";
+var switcher = document.querySelectorAll(".mod_switch")
 let selected_images = [];
 let selected_images_id = [];
 
@@ -44,7 +45,7 @@ $(document).ready(function(){
       }
 
       var ajaxurl = 'ajax_pictags.php';
-      if(mod_2 == "podborka")
+      if(switcher.checked)
       {
         data =  {'action': 'load_podborka','img_string':selected_images_string};
         $.post(ajaxurl, data).done(function(response) {
@@ -84,17 +85,20 @@ $(document).ready(function(){
       }
       load_page();
     });
-    
-    $('#mod_podborka').click(function(){
-      mod_2 = "podborka";
-      check_selection();
-      pre_load();
-      load_page();
-    });
-    $('#mod_download').click(function(){
-      mod_2 = "download";
-      $('.photos_compilation').html("");
-      load_page();
+
+      if (switcher.checked)
+      {
+         switcher.checked = false;
+         $('.photos_compilation').html("");
+         load_page();
+      }
+      else
+      {
+         switcher.checked = true;
+         check_selection();
+         pre_load();
+         load_page();
+      }
     });
 
     function check_selection()
@@ -124,7 +128,7 @@ $(document).ready(function(){
     <div class="switcher_block">
       <span class = "current_mod">Режим</span>
       <label id = "mod_swapper">
-         <input type = "checkbox" class = "mod_switch">
+         <input type = "checkbox" class = "mod_switch" checked>
          <span class = "slider"></span>
       </label>
     </div>
