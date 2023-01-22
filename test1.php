@@ -36,7 +36,7 @@
 
     <script>
  $(document).ready(function(){
-        $('.cloud_tag').click(function(){
+        $('.comp_li_button').click(function(){
             var clickBtnValue = $(this).data('val');
             
            
