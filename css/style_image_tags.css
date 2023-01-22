@@ -121,10 +121,11 @@
       width: 60%;
       height: 100%;
       background-size: contain;
-      background-position: right;
+      background-position: center;
       background-repeat: no-repeat;
       margin-left: 5px;
       margin-right: 10px;
+      border: 1px solid rgba(107, 107, 107, 0.5);
    }
 
    .comp_li_name {
