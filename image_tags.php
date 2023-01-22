@@ -89,16 +89,16 @@ $(document).ready(function(){
     $('#mod_swapper').click(function(){
       if (switcher.checked)
       {
-         switcher.checked = false;
          $('.photos_compilation').html("");
          load_page();
+         switcher.checked = false;       
       }
       else
       {
-         switcher.checked = true;
          check_selection();
          pre_load();
          load_page();
+         switcher.checked = true;
       }
     });
 
