@@ -55,7 +55,6 @@ $(document).ready(function(){
           data =  {'action': 'load_download'};
           $.post(ajaxurl, data).done(function (response) {
             $('#wrapping').html(response);
-            
           });
         }
     }
