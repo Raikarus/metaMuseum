@@ -116,7 +116,7 @@ function load_cross_kwords()
                 {
                     $kword_name = $row->kword_name;
                     //СКОПИРОВАТЬ СТИЛИ ИЛИ ДОБАВИТЬ ДУБЛИКАТ СВОИХ
-                    echo "<li>$kword_name</li>"
+                    echo "<li>$kword_name</li>";
                 }
             }
             else
