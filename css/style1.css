@@ -406,7 +406,7 @@ header {
    height: 100%;
    width: 50%;
    padding-left: 5px;
-   overflow: hidden
+   overflow: hidden;
      display: inline;
 }
 .choosen_tags::-webkit-scrollbar {
