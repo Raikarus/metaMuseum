@@ -40,7 +40,7 @@
  $(document).ready(function(){
         $('.normal_tags').on("click",".transparent_check_box",function(){
           
-            var clickBtnValue =   $(this).data('val',0);
+            var clickBtnValue =   $(this).data('val');
             
            
 
