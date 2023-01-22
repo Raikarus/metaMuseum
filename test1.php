@@ -144,7 +144,7 @@
                      <input type = "submit" name = "submit" class = "submit" value="ADD">
                   </form>
                </div>
-               <div class = "tags" >
+               <div class = "tags_group" >
                
                 
                </div>
