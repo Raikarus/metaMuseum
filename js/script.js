@@ -611,7 +611,8 @@ $(document).ready(function(){
         data: {'action':'get_podborka_value'},
         success:function(responce){
             //{"a":"b|","c","d|"}
-            var step1 = ((JSON.stringify(responce)).replace(/"/gi,'').replace("{",'').replace("}",'')).split(",");
+            var step1 = ((JSON.stringify(responce)).replace(/"/gi,'').replace("{",'').replace("}",''));
+            step1 = step1.split(",");
             alert(step1);
             for(var i = 0; i < step1.length;i++)
               console.log(step1[i]);
