@@ -610,9 +610,9 @@ $(document).ready(function(){
         type:"POST",
         data: {'action':'get_podborka_value'},
         success:function(responce){
-            alert("1");
-
-            alert((JSON.stringify(responce)).replace(/"/gi,''));
+            //{"a":"b|","c","d|"}
+            var step1 = (JSON.stringify(responce)).replace(/"/gi,'').replace("{",'').replace("}",'').split(",");
+            alert(step1);
         },
         dataType:"json"
       });
