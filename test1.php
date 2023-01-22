@@ -54,6 +54,7 @@
             {
               console.log($(this));
               console.log(tags[0]);
+              console.log(
               console.log(document.getElementsByName("transparent_check_box").length); 
              // console.log(tags[tags.indexOf($(this))]);
 
@@ -106,10 +107,12 @@
                 while(tags.length > 0) 
                 {
                  tags.pop();
+                 check_tags.pop();
                 }
             for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
             {
             tags.push(document.getElementsByName("tags_button")[i]);
+             check_tags.push(document.getElementsByName("transparent_check_box")[i]);
             }
        }
 
