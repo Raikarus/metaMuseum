@@ -554,9 +554,9 @@ $(document).ready(function(){
     });
   });
 
-  function get_podborka_value{
+  function get_form_value(){
     var ajaxurl = 'ajax.php';
-    data = {'action':'get_podborka_value'};
+    data = {'action':'get_form_value'};
     $.post(ajaxurl,data).done(function(responce){
       form = responce;
       if(form == "home.php")
@@ -567,6 +567,7 @@ $(document).ready(function(){
       }
     });
   }
+  get_form_value();
 // try
 // {
 //   var ajaxurl = 'ajax.php';
