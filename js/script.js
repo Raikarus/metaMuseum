@@ -37,7 +37,6 @@ function build_poisk()
     }
     else
     {
-      alert("1");
       var podborki = document.querySelectorAll(".podborka");
       for (var i = 0; i < podborki.length;i++)
       {
@@ -48,6 +47,7 @@ function build_poisk()
   }
   else if(form == "image_tags.php")
   {
+    alert("1");
     poisk = [];
     var kwords = document.querySelectorAll(".kword_solo");
     for (var i = 0; i < kwords.length; i++) {
