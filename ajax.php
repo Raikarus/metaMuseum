@@ -41,6 +41,9 @@
             case 'return_massiv':
                 return_massiv();
                 break;
+            case 'set_podborka_value':
+                set_podborka_value();
+                break;
         }
     }
 
@@ -489,6 +492,8 @@
     function set_podborka_value()
     {
         $_SESSION['podborka']=$_POST['podborka'];
+        echo "<script>alert('".$_POST['podborka']."');</script>";
+        echo "<script>alert('".$SESSION['podborka']."');</script>";
     }
 
 ?>
