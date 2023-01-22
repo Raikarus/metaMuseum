@@ -35,9 +35,7 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
     <script>
-       let tags = [(document.getElementsByName("tags_button")).length];
-        let tags_normal = [];
-         let tags_del = [];
+       let tags = [(document.getElementsByName("tags_button")).length]; // фиксированный пизже
        update_tags();
  $(document).ready(function(){
         $('.normal_tags').on("click",".transparent_check_box",function(){
@@ -49,28 +47,19 @@
             for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
             {
             tags.push(document.getElementsByName("tags_button")[i]);
-              if($(document.getElementsByName("tags_button")[i]).data('val') ==1)
-              {
-                tags_normal.push(document.getElementsByName("tags_button")[i]);
-              }
-              else
-              {
-                tags_del.push(document.getElementsByName("tags_button")[i]);
-              }
+          
             }
            
             if(clickBtnValue=='0')
             {
              // $(this).data('val',1);
-                 console.log(tags_del[0]);
-              console.log($(this).data('str'));
+              
+                console.log($(this).data('str'));
                for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
                 {
-                  if($(tags_normal[i]).data('str') == $(this).data('str') )
+                  if($(tags[i]).data('str') == $(this).data('str') )
                   {
-                    $(tags_normal[i]).data('val',0);
-                    tags_del.push(tags_normal[i]);
-                    tags_normal.pop(tags_normal[i]);
+                    $(tags[i]).data('val',0);
                     break;
                   }
                 }
@@ -92,37 +81,33 @@
 
                for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
                 {
-                 
+                  if($(tags[i]).data('val') == 1 )
+                  {
                     try
                     {
-                       tags_normal[i].innerHTML = ' <label name="tags_button" data-val = "1" data-str = sss><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+$(tags_normal[i]).data('str')+' checked><span class = "cloud_tag" style="font-size:30 ;">'+$(tags_normal[i]).data('str')+'</span></label>';
+                       tags[i].innerHTML = ' <label name="tags_button" data-val = "1" data-str = sss><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+$(tags[i]).data('str')+' checked><span class = "cloud_tag" style="font-size:30 ;">'+$(tags[i]).data('str')+'</span></label>';
                     }
                     catch
                     {
 
                     }
                   
-                 
+                  }
+                  else
+                  {
                     try
                     {
-                       tags_del[i].innerHTML = ' <label name="tags_button" data-val = "0"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+$(tags_del[i]).data('str')+' ><span class = "cloud_tag" style="font-size:30 ;color: #CD5C5C;">'+$(tags_del[i]).data('str')+'</span></label>';
+                       tags[i].innerHTML = ' <label name="tags_button" data-val = "0"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+$(tags[i]).data('str')+' ><span class = "cloud_tag" style="font-size:30 ;color: #CD5C5C;">'+$(tags[i]).data('str')+'</span></label>';
                     }
                     catch
                     {
 
                     }
                    
-                  
+                  }
 
                 }
-                while(tags.length > 0) 
-                {
-                 tags.pop();
-                }
-            for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
-            {
-            tags.push(document.getElementsByName("tags_button")[i]);
-            }
+             
        }
 
 
