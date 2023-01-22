@@ -182,6 +182,7 @@
 .choosen_tags {
    height: 40%;
    width: 100%;
+   position: relative;
 }
 
 .wrap {

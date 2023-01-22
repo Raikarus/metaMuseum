@@ -169,6 +169,24 @@
    background-repeat: no-repeat;
 }
 
+.key_words {
+   list-style: none;
+   height: 25px;
+   border: 1px solid white;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 10px;
+}
+
+.warning {
+   position: absolute;
+   top: 20px;
+   left: 20px;
+   z-index: 3;
+   color: red;
+}
+
 /*  классы для тегов 
 
 .list_item {
