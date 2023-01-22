@@ -81,7 +81,7 @@
                   }
                 }
                 $(this).data('val',1);
-                $(this).is(":checked") = true;
+                $(this).prop( "checked", true );
             }
           });
         });
