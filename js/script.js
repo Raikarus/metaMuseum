@@ -605,7 +605,7 @@ try
   }
   catch
   {
-      alert(podborka_string+" "result_tags_string);
+      alert(podborka_string+" "+result_tags_string);
   }
   });
 
