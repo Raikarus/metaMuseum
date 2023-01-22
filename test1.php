@@ -47,14 +47,14 @@
             for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
             {
             tags.push(document.getElementsByName("tags_button")[i]);
-            check_tags.push(document.getElementsByName("transparent_check_box")[i])
+            check_tags.push(document.getElementsByName("transparent_check_box")[i]);
             }
            
             if(clickBtnValue=='0')
             {
               console.log($(this));
 
-              console.log((document.getElementsByName("transparent_check_box")).length); 
+              console.log(check_tags[0]); 
              // console.log(tags[tags.indexOf($(this))]);
 
 
