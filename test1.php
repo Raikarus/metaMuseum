@@ -52,10 +52,14 @@
            
             if(clickBtnValue=='0')
             {
-              console.log($(this));
-              console.log(tags[0]);
-              console.log(check_tags[0]);
-              console.log(document.getElementsByName("transparent_check_box").length); 
+             // $(this).data('val',1);
+              
+            
+              
+              console.log($(this).data('str'));
+            //  console.log(tags[0]);
+            //  console.log(check_tags[0]);
+           //   console.log(document.getElementsByName("transparent_check_box").length); 
              // console.log(tags[tags.indexOf($(this))]);
 
 
