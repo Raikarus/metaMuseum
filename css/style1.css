@@ -277,7 +277,7 @@ header {
    align-items: center;
    justify-content: space-between;
    border-left: 1px solid white;
-   overflow: hidden
+
 }
 
 .all_tags {
@@ -399,6 +399,7 @@ header {
    height: 48%;
    width: 100%;
    padding-left: 5px;
+   overflow: hidden
 }
 
 .choosen_tags::-webkit-scrollbar {
