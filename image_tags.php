@@ -87,7 +87,15 @@ $(document).ready(function(){
       $('.photos_compilation').html("");
       load_page();
     });
-    show_kwords();
+    show_kwords()
+    {
+      var ajaxurl = 'ajax.php';
+      data =  {'action': 'show_kwords'}; 
+      $.post(ajaxurl, data).done(function (response) {
+        $(".list_of_groups").html(response);
+        build_poisk();
+      });   
+    }
 });
 
 </script>
