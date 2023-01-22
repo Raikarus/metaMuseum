@@ -16,7 +16,7 @@ if (isset($_POST['action'])) {
 $status = 0;
 function update_tags()
 {
-    echo 'test';
+    echo  $_POST['tags_string'];
 }
 
 function check()

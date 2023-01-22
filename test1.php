@@ -55,8 +55,17 @@
               tags[tags.indexOf($(this).data('val',1))] = $(this);
               console.log(tags[tags.indexOf($(this))]);
 
+
                var ajaxurl = 'ajax.php';
-                  data =  {'action': 'set_img','img_string':"update_tags"};
+
+               var tags_string;
+
+               for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
+                {
+                    tags_string += tags[i] + '|';
+                }
+
+                  data =  {'action': 'update_tags','tags_string':tags_string};
                   $.post(ajaxurl, data).done(function (response) {
                   $('#norm_tags').html(response); });
             }
