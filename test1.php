@@ -132,13 +132,13 @@
                         for($i = 0; $i < count($tag);$i++)
                         {
                            $size = rand(10, 40);
-                            echo '<span class = "cloud_tag" data-val= "0" style="font-size:'.$size.'px;color: #CD5C5C;">'.$tag[$i]."($size) ".'</span>';
+                            echo '<button class = "comp_li_button" data-val= "0"> <span class = "cloud_tag" style="font-size:'.$size.'px;color: #CD5C5C;">'.$tag[$i]."($size) ".'</span> </button>';
                             echo "\n";
                         }
                         ?> 
                   </div>
                </div>
-
+               
          </div>      
       </div>
    </div>
