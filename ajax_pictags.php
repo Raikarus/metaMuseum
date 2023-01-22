@@ -68,6 +68,7 @@ function pre_load()
 function get_podborka_value()
 {
     echo $_SESSION['podborka'];
+    session_destroy();
 }
 
 ?>
