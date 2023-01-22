@@ -12,7 +12,10 @@ body {
 body::-webkit-scrollbar {
    width: 0;
 }
-
+input {
+   padding: 0;
+   margin: 0;
+}
 
 header {
    height: 8%;
@@ -22,3 +25,73 @@ header {
    justify-content: center;
    align-items: top;
 }
+
+.container {
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   font-size: 30px;
+}
+
+.logo_container {
+   padding-left: 100px;
+   width: auto;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.logo {
+   color: white;
+   text-decoration: none;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.maketag {
+   color: white;
+   text-decoration: none;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.username_exit {
+   margin: 0;
+   padding: 0;
+   padding-right: 80px;
+   width: 20%;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   font-size: 25px;
+   list-style-type: none;
+}
+
+.usit_elem  {
+   width: auto;
+   text-align: center;
+}
+
+.exit {
+   text-decoration: none;
+}
+
+.exit:hover {
+   color: #24B47E;
+}
+
+.group_name a {
+   color: #24B47E;
+   text-decoration: none;
+}
+
+.group_name a:hover {
+   text-decoration: underline;
+}
+

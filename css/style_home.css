@@ -1,63 +1,3 @@
-
-
-header {
-   height: 8%;
-   width: 100%;
-   background-color:#181818;;
-   display: flex;
-   justify-content: center;
-   align-items: top;
-}
-
-input {
-   padding: 0;
-   margin: 0;
-}
-
-.exit {
-   text-decoration: none;
-   color: white;
-}
-
-.exit:hover {
-   color: #24B47E;
-}
-
-.logo {
-   color: white;
-   text-decoration: none;
-   height: 100%;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-}
-
-.maketag {
-   color: white;
-   text-decoration: none;
-   height: 100%;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-}
-
-.logo_container {
-   padding-left: 100px;
-   width: auto;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-}
-
-.group_name a {
-   color: #24B47E;
-   text-decoration: none;
-}
-
-.group_name a:hover {
-   text-decoration: underline;
-}
-
 .list_item a {
    color: white;
    text-decoration: none;
@@ -68,31 +8,9 @@ input {
    text-decoration: underline;
 }
 
-.container {
-   width: 100%;
-   height: 100%;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   font-size: 30px;
-}
 
-.username_exit {
-   margin: 0;
-   padding: 0;
-   padding-right: 80px;
-   width: 20%;
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-   font-size: 25px;
-   list-style-type: none;
-}
 
-.usit_elem  {
-   width: auto;
-   text-align: center;
-}
+
 
 .main {
    width: 100%;
