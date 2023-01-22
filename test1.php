@@ -67,7 +67,6 @@
                 }
                 $(this).data('val',0);
 
-                 $(this).prop( "disabled", false );
              update_tags();
             }
             else
@@ -82,7 +81,7 @@
                   }
                 }
                 $(this).data('val',1);
-                $(this).prop( "checked", true );
+                
             }
           });
         });
