@@ -55,7 +55,7 @@ function build_poisk()
     }
     autocomplete(document.getElementById('myInput'),poisk);  
   }
-  
+  alert("2");
 }
 
 function autocomplete(inp, arr) {
