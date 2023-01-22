@@ -624,6 +624,7 @@ $(document).ready(function(){
             pre_podborka.splice(-1,1);
             selected_in_podborka = json.selected_in_podborka.split("|");
             mod = json.mod;
+            load();
             //alert(json.result_tags);
             // var step1 = ((JSON.stringify(responce)).replace(/"/gi,'').replace("{",'').replace("}",''));
             // step1 = step1.split(",");
