@@ -7,7 +7,7 @@ var mod_2 = "podborka";
 let selected_images = [];
 var podborka = "";
 
-get_podborka_value();
+
 $(document).ready(function(){
     
 
@@ -30,7 +30,8 @@ $(document).ready(function(){
         $('.photos_compilation').html(response);
       });
     }
-
+    get_podborka_value();
+    
     function load_page()
     {
         var selected_images_string = "";
