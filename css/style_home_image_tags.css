@@ -229,12 +229,3 @@
 .tag_button:hover {
    background-color: rgb(147, 148, 150);
 }
-
-.key_words {
-   list-style: none;
-   height: 25px;
-   border: 1px solid white;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-}

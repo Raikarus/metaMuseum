@@ -169,6 +169,15 @@
    background-repeat: no-repeat;
 }
 
+.key_words {
+   list-style: none;
+   height: 25px;
+   border: 1px solid white;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
 /*  классы для тегов 
 
 .list_item {
