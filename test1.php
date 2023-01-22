@@ -40,7 +40,7 @@
  $(document).ready(function(){
         $('.normal_tags').on("click",".transparent_check_box",function(){
           
-            var clickBtnValue = $(this).is(":checked");
+            var clickBtnValue =   $(this).data('val',0);
             
            
 
@@ -66,10 +66,7 @@
                   }
                 }
                 $(this).data('val',0);
-            //  console.log(tags[0]);
-            //  console.log(check_tags[0]);
-           //   console.log(document.getElementsByName("transparent_check_box").length); 
-             // console.log(tags[tags.indexOf($(this))]);
+
              update_tags();
             }
             else
