@@ -78,7 +78,7 @@ function load_cross_kwords()
 {
     $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
     $pic_id_from_local_podborka = explode("|", $_POST['img_string']);
-    if($pic_id_from_local_podborka)
+    if(count($pic_id_from_local_podborka)-1>=1)
     {
         if(count($pic_id_from_local_podborka)-1==1)
         {
