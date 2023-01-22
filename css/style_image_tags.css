@@ -12,28 +12,13 @@
 }
 
 .photos {
-   padding: 0;
-   margin: 0;
    height: 100%;
-   width: 100%;
-   display: grid;
-   grid-template-columns: repeat(3, 1fr);
-   grid-auto-rows: 200px;
-   grid-gap: 10px;
+   grid-template-rows:repeat(2,1fr);
    overflow-y: auto;
 }
 
 .photos::-webkit-scrollbar {
    display: none;
-}
-
-.photo_li {
-   list-style-type: none;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: space-between;
-   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .photo {

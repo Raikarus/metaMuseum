@@ -1,3 +1,70 @@
+#name_podborka_form_back {
+   position: absolute;
+   display: none;
+   width: 100%;
+   height: 100vh;
+   background-color: rgba(1,1,1,0.85);
+   justify-content: center;
+   align-items: center;
+   z-index: 2;
+}
+
+#name_podborka_form {
+   width: 400px;
+   height: 300px;
+   background-color: rgba(0, 0, 0, 0.5);
+   border: 1px solid white;
+   border-radius: 10px;
+   color:white;
+   z-index: 3;
+   position: relative;
+
+   flex-direction: column;
+   display: flex;
+   justify-content:  flex-start;
+   align-items: center;
+}
+
+#name_podborka_form  h3 {
+   text-transform: uppercase;
+   font-size: 25px;
+   padding: 0;
+   margin: 50px 0 25px 0;
+}
+
+#podborka_name {
+   width: 70%;
+   height: 40px;
+   border: 1px solid rgb(68, 68, 68);
+   background-color: rgba(0, 0, 0, 0.5);
+   color: white;
+   margin: 0;
+   margin-bottom: auto;
+   padding: 0;
+   font-size: 18px;
+}
+
+#create_podborka {
+   height: 35px;
+   width: 100px;
+   background-color: rgba(0, 0, 0, 0.5);
+   color: white;
+   border: 1px solid white;
+   font-size: 20px;
+   border-radius: 10px;
+   margin-bottom: 60px;
+}
+
+#create_podborka:hover {
+   background-color: #1b7956;
+}
+
+#response {
+   height: 20px;
+   position: absolute;
+   bottom: 20px;
+}
+
 .main {
    height: 78%;
 }
@@ -9,27 +76,10 @@
    flex-direction: column;
    align-items: center;
    justify-content: space-between;
-}
+}+
 
 .photos {
-   padding: 0;
-   margin: 0;
    height: 94%;
-   width: 100%;
-   display: grid;
-   grid-template-columns: repeat(3, 1fr);
-   grid-template-rows:repeat(2,1fr);
-   grid-gap: 10px;
-}
-
-.photo_li {
-   list-style-type: none;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: space-between;
-   border: 1px solid rgba(255, 255, 255, 0.3);
-   overflow: hidden;
 }
 
 .photo {
@@ -427,69 +477,3 @@ footer {
    }
 }
 
-#name_podborka_form {
-   width: 400px;
-   height: 300px;
-   background-color: rgba(0, 0, 0, 0.5);
-   border: 1px solid white;
-   border-radius: 10px;
-   color:white;
-   z-index: 3;
-   position: relative;
-
-   flex-direction: column;
-   display: flex;
-   justify-content:  flex-start;
-   align-items: center;
-}
-
-#name_podborka_form  h3 {
-   text-transform: uppercase;
-   font-size: 25px;
-   padding: 0;
-   margin: 50px 0 25px 0;
-}
-
-#podborka_name {
-   width: 70%;
-   height: 40px;
-   border: 1px solid rgb(68, 68, 68);
-   background-color: rgba(0, 0, 0, 0.5);
-   color: white;
-   margin: 0;
-   margin-bottom: auto;
-   padding: 0;
-   font-size: 18px;
-}
-
-#create_podborka {
-   height: 35px;
-   width: 100px;
-   background-color: rgba(0, 0, 0, 0.5);
-   color: white;
-   border: 1px solid white;
-   font-size: 20px;
-   border-radius: 10px;
-   margin-bottom: 60px;
-}
-
-#create_podborka:hover {
-   background-color: #1b7956;
-}
-
-#name_podborka_form_back {
-   position: absolute;
-   display: none;
-   width: 100%;
-   height: 100vh;
-   background-color: rgba(1,1,1,0.85);
-   justify-content: center;
-   align-items: center;
-   z-index: 2;
-}
-
-#response {
-   height: 20px;
-   position: absolute;
-   bottom: 20px;
-}
