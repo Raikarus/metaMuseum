@@ -44,7 +44,6 @@ $(document).ready(function(){
         {
           data =  {'action': 'load_podborka','img_string':selected_images_string};
           $.post(ajaxurl, data).done(function(response) {
-            alert(response);
             $('#wrapping').html(response);
             //$('#wrapping').html("123");
           });
