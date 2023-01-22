@@ -6,17 +6,18 @@
 var mod_2 = "podborka";
 let selected_images = [];
 var podborka = "";
- 
+function get_podborka_value()
+{
+  var ajaxurl = 'ajax_pictags.php';
+  data = {'action': 'get_podborka_value'};
+  $.post(ajaxurl,data).done(function(response){
+    podborka = response;
+  });
+}
+get_podborka_value();
 $(document).ready(function(){
     
-    function get_podborka_value()
-    {
-      var ajaxurl = 'ajax_pictags.php';
-      data = {'action': 'get_podborka_value'};
-      $.post(ajaxurl,data).done(function(response){
-        podborka = response;
-      });
-    }
+
 
     function pre_load()
     {
@@ -28,7 +29,7 @@ $(document).ready(function(){
       });
     }
 
-    get_podborka_value();
+   
     pre_load();
 
     function load_page()
