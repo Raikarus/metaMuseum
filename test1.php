@@ -57,8 +57,15 @@
             
               
               console.log($(this).data('str'));
-
-              $(this).data('val',0);
+               for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
+                {
+                  if(tags[i].data('str') == $(this).data('str') )
+                  {
+                    tags[i].data('val',1);
+                    break;
+                  }
+                }
+                $(this).data('val',0);
             //  console.log(tags[0]);
             //  console.log(check_tags[0]);
            //   console.log(document.getElementsByName("transparent_check_box").length); 
