@@ -88,6 +88,15 @@ function load_cross_kwords()
             $row = pg_fetch_object($res);
             $tag_id_num = $row->tag_id_num;
             $query = "SELECT kword_name FROM kwords WHERE tag_id_num=$tag_id_num";
+            if($row = pg_fetch_object($res))
+            {
+
+            }
+            else
+            {
+                //Добавить стили или удалить строчку
+                echo "<b style='color:white'>Ключевых слов не найдено</b>";
+            }
             $res = pg_query($cn,$query);
             while($row = pg_fetch_object($res))
             {
