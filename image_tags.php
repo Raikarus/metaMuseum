@@ -6,7 +6,7 @@
 
 <script>
 var mod_2 = "podborka";
-var switcher = document.querySelectorAll(".mod_switch")
+var switcher = $(".mod_switch");
 let selected_images = [];
 let selected_images_id = [];
 
