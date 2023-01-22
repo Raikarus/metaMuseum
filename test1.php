@@ -52,8 +52,8 @@
             if(clickBtnValue=='0')
             {
               console.log(tags[tags.indexOf($(this))]);
-              $(tags[tags.indexOf($(this).data('val',1))]).data('val',0);
-              console.log(tags[tags.indexOf($(this))]);
+               console.log(tags[tags.indexOf($(this).data('val',1))]); 
+             // console.log(tags[tags.indexOf($(this))]);
 
 
              update_tags();
@@ -101,7 +101,14 @@
                   }
 
                 }
-
+                while(tags.length > 0) 
+                {
+                 tags.pop();
+                }
+            for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
+            {
+            tags.push(document.getElementsByName("tags_button")[i]);
+            }
        }
 
 
