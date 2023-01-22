@@ -38,7 +38,7 @@
        let tags = [];
       
  $(document).ready(function(){
-        $('.normal_tags').on("change",".transparent_check_box",function(){
+        $('.normal_tags').on("click",".transparent_check_box",function(){
           
             var clickBtnValue = $(this).is(":checked");
             
@@ -81,7 +81,7 @@
                   }
                 }
                 $(this).data('val',1);
-                
+
             }
           });
         });
