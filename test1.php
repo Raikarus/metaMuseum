@@ -36,6 +36,8 @@
 
     <script>
        let tags = [(document.getElementsByName("tags_button")).length];
+        let tags_normal = [];
+         let tags_del = [];
        update_tags();
  $(document).ready(function(){
         $('.normal_tags').on("click",".transparent_check_box",function(){
@@ -47,7 +49,14 @@
             for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
             {
             tags.push(document.getElementsByName("tags_button")[i]);
-          
+              if($(document.getElementsByName("tags_button")[i]).data('val') ==1)
+              {
+                tags_normal.push(document.getElementsByName("tags_button")[i]);
+              }
+              else
+              {
+                tags_del.push(document.getElementsByName("tags_button")[i]);
+              }
             }
            
             if(clickBtnValue=='0')
