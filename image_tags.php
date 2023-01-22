@@ -56,6 +56,7 @@ $(document).ready(function(){
           data =  {'action': 'load_cross_kwords','img_string':selected_images_id_string};
           $.post(ajaxurl,data).done(function(response){
             $('.wrap').html(response);
+            check_selection();
           });
         });
       } 
@@ -103,7 +104,6 @@ $(document).ready(function(){
          $('.current_mod').text('Галерея');
          pre_load();
          load_page();
-         check_selection();      
       }    
     });
 
