@@ -25,13 +25,12 @@ $(document).ready(function(){
     {
       var ajaxurl = 'ajax_pictags.php';
       data = {'action': 'pre_load', 'podborka':podborka};
-      alert(podborka);
       $.post(ajaxurl,data).done(function(response){
         $('.photos_compilation').html(response);
       });
     }
     get_podborka_value();
-    
+
     function load_page()
     {
         var selected_images_string = "";

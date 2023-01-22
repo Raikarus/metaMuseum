@@ -49,9 +49,7 @@ function pre_load()
     {
         $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
         $query = "SELECT pic_id,fmt,title FROM pics WHERE pic_id=$pic_id_from_local_podborka[0]";
-        $aaaa = count($pid_id_from_local_podborka);
-        echo "ЗАПРОСИК $aaaa<br>";
-        for ($i=1; $i < count($pid_id_from_local_podborka)-1; $i++) { 
+        for ($i=1; $i < count($pic_id_from_local_podborka)-1; $i++) { 
             
             $query .= "UNION ALL SELECT pic_id,fmt,title FROM pics WHERE pic_id=$pic_id_from_local_podborka[$i]";
         }
