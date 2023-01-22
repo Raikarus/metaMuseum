@@ -44,6 +44,9 @@
             case 'set_podborka_value':
                 set_podborka_value();
                 break;
+            case 'get_podborka_value':
+                get_podborka_value();
+                break;
         }
     }
 

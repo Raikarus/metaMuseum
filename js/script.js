@@ -553,16 +553,18 @@ $(document).ready(function(){
       
     });
   });
-  try
-  {
-    show_kwords();
-    build_poisk();
-    load();  
-  }
-  catch
-  {
 
-  }
+    try
+    {
+      show_kwords();
+      build_poisk();
+      load();  
+    }
+    catch
+    {
+
+    }
+  
   
   $('#set_tag').click(function(){
     var ajaxurl = 'ajax.php';
@@ -595,6 +597,21 @@ $(document).ready(function(){
   });
 
   $(".logo").click(function(){
-    get_podborka();
+    try
+    {
+      var ajaxurl = 'ajax.php';
+      data = {'action':'get_podborka_value'};
+      $.post(ajaxurl,data).done(function(responce){
+        $('body').html(responce);
+        //show_kwords();
+        //build_poisk();
+        //load();        
+        });
+      
+    }
+    catch
+    {
+
+    }
   });
 });
