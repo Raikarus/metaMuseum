@@ -572,7 +572,7 @@ $(document).ready(function(){
     }
     data = {'action':'set_podborka_value', 'podborka':podborka_string};
     $.ajax(ajaxurl,data).done(function(response){
-      $('.logo').html(response);
+      alert(response)
       });
   });
 });
