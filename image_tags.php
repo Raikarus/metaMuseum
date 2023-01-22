@@ -16,6 +16,7 @@ $(document).ready(function(){
       var ajaxurl = 'ajax_pictags.php';
       data = {'action': 'get_podborka_value'};
       $.post(ajaxurl,data).done(function(response){
+        alert(response);
         podborka = response;
         pre_load();
       });
