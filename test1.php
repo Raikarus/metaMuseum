@@ -148,7 +148,7 @@
                         for($i = 0; $i < count($tag);$i++)
                         {
                            $size = rand(10, 40);
-                            echo ' <label name="tags_button" data-val = "1" data-str ="'$tag[$i]'">
+                            echo ' <label name="tags_button" data-val = "1" data-str ="'.$tag[$i]'.">
                                    <input type="checkbox" class="transparent_check_box" checked>
                                    <span class = "cloud_tag" style="font-size:'.$size.'px;">'.$tag[$i]."($size) ".'</span>
                                    </label>';
