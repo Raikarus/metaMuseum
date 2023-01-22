@@ -80,6 +80,7 @@ header {
 
 .exit {
    text-decoration: none;
+   color: white;
 }
 
 .exit:hover {
