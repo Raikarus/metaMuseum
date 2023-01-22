@@ -1,0 +1,24 @@
+body {
+   width: 100vw;
+   height: 100vh;
+   padding: 0;
+   margin: 0;
+   font-family: Arial;
+   background-color:#181818;
+   color:white;
+   overflow: hidden;
+}
+
+body::-webkit-scrollbar {
+   width: 0;
+}
+
+
+header {
+   height: 8%;
+   width: 100%;
+   background-color:#181818;;
+   display: flex;
+   justify-content: center;
+   align-items: top;
+}
