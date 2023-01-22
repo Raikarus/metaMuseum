@@ -612,7 +612,7 @@ $(document).ready(function(){
         success:function(responce){
             alert("1");
 
-            //JSON.stringify(responce);
+            alert(JSON.stringify(responce));
             var json_responce = JSON.parse(responce);
             var message = "";
             for(var i in json_responce)
