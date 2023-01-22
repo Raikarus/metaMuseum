@@ -51,7 +51,7 @@ switch ($load_page) {
       </div>
       <!-- ТУТ ПОМЕНЯТЬ СТИЛИ -->
       <div>
-         <a href="?form=pictags">
+         <a id = "set_tag" href="?form=pictags">
             ПРИСВОИТЬ ТЭГ
          </a>
       </div>

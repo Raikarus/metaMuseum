@@ -564,7 +564,7 @@ $(document).ready(function(){
 
   }
   
-  $('.logo').click(function(){
+  $('#set_tag').click(function(){
     var ajaxurl = 'ajax.php';
     var podborka_string = "";
     for (var i = 0; i < podborka.length; i++) {
