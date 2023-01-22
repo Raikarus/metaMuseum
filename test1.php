@@ -57,6 +57,8 @@
             
               
               console.log($(this).data('str'));
+
+              $(this).data('val',0);
             //  console.log(tags[0]);
             //  console.log(check_tags[0]);
            //   console.log(document.getElementsByName("transparent_check_box").length); 
@@ -70,7 +72,7 @@
             }
             else
             {
-              console.log("1");   //зайдет когда чекбокс был пуст
+              console.log($(this).data('str'));  //зайдет когда чекбокс был пуст
             }
           });
         });
@@ -82,7 +84,7 @@
 
                for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
                 {
-                  if($(tags[i]).data('val') == 1)
+                  if($(tags[i]).data('val') == 1 )
                   {
                     try
                     {
