@@ -82,6 +82,7 @@ $(document).ready(function(){
     
     $('#mod_podborka').click(function(){
       mod_2 = "podborka";
+      check_selection();
       pre_load();
       load_page();
     });
@@ -90,6 +91,15 @@ $(document).ready(function(){
       $('.photos_compilation').html("");
       load_page();
     });
+
+    function check_selection()
+    {
+      for (var i = 0; i < selected_images.length; i++) {
+        $('.comp_li_button[data-img="'+selected_images[i]+'"]').css('background-color', '#24B47E');
+        $('.comp_li_button[data-img="'+selected_images[i]+'"]').data("val") = 1;
+      }
+    }
+
     function show_kwords()
     {
       var ajaxurl = 'ajax.php';
