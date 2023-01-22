@@ -38,7 +38,7 @@
  $(document).ready(function(){
         $('.transparent_check_box').click(function(){
           
-            var clickBtnValue = $(this).checked;
+            var clickBtnValue = $(this).is(":checked");
             
            
             if(clickBtnValue=='0')
