@@ -576,6 +576,8 @@ try
         pre_podborka.splice(-1,1);
         selected_in_podborka = json.selected_in_podborka.split("|");
         mod = json.mod;
+        show_kwords();
+        build_poisk();
         load();
     },
     dataType:"json"
