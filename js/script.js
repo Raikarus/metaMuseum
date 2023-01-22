@@ -567,6 +567,10 @@ $(document).ready(function(){
   
   
   $('#set_tag').click(function(){
+  try
+  {
+
+
     var ajaxurl = 'ajax.php';
     var result_tags_string = "";
     var result_tags_invers = "";
@@ -596,6 +600,11 @@ $(document).ready(function(){
       alert("123");
       alert(responce);
     });
+  }
+  catch
+  {
+      alert("2");
+  }
   });
 
   $(".logo").click(function(){
