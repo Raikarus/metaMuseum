@@ -44,8 +44,8 @@
             case 'set_podborka_value':
                 set_podborka_value();
                 break;
-            case 'get_podborka_value':
-                get_podborka_value();
+            case 'get_form_value':
+                get_form_value();
                 break;
         }
     }
@@ -503,11 +503,12 @@
         $_SESSION['mod'] = $_POST['mod'];
         print_r($_SESSION);
     }
-    function get_podborka_value()
+    function get_form_value()
     {
         // Отключено
-        header('Content-Type: application/json');
-        echo json_encode($_SESSION);
+        // header('Content-Type: application/json');
+        // echo json_encode($_SESSION);
+        echo $_SESSION['form'];
     }
 
 ?>

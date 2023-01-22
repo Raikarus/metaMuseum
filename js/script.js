@@ -21,7 +21,7 @@ var podborka = [];
 var selected_in_podborka = [];
 var mod = 'gallery';
 var active_podborka = "-1";
-
+var form;
 var poisk = [];
 function build_poisk()
 {
@@ -554,7 +554,19 @@ $(document).ready(function(){
     });
   });
 
-
+  function get_podborka_value{
+    var ajaxurl = 'ajax.php';
+    data = {'action':'get_podborka_value'};
+    $.post(ajaxurl,data).done(function(responce){
+      form = responce;
+      if(form == "home.php")
+      {
+        show_kwords();
+        build_poisk();
+        load();  
+      }
+    });
+  }
 // try
 // {
 //   var ajaxurl = 'ajax.php';
@@ -598,9 +610,7 @@ $(document).ready(function(){
 //   catch(error)
 //   {
 
-show_kwords();
-build_poisk();
-load();  
+
 
 // }
   
@@ -636,5 +646,5 @@ load();
     });
 
   });
-  
+
 });

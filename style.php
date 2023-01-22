@@ -64,6 +64,7 @@ switch ($load_page) {
 </header>
 
    <?php 
+    $_SESSION['form'] = $load_page;
     include $load_page;
    ?>
 </body>
