@@ -34,11 +34,16 @@ function load_download()
     echo '<img src="Шефердия.png" alt="s" width="150%" height="150%"><span class = "cloud_tag" style="font-size: 40 me;">Загрузка</span>';
 }
 
+function get_podborka_value()
+{
+    echo $_SESSION['podborka'];
+}
+
 function pre_load()
 {
     $pic_id_from_local_podborka = explode("|", $_POST['podborka']);
-    if($_POST['podborka'])
-    {
+    // if($_POST['podborka'])
+    // {
         $query = "SELECT pic_id,fmt,title FROM pics WHERE pic_id=$pic_id_from_local_podborka[0]";
         for ($i=1; $i < count($podborka)-1; $i++) { 
             $query .= "UNION ALL SELECT pic_id,fmt,title FROM pics WHERE pic_id=$pic_id_from_local_podborka[$i]";
@@ -56,17 +61,14 @@ function pre_load()
                      </button>        
                      </li>";
         }
-    }
-    else
-    {
-        // Добавить стили или удалить строку
-        echo "Локальная подборка пуста";
-    }
+    // }
+    // else
+    // {
+    //     // Добавить стили или удалить строку
+    //     echo "Локальная подборка пуста";
+    // }
 }
 
-function get_podborka_value()
-{
-    echo $_SESSION['podborka'];
-}
+
 
 ?>
