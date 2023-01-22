@@ -85,24 +85,6 @@ function load_cross_kwords()
             //ЕСЛИ ВСЕГО ОДНА КАРТИНКА ВЫБРАНА
             $query = "SELECT tag_id_num FROM pictags WHERE pic_id=$pic_id_from_local_podborka[0] AND tag_id=10";
             $res = pg_query($cn,$query);
-            $row = pg_fetch_object($res);
-            $tag_id_num = $row->tag_id_num;
-            $query = "SELECT kword_name FROM kwords WHERE tag_id_num=$tag_id_num";
-            $res = pg_query($cn,$query);
-            $row = pg_fetch_object($res);
-            $kword_name = $row->kword_name;
-            //СКОПИРОВАТЬ СТИЛИ ИЛИ ДОБАВИТЬ ДУБЛИКАТ СВОИХ
-            echo "<li>$kword_name</li>";
-        }
-        else
-        {
-            //ЕСЛИ ВЫБРАНО НЕСКОЛЬКО КАРТИНОК
-            $query = "SELECT tag_id_num FROM pictags WHERE tag_id=10";
-            for ($i=0; $i < count($pic_id_from_local_podborka)-1; $i++) { 
-                $query .= " AND pic_id=$pic_id_from_local_podborka[$i]";
-            }
-            $res = pg_query($cn,$query);
-            echo "ЗАПРОСИК $query<br>";
             if($row = pg_fetch_object($res))
             {
                 $tag_id_num = $row->tag_id_num;
@@ -113,7 +95,39 @@ function load_cross_kwords()
                     $query .= " OR tag_id_num=$tag_id_num";
                 }
                 $res = pg_query($cn,$query);
-                echo "ЗАПРОСИК $query<br>";
+                while($row = pg_fetch_object($res))
+                {
+                    $kword_name = $row->kword_name;
+                    //СКОПИРОВАТЬ СТИЛИ ИЛИ ДОБАВИТЬ ДУБЛИКАТ СВОИХ
+                    echo "<li>$kword_name</li>";    
+                }
+            }
+            else
+            {
+                //Добавить стили или удалить строчку
+                echo "<b style='color:white'>Не найдено ключевых слов</b>";
+            }
+        }
+        else
+        {
+            //ЕСЛИ ВЫБРАНО НЕСКОЛЬКО КАРТИНОК
+            $query = "SELECT tag_id_num FROM pictags WHERE tag_id=10 AND (pic_id=$pic_id_from_local_podborka[0]";
+            for ($i=1; $i < count($pic_id_from_local_podborka)-1; $i++) { 
+                $query .= " OR pic_id=$pic_id_from_local_podborka[$i]";
+            }
+            $query .= ") GROUP BY tag_id_num HAVING COUNT(tag_id_num)>1";
+            $res = pg_query($cn,$query);
+            if($row = pg_fetch_object($res))
+            {
+                $tag_id_num = $row->tag_id_num;
+                $query = "SELECT kword_name FROM kwords WHERE tag_id_num=$tag_id_num";
+                while($row = pg_fetch_object($res))
+                {
+                    $tag_id_num = $row->tag_id_num;
+                    $query .= " OR tag_id_num=$tag_id_num";
+                }
+                $res = pg_query($cn,$query);
+                
                 while($row = pg_fetch_object($res))
                 {
                     $kword_name = $row->kword_name;
