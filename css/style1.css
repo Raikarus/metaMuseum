@@ -401,6 +401,7 @@ header {
    padding-left: 5px;
    overflow: hidden;
  flex-direction: row;
+ display:inline-block;
 }
 .normal_tags {
    height: 100%;
@@ -408,7 +409,7 @@ header {
    padding-left: 5px;
    overflow: hidden;
    
-   display: inline-block;
+ 
 }
 .choosen_tags::-webkit-scrollbar {
    width: 0;
