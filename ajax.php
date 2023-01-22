@@ -492,6 +492,18 @@
     function set_podborka_value()
     {   
         $_SESSION['podborka']=$_POST['podborka'];
+        $_SESSION['result_tags'] = $_POST['result_tags'];
+        $_SESSION['result_tags_invers'] = $_POST['result_tags_invers'];
+        $_SESSION['size'] = $_POST['size'];
+        $_SESSION['pre_podborka'] = $_POST['pre_podborka'];
+        $_SESSION['selected_in_podborka'] = $_POST['selected_in_podborka'];
+        $_SESSION['mod'] = $_POST['mod'];
+    }
+    function get_podborka_value()
+    {
+        echo "<pre>"
+        print_r($_SESSION);
+        echo "</pre>"
     }
 
 ?>

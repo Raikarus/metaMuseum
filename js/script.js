@@ -566,13 +566,35 @@ $(document).ready(function(){
   
   $('#set_tag').click(function(){
     var ajaxurl = 'ajax.php';
+    var result_tags_string = "";
+    var result_tags_invers = "";
+    var size = '3x2';
+    var pre_podborka_string = "";
     var podborka_string = "";
-    for (var i = 0; i < podborka.length; i++) {
+    var selected_in_podborka_string = "";
+    var mod = 'gallery';
+
+    for (var i = 0; i < result_tags.length; i++) {
+      result_tags_string += result_tags[i]+"|";
+      result_tags_invers_string += result_tags_invers[i]+"|";
+    }
+    for(var i = 0; i < pre_podborka.length; i++)
+    {
+      pre_podborka_string += pre_podborka[i]+"|";
+    }
+    for(var i = 0; i < podborka.length; i++)
+    {
       podborka_string += podborka[i]+"|";
     }
-    data = {'action':'set_podborka_value', 'podborka':podborka_string};
-    $.post(ajaxurl,data).done(function(response){
-      $('#set_tag').html(response);
-      });
+    for(var i = 0; i < selected_in_podborka.length; i++)
+    {
+      selected_in_podborka_string += selected_in_podborka[i]+"|";
+    }
+    data = {'action':'set_podborka_value', 'podborka':podborka_string,'result_tags':result_tags_string,'result_tags_invers':result_tags_invers_string,'size':size,'pre_podborka':pre_podborka,'selected_in_podborka':selected_in_podborka_string,'mod':mod};
+    $.post(ajaxurl,data);
+  });
+
+  $(".logo").click(function(){
+    get_podborka();
   });
 });
