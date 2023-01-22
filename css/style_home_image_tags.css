@@ -212,6 +212,9 @@
    justify-content: center;
    align-items: center;
    cursor: pointer;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
 }
 
 .tag_button {

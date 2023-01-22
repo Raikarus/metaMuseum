@@ -69,7 +69,6 @@ function pre_load()
     }
     else
     {
-        // Добавить стили или удалить строку
         echo "<b id = 'emptycompilation'>Локальная подборка пуста</b>";
     }
 }
@@ -98,13 +97,11 @@ function load_cross_kwords()
                 while($row = pg_fetch_object($res))
                 {
                     $kword_name = $row->kword_name;
-                    //СКОПИРОВАТЬ СТИЛИ ИЛИ ДОБАВИТЬ ДУБЛИКАТ СВОИХ
                     echo "<li class = 'key_words'>$kword_name</li>";    
                 }
             }
             else
             {
-                //Добавить стили или удалить строчку
                 echo "<b class='warning'>Не найдено ключевых слов</b>";
             }
         }
@@ -132,7 +129,6 @@ function load_cross_kwords()
                 while($row = pg_fetch_object($res))
                 {
                     $kword_name = $row->kword_name;
-                    //СКОПИРОВАТЬ СТИЛИ ИЛИ ДОБАВИТЬ ДУБЛИКАТ СВОИХ
                     echo "<li class = 'key_words'>$kword_name</li>";
                 }
             }
@@ -145,7 +141,6 @@ function load_cross_kwords()
     }
     else
     {
-        //Добавить стили или удалить строчку
         echo "<b class='warning'>Ничего не выбрано</b>";
     }
     //$query = "SELECT tag_id_num FROM pictags WHERE (tag_id=10)"
