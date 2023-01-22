@@ -127,12 +127,19 @@ $(document).ready(function(){
 </div>
 <div class = "main_right">
    <div class = "all_tags">
-         <div class = "searching">
-            <form class = "searching_form">
-               <input type = "text" name = "search" class = "search" placeholder="Search tags!">
-               <input type = "submit" name = "submit" class = "submit" value="ADD">
+         <form autocomplete = "off" class = "searching">
+               <div class = "autocomplete">
+                  <input id = "myInput" class = "searchbar" type = "text" placeholder = "Search tags!">
+                 
+               </div>
+               <input type = "button" id = "addtag" class = "addtag" value = "ADD">
+
             </form>
-         </div>
+            <div class = "tags">
+              <ul class = "list_of_groups">
+                  <!-- Два режима: kwords И подборки (SELECTIONS) -->
+           </ul>
+            </div>
          <div class = "tags" >
 
 
