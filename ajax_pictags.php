@@ -42,7 +42,9 @@ function get_podborka_value()
 function pre_load()
 {
     $pic_id_from_local_podborka = explode("|", $_POST['podborka']);
-    echo $_POST['podborka'];
+    echo "<pre>";
+    print_r($pic_id_from_local_podborka);
+    echo "</pre>";
     // if($_POST['podborka'])
     // {
         $query = "SELECT pic_id,fmt,title FROM pics WHERE pic_id=$pic_id_from_local_podborka[0]";
