@@ -606,19 +606,14 @@ $(document).ready(function(){
     {
       var ajaxurl = 'ajax.php';
       data = {'action':'get_podborka_value'};
-      $.post(datatype:"json",ajaxurl,data).done(function(responce){
-        try
-        {
-          alert($.parseJSON(responce));
-        }
-        catch
-        {
-          alert(responce.responceText);
-        }
-        //show_kwords();
-        //build_poisk();
-        //load();        
-        });
+      $.ajax({
+        url:"ajax.php",
+        type:"POST",
+        success:function(responce){
+            alert(JSON.parse(responce));
+        },
+        dataType:"json"
+      });
     }
     catch(error)
     {
