@@ -183,6 +183,7 @@
    position: absolute;
    top: 20px;
    left: 10px;
+   z-index: 3;
 }
 
 /*  классы для тегов 
