@@ -6,7 +6,7 @@
 
 <script>
 var mod_2 = "podborka";
-var switcher = $(".mod_switch");
+var switcher = $('#mod_switch');
 let selected_images = [];
 let selected_images_id = [];
 
@@ -138,7 +138,7 @@ $(document).ready(function(){
     <div class="switcher_block">
       <span class = "current_mod">Режим</span>
       <label id = "mod_swapper">
-         <input type = "checkbox" class = "mod_switch" checked>
+         <input type = "checkbox" id = "mod_switch" checked>
          <span class = "slider"></span>
       </label>
     </div>

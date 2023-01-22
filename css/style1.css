@@ -620,7 +620,7 @@ footer {
    height: 30px;
 }
 
-.mod_switch {
+#mod_switch {
    display: none;
 }
 
