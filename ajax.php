@@ -491,7 +491,7 @@
 
     function set_podborka_value()
     {   
-        echo "1";
+        echo "ASDSADA";
         // $_SESSION['podborka']=$_POST['podborka'];
         // echo $_POST['podborka']."-это в локалке";
         // echo $_SESSION['podborka']."-это ушло на серв";

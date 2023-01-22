@@ -572,8 +572,7 @@ $(document).ready(function(){
     }
     data = {'action':'set_podborka_value', 'podborka':podborka_string};
     $.ajax(ajaxurl,data).done(function(response){
-      alert(podborka_string);
-      alert(response);
+      $('#set_tag').html(response);
       });
   });
 });
