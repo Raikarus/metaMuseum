@@ -69,7 +69,7 @@ $(document).ready(function(){
 
     $('#compilation').on("click",".compilation_li .comp_li_button",function(){
       var clickBtnValue = $(this).data('val');
-      console.log($(this).data('id')+" "+$(this).data('img'));
+      console.log(selected_images+" "+selected_images_id);
       if(clickBtnValue=='0')
       {
         $(this).css('background-color', '#24B47E');
