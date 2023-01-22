@@ -90,13 +90,14 @@ $(document).ready(function(){
       if (switcher.checked)
       {
          switcher.checked = false;
-         $('.current_mod').text('СОСИ')
+         $('.current_mod').text('Подборка');
          $('.photos_compilation').html("");
          load_page();
        }
       else
       {
          switcher.checked = true;
+         $('.current_mod').text('Галерея');
          check_selection();
          pre_load();
          load_page();
@@ -129,7 +130,7 @@ $(document).ready(function(){
   <div class = "main_left">
     <!-- ТУТ ПОМЕНЯТЬ СТИЛИ (style1.css) -->
     <div class="switcher_block">
-      <span class = "current_mod">Режим</span>
+      <span class = "current_mod">Галерея</span>
       <label id = "mod_swapper">
          <input type = "checkbox" id = "mod_switch">
          <span class = "slider"></span>
