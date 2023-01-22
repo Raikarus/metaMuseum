@@ -70,7 +70,7 @@ function pre_load()
     else
     {
         // Добавить стили или удалить строку
-        echo "<b style='color:white'>Локальная подборка пуста</b>";
+        echo "<b id = 'emptycompilation'>Локальная подборка пуста</b>";
     }
 }
 
