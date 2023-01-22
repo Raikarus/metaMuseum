@@ -404,10 +404,10 @@ header {
 }
 .normal_tags {
    height: 100%;
-   width: 50%;
+   width: 49%;
    overflow: hidden;
    float: left;
-  border-left: 1px solid white;
+
  
 }
 .choosen_tags::-webkit-scrollbar {

@@ -210,7 +210,7 @@ function moveZeros(arr) {
                         }
                         ?> 
                   </div>
-                  <div class="normal_tags">
+                  <div class="normal_tags" style="border-left: 1px solid white;">
                   <ul class = "wrap">
                   </ul>
                   <?php 
