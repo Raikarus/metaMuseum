@@ -570,11 +570,9 @@ $(document).ready(function(){
     var ajaxurl = 'ajax.php';
     var result_tags_string = "";
     var result_tags_invers = "";
-    var size = '3x2';
     var pre_podborka_string = "";
     var podborka_string = "";
     var selected_in_podborka_string = "";
-    var mod = 'gallery';
 
     for (var i = 0; i < result_tags.length; i++) {
       result_tags_string += result_tags[i]+"|";
@@ -593,7 +591,9 @@ $(document).ready(function(){
       selected_in_podborka_string += selected_in_podborka[i]+"|";
     }
     data = {'action':'set_podborka_value', 'podborka':podborka_string,'result_tags':result_tags_string,'result_tags_invers':result_tags_invers_string,'size':size,'pre_podborka':pre_podborka,'selected_in_podborka':selected_in_podborka_string,'mod':mod};
-    $.post(ajaxurl,data);
+    $.post(ajaxurl,data).done(function(responce){
+      alert(responce)
+    });
   });
 
   $(".logo").click(function(){

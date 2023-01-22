@@ -501,6 +501,7 @@
         $_SESSION['pre_podborka'] = $_POST['pre_podborka'];
         $_SESSION['selected_in_podborka'] = $_POST['selected_in_podborka'];
         $_SESSION['mod'] = $_POST['mod'];
+        print_r($_SESSION);
     }
     function get_podborka_value()
     {
