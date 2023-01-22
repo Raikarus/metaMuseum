@@ -301,6 +301,10 @@ $(document).ready(function(){
       check_invers();
       load();
     }
+    else if (form == "image_tags.php")
+    {
+
+    }
   });
 
   $('.list_of_groups ').on("click", ".tag_list li a",function (){
@@ -347,8 +351,6 @@ $(document).ready(function(){
       finder.style.display = "block";
    });
 
-
-
    $(size1).click(function()
    {
       size1.style.backgroundColor = "#24B47E";
@@ -370,6 +372,7 @@ $(document).ready(function(){
       wrap.style.gridTemplateColumns = "repeat(4, 1fr)";
       wrap.style.gridTemplateRows = "repeat(3, 1fr)";
       limit_of_pages = 12;
+
       size='4x3';
       load();
    });
@@ -382,6 +385,7 @@ $(document).ready(function(){
       wrap.style.gridTemplateColumns = "repeat(3, 1fr)";
       wrap.style.gridTemplateRows = "repeat(2, 1fr)";
       limit_of_pages = 6;
+      
       size='3x2';
       load();
    });

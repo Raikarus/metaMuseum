@@ -105,7 +105,7 @@ function load_cross_kwords()
             else
             {
                 //Добавить стили или удалить строчку
-                echo "<b style='color:white'>Не найдено ключевых слов</b>";
+                echo "<b class='warning'>Не найдено ключевых слов</b>";
             }
         }
         else
@@ -138,7 +138,7 @@ function load_cross_kwords()
             }
             else
             {
-                echo "<b style='color:white'>Нет общих ключевых слов</b>";
+                echo "<b class='warning'>Нет общих ключевых слов</b>";
             }
             
         }
@@ -146,7 +146,7 @@ function load_cross_kwords()
     else
     {
         //Добавить стили или удалить строчку
-        echo "<b style='color:white'>Ничего не выбрано</b>";
+        echo "<b class='warning'>Ничего не выбрано</b>";
     }
     //$query = "SELECT tag_id_num FROM pictags WHERE (tag_id=10)"
 }
