@@ -246,6 +246,7 @@ $(document).ready(function(){
   $('#addtag').on("click",function()
   {
     elem = $('.kword_solo[data-tag="'+$('#myInput').val()+'"]');
+    alert(elem);
     if(elem)
     {
       var index = result_tags.indexOf($(elem).data("tag"));
