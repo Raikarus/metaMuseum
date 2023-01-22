@@ -62,7 +62,11 @@
 
                for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
                 {
+                  if($(tags[i]).data('val') == 1)
+                  {
                     tags_string += $(tags[i]).data('str') + '|';
+                  }
+
                 }
 
                   data =  {'action': 'update_tags','tags_string':tags_string};
