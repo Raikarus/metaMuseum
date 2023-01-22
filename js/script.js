@@ -611,8 +611,9 @@ $(document).ready(function(){
         data: {'action':'get_podborka_value'},
         success:function(responce){
             //{"a":"b|","c","d|"}
-            var step1 = (JSON.stringify(responce)).replace(/"/gi,'').replace("{",'').replace("}",'').split(",");
-            alert(step1);
+            var step1 = ((JSON.stringify(responce)).replace(/"/gi,'').replace("{",'').replace("}",'')).split(",");
+            for(var i = 0; i < step1.length;i++)
+              alert(step1[i]);
         },
         dataType:"json"
       });
