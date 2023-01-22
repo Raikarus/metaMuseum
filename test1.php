@@ -203,7 +203,7 @@ function moveZeros(arr) {
                           
                         for($i = 0; $i < count($tag);$i++)
                         {
-                           $size = rand(20, 40);
+                           $size = rand(40, 60);
                             echo '<span class = "cloud_tag" style="font-size:'.$size.'px;">'.$tag[$i]."($size)".'</span>';
                             echo "\n";
                         }
