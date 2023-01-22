@@ -611,7 +611,7 @@ $(document).ready(function(){
         data: {'action':'get_podborka_value'},
         success:function(responce){
             alert("1");
-            alert(JSON.parse(responce));
+            alert(JSON.stringify(responce));
         },
         dataType:"json"
       });
