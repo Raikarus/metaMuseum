@@ -602,16 +602,15 @@ $(document).ready(function(){
       var ajaxurl = 'ajax.php';
       data = {'action':'get_podborka_value'};
       $.post(ajaxurl,data).done(function(responce){
-        $('body').html(responce);
+        alert(responce);
         //show_kwords();
         //build_poisk();
         //load();        
         });
-      
     }
-    catch
+    catch(error)
     {
-
+      alert(error);
     }
   });
 });
