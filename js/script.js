@@ -605,7 +605,7 @@ try
   }
   catch
   {
-      alert("2");
+      alert(size);
   }
   });
 
