@@ -605,7 +605,6 @@ $(document).ready(function(){
     try
     {
       var ajaxurl = 'ajax.php';
-      data = ;
       $.ajax({
         url:"ajax.php",
         type:"POST",
