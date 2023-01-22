@@ -66,7 +66,8 @@
                   }
                 }
                 $(this).data('val',0);
-                 // $(this).checked = false;
+
+                 $(this).prop( "disabled", false );
              update_tags();
             }
             else
