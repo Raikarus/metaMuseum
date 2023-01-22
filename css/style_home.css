@@ -79,6 +79,12 @@
 }+
 
 .photos {
+   padding: 0;
+   margin: 0;
+   width: 100%;
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   grid-gap: 10px;
    height: 94%;
    grid-template-rows: repeat(2, 1fr);
 }
