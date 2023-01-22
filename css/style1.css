@@ -650,15 +650,15 @@ footer {
    transition: .4s;
  }
  
- .mod_switch:checked + .slider {
+ #mod_switch:checked + .slider {
    background-color: #24B47E;
  }
  
- .mod_switch:focus + .slider {
+ #mod_switch:focus + .slider {
    box-shadow: 0 0 1px #24B47E;
  }
  
- .mod_switch:checked + .slider:before {
+ #mod_switch:checked + .slider:before {
    -webkit-transform: translateX(28px);
    -ms-transform: translateX(28px);
    transform: translateX(28px);
