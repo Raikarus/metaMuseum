@@ -128,7 +128,7 @@ $(document).ready(function(){
             <ul class = "wrap">
             </ul>
             <?php
-                    $tags  = "japanese hentai lesbian milf korean asian step_mom massage anal ebony big_ass teen threesome public anime creampie ";
+                    $tags  = "A B C D E F G H I J K";
                     $tag = explode(" ", $tags);
                     
                   for($i = 0; $i < 16;$i++)
