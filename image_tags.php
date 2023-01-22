@@ -49,6 +49,7 @@ $(document).ready(function(){
       if(switcher.checked)
       {
         data =  {'action': 'load_podborka','img_string':selected_images_string};
+        alert("pre_1")
         $.post(ajaxurl, data).done(function(response) {
           $('#wrapping').html(response);
           alert("1");
