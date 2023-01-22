@@ -70,12 +70,7 @@
             //  console.log(check_tags[0]);
            //   console.log(document.getElementsByName("transparent_check_box").length); 
              // console.log(tags[tags.indexOf($(this))]);
-
-
              update_tags();
-
-
-                
             }
             else
             {
@@ -177,7 +172,7 @@
                           
                         for($i = 0; $i < count($tag);$i++)
                         {
-                           $size = rand(10, 40);
+                           $size = 30;
                             echo ' <label name="tags_button" data-val = "1" data-str ="'.$tag[$i].'">
                                    <input type="checkbox" name = "transparent_check_box" class="transparent_check_box" checked>
                                    <span class = "cloud_tag" style="font-size:'.$size.'px;">'.$tag[$i]."($size) ".'</span>
@@ -194,7 +189,7 @@
                           
                         for($i = 0; $i < count($tag);$i++)
                         {
-                           $size = rand(10, 40);
+                           $size = 30;
                             echo ' <label name="tags_button" data-val = "0" data-str ="'.$tag[$i].'">
                                    <input type="checkbox" name = "transparent_check_box" class="transparent_check_box">
                                    <span class = "cloud_tag" style="font-size:'.$size.'px;color: #CD5C5C;">'.$tag[$i]."($size) ".'</span>
