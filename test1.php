@@ -37,12 +37,6 @@
     <script>
        let tags_normal = []; //фиксированные пизже
        let tags_del = [];
- $(document).ready(function(){
-        $('.normal_tags').on("click",".transparent_check_box",function(){
-          
-            var clickBtnValue = $(this).is(":checked");
-            
-           
 
             for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
             {
@@ -57,6 +51,14 @@
           
             }
            
+           
+ $(document).ready(function(){
+        $('.normal_tags').on("click",".transparent_check_box",function(){
+          
+            var clickBtnValue = $(this).is(":checked");
+            
+           
+
             if(clickBtnValue=='0')
             {
              // $(this).data('val',1);
@@ -115,14 +117,7 @@
                   
 
                 }
-                while(tags.length > 0) 
-                {
-                 tags.pop();
-                }
-            for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
-            {
-            tags.push(document.getElementsByName("tags_button")[i]);
-            }
+               
        }
 
 
