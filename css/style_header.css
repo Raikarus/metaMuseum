@@ -87,12 +87,4 @@ header {
    color: #24B47E;
 }
 
-.group_name a {
-   color: #24B47E;
-   text-decoration: none;
-}
-
-.group_name a:hover {
-   text-decoration: underline;
-}
 
