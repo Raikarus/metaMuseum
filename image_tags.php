@@ -87,6 +87,7 @@ $(document).ready(function(){
       $('.photos_compilation').html("");
       load_page();
     });
+    show_kwords();
 });
 
 </script>
@@ -132,15 +133,17 @@ $(document).ready(function(){
             <ul class = "wrap">
             </ul>
             <?php
-                    $tags  = "A B C D E F G H I J K";
-                    $tag = explode(" ", $tags);
+                  //   $tags  = "A B C D E F G H I J K";
+                  //   $tag = explode(" ", $tags);
                     
-                  for($i = 0; $i < 16;$i++)
-                  {
-                     $size = rand(10, 40);
-                      echo '<span class = "cloud_tag" style="font-size:'.$size.'px;">'.$tag[$i]."($size)".'</span>';
-                      echo "\n";
-                  }
+                  // for($i = 0; $i < 16;$i++)
+                  // {
+                  //    $size = rand(10, 40);
+                  //     echo '<span class = "cloud_tag" style="font-size:'.$size.'px;">'.$tag[$i]."($size)".'</span>';
+                  //     echo "\n";
+                  // }
+
+
               ?>
          </div>
    </div>      
