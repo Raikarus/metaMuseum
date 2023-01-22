@@ -49,8 +49,10 @@ function pre_load()
     {
         $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
         $query = "SELECT pic_id,fmt,title FROM pics WHERE pic_id=$pic_id_from_local_podborka[0]";
+        $aaaa = count($pid_id_from_local_podborka);
+        echo "ЗАПРОСИК $aaaa<br>";
         for ($i=1; $i < count($pid_id_from_local_podborka)-1; $i++) { 
-            echo "ЗАПРОСИК $i<br>";
+            
             $query .= "UNION ALL SELECT pic_id,fmt,title FROM pics WHERE pic_id=$pic_id_from_local_podborka[$i]";
         }
         $res = pg_query($cn,$query);
@@ -61,7 +63,7 @@ function pre_load()
             $title = $row->title;
             echo "<li class = 'compilation_li'>
                      <button class = 'comp_li_button' data-val= '0' name ='img' data-img = '$pic_id'>
-                           <div class = 'comp_li_photo' style='background-image:url('img/$pic_id".".$fmt')'></div>
+                           <div class = 'comp_li_photo' style='background-image:url('img".'/'."$pic_id".".$fmt')'></div>
                            <div class = 'comp_li_name'>$title</div>   
                      </button>        
                      </li>";
