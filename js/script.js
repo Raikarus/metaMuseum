@@ -612,7 +612,7 @@ $(document).ready(function(){
         success:function(responce){
             //{"a":"b|","c","d|"}
             var json = $.parseJSON(JSON.stringify(responce));
-            alert(json.mod);
+            alert(json.podborka.split("|"));
             // var step1 = ((JSON.stringify(responce)).replace(/"/gi,'').replace("{",'').replace("}",''));
             // step1 = step1.split(",");
             // alert(step1);
