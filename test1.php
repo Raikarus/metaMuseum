@@ -77,11 +77,19 @@
                 {
                   if($(tags[i]).data('val') == 1)
                   {
-                   tags[i].innerHTML = ' <label name="tags_button" data-val = "1" data-str = sss><input type="checkbox" class="transparent_check_box"><span class = "cloud_tag" style="font-size:30 px;">'+$(tags[i]).data('str')+'</span></label>';
+                    try
+                    {
+                       tags[i].innerHTML = ' <label name="tags_button" data-val = "1" data-str = sss><input type="checkbox" class="transparent_check_box"><span class = "cloud_tag" style="font-size:30 px;">'+$(tags[i]).data('str')+'</span></label>';
+                    }
+                  
                   }
                   else
                   {
-                    tags[i].innerHTML = ' <label name="tags_button" data-val = "0" data-str = sss><input type="checkbox" class="transparent_check_box"><span class = "cloud_tag" style="font-size:30 px;color: #CD5C5C;">'+$(tags[i]).data('str')+'</span></label>';
+                    try
+                    {
+                       tags[i].innerHTML = ' <label name="tags_button" data-val = "0" data-str = sss><input type="checkbox" class="transparent_check_box"><span class = "cloud_tag" style="font-size:30 px;color: #CD5C5C;">'+$(tags[i]).data('str')+'</span></label>';
+                    }
+                   
                   }
 
                 }
