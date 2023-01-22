@@ -43,16 +43,16 @@ $(document).ready(function(){
         if(mod_2 == "podborka")
         {
           data =  {'action': 'load_podborka','img_string':selected_images_string};
-          $.post(ajaxurl, data).done(function (response) {
+          $.post(ajaxurl, data).done(function(response) {
             alert(response);
             $('#wrapping').html(response);
-            $('#wrapping').html("123");
+            //$('#wrapping').html("123");
           });
         } 
         else
         {
           data =  {'action': 'load_download'};
-          $.post(ajaxurl, data).done(function (response) {
+          $.post(ajaxurl, data).done(function(response) {
             $('#wrapping').html(response);
           });
         }
