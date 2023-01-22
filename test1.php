@@ -36,7 +36,7 @@
 
     <script>
        let tags = [(document.getElementsByName("tags_button")).length];
-      
+       update_tags();
  $(document).ready(function(){
         $('.normal_tags').on("click",".transparent_check_box",function(){
           
