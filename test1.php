@@ -120,7 +120,7 @@
                         {
                            $size = rand(10, 40);
                             echo ' <label id="tags_button">
-                                   <input type="checkbox" class="transparent_check_box">
+                                   <input type="checkbox" class="transparent_check_box" checked>
                                    <span class = "cloud_tag" style="font-size:'.$size.'px;">'.$tag[$i]."($size) ".'</span>
                                    </label>';
                         }
