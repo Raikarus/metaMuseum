@@ -25,23 +25,36 @@ var form;
 var poisk = [];
 function build_poisk()
 {
-  poisk = [];
-  if(mod == "gallery")
+  if(form == "home.php")
   {
+    poisk = [];
+    if(mod == "gallery")
+    {
+      var kwords = document.querySelectorAll(".kword_solo");
+      for (var i = 0; i < kwords.length; i++) {
+        poisk.push($(kwords[i]).data("tag"));
+      }
+    }
+    else
+    {
+      var podborki = document.querySelectorAll(".podborka");
+      for (var i = 0; i < podborki.length;i++)
+      {
+        poisk.push($(podborki[i]).data("sel_name"));
+      }
+    }
+    autocomplete(document.getElementById('myInput'),poisk);  
+  }
+  else if(form == "image_tags.php")
+  {
+    poisk = [];
     var kwords = document.querySelectorAll(".kword_solo");
     for (var i = 0; i < kwords.length; i++) {
       poisk.push($(kwords[i]).data("tag"));
     }
+    autocomplete(document.getElementById('myInput'),poisk);  
   }
-  else
-  {
-    var podborki = document.querySelectorAll(".podborka");
-    for (var i = 0; i < podborki.length;i++)
-    {
-      poisk.push($(podborki[i]).data("sel_name"));
-    }
-  }
-  autocomplete(document.getElementById('myInput'),poisk);
+  
 }
 
 function autocomplete(inp, arr) {
