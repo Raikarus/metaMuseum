@@ -99,7 +99,6 @@ $(document).ready(function(){
          pre_load();
          load_page();
       }
-    });
 
     function check_selection()
     {
