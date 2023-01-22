@@ -505,9 +505,8 @@
     }
     function get_podborka_value()
     {
-        echo "<pre>";
-        print_r($_SESSION);
-        echo "</pre>";
+        header('Content-Type: application/json');
+        echo json_encode($_SESSION);
     }
 
 ?>
