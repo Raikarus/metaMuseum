@@ -45,7 +45,7 @@ function pre_load()
     // if($_POST['podborka'])
     // {
         $query = "SELECT pic_id,fmt,title FROM pics WHERE pic_id=$pic_id_from_local_podborka[0]";
-        for ($i=1; $i < count($podborka)-1; $i++) { 
+        for ($i=1; $i < count($pid_id_from_local_podborka)-1; $i++) { 
             $query .= "UNION ALL SELECT pic_id,fmt,title FROM pics WHERE pic_id=$pic_id_from_local_podborka[$i]";
         }
         $res = pg_query($cn,$query);
