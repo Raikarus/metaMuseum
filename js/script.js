@@ -605,7 +605,7 @@ try
   }
   catch
   {
-      alert(size+mod);
+      alert(podborka_string+" "result_tags_string);
   }
   });
 
