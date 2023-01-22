@@ -54,7 +54,6 @@ $(document).ready(function(){
             $('#wrapping').html(response);
           });
         }
-        alert(mod_2);
     }
 
     $('.compilation_li').on("click",".comp_li_button",function(){
