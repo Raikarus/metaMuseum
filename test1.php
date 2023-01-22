@@ -37,13 +37,14 @@
     <script>
  $(document).ready(function(){
         $('.comp_li_button').click(function(){
-            var clickBtnValue = $(this).data('val');
+           console.log("0");
+              /*  var clickBtnValue = $(this).data('val');
             
            
             if(clickBtnValue=='0')
             {
              // $(this).css('outline','5px solid #24B47E');
-               console.log("0");
+              
 
             }
             else
@@ -52,7 +53,7 @@
             }
             
 
-      /*      if(status == 0)
+        if(status == 0)
             {
                
                 data =  {'action': 'set_img','img_string':ss};
