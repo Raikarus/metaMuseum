@@ -29,13 +29,14 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html">
+<link rel="stylesheet" href="css/style_header.css"  type="text/css">
 <link rel="stylesheet" href="css/style1.css"  type="text/css">
 <script type="text/javascript" src = "js/jq.js"></script>
 <script type="text/javascript" src = "js/script.js"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
     <script>
-       let tags = [(document.getElementsByName("tags_button")).length]; // фиксированный пизже
+       let tags = []; // фиксированный пизже
        update_tags();
  $(document).ready(function(){
         $('.normal_tags').on("click",".transparent_check_box",function(){
