@@ -132,7 +132,7 @@ $(document).ready(function(){
     <div class="switcher_block">
       <span class = "current_mod">Галерея</span>
       <label id = "mod_swapper">
-         <input type = "checkbox" id = "mod_switch">
+         <input type = "checkbox" id = "mod_switch" checked>
          <span class = "slider"></span>
       </label>
     </div>
