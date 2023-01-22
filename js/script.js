@@ -555,90 +555,86 @@ $(document).ready(function(){
   });
 
 
-try
-{
-  var ajaxurl = 'ajax.php';
-  $.ajax({
-    url:"ajax.php",
-    type:"POST",
-    data: {'action':'get_podborka_value'},
-    success:function(responce){
-        //{"a":"b|","c","d|"}
-        var json = $.parseJSON(JSON.stringify(responce));
-        podborka = json.podborka.split("|");
-        podborka.splice(-1,1);
-        result_tags = json.result_tags.split("|");
-        result_tags.splice(-1,1);
-        result_tags_invers = json.result_tags_invers.split("|");
-        result_tags_invers.splice(-1,1);
-        size = json.size;
-        pre_podborka = json.pre_podborka.split("|");
-        pre_podborka.splice(-1,1);
-        selected_in_podborka = json.selected_in_podborka.split("|");
-        mod = json.mod;
-        if(mod == "podborka")
-        {
-          but1.style.backgroundColor = "#181818";
-          but2.style.backgroundColor = "#24B47E";
-          gallery.style.display = "none";
-          finder.style.display = "block";
-        }
-        $(".wrap").html("");
-        for (var i = 0; i <=result_tags.length - 1; i++) {
-          $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'<button class = "tag_button" data-tag = "'+result_tags[i]+'" onclick="tag_delete($(this))">×</button></li>');
-        }
-        check_invers();
-        show_kwords();
-        build_poisk();
-        load();
-    },
-    dataType:"json"
-  });
-} 
-  catch(error)
-  {
+// try
+// {
+//   var ajaxurl = 'ajax.php';
+//   $.ajax({
+//     url:"ajax.php",
+//     type:"POST",
+//     data: {'action':'get_podborka_value'},
+//     success:function(responce){
+//         //{"a":"b|","c","d|"}
+//         var json = $.parseJSON(JSON.stringify(responce));
+//         podborka = json.podborka.split("|");
+//         podborka.splice(-1,1);
+//         result_tags = json.result_tags.split("|");
+//         result_tags.splice(-1,1);
+//         result_tags_invers = json.result_tags_invers.split("|");
+//         result_tags_invers.splice(-1,1);
+//         size = json.size;
+//         pre_podborka = json.pre_podborka.split("|");
+//         pre_podborka.splice(-1,1);
+//         selected_in_podborka = json.selected_in_podborka.split("|");
+//         mod = json.mod;
+//         if(mod == "podborka")
+//         {
+//           but1.style.backgroundColor = "#181818";
+//           but2.style.backgroundColor = "#24B47E";
+//           gallery.style.display = "none";
+//           finder.style.display = "block";
+//         }
+//         $(".wrap").html("");
+//         for (var i = 0; i <=result_tags.length - 1; i++) {
+//           $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'<button class = "tag_button" data-tag = "'+result_tags[i]+'" onclick="tag_delete($(this))">×</button></li>');
+//         }
+//         check_invers();
+//         show_kwords();
+//         build_poisk();
+//         load();
+//     },
+//     dataType:"json"
+//   });
+// } 
+//   catch(error)
+//   {
 
 show_kwords();
 build_poisk();
 load();  
 
-}
+// }
   
-  $('#set_tag').click(function(){
+  // $('#set_tag').click(function(){
 
-    var ajaxurl = 'ajax.php';
-    var result_tags_string = "";
-    var result_tags_invers_string = "";
-    var pre_podborka_string = "";
-    var podborka_string = "";
-    var selected_in_podborka_string = "";
+  //   var ajaxurl = 'ajax.php';
+  //   var result_tags_string = "";
+  //   var result_tags_invers_string = "";
+  //   var pre_podborka_string = "";
+  //   var podborka_string = "";
+  //   var selected_in_podborka_string = "";
 
-    for (var i = 0; i < result_tags.length; i++) {
-      result_tags_string += result_tags[i]+"|";
-      result_tags_invers_string += result_tags_invers[i]+"|";
-    }
-    for(var i = 0; i < pre_podborka.length; i++)
-    {
-      pre_podborka_string += pre_podborka[i]+"|";
-    }
-    for(var i = 0; i < podborka.length; i++)
-    {
-      podborka_string += podborka[i]+"|";
-    }
-    for(var i = 0; i < selected_in_podborka.length; i++)
-    {
-      selected_in_podborka_string += selected_in_podborka[i]+"|";
-    }
+  //   for (var i = 0; i < result_tags.length; i++) {
+  //     result_tags_string += result_tags[i]+"|";
+  //     result_tags_invers_string += result_tags_invers[i]+"|";
+  //   }
+  //   for(var i = 0; i < pre_podborka.length; i++)
+  //   {
+  //     pre_podborka_string += pre_podborka[i]+"|";
+  //   }
+  //   for(var i = 0; i < podborka.length; i++)
+  //   {
+  //     podborka_string += podborka[i]+"|";
+  //   }
+  //   for(var i = 0; i < selected_in_podborka.length; i++)
+  //   {
+  //     selected_in_podborka_string += selected_in_podborka[i]+"|";
+  //   }
 
-    data = {'action':'set_podborka_value', 'podborka':podborka_string,'result_tags':result_tags_string,'result_tags_invers':result_tags_invers_string,'size':size,'pre_podborka':pre_podborka_string,'selected_in_podborka':selected_in_podborka_string,'mod':mod};
-    $.post(ajaxurl,data).done(function(responce){
-      alert(responce);
-    });
+  //   data = {'action':'set_podborka_value', 'podborka':podborka_string,'result_tags':result_tags_string,'result_tags_invers':result_tags_invers_string,'size':size,'pre_podborka':pre_podborka_string,'selected_in_podborka':selected_in_podborka_string,'mod':mod};
+  //   $.post(ajaxurl,data).done(function(responce){
+  //     alert(responce);
+  //   });
 
-  });
-
-  $(".logo").click(function(){
-    
-
-  });
+  // });
+  
 });
