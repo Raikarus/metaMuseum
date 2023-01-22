@@ -607,7 +607,7 @@ $(document).ready(function(){
       var ajaxurl = 'ajax.php';
       data = {'action':'get_podborka_value'};
       $.post(ajaxurl,data,datatype:'json').done(function(responce){
-        alert(JSON.parse(responce));
+        alert($.parseJSON(responce));
         //show_kwords();
         //build_poisk();
         //load();        
