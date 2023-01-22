@@ -12,7 +12,7 @@ $(document).ready(function(){
     function get_podborka_value()
     {
       var ajaxurl = 'ajax_pictags.php';
-      data = {'action': 'get_podborka_value'}
+      data = {'action': 'get_podborka_value'};
       $.post(ajaxurl,data).done(function(response){
         podborka = response;
       })
@@ -21,9 +21,9 @@ $(document).ready(function(){
     function pre_load()
     {
       var ajaxurl = 'ajax_pictags.php';
-      data = {'action': 'pre_load', 'podborka':podborka}
+      data = {'action': 'pre_load', 'podborka':podborka};
       $.post(ajaxurl,data).done(function(response){
-        alert(podborka);
+
         $('.photos_compilation').html(response);
       })
     }
