@@ -99,7 +99,7 @@ function load_cross_kwords()
             //ЕСЛИ ВЫБРАНО НЕСКОЛЬКО КАРТИНОК
             $query = "SELECT tag_id_num FROM pictags WHERE tag_id=10";
             for ($i=0; $i < count($pic_id_from_local_podborka)-1; $i++) { 
-                $query .= " AND pic_id=$pic_id_from_local_podborka[$i]";               
+                $query .= " AND pic_id=$pic_id_from_local_podborka[$i]";
             }
             $res = pg_query($cn,$query);
             if($row = pg_fetch_object($res))
@@ -112,7 +112,7 @@ function load_cross_kwords()
                     $query .= " OR tag_id_num=$tag_id_num";
                 }
                 $res = pg_query($cn,$query);
-                while($row = pg_fetch_object($res)
+                while($row = pg_fetch_object($res))
                 {
                     $kword_name = $row->kword_name;
                     //СКОПИРОВАТЬ СТИЛИ ИЛИ ДОБАВИТЬ ДУБЛИКАТ СВОИХ
