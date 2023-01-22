@@ -604,7 +604,12 @@ footer {
    height: 8%;
    display: flex;
    align-items: center;
-   justify-content: center;
+   justify-content: space-between;
+}
+
+.current_mod {
+   margin-right: 20px;
+   margin-left: 10px;
 }
 
 #mod_swapper {
