@@ -72,7 +72,7 @@ $(document).ready(function(){
         $(this).data('val','1');
 
         selected_images.push(String($(this).data('img')));
-        selected_images_id.push(String($(this.data('id')));
+        selected_images_id.push(String($(this).data('id')));
       }
       else
       {
