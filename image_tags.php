@@ -48,8 +48,8 @@ $(document).ready(function(){
       var ajaxurl = 'ajax_pictags.php';
       if(switcher.checked)
       {
-        data =  {'action': 'load_podborka','img_string':selected_images_string};
         alert("pre_1")
+        data =  {'action': 'load_podborka','img_string':selected_images_string};
         $.post(ajaxurl, data).done(function(response) {
           $('#wrapping').html(response);
           alert("1");
