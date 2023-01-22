@@ -35,8 +35,8 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
     <script>
-       let tags = [(document.getElementsByName("tags_button")).length];
-      
+       let tags_normal = []; //фиксированные пизже
+       let tags_del = [];
  $(document).ready(function(){
         $('.normal_tags').on("click",".transparent_check_box",function(){
           
@@ -46,7 +46,14 @@
 
             for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
             {
-            tags.push(document.getElementsByName("tags_button")[i]);
+            if($(document.getElementsByName("tags_button")[i]).data('val') == 1)
+            {
+               tags_normal.push(document.getElementsByName("tags_button")[i]);
+            }
+            else
+            {
+               tags_normal.push(document.getElementsByName("tags_button")[i]);
+            }
           
             }
            
