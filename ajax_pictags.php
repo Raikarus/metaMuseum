@@ -14,6 +14,9 @@ if (isset($_POST['action'])) {
             case 'get_podborka_value':
                 get_podborka_value();
                 break;
+            case 'load_cross_kwords':
+                load_cross_kwords();
+                break;
         }
     }
 
@@ -71,6 +74,18 @@ function pre_load()
     }
 }
 
-
+function load_cross_kwords()
+{
+    $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+    if($_POST['img_string'])
+    {
+        echo "1";
+    }
+    else
+    {
+        echo "2";
+    }
+    //$query = "SELECT tag_id_num FROM pictags WHERE (tag_id=10)"
+}
 
 ?>
