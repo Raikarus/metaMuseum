@@ -16,8 +16,8 @@ if (isset($_POST['action'])) {
 $status = 0;
 function update_tags()
 {
-                        $tag = explode(" ", $_POST['tags_string']);
-                        
+                        $tag = explode("|", $_POST['tags_string']);
+
                         for($i = 0; $i < count($tag);$i++)
                         {
                            $size = rand(10, 40);
