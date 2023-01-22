@@ -489,7 +489,7 @@
     function set_podborka_value()
     {
         $_SESSION['podborka']=$_POST['podborka'];
-        //session_destroy();
+        //session_update();
     }
 
 ?>
