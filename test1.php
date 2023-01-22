@@ -36,9 +36,9 @@
 
     <script>
        let tags = [(document.getElementsByName("tags_button")).length];
-        let check_tags = [(document.getElementsByName("transparent_check_box")).length];
+
  $(document).ready(function(){
-        $('.transparent_check_box').click(function(){
+        $('.normal_tags').on("click",".transparent_check_box",function(){
           
             var clickBtnValue = $(this).is(":checked");
             
@@ -47,14 +47,12 @@
             for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
             {
             tags.push(document.getElementsByName("tags_button")[i]);
-             check_tags.push(document.getElementsByName("transparent_check_box")[i]);
             }
            
             if(clickBtnValue=='0')
             {
               console.log($(this));
-              $(this).data('val',0);
-               //console.log(tags[tags.indexOf($(this).data('val',1))]); 
+               console.log(tags[tags.indexOf($(this).data('val',1))]); 
              // console.log(tags[tags.indexOf($(this))]);
 
 
@@ -77,11 +75,11 @@
 
                for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
                 {
-                  if($(check_tags[i]).data('val') == 1)
+                  if($(tags[i]).data('val') == 1)
                   {
                     try
                     {
-                       tags[i].innerHTML = ' <label name="tags_button" data-val = "1" data-str = sss><input type="checkbox" class="transparent_check_box" data-val = "1" checked><span class = "cloud_tag" style="font-size:30 px;">'+$(tags[i]).data('str')+'</span></label>';
+                       tags[i].innerHTML = ' <label name="tags_button" data-val = "1" data-str = sss><input type="checkbox" class="transparent_check_box" checked><span class = "cloud_tag" style="font-size:30 px;">'+$(tags[i]).data('str')+'</span></label>';
                     }
                     catch
                     {
@@ -93,7 +91,7 @@
                   {
                     try
                     {
-                       tags[i].innerHTML = ' <label name="tags_button" data-val = "0" data-str = sss><input type="checkbox" class="transparent_check_box"  data-val = "0"><span class = "cloud_tag" style="font-size:30 px;color: #CD5C5C;">'+$(tags[i]).data('str')+'</span></label>';
+                       tags[i].innerHTML = ' <label name="tags_button" data-val = "0" data-str = sss><input type="checkbox" class="transparent_check_box"><span class = "cloud_tag" style="font-size:30 px;color: #CD5C5C;">'+$(tags[i]).data('str')+'</span></label>';
                     }
                     catch
                     {
@@ -163,7 +161,7 @@
                         {
                            $size = rand(10, 40);
                             echo ' <label name="tags_button" data-val = "1" data-str ="'.$tag[$i].'">
-                                   <input type="checkbox" class="transparent_check_box" data-val = "1" checked>
+                                   <input type="checkbox" class="transparent_check_box" checked>
                                    <span class = "cloud_tag" style="font-size:'.$size.'px;">'.$tag[$i]."($size) ".'</span>
                                    </label>';
                         }
@@ -180,7 +178,7 @@
                         {
                            $size = rand(10, 40);
                             echo ' <label name="tags_button" data-val = "0" data-str ="'.$tag[$i].'">
-                                   <input type="checkbox" class="transparent_check_box"  data-val = "0">
+                                   <input type="checkbox" class="transparent_check_box">
                                    <span class = "cloud_tag" style="font-size:'.$size.'px;color: #CD5C5C;">'.$tag[$i]."($size) ".'</span>
                                    </label>';
                             echo "\n";
