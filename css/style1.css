@@ -607,11 +607,17 @@ footer {
    justify-content: center;
 }
 
+.current_mod {
+   margin-right: 20px;
+   font-size: 20px;
+   font-weight: bold;
+}
+
 #mod_swapper {
    position: relative;
    display: inline-block;
    width: 60px;
-   height: 34px;
+   height: 30px;
 }
 
 .mod_switch {
@@ -625,34 +631,36 @@ footer {
    left: 0;
    right: 0;
    bottom: 0;
-   background-color: #ccc;
+   background-color: #181818;
    -webkit-transition: .4s;
    transition: .4s;
+   border: 1px solid rgba(139, 137, 137, 0.5);
+   border-radius: 2px;
  }
  
  .slider:before {
    position: absolute;
    content: "";
-   height: 26px;
-   width: 26px;
+   height: 22px;
+   width: 22px;
    left: 4px;
-   bottom: 4px;
+   bottom: 3px;
    background-color: white;
    -webkit-transition: .4s;
    transition: .4s;
  }
  
  .mod_switch:checked + .slider {
-   background-color: #2196F3;
+   background-color: #24B47E;
  }
  
  .mod_switch:focus + .slider {
-   box-shadow: 0 0 1px #2196F3;
+   box-shadow: 0 0 1px #24B47E;
  }
  
  .mod_switch:checked + .slider:before {
-   -webkit-transform: translateX(26px);
-   -ms-transform: translateX(26px);
-   transform: translateX(26px);
+   -webkit-transform: translateX(28px);
+   -ms-transform: translateX(28px);
+   transform: translateX(28px);
  }
  

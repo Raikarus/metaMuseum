@@ -122,6 +122,7 @@ $(document).ready(function(){
   <div class = "main_left">
     <!-- ТУТ ПОМЕНЯТЬ СТИЛИ (style1.css) -->
     <div class="switcher_block">
+      <span class = "current_mod">Режим</span>
       <label id = "mod_swapper">
          <input type = "checkbox" class = "mod_switch">
          <span class = "slider"></span>
