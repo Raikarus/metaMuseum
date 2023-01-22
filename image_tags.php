@@ -7,6 +7,7 @@
 <script>
 var mod_2 = "podborka";
 let selected_images = [];
+let selected_images_id = [];
 
 $(document).ready(function(){
     
@@ -35,9 +36,11 @@ $(document).ready(function(){
     function load_page()
     {
       var selected_images_string = "";
+      var selected_images_id_string = "";
       for(var i = 0; i < selected_images.length;i++)
       {
          selected_images_string += selected_images[i] + '|';
+         selected_images_id_string += selected_images_id[i]+"|";
       }
 
       var ajaxurl = 'ajax_pictags.php';
@@ -46,7 +49,7 @@ $(document).ready(function(){
         data =  {'action': 'load_podborka','img_string':selected_images_string};
         $.post(ajaxurl, data).done(function(response) {
           $('#wrapping').html(response);
-          data =  {'action': 'load_cross_kwords','img_string':selected_images_string};
+          data =  {'action': 'load_cross_kwords','img_string':selected_images_id_string};
           $.post(ajaxurl,data).done(function(response){
             $('.wrap').html(response);
           });
@@ -69,6 +72,7 @@ $(document).ready(function(){
         $(this).data('val','1');
 
         selected_images.push(String($(this).data('img')));
+        selected_images_id.push(String($(this.data('id')));
       }
       else
       {
@@ -76,6 +80,7 @@ $(document).ready(function(){
         $(this).data('val','0');
 
         selected_images.splice(selected_images.indexOf($(this).data('img')),1);
+        selected_images_id.splice(selected_images.indexOf($(this).data('img')),1);
       }
       load_page();
     });
@@ -96,7 +101,7 @@ $(document).ready(function(){
     {
       for (var i = 0; i < selected_images.length; i++) {
         $('.comp_li_button[data-img="'+selected_images[i]+'"]').css('background-color', '#24B47E');
-        $('.comp_li_button[data-img="'+selected_images[i]+'"]').data("id") = 1;
+        $('.comp_li_button[data-img="'+selected_images[i]+'"]').data("val") = 1;
       }
     }
 
@@ -107,7 +112,7 @@ $(document).ready(function(){
       $.post(ajaxurl, data).done(function (response) {
         $(".list_of_groups").html(response);
         build_poisk();
-      });   
+      });
     }
     show_kwords();
 });
