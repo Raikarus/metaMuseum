@@ -23,6 +23,7 @@ $(document).ready(function(){
       var ajaxurl = 'ajax_pictags.php';
       data = {'action': 'pre_load', 'podborka':podborka}
       $.post(ajaxurl,data).done(function(response){
+        alert(podborka);
         $('.photos_compilation').html(response);
       })
     }
