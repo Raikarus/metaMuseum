@@ -35,7 +35,7 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
     <script>
-       let tags = [(document.getElementsByName("tags_button")).length];
+       let tags = [];
       
  $(document).ready(function(){
         $('.normal_tags').on("change",".transparent_check_box",function(){
@@ -50,7 +50,7 @@
           
             }
            
-            if(clickBtnValue=='0')
+            if($(this).is(":checked"))
             {
              // $(this).data('val',1);
               
