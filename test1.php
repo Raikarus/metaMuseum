@@ -52,7 +52,7 @@
             }
             else
             {
-               tags_normal.push(document.getElementsByName("tags_button")[i]);
+               tags_del.push(document.getElementsByName("tags_button")[i]);
             }
           
             }
@@ -66,9 +66,11 @@
               console.log($(this).data('str'));
                for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
                 {
-                  if($(tags[i]).data('str') == $(this).data('str') )
+                  if($(tags_normal[i]).data('str') == $(this).data('str') )
                   {
-                    $(tags[i]).data('val',0);
+                  
+                    $tags_normal.pop(tags_normal[i]);
+                    $tags_del.push(tags_normal[i]);
                     break;
                   }
                 }
@@ -90,30 +92,27 @@
 
                for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
                 {
-                  if($(tags[i]).data('val') == 1 )
-                  {
+                
                     try
                     {
-                       tags[i].innerHTML = ' <label name="tags_button" data-val = "1" data-str = sss><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+$(tags[i]).data('str')+' checked><span class = "cloud_tag" style="font-size:30 ;">'+$(tags[i]).data('str')+'</span></label>';
+                       tags_normal[i].innerHTML = ' <label name="tags_button" data-val = "1" data-str = sss><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+$(tags_normal[i]).data('str')+' checked><span class = "cloud_tag" style="font-size:30 ;">'+$(tags_normal[i]).data('str')+'</span></label>';
                     }
                     catch
                     {
 
                     }
+            
                   
-                  }
-                  else
-                  {
                     try
                     {
-                       tags[i].innerHTML = ' <label name="tags_button" data-val = "0"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+$(tags[i]).data('str')+' ><span class = "cloud_tag" style="font-size:30 ;color: #CD5C5C;">'+$(tags[i]).data('str')+'</span></label>';
+                       tags_del[i].innerHTML = ' <label name="tags_button" data-val = "0"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+$(tags_del[i]).data('str')+' ><span class = "cloud_tag" style="font-size:30 ;color: #CD5C5C;">'+$(tags_del[i]).data('str')+'</span></label>';
                     }
                     catch
                     {
 
                     }
                    
-                  }
+                  
 
                 }
                 while(tags.length > 0) 
