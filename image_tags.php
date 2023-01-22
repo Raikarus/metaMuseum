@@ -96,7 +96,7 @@ $(document).ready(function(){
     {
       for (var i = 0; i < selected_images.length; i++) {
         $('.comp_li_button[data-img="'+selected_images[i]+'"]').css('background-color', '#24B47E');
-        $('.comp_li_button[data-img="'+selected_images[i]+'"]').data("val") = 1;
+        $('.comp_li_button[data-img="'+selected_images[i]+'"]').data("id") = 1;
       }
     }
 
