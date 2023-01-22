@@ -58,7 +58,7 @@ $(document).ready(function(){
         }
     }
 
-    $('.compilation_li').on("click",".comp_li_button",function(){
+    $('#compilation').on("click",".compilation_li .comp_li_button",function(){
         var clickBtnValue = $(this).data('val');
         if(clickBtnValue=='0')
         {
