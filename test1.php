@@ -69,8 +69,8 @@
                   if($(tags_normal[i]).data('str') == $(this).data('str') )
                   {
                   
-                    $tags_normal.pop(tags_normal[i]);
-                    $tags_del.push(tags_normal[i]);
+                    tags_normal.pop(tags_normal[i]);
+                    tags_del.push(tags_normal[i]);
                     break;
                   }
                 }
