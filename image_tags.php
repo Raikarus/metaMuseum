@@ -46,6 +46,7 @@ $(document).ready(function(){
       }
 
       var ajaxurl = 'ajax_pictags.php';
+      alert("pre_pre");
       if(switcher.checked)
       {
         alert("pre_1");
