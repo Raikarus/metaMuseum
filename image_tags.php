@@ -10,12 +10,12 @@ let selected_images = [];
 
 $(document).ready(function(){
     
-
+    alert("1");
     function get_podborka_value()
     {
       var ajaxurl = 'ajax_pictags.php';
       data = {'action': 'get_podborka_value'};
-      alert("1");
+
       $.post(ajaxurl,data).done(function(response){
         alert(response);
         podborka = response.split("|");
