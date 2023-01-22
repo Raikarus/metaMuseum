@@ -613,7 +613,7 @@ $(document).ready(function(){
         }
         catch
         {
-          alert("1");
+          alert(responce);
         }
         //show_kwords();
         //build_poisk();
