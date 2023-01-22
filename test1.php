@@ -79,7 +79,7 @@
                   {
                     try
                     {
-                       tags[i].innerHTML = ' <label name="tags_button" data-val = "1" data-str = sss><input type="checkbox" class="transparent_check_box" checked><span class = "cloud_tag" style="font-size:30 px;">'+$(tags[i]).data('str')+'</span></label>';
+                       tags[i].innerHTML = ' <label name="tags_button" data-val = "1" data-str = sss><input type="checkbox" class="transparent_check_box" data-val = "1" checked><span class = "cloud_tag" style="font-size:30 px;">'+$(tags[i]).data('str')+'</span></label>';
                     }
                     catch
                     {
@@ -91,7 +91,7 @@
                   {
                     try
                     {
-                       tags[i].innerHTML = ' <label name="tags_button" data-val = "0" data-str = sss><input type="checkbox" class="transparent_check_box"><span class = "cloud_tag" style="font-size:30 px;color: #CD5C5C;">'+$(tags[i]).data('str')+'</span></label>';
+                       tags[i].innerHTML = ' <label name="tags_button" data-val = "0" data-str = sss><input type="checkbox" class="transparent_check_box"  data-val = "0"><span class = "cloud_tag" style="font-size:30 px;color: #CD5C5C;">'+$(tags[i]).data('str')+'</span></label>';
                     }
                     catch
                     {
@@ -161,7 +161,7 @@
                         {
                            $size = rand(10, 40);
                             echo ' <label name="tags_button" data-val = "1" data-str ="'.$tag[$i].'">
-                                   <input type="checkbox" class="transparent_check_box" checked>
+                                   <input type="checkbox" class="transparent_check_box" data-val = "1" checked>
                                    <span class = "cloud_tag" style="font-size:'.$size.'px;">'.$tag[$i]."($size) ".'</span>
                                    </label>';
                         }
@@ -178,7 +178,7 @@
                         {
                            $size = rand(10, 40);
                             echo ' <label name="tags_button" data-val = "0" data-str ="'.$tag[$i].'">
-                                   <input type="checkbox" class="transparent_check_box">
+                                   <input type="checkbox" class="transparent_check_box"  data-val = "0">
                                    <span class = "cloud_tag" style="font-size:'.$size.'px;color: #CD5C5C;">'.$tag[$i]."($size) ".'</span>
                                    </label>';
                             echo "\n";
