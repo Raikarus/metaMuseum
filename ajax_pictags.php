@@ -97,11 +97,33 @@ function load_cross_kwords()
         else
         {
             //ЕСЛИ ВЫБРАНО НЕСКОЛЬКО КАРТИНОК
-            $query = "SELECT tag_id_num FROM pictags WHERE pic_id=$pic_id_from_local_podborka[0] AND tag_id=10";
-            for ($i=1; $i < count($pic_id_from_local_podborka)-1; $i++) { 
-                $query .= " UNION SELECT tag_id_num FROM pictags WHERE tag_id=10 AND pic_id=$pic_id_from_local_podborka[$i]";               
+            $query = "SELECT tag_id_num FROM pictags WHERE tag_id=10";
+            for ($i=0; $i < count($pic_id_from_local_podborka)-1; $i++) { 
+                $query .= " AND pic_id=$pic_id_from_local_podborka[$i]";               
             }
-            echo "ЗАПРОСИК $query";
+            $res = pg_query($cn,$query);
+            if($row = pg_fetch_object($res))
+            {
+                $tag_id_num = $row->tag_id_num;
+                $query = "SELECT kword_name FROM kwords WHERE tag_id_num=$tag_id_num";
+                while($row = pg_fetch_object($res))
+                {
+                    $tag_id_num = $row->tag_id_num;
+                    $query .= " OR tag_id_num=$tag_id_num";
+                }
+                $res = pg_query($cn,$query);
+                while($row = pg_fetch_object($res)
+                {
+                    $kword_name = $row->kword_name;
+                    //СКОПИРОВАТЬ СТИЛИ ИЛИ ДОБАВИТЬ ДУБЛИКАТ СВОИХ
+                    echo "<li>$kword_name</li>"
+                }
+            }
+            else
+            {
+                echo "<b style='color:white'>Нет общих ключевых слов</b>";
+            }
+            
         }
     }
     else
