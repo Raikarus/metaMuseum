@@ -61,7 +61,7 @@
                 {
                   if($(tags[i]).data('str') == $(this).data('str') )
                   {
-                    $(tags[i]).data('val',1);
+                    $(tags[i]).data('val',0);
                     break;
                   }
                 }
