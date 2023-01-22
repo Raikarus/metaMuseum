@@ -35,7 +35,7 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
     <script>
-       let tags = [];
+       let tags = [(document.getElementsByName("tags_button")).length];
       
  $(document).ready(function(){
         $('.normal_tags').on("click",".transparent_check_box",function(){
@@ -50,7 +50,7 @@
           
             }
            
-            if($(this).is(":checked"))
+            if(clickBtnValue=='0')
             {
              // $(this).data('val',1);
               
@@ -81,7 +81,6 @@
                   }
                 }
                 $(this).data('val',1);
-
             }
           });
         });
