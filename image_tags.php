@@ -51,9 +51,11 @@ $(document).ready(function(){
         data =  {'action': 'load_podborka','img_string':selected_images_string};
         $.post(ajaxurl, data).done(function(response) {
           $('#wrapping').html(response);
+          alert("1");
           data =  {'action': 'load_cross_kwords','img_string':selected_images_id_string};
           $.post(ajaxurl,data).done(function(response){
             $('.wrap').html(response);
+            alert("2");
           });
         });
       } 
@@ -62,6 +64,7 @@ $(document).ready(function(){
         data =  {'action': 'load_download'};
         $.post(ajaxurl, data).done(function(response) {
           $('#wrapping').html(response);
+          alert("3");
         });
       }
     }
