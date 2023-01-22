@@ -85,7 +85,8 @@ $(document).ready(function(){
       }
       load_page();
     });
-
+    
+    $('#mod_swapper').click(function(){
       if (switcher.checked)
       {
          switcher.checked = false;
@@ -99,6 +100,8 @@ $(document).ready(function(){
          pre_load();
          load_page();
       }
+    });
+
 
     function check_selection()
     {
