@@ -79,6 +79,10 @@
       transform: translateX(28px);
     }
 
+    #emptycompilation {
+      color: rgb(228, 79, 79);
+    }
+
    .photos_compilation {
       width: 90%;
       height: auto;
