@@ -46,10 +46,10 @@ $(document).ready(function(){
       }
 
       var ajaxurl = 'ajax_pictags.php';
-      alert("pre_pre");
+      alert(selected_images_string+" "+selected_images_id_string);
+
       if(switcher.checked)
       {
-        alert("pre_1");
         data =  {'action': 'load_podborka','img_string':selected_images_string};
         $.post(ajaxurl, data).done(function(response) {
           $('#wrapping').html(response);
@@ -102,8 +102,8 @@ $(document).ready(function(){
          switcher.checked = true;
          $('.current_mod').text('Галерея');
          pre_load();
-         check_selection();      
          load_page();
+         check_selection();      
       }    
     });
 
