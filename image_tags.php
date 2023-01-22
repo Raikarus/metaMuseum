@@ -54,6 +54,7 @@ $(document).ready(function(){
             $('#wrapping').html(response);
           });
         }
+        alert(mod_2);
     }
 
     $('.compilation_li').on("click",".comp_li_button",function(){
@@ -80,7 +81,7 @@ $(document).ready(function(){
       load_page();
     });
     $('#mod_download').click(function(){
-      mod2_ = "download";
+      mod_2 = "download";
       load_page();
     });
 });
