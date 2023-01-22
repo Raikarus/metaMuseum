@@ -52,7 +52,8 @@
             if(clickBtnValue=='0')
             {
               console.log($(this));
-               console.log(tags[tags.indexOf($(this).data('val',1))]); 
+              $(this).data('val',0);
+               //console.log(tags[tags.indexOf($(this).data('val',1))]); 
              // console.log(tags[tags.indexOf($(this))]);
 
 
