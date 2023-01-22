@@ -49,7 +49,7 @@
            
             if(clickBtnValue=='0')
             {
-            console.log(tags[0]);
+            console.log(document.getElementsByName("tags_button")[0]);
             console.log(tags[(document.getElementsByName("tags_button")).length]);
             }
             else
