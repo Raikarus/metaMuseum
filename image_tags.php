@@ -7,8 +7,6 @@
 <script>
 var mod_2 = "podborka";
 let selected_images = [];
-var podborka = "";
-
 
 $(document).ready(function(){
     
@@ -18,8 +16,10 @@ $(document).ready(function(){
       var ajaxurl = 'ajax_pictags.php';
       data = {'action': 'get_podborka_value'};
       $.post(ajaxurl,data).done(function(response){
+        alert("1");
         alert(response);
-        podborka = response;
+        podborka = response.split("|");
+        podborka.splice(-1,1);
         pre_load();
       });
     }

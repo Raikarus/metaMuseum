@@ -36,8 +36,7 @@ function load_download()
 
 function get_podborka_value()
 {
-    echo "560";
-    //echo $_SESSION['podborka'];
+    echo $_SESSION['podborka'];
 }
 
 function pre_load()
