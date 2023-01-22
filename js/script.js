@@ -610,7 +610,7 @@ $(document).ready(function(){
     }
     catch(error)
     {
-      alert(error);
+      alert('error');
     }
   });
 });
