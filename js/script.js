@@ -612,6 +612,7 @@ $(document).ready(function(){
         success:function(responce){
             //{"a":"b|","c","d|"}
             var step1 = ((JSON.stringify(responce)).replace(/"/gi,'').replace("{",'').replace("}",'')).split(",");
+            alert(step1);
             for(var i = 0; i < step1.length;i++)
               console.log(step1[i]);
         },
