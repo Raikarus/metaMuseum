@@ -121,9 +121,11 @@ $(document).ready(function(){
 <div class = "main">
   <div class = "main_left">
     <!-- ТУТ ПОМЕНЯТЬ СТИЛИ (style1.css) -->
-    <div id = "mod_swapper"style="display:flex;justify-content: center;align-items: center;width: 100%;height: 10%;">
-      <button id = "mod_podborka" style = "width:50%;height: 100%">Подборка</button>
-      <button id = "mod_download" style = "width:50%;height: 100%">Загруженное</button>
+    <div class="switcher_block">
+      <label id = "mod_swapper">
+         <input type = "checkbox" class = "mod_switch">
+         <span class = "slider"></span>
+      </label>
     </div>
     <!-- ТУТ ПОМЕНЯТЬ СТИЛИ -->  
     <ul class = "photos_compilation" id = "compilation">
