@@ -18,8 +18,7 @@ $(document).ready(function(){
 
       $.post(ajaxurl,data).done(function(response){
         alert(response);
-        podborka = response.split("|");
-        podborka.splice(-1,1);
+        podborka = response;
         pre_load();
       });
     }
