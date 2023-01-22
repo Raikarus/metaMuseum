@@ -616,7 +616,7 @@ $(document).ready(function(){
             var json_responce = JSON.parse(responce);
             var message = "";
             for(var i in json_responce)
-              message += json_responce[i]+" ";
+              message += i+" ";
             alert(message);
         },
         dataType:"json"
