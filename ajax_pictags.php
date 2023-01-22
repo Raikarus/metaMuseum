@@ -37,7 +37,6 @@ function load_download()
 function pre_load()
 {
     $pic_id_from_local_podborka = explode("|", $_POST['podborka']);
-    $selected_in_podborka = explode("|",$_POST['selected_in_podborka']);
     if($_POST['podborka'])
     {
         $query = "SELECT pic_id,fmt,title FROM pics WHERE pic_id=$pic_id_from_local_podborka[0]";
