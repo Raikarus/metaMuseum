@@ -259,6 +259,31 @@ $(document).ready(function(){
   {
     if(form == "home.php")
     {
+      //Добавить работу с выпадающими группами
+      elem = $('.kword_solo[data-tag="'+$('#myInput').val()+'"]');
+
+      var index = result_tags.indexOf($(elem).data("tag"));
+      if($(elem).data("tag"))
+      {
+        if (index >= 0) {
+          result_tags.splice(index, 1);
+          result_tags_invers.splice(index, 1);
+        }
+        else{
+          result_tags.push($(elem).data("tag"));
+          result_tags_invers.push(0);
+        }
+        $(".wrap").html("");
+        for (var i = 0; i <=result_tags.length - 1; i++) {
+          $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'<button class = "tag_button" data-tag = "'+result_tags[i]+'" onclick="tag_delete($(this))">×</button></li>');
+        }
+        check_invers();
+        load();  
+      }
+    } 
+    else if(form == "image_tags.php")
+    {
+      //Добавить работу с выпадающими группами
       elem = $('.kword_solo[data-tag="'+$('#myInput').val()+'"]');
 
       var index = result_tags.indexOf($(elem).data("tag"));
@@ -385,7 +410,7 @@ $(document).ready(function(){
       wrap.style.gridTemplateColumns = "repeat(3, 1fr)";
       wrap.style.gridTemplateRows = "repeat(2, 1fr)";
       limit_of_pages = 6;
-      
+
       size='3x2';
       load();
    });
@@ -633,10 +658,10 @@ $(document).ready(function(){
 // } 
 //   catch(error)
 //   {
-
-
-
-// }
+//      show_kwords();
+//      build_poisk();
+//      load();  
+//    }
   
   $('#set_tag').click(function(){
 

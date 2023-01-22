@@ -94,14 +94,14 @@ $(document).ready(function(){
       if (switcher.checked)
       {
          switcher.checked = false;
-         $('.current_mod').text('Галерея');
+         $('.current_mod').text('Загрузка');
          $('.photos_compilation').html("");
          load_page();
        }
       else
       {
          switcher.checked = true;
-         $('.current_mod').text('Загрузка');
+         $('.current_mod').text('Галерея');
          pre_load();
          load_page();
       }
