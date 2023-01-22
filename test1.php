@@ -62,13 +62,11 @@
             if(clickBtnValue=='0')
             {
              // $(this).data('val',1);
-              
-            
                  console.log(tags_del[0]);
               console.log($(this).data('str'));
                for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
                 {
-                  if($(tags[i]).data('str') == $(this).data('str') )
+                  if($(tags_normal[i]).data('str') == $(this).data('str') )
                   {
                     $(tags[i]).data('val',0);
                     break;
