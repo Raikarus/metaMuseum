@@ -15,7 +15,7 @@ $(document).ready(function(){
       data = {'action': 'get_podborka_value'};
       $.post(ajaxurl,data).done(function(response){
         podborka = response;
-      })
+      });
     }
 
     function pre_load()
@@ -25,7 +25,7 @@ $(document).ready(function(){
       $.post(ajaxurl,data).done(function(response){
 
         $('.photos_compilation').html(response);
-      })
+      });
     }
 
     get_podborka_value();
