@@ -52,7 +52,7 @@ $(document).ready(function(){
         {
           data =  {'action': 'load_download'};
           $.post(ajaxurl, data).done(function (response) {
-            $('#wrapping').html(response);
+            //$('#wrapping').html(response);
           });
         }
     }
@@ -83,7 +83,7 @@ $(document).ready(function(){
     });
     $('#mod_download').click(function(){
       mod_2 = "download";
-      //$('.photos_compilation').html("");
+      $('.photos_compilation').html("");
       load_page();
     });
 });
