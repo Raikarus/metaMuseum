@@ -12,7 +12,7 @@ $(document).ready(function(){
     function get_podborka_value()
     {
       var ajaxurl = 'ajax_pictags.php';
-      data = {'action': 'test'}
+      data = {'action': 'get_podborka_value'}
       $.post(ajaxurl,data).done(function(response){
         podborka = response;
       })
