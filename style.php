@@ -58,8 +58,7 @@ switch ($load_page) {
       </div>
       <!-- ТУТ ПОМЕНЯТЬ СТИЛИ -->
       <ul class = username_exit>
-         <li class = "usit_elem username">Username</li>
-         <li class = "usit_elem exit"><a class = "exit" href = "/?form=exit">Exit</a></li>
+         <li class = "exit"><a class = "exit" href = "/?form=exit">Exit</a></li>
       </ul>
    </div>
 </header>
