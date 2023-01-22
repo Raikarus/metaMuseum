@@ -99,7 +99,7 @@ function load_cross_kwords()
             //ЕСЛИ ВЫБРАНО НЕСКОЛЬКО КАРТИНОК
             $query = "SELECT tag_id_num FROM pictags WHERE pic_id=$pic_id_from_local_podborka[0] AND tag_id=10";
             for ($i=1; $i < count($pic_id_from_local_podborka)-1; $i++) { 
-                $query .= " UNION SELECT tag_id_num FROM pictags WHERE tag_id=10 AND pic_id=$pic_id_from_local_podborka";               
+                $query .= " UNION SELECT tag_id_num FROM pictags WHERE tag_id=10 AND pic_id=$pic_id_from_local_podborka[$i]";               
             }
             echo "ЗАПРОСИК $query";
         }
