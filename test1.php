@@ -134,10 +134,10 @@
       </div>
    </header>
 
-<div class = "main">
+<div class = "main_tag">
    
-      <div class = "main_right">
-         <div class = "all_tags">
+      <div class = "main_right_version">
+         <div class = "high_main">
                <div class = "searching">
                   <form class = "searching_form">
                      <input type = "text" name = "search" class = "search" placeholder="Search tags!">
@@ -148,7 +148,7 @@
                
                 
                </div>
-               <div class = "choosen_tags">
+               <div class = "combo_tags">
                 <div class="normal_tags" id = "norm_tags">
                   <ul class = "wrap">
                   </ul>

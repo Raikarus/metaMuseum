@@ -93,7 +93,7 @@ header {
    color: white;
 }
 
-.main {
+.main_tag {
    width: 100%;
    height: 92%;
    background-color: #181818;
@@ -278,7 +278,7 @@ header {
 
 }
 
-.main_right {
+.main_right_version {
    width: 100%;
    height: 100%;
    display: flex;
@@ -289,7 +289,7 @@ header {
 
 }
 
-.all_tags {
+.high_main {
    height: 100%;
    width: 100%;
    display: flex;
@@ -404,7 +404,7 @@ header {
    border-radius: 100%;
 }
 
-.choosen_tags {
+.combo_tags {
    height: 48%;
    width: 100%;
    overflow: hidden;
