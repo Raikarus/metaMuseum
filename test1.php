@@ -54,7 +54,7 @@
             {
               console.log($(this));
 
-              console.log(check_tags[0]); 
+              console.log(check_tags[5]); 
              // console.log(tags[tags.indexOf($(this))]);
 
 
