@@ -492,8 +492,8 @@
     function set_podborka_value()
     {
         $_SESSION['podborka']=$_POST['podborka'];
-        echo "$_POST['podborka']-это в локалке";
-        echo "$_SESSION['podborka']-это ушло на серв ";
+        echo $_POST['podborka']."-это в локалке";
+        echo $_SESSION['podborka']."-это ушло на серв ";
     }
 
 ?>
