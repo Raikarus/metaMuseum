@@ -199,7 +199,7 @@ function moveZeros(arr) {
                   <ul class = "wrap">
                   </ul>
                   <?php 
-                          $tags  = "ja pa ne se he nt ai le sb ian m il f ko re an asi an ste p_mo m ma ss age an al ebo ny big_ ass tee n three some pu blic an ime cre amp ie ";
+                          $tags  = "step_mom massage anal ebony big_ ass teen threesome public anime creampie";
                           $tag = explode(" ", $tags);
                           
                         for($i = 0; $i < count($tag);$i++)
@@ -214,13 +214,13 @@ function moveZeros(arr) {
                   <ul class = "wrap">
                   </ul>
                   <?php 
-                          $tags  = "ja pa ne se he nt ai le sb ian m il f ko re an asi an ste p_mo m ma ss age an al ebo ny big_ ass tee n three some pu blic an ime cre amp ie ";
+                          $tags  = "japanese hentai lesbian milf korean asian";
                           $tag = explode(" ", $tags);
                           
                         for($i = 0; $i < count($tag);$i++)
                         {
                            $size = rand(10, 40);
-                            echo '<span class = "cloud_tag" style="font-size:'.$size.'px;color: red;">'.$tag[$i]."($size) ".'</span>';
+                            echo '<span class = "cloud_tag" style="font-size:'.$size.'px;color: #CD5C5C;">'.$tag[$i]."($size) ".'</span>';
                             echo "\n";
                         }
                         ?> 
