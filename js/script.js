@@ -37,6 +37,7 @@ function build_poisk()
     }
     else
     {
+      alert("1");
       var podborki = document.querySelectorAll(".podborka");
       for (var i = 0; i < podborki.length;i++)
       {
