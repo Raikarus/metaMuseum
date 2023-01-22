@@ -136,6 +136,10 @@
       align-items: center;
       justify-content: center;
       margin-right: 5px;
+      font-size: 12px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
    }
 
 .main_center {
