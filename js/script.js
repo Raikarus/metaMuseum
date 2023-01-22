@@ -602,6 +602,7 @@ $(document).ready(function(){
   });
 
   $(".logo").click(function(){
+    
     try
     {
       var ajaxurl = 'ajax.php';
@@ -612,7 +613,17 @@ $(document).ready(function(){
         success:function(responce){
             //{"a":"b|","c","d|"}
             var json = $.parseJSON(JSON.stringify(responce));
-            alert(JSON.stringify(responce));
+            podborka = json.podborka.split("|");
+            podborka.splice(-1,1);
+            result_tags = json.result_tags.split("|");
+            result_tags.splice(-1,1);
+            result_tags_invers = json.result_tags_invers.split("|");
+            result_tags_invers.splice(-1,1);
+            size = json.size;
+            pre_podborka = json.pre_podborka.split("|");
+            pre_podborka.splice(-1,1);
+            selected_in_podborka = json.selected_in_podborka.split("|");
+            mod = json.mod;
             //alert(json.result_tags);
             // var step1 = ((JSON.stringify(responce)).replace(/"/gi,'').replace("{",'').replace("}",''));
             // step1 = step1.split(",");
