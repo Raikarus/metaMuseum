@@ -611,12 +611,8 @@ $(document).ready(function(){
         data: {'action':'get_podborka_value'},
         success:function(responce){
             //{"a":"b|","c","d|"}
-            var json = $.parseJSON(responce);
-            $(json).each(function (i, val) {
-            $.each(val, function (k, v) {
-              console.log(k + " : " + v);
-              });
-            }); 
+            var json = $.parseJSON(JSON.stringify(responce));
+            
             // var step1 = ((JSON.stringify(responce)).replace(/"/gi,'').replace("{",'').replace("}",''));
             // step1 = step1.split(",");
             // alert(step1);
