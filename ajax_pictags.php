@@ -85,24 +85,27 @@ function load_cross_kwords()
             //ЕСЛИ ВСЕГО ОДНА КАРТИНКА ВЫБРАНА
             $query = "SELECT tag_id_num FROM pictags WHERE pic_id=$pic_id_from_local_podborka[0] AND tag_id=10";
             $res = pg_query($cn,$query);
-            $row = pg_fetch_object($res);
-            $tag_id_num = $row->tag_id_num;
-            $query = "SELECT kword_name FROM kwords WHERE tag_id_num=$tag_id_num";
             if($row = pg_fetch_object($res))
             {
-
+                $tag_id_num = $row->tag_id_num;
+                $query = "SELECT kword_name FROM kwords WHERE tag_id_num=$tag_id_num";
+                while($row = pg_fetch_object($res))
+                {
+                    $tag_id_num = $row->tag_id_num;
+                    $query .= " OR tag_id_num=$tag_id_num";
+                }
+                $res = pg_query($cn,$query);
+                while($row = pg_fetch_object($res))
+                {
+                    $kword_name = $row->kword_name;
+                    //СКОПИРОВАТЬ СТИЛИ ИЛИ ДОБАВИТЬ ДУБЛИКАТ СВОИХ
+                    echo "<li>$kword_name</li>";    
+                }
             }
             else
             {
                 //Добавить стили или удалить строчку
-                echo "<b style='color:white'>Ключевых слов не найдено</b>";
-            }
-            $res = pg_query($cn,$query);
-            while($row = pg_fetch_object($res))
-            {
-                $kword_name = $row->kword_name;
-                //СКОПИРОВАТЬ СТИЛИ ИЛИ ДОБАВИТЬ ДУБЛИКАТ СВОИХ
-                echo "<li>$kword_name</li>";    
+                echo "<b style='color:white'>Не найдено ключевых слов</b>";
             }
         }
         else
