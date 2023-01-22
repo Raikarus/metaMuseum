@@ -605,10 +605,11 @@ $(document).ready(function(){
     try
     {
       var ajaxurl = 'ajax.php';
-      data = {'action':'get_podborka_value'};
+      data = ;
       $.ajax({
         url:"ajax.php",
         type:"POST",
+        data: {'action':'get_podborka_value'},
         success:function(responce){
             alert("1");
             alert(JSON.parse(responce));
