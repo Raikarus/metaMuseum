@@ -62,9 +62,9 @@
 
                for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
                 {
-                  if($(tags[i]).data('val') == 0)
+                  if($(tags[i]).data('val') == 1)
                   {
-                   tags[i].innerHTML = ' <label name="tags_button" data-val = "0" data-str = sss><input type="checkbox" class="transparent_check_box"><span class = "cloud_tag" style="font-size:14 px;color: #CD5C5C;">'$(tags[i]).data('str')'</span></label>';
+                   tags[i].innerHTML = ' <label name="tags_button" data-val = "0" data-str = sss><input type="checkbox" class="transparent_check_box"><span class = "cloud_tag" style="font-size:14 px;color: #CD5C5C;">'+$(tags[i]).data('str')+'</span></label>';
                   }
 
                 }
