@@ -572,7 +572,7 @@ $(document).ready(function(){
 
     var ajaxurl = 'ajax.php';
     var result_tags_string = "";
-    var result_tags_invers = "";
+    var result_tags_invers_string = "";
     var pre_podborka_string = "";
     var podborka_string = "";
     var selected_in_podborka_string = "";
@@ -605,7 +605,7 @@ try
   }
   catch
   {
-      alert(podborka_string+"<><><><>"+result_tags_string);
+      alert(result_tags_string+"<><><><>"+result_tags_invers_string);
   }
   });
 
