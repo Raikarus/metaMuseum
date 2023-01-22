@@ -95,12 +95,16 @@
                     }
                     catch
                     {
-                      
+
                     }
                    
                   }
 
                 }
+            for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
+            {
+            tags.push(document.getElementsByName("tags_button")[i]);
+            }
        }
 
 
