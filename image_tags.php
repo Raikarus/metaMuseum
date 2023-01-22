@@ -45,6 +45,7 @@ $(document).ready(function(){
           data =  {'action': 'load_podborka','img_string':selected_images_string};
           $.post(ajaxurl, data).done(function (response) {
             $('#wrapping').html(response);
+            pre_load();
           });
         } 
         else
@@ -52,6 +53,7 @@ $(document).ready(function(){
           data =  {'action': 'load_download'};
           $.post(ajaxurl, data).done(function (response) {
             $('#wrapping').html(response);
+            $('.photos_compilation').html("");
           });
         }
     }
