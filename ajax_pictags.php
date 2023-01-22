@@ -47,12 +47,13 @@ function pre_load()
     echo "</pre>";
     if($_POST['podborka'])
     {
+        $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
         $query = "SELECT pic_id,fmt,title FROM pics WHERE pic_id=$pic_id_from_local_podborka[0]";
         for ($i=1; $i < count($pid_id_from_local_podborka)-1; $i++) { 
+            echo "ЗАПРОСИК $i<br>";
             $query .= "UNION ALL SELECT pic_id,fmt,title FROM pics WHERE pic_id=$pic_id_from_local_podborka[$i]";
         }
         $res = pg_query($cn,$query);
-        echo "ЗАПРОСИК $query<br>";
         while($row = pg_fetch_object($res))
         {
             $pic_id = $row->pic_id;
