@@ -83,13 +83,9 @@ $(document).ready(function(){
         $(this).css('background-color', 'rgba(255, 255, 255, 0)');
         $(this).data('val','0');
         $(this).attr('data-val',"1");
-        console.log(selected_images + " "+selected_images_id);
         var index = selected_images.indexOf($(this).data('img'));
-        console.log(index);
         selected_images.splice(index,1);
         selected_images_id.splice(index,1);
-        console.log(selected_images + " "+selected_images_id);
-        console.log("-----------------------------");
       }
       load_page();
     });

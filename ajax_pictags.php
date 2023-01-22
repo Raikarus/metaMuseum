@@ -28,7 +28,7 @@ function load_podborka()
     //print_r($str);
     for($i = 0; $i < count($img_string)-1;$i++)
     {
-        echo '<li class = "main_li_photo" name ="img" style="width:90%;height:90%; background-image:url('."'".'img/'.$img_string[$i]."')".'"></li>' ;
+        echo '<li class = "main_li_photo" name ="img" style="background-image:url('."'".'img/'.$img_string[$i]."')".'"></li>' ;
     }
 }
 
@@ -127,7 +127,6 @@ function load_cross_kwords()
                     $tag_id_num = $row->tag_id_num;
                     $query .= " OR tag_id_num=$tag_id_num";
                 }
-                echo "<script>console.log('$query');</script>";
                 $res = pg_query($cn,$query);
                 
                 while($row = pg_fetch_object($res))
