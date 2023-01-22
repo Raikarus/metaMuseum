@@ -89,17 +89,15 @@ $(document).ready(function(){
     $('#mod_swapper').change(function(){
       if (switcher.checked)
       {
-         switcher.checked = false;
-         console.log(switcher.checked);
-           $('.photos_compilation').html("");
-         load_page();
-       }
-      else
-      {
-        switcher.checked = true;
-        console.log(switcher.checked);
-        check_selection();
+         switcher.checked = true;
+         check_selection();
          pre_load();
+         load_page();
+      }
+      else
+      {     
+         switcher.checked = false;
+         $('.photos_compilation').html("");
          load_page();
       }    
     });
