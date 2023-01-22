@@ -570,7 +570,7 @@ $(document).ready(function(){
     for (var i = 0; i < podborka.length; i++) {
       podborka_string += podborka[i]+"|";
     }
-    data = {'action':'set_value_podborka', 'podborka':podborka_string};
+    data = {'action':'set_podborka_value', 'podborka':podborka_string};
     $.ajax(ajaxurl,data);
   });
 });

@@ -126,7 +126,7 @@ $(document).ready(function(){
          <div class = "choosen_tags">
             <ul class = "wrap">
             </ul>
-            <?php 
+            <?php
                     $tags  = "japanese hentai lesbian milf korean asian step_mom massage anal ebony big_ass teen threesome public anime creampie ";
                     $tag = explode(" ", $tags);
                     
@@ -136,7 +136,7 @@ $(document).ready(function(){
                       echo '<span class = "cloud_tag" style="font-size:'.$size.'px;">'.$tag[$i]."($size)".'</span>';
                       echo "\n";
                   }
-              ?> 
+              ?>
          </div>
    </div>      
 </div>
