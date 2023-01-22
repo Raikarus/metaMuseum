@@ -89,15 +89,15 @@ $(document).ready(function(){
     $('#mod_swapper').change(function(){
       if (switcher.checked)
       {
+         switcher.checked = false;
+         $('.photos_compilation').html("");
+         load_page();
+       }
+      else
+      {
          switcher.checked = true;
          check_selection();
          pre_load();
-         load_page();
-      }
-      else
-      {     
-         switcher.checked = false;
-         $('.photos_compilation').html("");
          load_page();
       }    
     });
@@ -130,7 +130,7 @@ $(document).ready(function(){
     <div class="switcher_block">
       <span class = "current_mod">Режим</span>
       <label id = "mod_swapper">
-         <input type = "checkbox" id = "mod_switch" checked>
+         <input type = "checkbox" id = "mod_switch">
          <span class = "slider"></span>
       </label>
     </div>
