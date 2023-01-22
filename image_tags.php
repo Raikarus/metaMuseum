@@ -83,7 +83,7 @@ $(document).ready(function(){
         $(this).css('background-color', 'rgba(255, 255, 255, 0)');
         $(this).data('val','0');
         $(this).attr('data-val',"1");
-        console.log(selected_images + " "+selected_images);
+        console.log(selected_images + " "+selected_images_id);
         selected_images.splice(selected_images.indexOf($(this).data('img')),1);
         selected_images_id.splice(selected_images_id.indexOf($(this).data('id')),1);
         console.log(selected_images + " "+selected_images_id);
