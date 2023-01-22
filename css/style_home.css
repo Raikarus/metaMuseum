@@ -80,6 +80,7 @@
 
 .photos {
    height: 94%;
+   grid-template-rows: repeat(2, 1fr);
 }
 
 .photo {
