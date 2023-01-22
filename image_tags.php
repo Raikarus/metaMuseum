@@ -99,8 +99,8 @@ $(document).ready(function(){
       {
          switcher.checked = true;
          $('.current_mod').text('Галерея');
-         check_selection();
          pre_load();
+         check_selection();      
          load_page();
       }    
     });
