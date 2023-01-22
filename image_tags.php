@@ -76,6 +76,7 @@ $(document).ready(function(){
 
           selected_images.splice(selected_images.indexOf($(this).data('img')),1);
         }
+        load_page();
     });
     
     $('#mod_podborka').click(function(){
