@@ -195,6 +195,7 @@ function moveZeros(arr) {
                         
                </div>
                <div class = "choosen_tags">
+                <div class="normal_tags">
                   <ul class = "wrap">
                   </ul>
                   <?php 
@@ -208,9 +209,8 @@ function moveZeros(arr) {
                             echo "\n";
                         }
                         ?> 
-
-               </div>
-                <div class = "choosen_tags">
+                  </div>
+                  <div class="normal_tags">
                   <ul class = "wrap">
                   </ul>
                   <?php 
@@ -224,8 +224,9 @@ function moveZeros(arr) {
                             echo "\n";
                         }
                         ?> 
-
+                  </div>
                </div>
+
          </div>      
       </div>
    </div>
