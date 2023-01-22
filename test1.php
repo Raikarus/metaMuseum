@@ -64,14 +64,12 @@
                 {
                   if($(tags[i]).data('val') == 1)
                   {
-                    tags_string += $(tags[i]).data('str') + '|';
+                   tags[i].innerHTML = ' <label name="tags_button" data-val = "0" data-str = sss><input type="checkbox" class="transparent_check_box"><span class = "cloud_tag" style="font-size:14 px;color: #CD5C5C;">sss</span></label>';
                   }
 
                 }
 
-                  data =  {'action': 'update_tags','tags_string':tags_string};
-                  $.post(ajaxurl, data).done(function (response) {
-                  $('#norm_tags').html(response); });
+                
             }
             else
             {
