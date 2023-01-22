@@ -22,8 +22,8 @@ $(document).ready(function(){
     {
       var ajaxurl = 'ajax_pictags.php';
       data = {'action': 'pre_load', 'podborka':podborka};
+      alert(podborka);
       $.post(ajaxurl,data).done(function(response){
-
         $('.photos_compilation').html(response);
       });
     }
