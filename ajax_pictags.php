@@ -99,7 +99,7 @@ function load_cross_kwords()
                 {
                     $kword_name = $row->kword_name;
                     //СКОПИРОВАТЬ СТИЛИ ИЛИ ДОБАВИТЬ ДУБЛИКАТ СВОИХ
-                    echo "<li>$kword_name</li>";    
+                    echo "<li class = 'key_words'>$kword_name</li>";    
                 }
             }
             else
@@ -133,7 +133,7 @@ function load_cross_kwords()
                 {
                     $kword_name = $row->kword_name;
                     //СКОПИРОВАТЬ СТИЛИ ИЛИ ДОБАВИТЬ ДУБЛИКАТ СВОИХ
-                    echo "<li>$kword_name</li>";
+                    echo "<li class = 'key_words'>$kword_name</li>";
                 }
             }
             else
