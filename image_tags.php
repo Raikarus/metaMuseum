@@ -87,15 +87,15 @@ $(document).ready(function(){
     });
     
     $('#mod_swapper').change(function(){
-      if (switcher.checked)
+      if (!switcher.checked)
       {
-         switcher.checked = false;
+         switcher.checked = true;
          $('.photos_compilation').html("");
          load_page();
        }
       else
       {
-         switcher.checked = true;
+         switcher.checked = false;
          check_selection();
          pre_load();
          load_page();
