@@ -35,12 +35,14 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
     <script>
+       let tags = [(document.getElementsByName("tags_button")).length];
+
  $(document).ready(function(){
         $('.transparent_check_box').click(function(){
           
             var clickBtnValue = $(this).is(":checked");
             
-            let tags = [(document.getElementsByName("tags_button")).length];
+           
 
             for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
             {
@@ -52,6 +54,11 @@
               console.log(tags[tags.indexOf($(this))]);
               tags[tags.indexOf($(this).data('val',1))] = $(this);
               console.log(tags[tags.indexOf($(this))]);
+
+               var ajaxurl = 'ajax.php';
+                  data =  {'action': 'set_img','img_string':"update_tags"};
+                  $.post(ajaxurl, data).done(function (response) {
+                  $('#norm_tags').html(response); });
             }
             else
             {
@@ -77,6 +84,13 @@
          */
          });
         });
+
+       function update_tags()
+       {
+
+       }
+
+
     </script>
 <title>Главная</title>
 </head>
@@ -115,7 +129,7 @@
                 
                </div>
                <div class = "choosen_tags">
-                <div class="normal_tags">
+                <div class="normal_tags" id = "norm_tags">
                   <ul class = "wrap">
                   </ul>
                   <?php 
@@ -132,7 +146,7 @@
                         }
                         ?> 
                   </div>
-                  <div class="normal_tags" style="border-left: 1px solid white;">
+                  <div class="normal_tags" style="border-left: 1px solid white; " id = "del_tags">
                   <ul class = "wrap">
                   </ul>
                   <?php 

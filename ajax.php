@@ -45,12 +45,20 @@ if (isset($_POST['action'])) {
             case 'return_massiv':
                 return_massiv();
                 break;
+            case 'update_tags':
+                update_tags();
+                break;
 
         }
     }
 
 
 $status = 0;
+function update_tags()
+{
+    echo 'test';
+}
+
 function check()
 {
     if($_POST['img_string'] != "download_mode")
