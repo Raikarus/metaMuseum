@@ -21,12 +21,12 @@ $(document).ready(function(){
     function pre_load()
     {
       var ajaxurl = 'ajax_pictags.php';
-      data = {'action': 'pre_load', 'podborka':podborka_string}
+      data = {'action': 'pre_load', 'podborka':podborka}
       $.post(ajaxurl,data).done(function(response){
         $('.photos_compilation').html(response);
       })
     }
-    
+
     get_podborka_value();
     pre_load();
 
