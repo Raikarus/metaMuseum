@@ -47,7 +47,6 @@ function build_poisk()
   }
   else if(form == "image_tags.php")
   {
-    alert("1");
     poisk = [];
     var kwords = document.querySelectorAll(".kword_solo");
     for (var i = 0; i < kwords.length; i++) {
@@ -55,7 +54,6 @@ function build_poisk()
     }
     autocomplete(document.getElementById('myInput'),poisk);  
   }
-  alert("2");
 }
 
 function autocomplete(inp, arr) {
