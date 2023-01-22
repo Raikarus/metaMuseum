@@ -78,7 +78,7 @@ function load_cross_kwords()
 {
     $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
     $pic_id_from_local_podborka = explode("|", $_POST['img_string']);
-    if($pic_id_from_local_podborka)
+    if(count($pic_id_from_local_podborka)-1>=1)
     {
         if(count($pic_id_from_local_podborka)-1==1)
         {
@@ -99,9 +99,10 @@ function load_cross_kwords()
             //ЕСЛИ ВЫБРАНО НЕСКОЛЬКО КАРТИНОК
             $query = "SELECT tag_id_num FROM pictags WHERE tag_id=10";
             for ($i=0; $i < count($pic_id_from_local_podborka)-1; $i++) { 
-                $query .= " AND pic_id=$pic_id_from_local_podborka[$i]";               
+                $query .= " AND pic_id=$pic_id_from_local_podborka[$i]";
             }
             $res = pg_query($cn,$query);
+            echo "ЗАПРОСИК $query<br>";
             if($row = pg_fetch_object($res))
             {
                 $tag_id_num = $row->tag_id_num;
@@ -112,7 +113,8 @@ function load_cross_kwords()
                     $query .= " OR tag_id_num=$tag_id_num";
                 }
                 $res = pg_query($cn,$query);
-                while($row = pg_fetch_object($res)
+                echo "ЗАПРОСИК $query<br>";
+                while($row = pg_fetch_object($res))
                 {
                     $kword_name = $row->kword_name;
                     //СКОПИРОВАТЬ СТИЛИ ИЛИ ДОБАВИТЬ ДУБЛИКАТ СВОИХ
