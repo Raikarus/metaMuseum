@@ -28,7 +28,7 @@ function load_podborka()
     //print_r($str);
     for($i = 0; $i < count($img_string)-1;$i++)
     {
-        echo '<li class = "main_li_photo" name ="img" style="width:90%;height:90%; background-image:url('."'".'img/'.$img_string[$i]."')".'"></li>' ;
+        echo '<li class = "main_li_photo" name ="img" style="background-image:url('."'".'img/'.$img_string[$i]."')".'"></li>' ;
     }
 }
 
