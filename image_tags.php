@@ -39,6 +39,7 @@ $(document).ready(function(){
     {
       var selected_images_string = "";
       var selected_images_id_string = "";
+      console.log(selected_images+" "+selected_images_id);
       for(var i = 0; i < selected_images.length;i++)
       {
          selected_images_string += selected_images[i] + '|';
@@ -69,7 +70,7 @@ $(document).ready(function(){
 
     $('#compilation').on("click",".compilation_li .comp_li_button",function(){
       var clickBtnValue = $(this).data('val');
-      console.log(selected_images+" "+selected_images_id);
+
       if(clickBtnValue=='0')
       {
         $(this).css('background-color', '#24B47E');
