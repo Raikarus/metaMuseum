@@ -102,6 +102,7 @@ function load_cross_kwords()
                 $query .= " AND pic_id=$pic_id_from_local_podborka[$i]";
             }
             $res = pg_query($cn,$query);
+            echo "ЗАПРОСИК $query<br>";
             if($row = pg_fetch_object($res))
             {
                 $tag_id_num = $row->tag_id_num;
