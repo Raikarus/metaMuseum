@@ -38,12 +38,12 @@
  $(document).ready(function(){
         $('.transparent_check_box').click(function(){
            console.log("0");
-              /*  var clickBtnValue = $(this).data('val');
+            var clickBtnValue = $(this);
             
            
             if(clickBtnValue=='0')
             {
-             // $(this).css('outline','5px solid #24B47E');
+            console.log("0");
               
 
             }
@@ -119,8 +119,10 @@
                         for($i = 0; $i < count($tag);$i++)
                         {
                            $size = rand(10, 40);
-                            echo '<span class = "cloud_tag" data-val= "1" style="font-size:'.$size.'px;">'.$tag[$i]."($size)".'</span>';
-                            echo "\n";
+                            echo ' <label id="tags_button">
+                                   <input type="checkbox" class="transparent_check_box">
+                                   <span class = "cloud_tag" style="font-size:'.$size.'px;color: #CD5C5C;">'.$tag[$i]."($size) ".'</span>
+                                   </label>';
                         }
                         ?> 
                   </div>
@@ -136,7 +138,7 @@
                            $size = rand(10, 40);
                             echo ' <label id="tags_button">
                                    <input type="checkbox" class="transparent_check_box">
-                                   <span class = "cloud_tag" style="font-size:'.$size.'px;color: #CD5C5C;">'.$tag[$i]."($size) ".'></span>
+                                   <span class = "cloud_tag" style="font-size:'.$size.'px;color: #CD5C5C;">'.$tag[$i]."($size) ".'</span>
                                    </label>';
                             echo "\n";
                         }
