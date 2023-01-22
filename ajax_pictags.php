@@ -115,7 +115,8 @@ function load_cross_kwords()
             for ($i=1; $i < count($pic_id_from_local_podborka)-1; $i++) { 
                 $query .= " OR pic_id=$pic_id_from_local_podborka[$i]";
             }
-            $query .= ") GROUP BY tag_id_num HAVING COUNT(tag_id_num)>1";
+            $count_of_pic_id = count($pic_id_from_local_podborka)-1;
+            $query .= ") GROUP BY tag_id_num HAVING COUNT(tag_id_num)=$count_of_pic_id";
             $res = pg_query($cn,$query);
             echo "<script>console.log('$query');</script>";
             if($row = pg_fetch_object($res))
