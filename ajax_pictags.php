@@ -97,10 +97,11 @@ function load_cross_kwords()
         else
         {
             //ЕСЛИ ВЫБРАНО НЕСКОЛЬКО КАРТИНОК
-            $query = "SELECT tag_id_num FROM pictags WHERE tag_id=10";
-            for ($i=0; $i < count($pic_id_from_local_podborka)-1; $i++) { 
-                $query .= " AND pic_id=$pic_id_from_local_podborka[$i]";
+            $query = "SELECT tag_id_num FROM pictags WHERE tag_id=10 AND (pic_id=$pic_id_from_local_podborka[0]";
+            for ($i=1; $i < count($pic_id_from_local_podborka)-1; $i++) { 
+                $query .= " OR pic_id=$pic_id_from_local_podborka[$i]";
             }
+            $query .= ") GROUP BY tag_id_num HAVING COUNT(tag_id_num)>1";
             $res = pg_query($cn,$query);
             echo "ЗАПРОСИК $query<br>";
             if($row = pg_fetch_object($res))
