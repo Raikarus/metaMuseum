@@ -87,56 +87,57 @@ $(document).ready(function(){
       $('.photos_compilation').html("");
       load_page();
     });
-    show_kwords();
+    show_kwords()
+    {
+      var ajaxurl = 'ajax.php';
+      data =  {'action': 'show_kwords'}; 
+      $.post(ajaxurl, data).done(function (response) {
+        $(".list_of_groups").html(response);
+        build_poisk();
+      });   
+    }
 });
 
 </script>
 <div class = "main">
-<div class = "main_left">
-  <!-- ТУТ ПОМЕНЯТЬ СТИЛИ (style1.css) -->
-  <div id = "mod_swapper"style="display:flex;justify-content: center;align-items: center;width: 100%;height: 10%;">
-    <button id = "mod_podborka" style = "width:50%;height: 100%">Подборка</button>
-    <button id = "mod_download" style = "width:50%;height: 100%">Загруженное</button>
+  <div class = "main_left">
+    <!-- ТУТ ПОМЕНЯТЬ СТИЛИ (style1.css) -->
+    <div id = "mod_swapper"style="display:flex;justify-content: center;align-items: center;width: 100%;height: 10%;">
+      <button id = "mod_podborka" style = "width:50%;height: 100%">Подборка</button>
+      <button id = "mod_download" style = "width:50%;height: 100%">Загруженное</button>
+    </div>
+    <!-- ТУТ ПОМЕНЯТЬ СТИЛИ -->  
+    <ul class = "photos_compilation" id = "compilation">
+              
+    </ul>
   </div>
-  <!-- ТУТ ПОМЕНЯТЬ СТИЛИ -->  
-  <ul class = "photos_compilation" id = "compilation">
-            
-  </ul>
-</div>
-<div class = "main_center">
-  <ul class = "photos" id = "wrapping">
-     	
-  </ul>
-</div>
-<div class = "main_right">
-   <div class = "all_tags">
-         <div class = "searching">
-            <form class = "searching_form">
-               <input type = "text" name = "search" class = "search" placeholder="Search tags!">
-               <input type = "submit" name = "submit" class = "submit" value="ADD">
-            </form>
-         </div>
-         <div class = "tags" >
+  <div class = "main_center">
+    <ul class = "photos" id = "wrapping">
+       	
+    </ul>
+  </div>
 
+  <div class = "main_right">
+    <div class = "all_tags">
+          <form autocomplete = "off" class = "searching">
+             <div class = "autocomplete">
+                <input id = "myInput" class = "searchbar" type = "text" placeholder = "Search tags!">
+               
+             </div>
+             <input type = "button" id = "addtag" class = "addtag" value = "ADD">
 
-         </div>
-         <div class = "choosen_tags">
-            <ul class = "wrap">
-            </ul>
-            <?php
-                  //   $tags  = "A B C D E F G H I J K";
-                  //   $tag = explode(" ", $tags);
-                    
-                  // for($i = 0; $i < 16;$i++)
-                  // {
-                  //    $size = rand(10, 40);
-                  //     echo '<span class = "cloud_tag" style="font-size:'.$size.'px;">'.$tag[$i]."($size)".'</span>';
-                  //     echo "\n";
-                  // }
+          </form>
+          <div class = "tags">
+            <ul class = "list_of_groups">
+                <!-- Два режима: kwords И подборки (SELECTIONS) -->
+         </ul>
+          </div>
+    </div>
+    <div class = "choosen_tags">
+       <ul class = "wrap">
+          
+       </ul>
+    </div>
+  </div>
 
-
-              ?>
-         </div>
-   </div>      
-</div>
 </div>
