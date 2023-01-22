@@ -611,7 +611,13 @@ $(document).ready(function(){
         data: {'action':'get_podborka_value'},
         success:function(responce){
             alert("1");
-            alert(JSON.stringify(responce));
+
+            //JSON.stringify(responce);
+            var json_responce = JSON.parse(responce);
+            var message = "";
+            for(var i in json_responce)
+              message += json_responce[i]+" ";
+            alert(message);
         },
         dataType:"json"
       });
