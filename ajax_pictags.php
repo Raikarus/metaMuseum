@@ -42,9 +42,6 @@ function get_podborka_value()
 function pre_load()
 {
     $pic_id_from_local_podborka = explode("|", $_POST['podborka']);
-    echo "<pre>";
-    print_r($pic_id_from_local_podborka);
-    echo "</pre>";
     if($_POST['podborka'])
     {
         $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
@@ -59,12 +56,12 @@ function pre_load()
             $pic_id = $row->pic_id;
             $fmt = $row->fmt;
             $title = $row->title;
-            echo "<li class = 'compilation_li'>
-                     <button class = 'comp_li_button' data-val= '0' name ='img' data-img = '$pic_id'>
-                           <div class = 'comp_li_photo' style='background-image:url('img".'/'."$pic_id".".$fmt')'></div>
-                           <div class = 'comp_li_name'>$title</div>   
+            echo '<li class = "compilation_li">
+                     <button class = "comp_li_button" data-val= "0" name ="img" data-img = "'.$pic_id.'">
+                           <div class = "comp_li_photo" style="background-image:url("img/'."$pic_id".".$fmt".')"></div>
+                           <div class = "comp_li_name">$title</div>   
                      </button>        
-                     </li>";
+                     </li>';
         }
     }
     else
