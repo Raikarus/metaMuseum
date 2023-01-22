@@ -397,7 +397,7 @@ header {
 
 .choosen_tags {
    height: 48%;
-   width: 100%;
+   width: 50%;
    padding-left: 5px;
    overflow: hidden
 }

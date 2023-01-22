@@ -210,6 +210,22 @@ function moveZeros(arr) {
                         ?> 
 
                </div>
+                <div class = "choosen_tags">
+                  <ul class = "wrap">
+                  </ul>
+                  <?php 
+                          $tags  = "ja pa ne se he nt ai le sb ian m il f ko re an asi an ste p_mo m ma ss age an al ebo ny big_ ass tee n three some pu blic an ime cre amp ie ";
+                          $tag = explode(" ", $tags);
+                          
+                        for($i = 0; $i < count($tag);$i++)
+                        {
+                           $size = rand(20, 60);
+                            echo '<span class = "cloud_tag" style="font-size:'.$size.'px;">'.$tag[$i]."($size)".'</span>';
+                            echo "\n";
+                        }
+                        ?> 
+
+               </div>
          </div>      
       </div>
    </div>
