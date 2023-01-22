@@ -58,8 +58,8 @@ function pre_load()
             $title = $row->title;
             echo '<li class = "compilation_li">
                      <button class = "comp_li_button" data-val= "0" name ="img" data-img = "'.$pic_id.'">
-                           <div class = "comp_li_photo" style="background-image:url("img/'."$pic_id".".$fmt".')"></div>
-                           <div class = "comp_li_name">$title</div>   
+                           <div class = "comp_li_photo" style="background-image:url('."'img/"."$pic_id".".$fmt"."'".')"></div>
+                           <div class = "comp_li_name">'.$title.'</div>   
                      </button>        
                      </li>';
         }
