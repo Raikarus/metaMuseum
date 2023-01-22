@@ -47,7 +47,7 @@ $(document).ready(function(){
             $('#wrapping').html(response);
             alert("1");
             alert(response);
-            pre_load();
+            
           });
         } 
         else
@@ -55,7 +55,7 @@ $(document).ready(function(){
           data =  {'action': 'load_download'};
           $.post(ajaxurl, data).done(function (response) {
             $('#wrapping').html(response);
-            $('.photos_compilation').html("");
+            
           });
         }
     }
@@ -80,10 +80,12 @@ $(document).ready(function(){
     
     $('#mod_podborka').click(function(){
       mod_2 = "podborka";
+      pre_load();
       load_page();
     });
     $('#mod_download').click(function(){
       mod_2 = "download";
+      $('.photos_compilation').html("");
       load_page();
     });
 });
