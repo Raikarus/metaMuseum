@@ -49,12 +49,12 @@
            
             if(clickBtnValue=='0')
             {
-            console.log((document.getElementsByName("tags_button"))[0]);
-            console.log(tags[(document.getElementsByName("tags_button")).length]);
+              tags[tags.indexOf($(this).data('val',1)] = $(this);
+              console.log(tags[tags.indexOf($(this)]);
             }
             else
             {
-              console.log("1");
+              console.log("1");   //зайдет когда чекбокс был пуст
             }
            /* 
 
