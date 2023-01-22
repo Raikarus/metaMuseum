@@ -400,13 +400,14 @@ header {
    width: 100%;
    padding-left: 5px;
    overflow: hidden;
-   display: inline;
+ 
 }
 .normal_tags {
    height: 100%;
    width: 50%;
    padding-left: 5px;
    overflow: hidden
+     display: inline;
 }
 .choosen_tags::-webkit-scrollbar {
    width: 0;
