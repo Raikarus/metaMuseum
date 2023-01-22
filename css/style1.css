@@ -215,3 +215,10 @@ header {
    overflow: auto;
 }
 
+.cloud_tag {
+   color:#24B47E;
+   text-align: center;
+   word-break: normal;
+   margin-right: 5px;
+}
+
