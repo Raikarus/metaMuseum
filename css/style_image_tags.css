@@ -179,6 +179,10 @@
    border-radius: 10px;
 }
 
+.warning {
+   position: absolute;
+}
+
 /*  классы для тегов 
 
 .list_item {
