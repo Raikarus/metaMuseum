@@ -257,18 +257,42 @@ $(document).ready(function(){
 
   $('#addtag').on("click",function()
   {
-    elem = $('.kword_solo[data-tag="'+$('#myInput').val()+'"]');
-
-    var index = result_tags.indexOf($(elem).data("tag"));
-    alert($(elem).data("tag"));
-    if($(elem).data("tag"))
+    if(form == "home.php")
     {
+      elem = $('.kword_solo[data-tag="'+$('#myInput').val()+'"]');
+
+      var index = result_tags.indexOf($(elem).data("tag"));
+      alert($(elem).data("tag"));
+      if($(elem).data("tag"))
+      {
+        if (index >= 0) {
+          result_tags.splice(index, 1);
+          result_tags_invers.splice(index, 1);
+        }
+        else{
+          result_tags.push($(elem).data("tag"));
+          result_tags_invers.push(0);
+        }
+        $(".wrap").html("");
+        for (var i = 0; i <=result_tags.length - 1; i++) {
+          $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'<button class = "tag_button" data-tag = "'+result_tags[i]+'" onclick="tag_delete($(this))">×</button></li>');
+        }
+        check_invers();
+        load();  
+      }
+    }
+  });
+
+  $('.list_of_groups ').on("click",".tag_group .group_name .kword_solo",function (){
+    if(form == "home.php")
+    {
+      var index = result_tags.indexOf($(this).data("tag"));
       if (index >= 0) {
         result_tags.splice(index, 1);
         result_tags_invers.splice(index, 1);
       }
       else{
-        result_tags.push($(elem).data("tag"));
+        result_tags.push($(this).data("tag"));
         result_tags_invers.push(0);
       }
       $(".wrap").html("");
@@ -276,26 +300,8 @@ $(document).ready(function(){
         $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'<button class = "tag_button" data-tag = "'+result_tags[i]+'" onclick="tag_delete($(this))">×</button></li>');
       }
       check_invers();
-      load();  
+      load();
     }
-  });
-
-  $('.list_of_groups ').on("click",".tag_group .group_name .kword_solo",function (){
-    var index = result_tags.indexOf($(this).data("tag"));
-    if (index >= 0) {
-      result_tags.splice(index, 1);
-      result_tags_invers.splice(index, 1);
-    }
-    else{
-      result_tags.push($(this).data("tag"));
-      result_tags_invers.push(0);
-    }
-    $(".wrap").html("");
-    for (var i = 0; i <=result_tags.length - 1; i++) {
-      $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'<button class = "tag_button" data-tag = "'+result_tags[i]+'" onclick="tag_delete($(this))">×</button></li>');
-    }
-    check_invers();
-    load();
   });
 
   $('.list_of_groups ').on("click", ".tag_list li a",function (){
@@ -315,9 +321,6 @@ $(document).ready(function(){
     check_invers();
     load();
   });
-
-
-
 
    let but1 = document.getElementById('mod_gallery');
    let but2 = document.getElementById('mod_finder');
