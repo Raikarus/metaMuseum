@@ -606,7 +606,7 @@ $(document).ready(function(){
     {
       var ajaxurl = 'ajax.php';
       data = {'action':'get_podborka_value'};
-      $.post(ajaxurl,data,datatype:'json').done(function(responce){
+      $.post(ajaxurl,data).done(function(responce){
         alert($.parseJSON(responce));
         //show_kwords();
         //build_poisk();
