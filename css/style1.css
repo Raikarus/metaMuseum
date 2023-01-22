@@ -117,12 +117,13 @@ header {
 .photos {
    padding: 0;
    margin: 0;
-   height: 94%;
+   height: 100%;
    width: 100%;
    display: grid;
    grid-template-columns: repeat(3, 1fr);
-   grid-template-rows: repeat(2, 1fr);
+   grid-auto-rows: minmax(100px, auto);
    grid-gap: 10px;
+   overflow-y: visible;
 }
 
 .photo_li {
@@ -150,15 +151,6 @@ header {
    align-items: center;
    justify-content: center;
    color: white;
-}
-
-.left_right_but {
-   padding-bottom: 6px;
-   width: 15%;
-   height: 4%;
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
 }
 
 #current_page {
