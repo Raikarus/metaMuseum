@@ -234,10 +234,19 @@ header {
    height: 15vh;
    margin-bottom: 15px;
 }
-
+.transparent_check_box
+{
+  background-color: initial;
+    cursor: default;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 3px 4px;
+    padding: initial;
+    border: initial;
+}
 .comp_li_button {
-   height: 50%;
-   width: 25%;
+   height: 100%;
+   width: 100%;
    background-color: rgba(255, 255, 255, 0);
    display: flex;
    align-items: center;

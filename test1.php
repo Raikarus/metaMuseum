@@ -36,7 +36,7 @@
 
     <script>
  $(document).ready(function(){
-        $('.comp_li_button').click(function(){
+        $('.transparent_check_box').click(function(){
            console.log("0");
               /*  var clickBtnValue = $(this).data('val');
             
@@ -134,7 +134,10 @@
                         for($i = 0; $i < count($tag);$i++)
                         {
                            $size = rand(10, 40);
-                            echo '<button class = "comp_li_button" data-val= "0"> <span class = "cloud_tag" style="font-size:'.$size.'px;color: #CD5C5C;">'.$tag[$i]."($size) ".'</span> </button>';
+                            echo ' <label id="tags_button">
+                                   <input type="checkbox" class="transparent_check_box">
+                                   <span class = "cloud_tag" style="font-size:'.$size.'px;color: #CD5C5C;">'.$tag[$i]."($size) ".'></span>
+                                   </label>';
                             echo "\n";
                         }
                         ?> 
