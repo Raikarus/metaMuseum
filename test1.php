@@ -49,7 +49,7 @@
            
             if(clickBtnValue=='0')
             {
-            console.log(document.getElementsByName("tags_button")[0]);
+            console.log((document.getElementsByName("tags_button"))[0]);
             console.log(tags[(document.getElementsByName("tags_button")).length]);
             }
             else
@@ -124,7 +124,7 @@
                         for($i = 0; $i < count($tag);$i++)
                         {
                            $size = rand(10, 40);
-                            echo ' <label id="tags_button" data-val = "1">
+                            echo ' <label name="tags_button" data-val = "1" >
                                    <input type="checkbox" class="transparent_check_box" checked>
                                    <span class = "cloud_tag" style="font-size:'.$size.'px;">'.$tag[$i]."($size) ".'</span>
                                    </label>';
@@ -141,7 +141,7 @@
                         for($i = 0; $i < count($tag);$i++)
                         {
                            $size = rand(10, 40);
-                            echo ' <label id="tags_button" data-val = "0">
+                            echo ' <label name="tags_button" data-val = "0">
                                    <input type="checkbox" class="transparent_check_box">
                                    <span class = "cloud_tag" style="font-size:'.$size.'px;color: #CD5C5C;">'.$tag[$i]."($size) ".'</span>
                                    </label>';
