@@ -37,7 +37,7 @@
     <script>
  $(document).ready(function(){
         $('.transparent_check_box').click(function(){
-           console.log("0");
+          
             var clickBtnValue = $(this);
             
            
