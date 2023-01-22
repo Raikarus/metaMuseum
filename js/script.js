@@ -246,21 +246,24 @@ $(document).ready(function(){
   $('#addtag').on("click",function()
   {
     elem = $('.kword_solo[data-tag="'+$('#myInput').val()+'"]');
-    var index = result_tags.indexOf($(elem).data("tag"));
-    if (index >= 0) {
-      result_tags.splice(index, 1);
-      result_tags_invers.splice(index, 1);
+    if(elem)
+    {
+      var index = result_tags.indexOf($(elem).data("tag"));
+      if (index >= 0) {
+        result_tags.splice(index, 1);
+        result_tags_invers.splice(index, 1);
+      }
+      else{
+        result_tags.push($(elem).data("tag"));
+        result_tags_invers.push(0);
+      }
+      $(".wrap").html("");
+      for (var i = 0; i <=result_tags.length - 1; i++) {
+        $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'<button class = "tag_button" data-tag = "'+result_tags[i]+'" onclick="tag_delete($(this))">×</button></li>');
+      }
+      check_invers();
+      load();  
     }
-    else{
-      result_tags.push($(elem).data("tag"));
-      result_tags_invers.push(0);
-    }
-    $(".wrap").html("");
-    for (var i = 0; i <=result_tags.length - 1; i++) {
-      $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'<button class = "tag_button" data-tag = "'+result_tags[i]+'" onclick="tag_delete($(this))">×</button></li>');
-    }
-    check_invers();
-    load();
   });
 
   $('.list_of_groups ').on("click",".tag_group .group_name .kword_solo",function (){
