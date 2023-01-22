@@ -604,11 +604,11 @@ footer {
    height: 8%;
    display: flex;
    align-items: center;
-   justify-content: center;
+   justify-content: space-between;
 }
 
 .current_mod {
-   margin-right: 20px;
+   margin-left: 10px;
    font-size: 20px;
    font-weight: bold;
 }
@@ -618,6 +618,7 @@ footer {
    display: inline-block;
    width: 60px;
    height: 30px;
+   margin-right: 10px;
 }
 
 #mod_switch {

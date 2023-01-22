@@ -129,7 +129,6 @@ $(document).ready(function(){
 </script>
 <div class = "main">
   <div class = "main_left">
-    <!-- ТУТ ПОМЕНЯТЬ СТИЛИ (style1.css) -->
     <div class="switcher_block">
       <span class = "current_mod">Галерея</span>
       <label id = "mod_swapper">
@@ -137,7 +136,6 @@ $(document).ready(function(){
          <span class = "slider"></span>
       </label>
     </div>
-    <!-- ТУТ ПОМЕНЯТЬ СТИЛИ -->  
     <ul class = "photos_compilation" id = "compilation">
               
     </ul>
