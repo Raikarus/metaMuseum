@@ -62,7 +62,7 @@ $(document).ready(function(){
       } 
       else
       {
-        alert("pre_2");
+        alert("pre_3");
         data =  {'action': 'load_download'};
         $.post(ajaxurl, data).done(function(response) {
           $('#wrapping').html(response);
