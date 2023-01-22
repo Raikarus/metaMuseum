@@ -45,7 +45,7 @@ $(document).ready(function(){
       }
 
       var ajaxurl = 'ajax_pictags.php';
-      if(switcher.checked)
+      if(switcher.checked == false)
       {
         data =  {'action': 'load_podborka','img_string':selected_images_string};
         $.post(ajaxurl, data).done(function(response) {
