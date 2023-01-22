@@ -204,7 +204,7 @@ function moveZeros(arr) {
                           
                         for($i = 0; $i < count($tag);$i++)
                         {
-                           $size = rand(20, 60);
+                           $size = rand(10, 40);
                             echo '<span class = "cloud_tag" style="font-size:'.$size.'px;">'.$tag[$i]."($size)".'</span>';
                             echo "\n";
                         }
@@ -219,8 +219,8 @@ function moveZeros(arr) {
                           
                         for($i = 0; $i < count($tag);$i++)
                         {
-                           $size = rand(20, 60);
-                            echo '<span class = "cloud_tag" style="font-size:'.$size.'px;">'.$tag[$i]."($size)".'</span>';
+                           $size = rand(10, 40);
+                            echo '<span class = "cloud_tag" style="font-size:'.$size.'px;color: red;">'.$tag[$i]."($size) ".'</span>';
                             echo "\n";
                         }
                         ?> 
