@@ -90,7 +90,7 @@
                   {
                     try
                     {
-                       tags[i].innerHTML = ' <label name="tags_button" data-val = "1" data-str = sss><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+$(tags[i]).data('str')+' checked><span class = "cloud_tag" style="font-size:30 px;">'+$(tags[i]).data('str')+'</span></label>';
+                       tags[i].innerHTML = ' <label name="tags_button" data-val = "1" data-str = sss><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+$(tags[i]).data('str')+' checked><span class = "cloud_tag" style="font-size:30 ;">'+$(tags[i]).data('str')+'</span></label>';
                     }
                     catch
                     {
@@ -102,7 +102,7 @@
                   {
                     try
                     {
-                       tags[i].innerHTML = ' <label name="tags_button" data-val = "0"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+$(tags[i]).data('str')+' ><span class = "cloud_tag" style="font-size:30 px;color: #CD5C5C;">'+$(tags[i]).data('str')+'</span></label>';
+                       tags[i].innerHTML = ' <label name="tags_button" data-val = "0"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+$(tags[i]).data('str')+' ><span class = "cloud_tag" style="font-size:30 ;color: #CD5C5C;">'+$(tags[i]).data('str')+'</span></label>';
                     }
                     catch
                     {
