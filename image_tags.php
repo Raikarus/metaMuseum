@@ -87,15 +87,16 @@ $(document).ready(function(){
     });
     
     $('#mod_swapper').change(function(){
-      if (!switcher.checked)
+      if (switcher.checked)
       {
-         switcher.checked = true;
+         switcher.checked = false;
+         $('.current_mod').text('СОСИ')
          $('.photos_compilation').html("");
          load_page();
        }
       else
       {
-         switcher.checked = false;
+         switcher.checked = true;
          check_selection();
          pre_load();
          load_page();
