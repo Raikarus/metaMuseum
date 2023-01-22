@@ -54,7 +54,7 @@
             {
               console.log($(this));
 
-              console.log(check_tags[5]); 
+              console.log((document.getElementsByName("transparent_check_box")).length); 
              // console.log(tags[tags.indexOf($(this))]);
 
 
