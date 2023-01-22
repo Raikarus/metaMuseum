@@ -229,8 +229,8 @@
     	         $title = pg_fetch_result($res, $i, 2);
                  if($pic_id)
                  {
-                    if(in_array($pic_id, $pre_podborka)) echo "<li class='photo_li' style='outline:3px solid red;outline-offset:-3px' data-id=$pic_id><div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div><div class='name'>$title</div></li>";   
-                    else if(in_array($pic_id, $podborka)) echo "<li class='photo_li' style='outline:3px solid green;outline-offset:-3px' data-id=$pic_id><div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div><div class='name'>$title</div></li>";
+                    if(in_array($pic_id, $pre_podborka)) echo "<li class='photo_li' style='outline:3px solid rgb(228, 79, 79);outline-offset:-3px' data-id=$pic_id><div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div><div class='name'>$title</div></li>";   
+                    else if(in_array($pic_id, $podborka)) echo "<li class='photo_li' style='outline:3px solid #24B47E;outline-offset:-3px' data-id=$pic_id><div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div><div class='name'>$title</div></li>";
                     else echo "<li class='photo_li' data-id=$pic_id><div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div><div class='name'>$title</div></li>";
                  }
     	        }
@@ -277,7 +277,7 @@
                          $fmt = pg_fetch_result($res, $i, 1);
                          $title = pg_fetch_result($res, $i, 2);
                          if($pic_id){
-                            if(in_array($pic_id, $selected_in_podborka)) echo "<li class='photo_li' style='outline:3px solid red;outline-offset:-3px' data-id=$pic_id><div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div><div class='name'>$title</div></li>";
+                            if(in_array($pic_id, $selected_in_podborka)) echo "<li class='photo_li' style='outline:3px solid rgb(228, 79, 79);outline-offset:-3px' data-id=$pic_id><div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div><div class='name'>$title</div></li>";
                             else echo "<li class='photo_li' data-id=$pic_id><div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div><div class='name'>$title</div></li>";
                          } 
                         }
@@ -327,16 +327,16 @@
                     $query = "INSERT INTO selpics(sel_id,pic_id) VALUES($sel_id,$pic_id)";
                     $res = pg_query($cn,$query);
                 }
-                echo "<b style='color:green'>Подборка $sel_name успешно создана</b>";
+                echo "<b style='color:#24B47E'>Подборка $sel_name успешно создана</b>";
             }
             else 
             {
-                echo "<b style='color:red'>Для создания подборки необходимо минимум два изображения</b>";
+                echo "<b style='color:rgb(228, 79, 79)'>Для создания подборки необходимо минимум два изображения</b>";
             }
         }
         else
         {
-            echo "<b style='color:red'>Подборка $sel_name уже существует</b>";
+            echo "<b style='color:rgb(228, 79, 79)'>Подборка $sel_name уже существует</b>";
         }
     }
 
