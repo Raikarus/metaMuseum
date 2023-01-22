@@ -613,7 +613,7 @@ $(document).ready(function(){
             //{"a":"b|","c","d|"}
             var step1 = ((JSON.stringify(responce)).replace(/"/gi,'').replace("{",'').replace("}",'')).split(",");
             for(var i = 0; i < step1.length;i++)
-              alert(step1[i]);
+              console.log(step1[i]);
         },
         dataType:"json"
       });
