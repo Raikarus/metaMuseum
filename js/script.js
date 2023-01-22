@@ -571,6 +571,8 @@ $(document).ready(function(){
       podborka_string += podborka[i]+"|";
     }
     data = {'action':'set_podborka_value', 'podborka':podborka_string};
-    $.ajax(ajaxurl,data);
+    $.ajax(ajaxurl,data).done(function(response){
+      $('.logo').html(response);
+      });
   });
 });
