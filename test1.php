@@ -35,7 +35,7 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
     <script>
-       let tags = [(document.getElementsByName("tags_button")).length];
+       let tags = [(document.getElementsByName("transparent_check_box")).length];
 
  $(document).ready(function(){
         $('.transparent_check_box').click(function(){
@@ -44,9 +44,9 @@
             
            
 
-            for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
+            for(var i = 0; i < (document.getElementsByName("transparent_check_box")).length;i++)
             {
-            tags.push(document.getElementsByName("tags_button")[i]);
+            tags.push(document.getElementsByName("transparent_check_box")[i]);
             }
            
             if(clickBtnValue=='0')
@@ -74,7 +74,7 @@
        function update_tags()
        {
 
-               for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
+               for(var i = 0; i < (document.getElementsByName("transparent_check_box")).length;i++)
                 {
                   if($(tags[i]).data('val') == 1)
                   {
@@ -106,9 +106,9 @@
                 {
                  tags.pop();
                 }
-            for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
+            for(var i = 0; i < (document.getElementsByName("transparent_check_box")).length;i++)
             {
-            tags.push(document.getElementsByName("tags_button")[i]);
+            tags.push(document.getElementsByName("transparent_check_box")[i]);
             }
        }
 
