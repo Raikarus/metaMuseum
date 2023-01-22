@@ -610,6 +610,7 @@ $(document).ready(function(){
         url:"ajax.php",
         type:"POST",
         success:function(responce){
+            alert("1");
             alert(JSON.parse(responce));
         },
         dataType:"json"
