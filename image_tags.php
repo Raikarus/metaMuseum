@@ -15,8 +15,8 @@ $(document).ready(function(){
     {
       var ajaxurl = 'ajax_pictags.php';
       data = {'action': 'get_podborka_value'};
+      alert("1");
       $.post(ajaxurl,data).done(function(response){
-        alert("1");
         alert(response);
         podborka = response.split("|");
         podborka.splice(-1,1);
