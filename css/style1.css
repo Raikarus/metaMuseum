@@ -277,6 +277,7 @@ header {
    align-items: center;
    justify-content: space-between;
    border-left: 1px solid white;
+   overflow: hidden
 }
 
 .all_tags {
