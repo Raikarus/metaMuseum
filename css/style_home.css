@@ -207,14 +207,14 @@ footer {
    border: 1px solid white;
 }
 
+#mod_gallery {
+   background-color: #24B47E;
+}
+
 .instruments {
    padding-top: 10px;
    height: 80%;
    width: 60%;
-}
-
-#mod_gallery {
-   background-color: #24B47E;
 }
 
 #gal_ins {
