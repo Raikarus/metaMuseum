@@ -64,7 +64,7 @@
              // $(this).data('val',1);
               
             
-              
+                 console.log(tags_del[0]);
               console.log($(this).data('str'));
                for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
                 {
