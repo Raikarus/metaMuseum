@@ -66,7 +66,7 @@
                   }
                 }
                 $(this).data('val',0);
-
+                 // $(this).checked = false;
              update_tags();
             }
             else
@@ -81,6 +81,7 @@
                   }
                 }
                 $(this).data('val',1);
+                $(this).checked = true;
             }
           });
         });
