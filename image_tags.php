@@ -56,7 +56,7 @@ $(document).ready(function(){
         }
     }
 
-    $('.comp_li_button').click(function(){
+    $('.compilation_li').on("click",".comp_li_button",function(){
         var clickBtnValue = $(this).data('val');
         if(clickBtnValue=='0')
         {
