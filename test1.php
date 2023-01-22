@@ -101,6 +101,10 @@
                   }
 
                 }
+                while(tags.length > 0) 
+                {
+                 tags.pop();
+                }
             for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
             {
             tags.push(document.getElementsByName("tags_button")[i]);
