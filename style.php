@@ -29,10 +29,17 @@
 switch ($load_page) {
    case 'home.php':
       echo '<link rel="stylesheet" href="css/style_home.css"  type="text/css">';
+      echo '<link rel="stylesheet" href="css/style_home_image_tags.css"  type="text/css">';
       break;
    
-   default:
+   case 'image_tags.php':
       echo '<link rel="stylesheet" href="css/style_image_tags.css"  type="text/css">';
+      echo '<link rel="stylesheet" href="css/style_home_image_tags.css"  type="text/css">';
+      break;
+
+   default:
+      echo '<link rel="stylesheet" href="css/style_home.css"  type="text/css">';
+      echo '<link rel="stylesheet" href="css/style_home_image_tags.css"  type="text/css">';
       break;
 }
 
