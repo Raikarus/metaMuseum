@@ -53,7 +53,8 @@
             if(clickBtnValue=='0')
             {
               console.log($(this));
-              console.log(check_tags.IndexOf($(this))); 
+
+              console.log(check_tags[0]); 
              // console.log(tags[tags.indexOf($(this))]);
 
 
