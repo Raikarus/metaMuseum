@@ -576,6 +576,13 @@ try
         pre_podborka.splice(-1,1);
         selected_in_podborka = json.selected_in_podborka.split("|");
         mod = json.mod;
+        if(mod == "podborka")
+        {
+          but1.style.backgroundColor = "#181818";
+          but2.style.backgroundColor = "#24B47E";
+          gallery.style.display = "none";
+          finder.style.display = "block";
+        }
         show_kwords();
         build_poisk();
         load();
