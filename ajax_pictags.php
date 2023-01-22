@@ -25,7 +25,7 @@ function load_podborka()
     //print_r($str);
     for($i = 0; $i < count($img_string)-1;$i++)
     {
-        echo '<div class = "comp_li_photo" name ="img" style="  width:90%;height:90%; background-image:url('."'".'img/'.$img_string[$i]."')".'></div>' ;
+        echo '<div class = "comp_li_photo" name ="img" style="width:90%;height:90%; background-image:url('."'".'img/'.$img_string[$i]."')".'"></div>' ;
     }
 }
 
