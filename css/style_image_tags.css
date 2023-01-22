@@ -160,54 +160,6 @@
    display: none;
 }
 
-.list_item {
-   width: auto;
-   height: auto;
-   padding-bottom: 5px;
-}
 
-.tag-name {
-   width: auto;
-   text-align: start;
-}
-
-.delete_tag {
-   margin-right: 70px;
-   height: 25px;
-   width:  25px;
-   border-radius: 100%;
-}
-
-.choose_item {
-   list-style-type: none;
-   height: 25px;
-   background-color: #24B47E;
-   border-radius: 10px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   cursor: pointer;
-}
-
-.addtag {
-   background-color: #24B47E;
-   color: white;
-   height: 100%;
-   width: 15%;
-   text-align: center;
-}
-
-.cloud_tag {
-   color:#24B47E;
-   text-align: center;
-   word-break: normal;
-   margin-right: 5px;
-}
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
 
 
