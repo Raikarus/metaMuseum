@@ -246,10 +246,10 @@ $(document).ready(function(){
   $('#addtag').on("click",function()
   {
     elem = $('.kword_solo[data-tag="'+$('#myInput').val()+'"]');
-    alert(elem);
-    if(elem)
+
+    var index = result_tags.indexOf($(elem).data("tag"));
+    if($(elem).data("tag")!="undefined")
     {
-      var index = result_tags.indexOf($(elem).data("tag"));
       if (index >= 0) {
         result_tags.splice(index, 1);
         result_tags_invers.splice(index, 1);
