@@ -191,56 +191,16 @@ function moveZeros(arr) {
                   </form>
                </div>
                <div class = "tags" >
-               <?php 
-                          
-                          $query = "SELECT DISTINCT party FROM gallery";
-                          $res = pg_query($cn,$query);
-                       
-                          while($row=pg_fetch_row($res))
-                          {
-                              $x = rand(5, 15);
-                             echo '<li class = "tag_group">                     
-                                         <p class = "group_name">
-                                   
-                                               <a href = "javascript:flipflop('."'".$row[0]."'".');" style="font-size:'.$x.'px">'.$row[0].'+</a>
-                          
-                                         </p>
-                                         <ul class = "tag_list" id = '.$row[0].' style="display: none;">';
-                             $query = "SELECT name FROM gallery WHERE party='".$row[0]."'";
-                             $res2 = pg_query($cn,$query);
-                             while($row2=pg_fetch_row($res2))
-                             {
-                                echo '<li class = "list_item"><a href = "#" data-en = 0 data-tag = '.$row2[0].'>'.$row2[0].'</a></li>';
-                             }
-                             echo "</ul></li>";
-                          }
-                       ?>
-                       </ul>
-
-                          ?>
-                          <!--  <ul class = "list_of_groups">
-                             <?php
-                          $query = "SELECT DISTINCT party FROM gallery";
-                          $res = pg_query($cn,$query);
-                          while($row=pg_fetch_row($res))
-                          {
-                             echo '<li class = "tag_group">                     
-                                         <p class = "group_name">
-                                     
-                                               <a href = "javascript:flipflop('."'".$row[0]."'".');">'.$row[0].'+</a>                          
-
-                                         </p>
-                                         <ul class = "tag_list" id = '.$row[0].' style="display: none;">';
-                             $query = "SELECT name FROM gallery WHERE party='".$row[0]."'";
-                             $res2 = pg_query($cn,$query);
-                             while($row2=pg_fetch_row($res2))
-                             {
-                                echo '<li class = "list_item"><a href = "#" data-en = 0 data-tag = '.$row2[0].'>'.$row2[0].'</a></li>';
-                             }
-                             echo "</ul></li>";
-                          }
-                       ?>
-                       </ul> --> 
+                <form action="select1.php" method="post">
+                 <p><select size="3" multiple name="hero[]">
+                  <option disabled>Выберите героя</option>
+                  <option value="Чебурашка">Чебурашка</option>
+                  <option selected value="Крокодил Гена">Крокодил Гена</option>
+                  <option value="Шапокляк">Шапокляк</option>
+                  <option value="Крыса Лариса">Крыса Лариса</option>
+                 </select></p>
+                 <p><input type="submit" value="Отправить"></p>
+                </form>
                         
                </div>
                <div class = "choosen_tags">
