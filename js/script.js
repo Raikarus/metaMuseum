@@ -249,7 +249,7 @@ $(document).ready(function(){
 
     var index = result_tags.indexOf($(elem).data("tag"));
     alert($(elem).data("tag"));
-    if($(elem).data("tag")!="undefined")
+    if($(elem).data("tag"))
     {
       if (index >= 0) {
         result_tags.splice(index, 1);
