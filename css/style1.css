@@ -407,7 +407,8 @@ header {
    width: 50%;
    padding-left: 5px;
    overflow: hidden;
- 
+   
+   display: inline-block;
 }
 .choosen_tags::-webkit-scrollbar {
    width: 0;
