@@ -115,15 +115,6 @@ $(document).ready(function(){
     <ul class = "photos" id = "wrapping">
        	
     </ul>
-    <div class = "left_right_but">
-       <button class = "left">
-          ←
-       </button>
-       <div id = "current_page">1</div>
-       <button class="right">
-          →
-       </button>    
-    </div>
   </div>
 
   <div class = "main_right">
