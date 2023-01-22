@@ -23,6 +23,8 @@ var mod = 'gallery';
 var active_podborka = "-1";
 var form;
 var poisk = [];
+
+//Создание подсказок
 function build_poisk()
 {
   if(form == "home.php")
@@ -151,8 +153,9 @@ function autocomplete(inp, arr) {
  document.addEventListener("click", function (e) {
      closeAllLists(e.target);
  });
- }
+}
 
+//Проверка отрицательных ключевых слов и изменение цвета
 function check_invers() {
   for (var i = 0; i < result_tags.length; i++) {
     e = document.getElementById(result_tags[i]);
@@ -167,6 +170,7 @@ function check_invers() {
   }
 }
 
+//Инвертирование тэга [на нём висит onclick=tag_invers($(this))]
 function tag_invers(e)  {
   if(event.target.tagName == "LI")
   {
@@ -189,6 +193,7 @@ function tag_invers(e)  {
   }
 }
 
+//Обновление страницы (работает только на home.php)
 function load()  {
   var current_page = Number($('#current_page').data('val'));
   var ajaxurl = 'ajax.php';
@@ -229,6 +234,7 @@ function load()  {
   });
 }
 
+//Нажатие на крестик около тэга onclick tag_delete($(this))
 function tag_delete(e)
 {
   var index = result_tags.indexOf($(e).data("tag"));
@@ -255,6 +261,7 @@ $(document).ready(function(){
       }
     });
 
+  //Нажатие на кнопку ADD (добавление тэга или подборки в нижний блок)
   $('#addtag').on("click",function()
   {
     if(form == "home.php")
@@ -285,7 +292,6 @@ $(document).ready(function(){
     {
       //Добавить работу с выпадающими группами
       elem = $('.kword_solo[data-tag="'+$('#myInput').val()+'"]');
-
       var index = result_tags.indexOf($(elem).data("tag"));
       if($(elem).data("tag"))
       {

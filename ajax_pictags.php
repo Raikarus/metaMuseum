@@ -79,7 +79,8 @@ function load_cross_kwords()
     $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
     $pic_id_from_local_podborka = explode("|", $_POST['img_string']);
     if(count($pic_id_from_local_podborka)-1>=1)
-    {
+    {   
+        //Возможно это можно свернуть, но я пока не придумал как
         if(count($pic_id_from_local_podborka)-1==1)
         {
             //ЕСЛИ ВСЕГО ОДНА КАРТИНКА ВЫБРАНА
@@ -99,7 +100,7 @@ function load_cross_kwords()
                 {
                     $kword_name = $row->kword_name;
                     //СКОПИРОВАТЬ СТИЛИ ИЛИ ДОБАВИТЬ ДУБЛИКАТ СВОИХ
-                    echo "<li class = 'key_words'>$kword_name</li>";    
+                    echo "<li class = 'key_words' data-tag='$kword_name'>$kword_name</li>";    
                 }
             }
             else
@@ -133,7 +134,7 @@ function load_cross_kwords()
                 {
                     $kword_name = $row->kword_name;
                     //СКОПИРОВАТЬ СТИЛИ ИЛИ ДОБАВИТЬ ДУБЛИКАТ СВОИХ
-                    echo "<li class = 'key_words'>$kword_name</li>";
+                    echo "<li class = 'key_words' data-tag='$kword_name'>$kword_name</li>";
                 }
             }
             else
