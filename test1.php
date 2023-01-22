@@ -35,73 +35,24 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
     <script>
-      var count = 0;
-      var status = 0;
-      let arr = [(document.getElementsByName("img")).length];
-function moveZeros(arr) {
-    let upperBound = arr.length;
-    for (let i = 0; i < upperBound; i++) {
-        if (arr[i] === 0) {
-            arr.push(0);
-            arr.splice(i, 1);
-            upperBound--;
-            i--;
-        }
-    }
-    return arr;
-}
- 
-    $(document).ready(function(){
-        $('.comp_li_button').click(function(){
+ $(document).ready(function(){
+        $('.cloud_tag').click(function(){
             var clickBtnValue = $(this).data('val');
             
            
             if(clickBtnValue=='0')
             {
              // $(this).css('outline','5px solid #24B47E');
-               $(this).css('background-color', '#24B47E');
-              $(this).data('val','1');
-          
-               arr[count] =  String($(this).data('img'));
-              
-              if(count < document.getElementsByName("img").length)
-              {
-               count++;
-              }
+               console.log("0");
 
             }
             else
             {
-              //$(this).css('outline','none');
-               $(this).css('background-color', 'rgba(255, 255, 255, 0)');
-              $(this).data('val','0');
-
-              for(var i =0;i <count;i++ )
-              {
-               if(arr[i] == $(this).data('img'))
-               {
-                   arr[i] = 0;
-                   moveZeros(arr);
-                   break;
-               }
-              }
-             
-              count--;
+              console.log("1");
             }
             
-          
-            var ss = "";
 
-            for(var i = 0; i < count;i++)
-            {
-               ss += arr[i] + '|';
-                 
-            }
-             console.log(ss);
-
-            var ajaxurl = 'ajax.php';
-
-            if(status == 0)
+      /*      if(status == 0)
             {
                
                 data =  {'action': 'set_img','img_string':ss};
@@ -116,47 +67,8 @@ function moveZeros(arr) {
                   $('#wrapping').html(response); });
             }
             
-         
+         */
         });
-
-         $('.switch').click(function(){
-
-            console.log(status); 
-              status++;
-              if(status == 1) //download mode
-              {
-               for(var i =0; i < document.getElementsByName("img").length;i++)
-               {
-                     $(document.getElementsByName("img")[i]).css('display','none');  // надо сделать норм удаление 
-               }
-                  var ajaxurl = 'ajax.php';
-                  data =  {'action': 'set_img','img_string':"download_mode"};
-                  $.post(ajaxurl, data).done(function (response) {
-                  $('#wrapping').html(response); });
-              }
-              else //default mode
-              {
-                 for(var i =0; i < document.getElementsByName("img").length;i++)
-               {
-                     $(document.getElementsByName("img")[i]).css('display','flex');  // надо сделать норм удаление 
-               }
-                var ss = "";
-
-               for(var i = 0; i < count;i++)
-               {
-                  ss += arr[i] + '|';
-                    
-               }
-               var ajaxurl = 'ajax.php';
-                  data =  {'action': 'set_img','img_string':ss};
-                  $.post(ajaxurl, data).done(function (response) {
-                  $('#wrapping').html(response); });
-               status = 0;
-              }
-              
-         });
-    });
-
     </script>
 <title>Главная</title>
 </head>
@@ -192,7 +104,7 @@ function moveZeros(arr) {
                </div>
                <div class = "tags" >
                
-                        
+                
                </div>
                <div class = "choosen_tags">
                 <div class="normal_tags">
@@ -205,7 +117,7 @@ function moveZeros(arr) {
                         for($i = 0; $i < count($tag);$i++)
                         {
                            $size = rand(10, 40);
-                            echo '<span class = "cloud_tag" style="font-size:'.$size.'px;">'.$tag[$i]."($size)".'</span>';
+                            echo '<span class = "cloud_tag" data-val= "1" style="font-size:'.$size.'px;">'.$tag[$i]."($size)".'</span>';
                             echo "\n";
                         }
                         ?> 
@@ -220,7 +132,7 @@ function moveZeros(arr) {
                         for($i = 0; $i < count($tag);$i++)
                         {
                            $size = rand(10, 40);
-                            echo '<span class = "cloud_tag" style="font-size:'.$size.'px;color: #CD5C5C;">'.$tag[$i]."($size) ".'</span>';
+                            echo '<span class = "cloud_tag" data-val= "0" style="font-size:'.$size.'px;color: #CD5C5C;">'.$tag[$i]."($size) ".'</span>';
                             echo "\n";
                         }
                         ?> 
