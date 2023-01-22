@@ -1,5 +1,7 @@
 <?php
   //$_SESSION['podborka'] = "AAAAA";
+
+  //СДЕЛАТЬ $_SESSION['form'], чтобы знать на какой странице сейчас
 ?>
 
 <script>
@@ -34,47 +36,46 @@ $(document).ready(function(){
 
     function load_page()
     {
-        var selected_images_string = "";
-        for(var i = 0; i < selected_images.length;i++)
-        {
-           selected_images_string += selected_images[i] + '|';
-        }
+      var selected_images_string = "";
+      for(var i = 0; i < selected_images.length;i++)
+      {
+         selected_images_string += selected_images[i] + '|';
+      }
 
-        var ajaxurl = 'ajax_pictags.php';
-        if(mod_2 == "podborka")
-        {
-          data =  {'action': 'load_podborka','img_string':selected_images_string};
-          $.post(ajaxurl, data).done(function(response) {
-            $('#wrapping').html(response);
-            //$('#wrapping').html("123");
-          });
-        } 
-        else
-        {
-          data =  {'action': 'load_download'};
-          $.post(ajaxurl, data).done(function(response) {
-            $('#wrapping').html(response);
-          });
-        }
+      var ajaxurl = 'ajax_pictags.php';
+      if(mod_2 == "podborka")
+      {
+        data =  {'action': 'load_podborka','img_string':selected_images_string};
+        $.post(ajaxurl, data).done(function(response) {
+          $('#wrapping').html(response);
+        });
+      } 
+      else
+      {
+        data =  {'action': 'load_download'};
+        $.post(ajaxurl, data).done(function(response) {
+          $('#wrapping').html(response);
+        });
+      }
     }
 
     $('#compilation').on("click",".compilation_li .comp_li_button",function(){
-        var clickBtnValue = $(this).data('val');
-        if(clickBtnValue=='0')
-        {
-          $(this).css('background-color', '#24B47E');
-          $(this).data('val','1');
+      var clickBtnValue = $(this).data('val');
+      if(clickBtnValue=='0')
+      {
+        $(this).css('background-color', '#24B47E');
+        $(this).data('val','1');
 
-          selected_images.push(String($(this).data('img')));
-        }
-        else
-        {
-          $(this).css('background-color', 'rgba(255, 255, 255, 0)');
-          $(this).data('val','0');
+        selected_images.push(String($(this).data('img')));
+      }
+      else
+      {
+        $(this).css('background-color', 'rgba(255, 255, 255, 0)');
+        $(this).data('val','0');
 
-          selected_images.splice(selected_images.indexOf($(this).data('img')),1);
-        }
-        load_page();
+        selected_images.splice(selected_images.indexOf($(this).data('img')),1);
+      }
+      load_page();
     });
     
     $('#mod_podborka').click(function(){
