@@ -401,14 +401,14 @@ header {
    padding-left: 5px;
    overflow: hidden;
  flex-direction: row;
- display:inline-block;
+
 }
 .normal_tags {
    height: 100%;
    width: 50%;
    padding-left: 5px;
    overflow: hidden;
-   
+   float: left;
  
 }
 .choosen_tags::-webkit-scrollbar {
