@@ -86,28 +86,22 @@ $(document).ready(function(){
       load_page();
     });
     
-    $('#mod_swapper').click(function(event){
-      if (event.target == this)
+    $('#mod_swapper').change(function(){
+      if (switcher.checked)
       {
-         if (switcher.checked)
-         {
-            switcher.checked = false;
-            console.log(switcher.checked);
-            $('.photos_compilation').html("");
-            load_page();
-         }
-         else
-         {
-            switcher.checked = true;
-            console.log(switcher.checked);
-            check_selection();
-            pre_load();
-            load_page();
-         }
-      }
-      else{
-         console.log(event.target);
-      }
+         switcher.checked = false;
+         console.log(switcher.checked);
+           $('.photos_compilation').html("");
+         load_page();
+       }
+      else
+      {
+        switcher.checked = true;
+        console.log(switcher.checked);
+        check_selection();
+         pre_load();
+         load_page();
+      }    
     });
 
 
