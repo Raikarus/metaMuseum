@@ -490,7 +490,7 @@
     }
 
     function set_podborka_value()
-    {
+    {   
         echo "1";
         // $_SESSION['podborka']=$_POST['podborka'];
         // echo $_POST['podborka']."-это в локалке";
