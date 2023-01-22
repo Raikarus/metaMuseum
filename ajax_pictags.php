@@ -114,7 +114,7 @@ function load_cross_kwords()
                     $query .= " OR tag_id_num=$tag_id_num";
                 }
                 $res = pg_query($cn,$query);
-                echo "ЗАПРОСИК $query<br>";
+                
                 while($row = pg_fetch_object($res))
                 {
                     $kword_name = $row->kword_name;
