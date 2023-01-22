@@ -36,7 +36,7 @@
 
     <script>
        let tags = [(document.getElementsByName("tags_button")).length];
-
+       let check_tags = [(document.getElementsByName("transparent_check_box")).length];
  $(document).ready(function(){
         $('.normal_tags').on("click",".transparent_check_box",function(){
           
@@ -47,12 +47,13 @@
             for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
             {
             tags.push(document.getElementsByName("tags_button")[i]);
+            check_tags.push(document.getElementsByName("transparent_check_box")[i])
             }
            
             if(clickBtnValue=='0')
             {
               console.log($(this));
-               console.log(tags[tags.indexOf($(this).data('val',1))]); 
+              console.log(check_tags.IndexOf($(this))); 
              // console.log(tags[tags.indexOf($(this))]);
 
 
