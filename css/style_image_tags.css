@@ -81,7 +81,9 @@
 
     #emptycompilation {
       color: rgb(228, 79, 79);
-      margin: 0 auto;
+      display: block;
+      width: 100%;
+      text-align: center;
     }
 
    .photos_compilation {
