@@ -57,13 +57,13 @@
           
             var clickBtnValue = $(this).is(":checked");
             
-           
-          console.log($(this).data('str'));
+          
+
             if(clickBtnValue=='0')
             {
              // $(this).data('val',1);
-              
-            
+               console.log($(this).data('str'));
+             console.log(tags_del[0]);
               
             
                for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
