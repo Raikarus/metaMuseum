@@ -46,13 +46,14 @@ $(document).ready(function(){
           $.post(ajaxurl, data).done(function (response) {
             alert(response);
             $('#wrapping').html(response);
+            $('#wrapping').html("123");
           });
         } 
         else
         {
           data =  {'action': 'load_download'};
           $.post(ajaxurl, data).done(function (response) {
-            //$('#wrapping').html(response);
+            $('#wrapping').html(response);
           });
         }
     }
