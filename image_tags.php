@@ -87,7 +87,7 @@ $(document).ready(function(){
       $('.photos_compilation').html("");
       load_page();
     });
-    show_kwords()
+    function show_kwords()
     {
       var ajaxurl = 'ajax.php';
       data =  {'action': 'show_kwords'}; 
