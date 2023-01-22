@@ -7,6 +7,7 @@
 <script>
 var mod_2 = "podborka";
 var switcher = $('#mod_switch');
+switcher.checked = true;
 let selected_images = [];
 let selected_images_id = [];
 
