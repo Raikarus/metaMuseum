@@ -96,6 +96,7 @@ $(document).ready(function(){
         build_poisk();
       });   
     }
+    show_kwords();
 });
 
 </script>
