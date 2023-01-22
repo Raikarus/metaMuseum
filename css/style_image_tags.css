@@ -148,15 +148,11 @@
 .main_center {
    width: 45%;
    height: 100%;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: space-between;
 }
 
 .photos {
    height: 100%;
-   grid-auto-rows: 200px;
+   grid-auto-rows: 150px;
    overflow-y: auto;
 }
 
