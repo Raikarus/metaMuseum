@@ -45,13 +45,14 @@ function pre_load()
     echo "<pre>";
     print_r($pic_id_from_local_podborka);
     echo "</pre>";
-    // if($_POST['podborka'])
-    // {
+    if($_POST['podborka'])
+    {
         $query = "SELECT pic_id,fmt,title FROM pics WHERE pic_id=$pic_id_from_local_podborka[0]";
         for ($i=1; $i < count($pid_id_from_local_podborka)-1; $i++) { 
             $query .= "UNION ALL SELECT pic_id,fmt,title FROM pics WHERE pic_id=$pic_id_from_local_podborka[$i]";
         }
         $res = pg_query($cn,$query);
+        echo "ЗАПРОСИК $query<br>";
         while($row = pg_fetch_object($res))
         {
             $pic_id = $row->pic_id;
@@ -64,12 +65,12 @@ function pre_load()
                      </button>        
                      </li>";
         }
-    // }
-    // else
-    // {
-    //     // Добавить стили или удалить строку
-    //     echo "Локальная подборка пуста";
-    // }
+    }
+    else
+    {
+        // Добавить стили или удалить строку
+        echo "<b style="color:white">Локальная подборка пуста</b>";
+    }
 }
 
 
