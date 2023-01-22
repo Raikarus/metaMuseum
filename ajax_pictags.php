@@ -67,7 +67,7 @@ function pre_load()
 
 function get_podborka_value()
 {
-    $podborka = $_SESSION['podborka'];
+    echo $_SESSION['podborka'];
 }
 
 ?>
