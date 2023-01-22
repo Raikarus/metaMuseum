@@ -56,18 +56,8 @@
               console.log(tags[tags.indexOf($(this))]);
 
 
-               var ajaxurl = 'ajax.php';
+             update_tags();
 
-               var tags_string;
-
-               for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
-                {
-                  if($(tags[i]).data('val') == 1)
-                  {
-                   tags[i].innerHTML = ' <label name="tags_button" data-val = "0" data-str = sss><input type="checkbox" class="transparent_check_box"><span class = "cloud_tag" style="font-size:14 px;color: #CD5C5C;">'+$(tags[i]).data('str')+'</span></label>';
-                  }
-
-                }
 
                 
             }
@@ -75,30 +65,24 @@
             {
               console.log("1");   //зайдет когда чекбокс был пуст
             }
-           /* 
+          
 
-        if(status == 0)
-            {
-               
-                data =  {'action': 'set_img','img_string':ss};
-               $.post(ajaxurl, data).done(function (response) {
-                  $('#wrapping').html(response);
-            });
-            } 
-            else
-            {
-                 data =  {'action': 'set_img','img_string':"download_mode"};
-               $.post(ajaxurl, data).done(function (response) {
-                  $('#wrapping').html(response); });
-            }
-            
-         */
-         });
-        });
-
+       
        function update_tags()
        {
 
+               for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
+                {
+                  if($(tags[i]).data('val') == 1)
+                  {
+                   tags[i].innerHTML = ' <label name="tags_button" data-val = "0" data-str = sss><input type="checkbox" class="transparent_check_box"><span class = "cloud_tag" style="font-size:30 px;">'+$(tags[i]).data('str')+'</span></label>';
+                  }
+                  else
+                  {
+                    tags[i].innerHTML = ' <label name="tags_button" data-val = "0" data-str = sss><input type="checkbox" class="transparent_check_box"><span class = "cloud_tag" style="font-size:30 px;color: #CD5C5C;">'+$(tags[i]).data('str')+'</span></label>';
+                  }
+
+                }
        }
 
 
