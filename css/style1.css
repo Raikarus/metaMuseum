@@ -397,11 +397,16 @@ header {
 
 .choosen_tags {
    height: 48%;
+   width: 100%;
+   padding-left: 5px;
+   overflow: hidden
+}
+.normal_tags {
+   height: 48%;
    width: 50%;
    padding-left: 5px;
    overflow: hidden
 }
-
 .choosen_tags::-webkit-scrollbar {
    width: 0;
  }
