@@ -81,6 +81,7 @@
 
     #emptycompilation {
       color: rgb(228, 79, 79);
+      margin: 0 auto;
     }
 
    .photos_compilation {
@@ -91,8 +92,6 @@
       margin-top: 5px;
       word-break: break-all;
       overflow: auto;
-      display: flex;
-      justify-content: center;
    }
 
    .photos_compilation::-webkit-scrollbar {
