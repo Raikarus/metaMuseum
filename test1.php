@@ -71,16 +71,7 @@
             }
             else
             {
-              console.log($(this).data('str'));
-               for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
-                {
-                  if($(tags[i]).data('str') == $(this).data('str') )
-                  {
-                    $(tags[i]).data('val',1);
-                    break;
-                  }
-                }
-                $(this).data('val',1);
+             //ВОСТАНОВЛЕНИЕ
             }
           });
         });
