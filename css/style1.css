@@ -399,8 +399,8 @@ header {
    height: 48%;
    width: 100%;
    padding-left: 5px;
-   overflow: hidden
-   display: inline
+   overflow: hidden;
+   display: inline;
 }
 .normal_tags {
    height: 100%;
