@@ -105,6 +105,9 @@ $(document).ready(function(){
             load_page();
          }
       }
+      else{
+         console.log(event.target);
+      }
     });
 
 
