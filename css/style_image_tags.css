@@ -134,7 +134,7 @@
       color: white;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       margin-right: 5px;
       font-size: 12px;
       white-space: nowrap;
