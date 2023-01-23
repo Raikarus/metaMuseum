@@ -143,15 +143,15 @@ $(document).ready(function(){
 
     //вернуться сюда
     $(".wrap").on("click",".key_words .auto_tag",function(){
-      if($(this).data("delete")==0)
+      if($(this).data("delete")==1)
       {
         $(this).css('background-color','rgb(228,79,79)');
-        $(this).data("delete",1);
+        $(this).data("delete",0);
       }
       else
       {
         $(this).css('background-color','#181818');
-        $(this).data("delete",0);
+        $(this).data("delete",1);
       }
     });
 
