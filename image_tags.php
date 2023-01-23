@@ -56,6 +56,7 @@ $(document).ready(function(){
             $('.wrap').html(response);
             check_selection();
             check_auto_tag();
+            update_user_kwords();
           });
         });
       } 
@@ -89,7 +90,6 @@ $(document).ready(function(){
         selected_images_id.splice(index,1);
       }
       load_page();
-      update_user_kwords();
     });
     
     $('#mod_swapper').change(function(){
