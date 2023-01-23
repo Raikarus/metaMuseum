@@ -193,6 +193,7 @@ function Link_Keyword(){
 
                 $query = "SELECT tag_id_num FROM kwords WHERE kword_name='$auto_kwords[$j]'";
                 $res = pg_query($cn,$query);
+                echo "$query";
                 $tag_id_num = pg_fetch_object($res)->tag_id_num;
                 $query = "DELETE FROM pictags WHERE tag_id_num=$tag_id_num";
             }
