@@ -122,9 +122,11 @@ $(document).ready(function(){
       //Добавить проверку на выпадающий список
       var auto_tags = document.querySelectorAll('.key_words[data-status="automatic"]');
       result_tags_auto_pg2 = [];
+      result_tags_delete_pg2 = [];
       for(var i = 0; i < auto_tags.length;i++)
       {
         result_tags_auto_pg2.push($(auto_tags[i]).data("tag"));
+        result_tags_delete_pg2.push(0);
       }
     }
 
@@ -138,8 +140,19 @@ $(document).ready(function(){
     }
     show_kwords();
 
+
+    //вернуться сюда
     $(".wrap").on("click",".key_words .auto_tag",function(){
-      
+      if($(this).data("delete")==0)
+      {
+        $(this).css('background-color','rgb(228,79,79)');
+        $(this).data("delete",1);
+      }
+      else
+      {
+        $(this).css('background-color','#181818');
+        $(this).data("delete",0);
+      }
     });
 
     $('#link_tags').click(function(){
