@@ -474,7 +474,7 @@ $(document).ready(function(){
         else
         {
           pre_podborka.push(pic_id);
-          $(this).css('outline','3px solid red');
+          $(this).css('outline','3px solid rgb(228, 79, 79)');
           $(this).css('outline-offset','-3px');
         }  
       }
@@ -490,7 +490,7 @@ $(document).ready(function(){
       else
       {
         selected_in_podborka.push(pic_id);
-        $(this).css('outline','3px solid red');
+        $(this).css('outline','3px solid rgb(228, 79, 79)');
         $(this).css('outline-offset','-3px');
       }  
     }
@@ -530,7 +530,7 @@ $(document).ready(function(){
         {
           if(mod == "gallery") pre_podborka.push(pic_id);
           else selected_in_podborka.push(pic_id);
-          $(pictures[i]).css('outline','3px solid red');
+          $(pictures[i]).css('outline','3px solid rgb(228, 79, 79)');
           $(pictures[i]).css('outline-offset','-3px'); 
         }
       }  
