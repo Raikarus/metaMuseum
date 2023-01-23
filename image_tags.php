@@ -145,14 +145,14 @@ $(document).ready(function(){
       if($(this).data("delete")==0)
       {
         $(this).css('background-color','rgb(228,79,79)');
-        $(this).data("delete",0);
-        result_tags_delete_pg2[$(this).index()]=0;
+        $(this).data("delete",1);
+        result_tags_delete_pg2[$(this).index()]=1;
       }
       else
       {
         $(this).css('background-color','#181818');
-        $(this).data("delete",1);
-        result_tags_delete_pg2[$(this).index()]=1;
+        $(this).data("delete",0);
+        result_tags_delete_pg2[$(this).index()]=0;
       }
     });
 
