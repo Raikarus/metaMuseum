@@ -39,6 +39,7 @@ function update_user_kwords()
   for(var i = 0; i < result_tags_pg2.length; i++)
   {
     var index = result_tags_auto_pg2.indexOf(result_tags_pg2[i]);
+    console.log(index);
     if(index < 0)
     {
       result_tags_pg2.splice(index,1);
