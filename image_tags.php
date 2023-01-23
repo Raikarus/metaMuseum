@@ -142,7 +142,7 @@ $(document).ready(function(){
 
 
     $(".wrap").on("click",".key_words[data-status='automatic']",function(){
-      if($(this).data("delete")==1)
+      if($(this).data("delete")==0)
       {
         $(this).css('background-color','rgb(228,79,79)');
         $(this).data("delete",0);
