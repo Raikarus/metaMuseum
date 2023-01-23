@@ -310,7 +310,7 @@ $(document).ready(function(){
     {
       //Добавить работу с выпадающими группами
       elem = $('.kword_solo[data-tag="'+$('#myInput').val()+'"]');
-
+      console.log(elem);
       var index = result_tags_auto_pg2.indexOf($(elem).data("tag"));
       if(index<0)
       {
