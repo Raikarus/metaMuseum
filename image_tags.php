@@ -89,6 +89,7 @@ $(document).ready(function(){
         selected_images_id.splice(index,1);
       }
       load_page();
+      update_user_kwords();
     });
     
     $('#mod_swapper').change(function(){
