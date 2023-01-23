@@ -17,8 +17,8 @@ if (isset($_POST['action'])) {
             case 'load_cross_kwords':
                 load_cross_kwords();
                 break;
-            case 'link_kword':
-                Link_Kword();
+            case 'link_keyword':
+                Link_Keyword();
                 break;
         }
     }

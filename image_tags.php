@@ -152,8 +152,7 @@ $(document).ready(function(){
       for (var i = 0; i < selected_images.length; i++) {
         img_names += selected_images[i] + "|";
       }
-      alert("1");
-      data = {'action':'link_tags','img_names':img_names,'new_kwords':new_kwords,'delete_kwords':delete_kwords};
+      data = {'action':'link_keyword','img_names':img_names,'new_kwords':new_kwords,'delete_kwords':delete_kwords};
       $.post(ajaxurl,data).done(function(response)  {
         console.log(response);
       });
