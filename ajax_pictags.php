@@ -196,6 +196,7 @@ function Link_Keyword(){
                 echo "$query";
                 $tag_id_num = pg_fetch_object($res)->tag_id_num;
                 $query = "DELETE FROM pictags WHERE tag_id_num=$tag_id_num";
+                $res = pg_query($cn,$query);
             }
         }
 
