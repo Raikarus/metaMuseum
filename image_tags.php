@@ -392,6 +392,7 @@ $(document).ready(function(){
       data = {'action':'link_keyword','img_names':img_names,'new_kwords':new_kwords,'delete_kwords':delete_kwords,'auto_kwords':auto_kwords};
       $.post(ajaxurl,data).done(function(response)  {
         console.log(response);
+        alert("Готово! Обновите страницу");
       });
     });
 });
