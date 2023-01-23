@@ -372,7 +372,16 @@ $(document).ready(function(){
     }
     else if (form == "image_tags.php")
     {
-
+      var index = result_tags_pg2.indexOf($(this).data("tag"));
+      if(index < 0)
+      {
+        result_tags_pg2.push($(this).data("tag"));
+      }
+      else
+      {
+        result_tags_pg2.splice(index,1);
+      }
+      update_user_kwords();
     }
   });
 
