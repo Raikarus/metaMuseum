@@ -200,7 +200,7 @@ function Link_Keyword(){
             else
                 $shl = 'exiftool -XMP-dc:subject-="'.$delete_kwords[$j].'" img/'.$img_name;
             $res = shell_exec($shl);
-            echo "<br><pre>$res</pre>"; 
+            echo "<br>$shl<pre>$res</pre>"; 
 
             $query="INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES (".$pic_id.",".$tag_id.",".$tag_id_num.")";
             $res = pg_query($cn,$query);
