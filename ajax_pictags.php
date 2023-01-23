@@ -162,7 +162,8 @@ function Link_Keyword(){
     array_pop($new_kwords);
     $delete_kwords = explode("|",$_POST['delete_kwords']);
     array_pop($delete_kwords);
-    print_r($delete_kwords);
+    $auto_kwords = explod("|",$_POST['auto_kwords']);
+    array_pop($auto_kwords);
     for ($i=0; $i < count($img_names)-1; $i++) { 
         $img_name = addcslashes($img_names[$i]," ");
         $shl = 'exiftool -TagsFromFile img/'.$img_name.' img/file.xmp';
@@ -199,7 +200,7 @@ function Link_Keyword(){
             if($delete_kwords[$j]==1)
                 $shl = 'exiftool -XMP-dc:subject+="'.$selected_kword.'" img/'.$img_name;
             else
-                $shl = 'exiftool -XMP-dc:subject-="'.$delete_kwords[$j].'" img/'.$img_name;
+                $shl = 'exiftool -XMP-dc:subject-="'.$auto_kwords[$j].'" img/'.$img_name;
             $res = shell_exec($shl);
             echo "<br>$shl<pre>$res</pre>";
 
