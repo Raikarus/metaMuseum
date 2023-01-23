@@ -165,6 +165,7 @@ function Link_Keyword(){
     $auto_kwords = explode("|",$_POST['auto_kwords']);
     array_pop($auto_kwords);
     print_r($auto_kwords);
+    $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
     for ($i=0; $i < count($img_names)-1; $i++) { 
         $img_name = addcslashes($img_names[$i]," ");
         $shl = 'exiftool -TagsFromFile img/'.$img_name.' img/file.xmp';
@@ -179,9 +180,23 @@ function Link_Keyword(){
         $res = shell_exec($shl);
         echo "<br><pre>$res</pre>";
 
-        $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+        
 
         $pic_id = substr($img_name,0,strpos($img_name,'.'));
+
+        for($j=0; $j < count($auto_kwords);$j++)
+        {
+            if($delete_kwords[$j]==1)
+            {
+                $shl = 'exiftool -XMP-dc:subject-="'.$auto_kwords[$j].'" img/'.$img_name;
+                $res = shell_exec($shl);
+
+                $query = "SELECT tag_id_num FROM kwords WHERE kword_name='$auto_kwords[$j]'";
+                $res = pg_query($cn,$query);
+                $tag_id_num = pg_fetch_object($res)->tag_id_num;
+                $query = "DELETE FROM pictags WHERE tag_id_num=$tag_id_num";
+            }
+        }
 
         for ($j=0; $j < count($new_kwords); $j++)
         {
@@ -198,10 +213,8 @@ function Link_Keyword(){
           echo "ЗАПРОСИК $query<br>";
           if(!pg_fetch_object($res))
           {
-            if($delete_kwords[$j]==1)
-                $shl = 'exiftool -XMP-dc:subject+="'.$selected_kword.'" img/'.$img_name;
-            else
-                $shl = 'exiftool -XMP-dc:subject-="'.$auto_kwords[$j].'" img/'.$img_name;
+            
+            $shl = 'exiftool -XMP-dc:subject+="'.$selected_kword.'" img/'.$img_name;
             $res = shell_exec($shl);
             echo "<br>$shl<pre>$res</pre>";
 
