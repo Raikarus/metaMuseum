@@ -146,13 +146,13 @@ $(document).ready(function(){
       {
         $(this).css('background-color','rgb(228,79,79)');
         $(this).data("delete",0);
-        alert($(this).index());
+        result_tags_delete_pg2[$(this).index()]=0;
       }
       else
       {
         $(this).css('background-color','#181818');
         $(this).data("delete",1);
-        alert($(this).index());
+        result_tags_delete_pg2[$(this).index()]=1;
       }
     });
 
