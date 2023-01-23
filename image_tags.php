@@ -123,7 +123,7 @@ $(document).ready(function(){
       result_tags_auto_pg2 = [];
       for(var i = 0; i < auto_tags.length;i++)
       {
-        result_tags_auto_pg2.push(auto_tags[i].data("tag"));
+        result_tags_auto_pg2.push($(auto_tags[i]).data("tag"));
       }
     }
 
