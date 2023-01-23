@@ -190,7 +190,7 @@ function Link_Keyword(){
             {
                 $shl = 'exiftool -XMP-dc:subject-="'.$auto_kwords[$j].'" img/'.$img_name;
                 $res = shell_exec($shl);
-
+                echo "$shl";
                 $query = "SELECT tag_id_num FROM kwords WHERE kword_name='$auto_kwords[$j]'";
                 $res = pg_query($cn,$query);
                 echo "$query";
