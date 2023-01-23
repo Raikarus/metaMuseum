@@ -208,7 +208,7 @@
 
 #download_form input[type="password"]
 {
-
+   padding: 5px;
    height: 25%;
    border: 1px solid black;
    background-color: white;
