@@ -198,7 +198,7 @@ function Link_Keyword(){
             if($delete_kwords[$j]==1)
                 $shl = 'exiftool -XMP-dc:subject+="'.$selected_kword.'" img/'.$img_name;
             else
-                $shl = 'exiftool -XMP-dc:subject-="'.$selected_kword.'" img/'.$img_name;
+                $shl = 'exiftool -XMP-dc:subject-="'.$delete_kwords[$j].'" img/'.$img_name;
             $res = shell_exec($shl);
             echo "<br><pre>$res</pre>"; 
 
