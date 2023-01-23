@@ -38,7 +38,15 @@ function update_user_kwords()
   }
   for(var i = 0; i < result_tags_pg2.length; i++)
   {
-    $('.wrap').append("<li class='key_words user_tag'>"+result_tags_pg2[i]+"</li>");
+    var index = result_tags_auto_pg2.indexOf(result_tags_pg2[i]);
+    if(index < 0)
+    {
+      result_tags_pg2.splice(index,1);
+    }
+    else
+    {
+      $('.wrap').append("<li class='key_words user_tag'>"+result_tags_pg2[i]+"</li>");  
+    }
   }
 }
 
