@@ -179,6 +179,9 @@ $(document).ready(function(){
        <ul class = "wrap">
           
        </ul>
+       <div>
+         Сохранить
+       </div>
     </div>
   </div>
 
