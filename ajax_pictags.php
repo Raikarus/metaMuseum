@@ -180,8 +180,9 @@ function Link_Keyword(){
 
         $pic_id = substr($img_name,0,strpos($img_name,'.'));
 
-        foreach($new_kwords as $selected_kword)
+        for ($j=0; $j < count($new_kwords); $j++)
         {
+          $selected_kword = $new_kwords[$j];
           $query="SELECT tag_id,tag_id_num FROM kwords WHERE kword_name='$selected_kword'";
           $res = pg_query($cn,$query);
           echo "ЗАПРОСИК $query<br>";
@@ -194,8 +195,10 @@ function Link_Keyword(){
           echo "ЗАПРОСИК $query<br>";
           if(!pg_fetch_object($res))
           {
-            
-            $shl = 'exiftool -XMP-dc:subject+="'.$selected_kword.'" img/'.$img_name;
+            if($delete_kwords[$j]==1)
+                $shl = 'exiftool -XMP-dc:subject+="'.$selected_kword.'" img/'.$img_name;
+            else
+                $shl = 'exiftool -XMP-dc:subject-="'.$selected_kword.'" img/'.$img_name;
             $res = shell_exec($shl);
             echo "<br><pre>$res</pre>"; 
 
