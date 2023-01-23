@@ -183,6 +183,10 @@
    background-color: green;
 }
 
+.key_words[data-status="automatic"]{
+   cursor: pointer;
+}
+
 .warning {
    position: absolute;
    top: 20px;
