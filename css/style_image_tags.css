@@ -179,6 +179,14 @@
    border-radius: 10px;
 }
 
+.auto_tag {
+
+}
+
+.user_tag {
+   background-color: green;
+}
+
 .warning {
    position: absolute;
    top: 20px;

@@ -34,11 +34,11 @@ function update_user_kwords()
   $('.wrap').html("");
   for(var i = 0; i < result_tags_auto_pg2.length; i++)
   {
-    $('.wrap').append("<li class='key_words'>"+result_tags_auto_pg2[i]+"</li>");  
+    $('.wrap').append("<li class='key_words auto_tag'>"+result_tags_auto_pg2[i]+"</li>");  
   }
   for(var i = 0; i < result_tags_pg2.length; i++)
   {
-    $('.wrap').append("<li class='key_words'>"+result_tags_pg2[i]+"</li>");
+    $('.wrap').append("<li class='key_words user_tag'>"+result_tags_pg2[i]+"</li>");
   }
 }
 
