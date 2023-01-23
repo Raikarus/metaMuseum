@@ -438,7 +438,7 @@ $(document).ready(function(){
           
        </ul>
        <!-- ПОМЕНЯТЬ СТИЛИ -->
-       <button id = "link_tags" style="width:80px;height:35px;position: absolute;bottom: 15px;right: 15px;display: flex;justify-content: center;align-items: center;border: 1px solid white;background-color: rgba(255,255,255,0.8);color:white;font-size:40%;">
+       <button id = "link_tags" style="width:80px;height:35px;position: absolute;bottom: 15px;right: 15px;display: flex;justify-content: center;align-items: center;border: 1px solid white;background-color: rgba(255,255,255,0.3);color:white;font-size:80%;">
          Сохранить
        </button>
        <!-- ПОМЕНЯТЬ СТИЛИ -->
