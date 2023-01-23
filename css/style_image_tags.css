@@ -217,7 +217,8 @@
    height: 25%;
    border: 1px solid black;
    background-color: rgba(255,255,255,0.5);
-   color: #24B47E;
+   font-weight: 20;
+   color: white;
 }
 
 /*  классы для тегов 
