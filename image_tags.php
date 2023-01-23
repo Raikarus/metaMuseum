@@ -55,6 +55,7 @@ $(document).ready(function(){
           $.post(ajaxurl,data).done(function(response){
             $('.wrap').html(response);
             check_selection();
+            check_auto_tag();
           });
         });
       } 
@@ -107,17 +108,26 @@ $(document).ready(function(){
       }
     });
 
-
-    function check_selection()
-    {
+    //Проверка выделений при переключении режимов загрузка/подборка
+    function check_selection()  {
       for (var i = 0; i < selected_images.length; i++) {
         $('.comp_li_button[data-img="'+selected_images[i]+'"]').css('background-color', '#24B47E');
         $('.comp_li_button[data-img="'+selected_images[i]+'"]').data("val",1);
       }
     }
 
-    function show_kwords()
-    {
+    //Заполнение массива общих тэгов
+    function check_auto_tag() {
+      //Добавить проверку на выпадающий список
+      var auto_tags = document.querySelectorAll('.key_words[data-status="automatic"]');
+      result_tags_auto_pg2 = [];
+      for(var i = 0; i < auto_tags.length;i++)
+      {
+        result_tags_auto_pg2.push(auto_tags[i].data("tag"));
+      }
+    }
+
+    function show_kwords()  {
       var ajaxurl = 'ajax.php';
       data =  {'action': 'show_kwords'}; 
       $.post(ajaxurl, data).done(function (response) {
