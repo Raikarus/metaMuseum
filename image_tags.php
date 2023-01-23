@@ -180,7 +180,7 @@ $(document).ready(function(){
           
        </ul>
        <!-- ПОМЕНЯТЬ СТИЛИ -->
-       <button id = "link_tags" style="width:50px;height:25px;position: absolute;bottom: 0;right: 0;display: flex;justify-content: center;align-items: center">
+       <button id = "link_tags" style="width:80px;height:35px;position: absolute;bottom: 15px;right: 15px;display: flex;justify-content: center;align-items: center">
          Сохранить
        </button>
        <!-- ПОМЕНЯТЬ СТИЛИ -->
