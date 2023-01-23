@@ -42,7 +42,7 @@ function update_user_kwords()
     console.log(index);
     if(index < 0)
     {
-      $('.wrap').append("<li class='key_words user_tag'  data-tag='"+result_tags_auto_pg2[i]+"' data-status='user'>"+result_tags_pg2[i]+"</li>");
+      $('.wrap').append("<li class='key_words user_tag'  data-tag='"+result_tags_pg2[i]+"' data-status='user'>"+result_tags_pg2[i]+"</li>");
     }
     else
     {
