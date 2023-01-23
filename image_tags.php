@@ -143,11 +143,12 @@ $(document).ready(function(){
       var new_kwords = "";
       var delete_kwords = "";
       var img_names = "";
+      alert("1");
       for (var i = 0; i < result_tags_pg2.length; i++) {
         new_kwords += result_tags_pg2[i] + "|";
       }
       for (var i = 0; i < result_tags_invers_pg2.length; i++) {
-        delete_kwords += result_tags_invers_pg2[i] + "|";
+        delete_kwords += result_tags_delete_pg2[i] + "|";
       }
       for (var i = 0; i < selected_images.length; i++) {
         img_names += selected_images[i] + "|";
