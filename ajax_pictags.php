@@ -162,7 +162,7 @@ function Link_Keyword(){
     array_pop($new_kwords);
     $delete_kwords = explode("|",$_POST['delete_kwords']);
     array_pop($delete_kwords);
-    $auto_kwords = explod("|",$_POST['auto_kwords']);
+    $auto_kwords = explode("|",$_POST['auto_kwords']);
     array_pop($auto_kwords);
     for ($i=0; $i < count($img_names)-1; $i++) { 
         $img_name = addcslashes($img_names[$i]," ");
