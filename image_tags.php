@@ -141,7 +141,7 @@ $(document).ready(function(){
     show_kwords();
 
 
-    $(".wrap").on("click",".user_tag[data-status='automatic']",function(){
+    $(".wrap").on("click",".key_words[data-status='automatic']",function(){
       alert("1");
       if($(this).data("delete")==1)
       {
