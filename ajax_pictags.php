@@ -164,6 +164,7 @@ function Link_Keyword(){
     array_pop($delete_kwords);
     $auto_kwords = explode("|",$_POST['auto_kwords']);
     array_pop($auto_kwords);
+    print_r($auto_kwords);
     for ($i=0; $i < count($img_names)-1; $i++) { 
         $img_name = addcslashes($img_names[$i]," ");
         $shl = 'exiftool -TagsFromFile img/'.$img_name.' img/file.xmp';
