@@ -41,7 +41,7 @@ function update_user_kwords()
     var index = result_tags_auto_pg2.indexOf(result_tags_pg2[i]);
     if(index < 0)
     {
-      $('.wrap').append("<li class='key_words user_tag' data-tag='"+result_tags_pg2[i]+"' data-status='user'>"+result_tags_pg2[i]+"</li>");
+      $('.wrap').append("<li class='key_words' class='user_tag' data-tag='"+result_tags_pg2[i]+"' data-status='user'>"+result_tags_pg2[i]+"</li>");
     }
     else
     {
