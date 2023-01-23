@@ -42,11 +42,11 @@ function update_user_kwords()
     console.log(index);
     if(index < 0)
     {
-      result_tags_pg2.splice(index,1);
+      $('.wrap').append("<li class='key_words user_tag'>"+result_tags_pg2[i]+"</li>");
     }
     else
     {
-      $('.wrap').append("<li class='key_words user_tag'>"+result_tags_pg2[i]+"</li>");  
+      result_tags_pg2.splice(index,1);
     }
   }
 }
