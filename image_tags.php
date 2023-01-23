@@ -138,6 +138,10 @@ $(document).ready(function(){
     }
     show_kwords();
 
+    $(".wrap").on("click",".key_words .auto_tag",function(){
+      
+    });
+
     $('#link_tags').click(function(){
       var ajaxurl = 'ajax_pictags.php';
       var new_kwords = "";
