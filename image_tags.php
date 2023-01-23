@@ -141,8 +141,8 @@ $(document).ready(function(){
     show_kwords();
 
 
-    //вернуться сюда
     $(".wrap").on("click",".key_words .auto_tag",function(){
+      alert("1");
       if($(this).data("delete")==1)
       {
         $(this).css('background-color','rgb(228,79,79)');
