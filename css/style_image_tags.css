@@ -195,6 +195,12 @@
    color: rgb(228, 79, 79);
 }
 
+#download_form
+{
+   width:300px;
+   height: 50%;
+}
+
 /*  классы для тегов 
 
 .list_item {
