@@ -162,6 +162,7 @@ function Link_Keyword(){
     array_pop($new_kwords);
     $delete_kwords = explode("|",$_POST['delete_kwords']);
     array_pop($delete_kwords);
+    print_r($delete_kwords);
     for ($i=0; $i < count($img_names)-1; $i++) { 
         $img_name = addcslashes($img_names[$i]," ");
         $shl = 'exiftool -TagsFromFile img/'.$img_name.' img/file.xmp';
@@ -200,7 +201,7 @@ function Link_Keyword(){
             else
                 $shl = 'exiftool -XMP-dc:subject-="'.$delete_kwords[$j].'" img/'.$img_name;
             $res = shell_exec($shl);
-            echo "<br>$shl<pre>$res</pre>"; 
+            echo "<br>$shl<pre>$res</pre>";
 
             $query="INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES (".$pic_id.",".$tag_id.",".$tag_id_num.")";
             $res = pg_query($cn,$query);
