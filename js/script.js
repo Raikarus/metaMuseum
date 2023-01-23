@@ -14,7 +14,7 @@ function flipflop( id ) {
 //Это для image_tags.php
 var result_tags_auto_pg2 = [];
 var result_tags_pg2 = [];
-var result_tags_invers_pg2 = [];
+var result_tags_delete_pg2 = [];
 
 //Это для home.php
 var result_tags = [];
