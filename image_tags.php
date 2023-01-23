@@ -143,7 +143,6 @@ $(document).ready(function(){
       var new_kwords = "";
       var delete_kwords = "";
       var img_names = "";
-      alert("1");
       for (var i = 0; i < result_tags_pg2.length; i++) {
         new_kwords += result_tags_pg2[i] + "|";
       }
@@ -153,6 +152,7 @@ $(document).ready(function(){
       for (var i = 0; i < selected_images.length; i++) {
         img_names += selected_images[i] + "|";
       }
+      alert("1");
       data = {'action':'link_tags','img_names':img_names,'new_kwords':new_kwords,'delete_kwords':delete_kwords};
       $.post(ajaxurl,data).done(function(response)  {
         console.log(response);
