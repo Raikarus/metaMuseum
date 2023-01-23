@@ -179,11 +179,7 @@
    border-radius: 10px;
 }
 
-.auto_tag {
-
-}
-
-.user_tag {
+.user_tag[data-status="user"] {
    background-color: green;
 }
 

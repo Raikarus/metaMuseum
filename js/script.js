@@ -34,14 +34,14 @@ function update_user_kwords()
   $('.wrap').html("");
   for(var i = 0; i < result_tags_auto_pg2.length; i++)
   {
-    $('.wrap').append("<li class='key_words123' class='auto_tag' data-delete='"+result_tags_delete_pg2[i]+"' data-tag='"+result_tags_auto_pg2[i]+"' data-status='automatic'>"+result_tags_auto_pg2[i]+"</li>");  
+    $('.wrap').append("<li class='key_words' data-delete='"+result_tags_delete_pg2[i]+"' data-tag='"+result_tags_auto_pg2[i]+"' data-status='automatic'>"+result_tags_auto_pg2[i]+"</li>");  
   }
   for(var i = 0; i < result_tags_pg2.length; i++)
   {
     var index = result_tags_auto_pg2.indexOf(result_tags_pg2[i]);
     if(index < 0)
     {
-      $('.wrap').append("<li class='key_words' class='user_tag' data-tag='"+result_tags_pg2[i]+"' data-status='user'>"+result_tags_pg2[i]+"</li>");
+      $('.wrap').append("<li class='key_words' data-tag='"+result_tags_pg2[i]+"' data-status='user'>"+result_tags_pg2[i]+"</li>");
     }
     else
     {
