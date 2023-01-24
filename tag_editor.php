@@ -171,11 +171,11 @@
             var responce_str;
             for(var i = 0; i < tags_normal.length;i++)
             {
-                responce_str += tags_normal+"|1,"; 
+                responce_str += tags_normal[i]+"|1,"; 
             }
              for(var i = 0; i < tags_normal.length;i++)
             {
-                responce_str += tags_del+"|11,"; 
+                responce_str += tags_del[i]+"|11,"; 
             }
 
             console.log(responce_str);
