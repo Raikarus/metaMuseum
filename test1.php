@@ -72,6 +72,14 @@
              // $(this).data('val',1);
                console.log("1");
                 console.log($(this).data('str'));
+                for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
+                  {
+                    if($(tags_normal[i]).data('str') == $(this).data('str'))
+                    {
+                        tags_normal[i] = 0;
+                        break;
+                    }
+                  }
                  $(this).data('val',1);
            /*     for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
                 {
