@@ -144,7 +144,7 @@
         var ajaxurl = 'ajax_tags.php';
         data = {'action':'load_tags'};
         $.post(ajaxurl,data).done(function(responce){ 
-            responce.splice(-1,1);
+            String(responce).splice(-1,1);
            console.log(responce);
             tags_with_status = responce.split(',');
             var str;
