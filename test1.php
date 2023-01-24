@@ -111,7 +111,7 @@
                for(var i = 0; i < tags_normal.length;i++)
                 {
                        tags_normal[i].innerHTML = ' <label name="tags_button" data-val = "1"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+$(tags_normal[i]).data('str')+' checked><span class = "cloud_tag" style="font-size:40 ;">'+$(tags_normal[i]).data('str')+'</span></label>';
-                       
+                        $(".description_class").append();
                 }
                 for(var i = 0; i < tags_del.length;i++)
                 {
@@ -122,8 +122,8 @@
               {
                 console.log("oh no CRINGE");
               }
+              $(".normal_tags").append(tags_normal[i]);
 
-               $(".del_tags").append(tags_del[0]);
              
        }
 
@@ -183,7 +183,7 @@
                         }
                         ?> 
                   </div>
-                  <div class="del_tags" style="border-left: 1px solid white; " id = "del_tags">
+                  <div class="normal_tags" style="border-left: 1px solid white; " id = "del_tags">
                   <ul class = "wrap">
                   </ul>
                   <?php 
