@@ -81,7 +81,7 @@
                     }
                   }
                 // $(this).data('val',1); ну надо примени не надо удали 
-
+                console.log("1");
              
             }
             else
@@ -97,6 +97,7 @@
                         break;
                     }
                   }
+                   console.log("1");
                //  $(this).data('val',0);
                //update_tags();
 
