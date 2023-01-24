@@ -78,7 +78,7 @@
                     {
                        $(tags_normal[i]).data('val',0);
                         tags_del.push(tags_normal[i]);
-                        tags_normal[i] = 0;
+                        tags_normal.splice(i,1);
 
                         break;
                     }
@@ -95,7 +95,7 @@
                     {
                        $(tags_del[i]).data('val',1);
                         tags_normal.push(tags_del[i]);
-                        tags_del[i] = 0;
+                        tags_del[i].splice(i,1);
 
                         break;
                     }
