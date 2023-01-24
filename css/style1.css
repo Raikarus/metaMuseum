@@ -107,6 +107,13 @@
    float: left;
  
 }
+.del_tags {
+   height: 100%;
+   width: 49%;
+   overflow: hidden;
+   float: left;
+ 
+}
 
 .wrap {
    margin: 0;
