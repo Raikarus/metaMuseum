@@ -36,7 +36,22 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
     <script>
-       let tags = []; // фиксированный пизже
+       let tags_normal = [];
+       let tags_del = [];
+
+        for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
+        {
+          if($(document.getElementsByName("tags_button")[i]).data('val') == 1)
+          {
+             tags_normal.push(document.getElementsByName("tags_button")[i]);
+          }
+          else
+          {
+            tags_del.push(document.getElementsByName("tags_button")[i]);
+          }
+          
+        }
+        // фиксированный пизже
      //  update_tags();
  $(document).ready(function(){
         $('.normal_tags').on("click",".transparent_check_box",function(){
