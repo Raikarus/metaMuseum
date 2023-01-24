@@ -36,15 +36,17 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
     <script>
+       let tags_with_status = [];
        let tags_normal = [];
        let tags_del = [];
-
+       var responce = "";
 
         // фиксированный пизже
      
  $(document).ready(function(){
     load_tags();
-
+  tags_with_status = responce.split('|');
+  console.log(tags_with_status[0]);
   for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)    //заполнили массивы всем что сейчас есть можно, переписать когда инфа будет приходить с бека
         {
           if($(document.getElementsByName("tags_button")[i]).data('val') == 1)
@@ -134,7 +136,7 @@
        {
         var ajaxurl = 'ajax_tags.php';
         data = {'action':'load_tags'};
-        $.post(ajaxurl,data).done(function(responce){ console.log(responce)});
+        $.post(ajaxurl,data).done(function(responce){ responce = responce});
 
        }
 
