@@ -124,7 +124,7 @@
                         $("#norm_tags").append('<label name="tags_button" data-val = "1"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+tags_normal[i]+' checked><span class = "cloud_tag" style="font-size:40 ;">'+tags_normal[i]+'</span></label>');
                       
                 }
-                for(var i = 0; i < tags_del.length;i++)
+                for(var i = 1; i < tags_del.length;i++)
                 {
                 
                          $("#del_tags").append('<label name="tags_button" data-val = "0"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+tags_del[i]+' ><span class = "cloud_tag" style="font-size:40 ;color: #CD5C5C;">'+tags_del[i]+'</span></label>');
@@ -145,7 +145,7 @@
         data = {'action':'load_tags'};
         $.post(ajaxurl,data).done(function(responce){ 
             
-           
+           console.log(responce);
             tags_with_status = responce.split(',');
             var str;
             for(var i = 0; i < tags_with_status.length;i++)
