@@ -95,7 +95,7 @@
                     {
                        $(tags_del[i]).data('val',1);
                         tags_normal.push(tags_del[i]);
-                        tags_del[i].splice(i,1);
+                        tags_del.splice(i,1);
 
                         break;
                     }
