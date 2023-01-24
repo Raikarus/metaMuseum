@@ -116,13 +116,13 @@
                for(var i = 0; i < tags_normal.length;i++)
                 {
                      
-                        $("#norm_tags").append(' <label name="tags_button" data-val = "1"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+$(tags_normal[i])+' checked><span class = "cloud_tag" style="font-size:40 ;">'+$(tags_normal[i])+'</span></label>');
+                        $("#norm_tags").append('<label name="tags_button" data-val = "1"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+tags_normal[i]+' checked><span class = "cloud_tag" style="font-size:40 ;">'+tags_normal[i]+'</span></label>');
                       
                 }
                 for(var i = 0; i < tags_del.length;i++)
                 {
                 
-                         $("#del_tags").append(' <label name="tags_button" data-val = "0"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+$(tags_del[i])+' ><span class = "cloud_tag" style="font-size:40 ;color: #CD5C5C;">'+$(tags_del[i])+'</span></label>');
+                         $("#del_tags").append('<label name="tags_button" data-val = "0"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+tags_del[i]+' ><span class = "cloud_tag" style="font-size:40 ;color: #CD5C5C;">'+tags_del[i]+'</span></label>');
                 }
               }
               catch
