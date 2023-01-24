@@ -1,5 +1,5 @@
 <?php
-  $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+ /* $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
   $res = pg_query($cn,"SELECT * FROM gallery");
   //gallery(id,name,party,meta [0/1])
   $form = $_GET['form'];
@@ -22,7 +22,7 @@
         $msg = "Такой тэг уже существует";
       }
     }
-  }
+  }*/
 ?>
 <!DOCTYPE HTML>
 <html>
