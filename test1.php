@@ -123,7 +123,7 @@
                 console.log("oh no CRINGE");
               }
               $(".normal_tags").html();
-              $("#norm_tags").append(tags_normal[i]);
+              $("#del_tags").append(tags_normal[i]);
 
              
        }
