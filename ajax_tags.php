@@ -4,7 +4,7 @@
         switch ($_POST['action']) {
             case 'load_tags':
                 load_tags();
-        
+        	break;
         }
     }
 load_tags()
