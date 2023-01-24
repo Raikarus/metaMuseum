@@ -45,7 +45,7 @@
  $(document).ready(function(){
 
 
-  for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
+  for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)    //заполнили массивы всем что сейчас есть можно, переписать когда инфа будет приходить с бека
         {
           if($(document.getElementsByName("tags_button")[i]).data('val') == 1)
           {
@@ -58,32 +58,27 @@
           
         }
 
-        update_tags();
-        console.log(tags_normal[0]);
-        console.log(tags_del[0]);
+        update_tags();    // отображаем все теги что есть 
 
         $('.normal_tags').on("click",".transparent_check_box",function(){
           
             var clickBtnValue = $(this).is(":checked");
             
            
-            if(clickBtnValue=='0')
+            if(clickBtnValue=='0')  //тег есть жмакнули для удаления
             {
-             // $(this).data('val',1);
-               console.log("1");
-                console.log($(this).data('str'));
                 for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
                   {
-                    if($(tags_normal[i]).data('str') == $(this).data('str'))
+                    if($(tags_normal[i]).data('str') == $(this).data('str')) // ищем к какому объекту в массиве принадлежит жмакнутый черт по data str
                     {
-                       $(tags_normal[i]).data('val',0);
-                        tags_del.push(tags_normal[i]);
-                        tags_normal.splice(i,1);
+                       $(tags_normal[i]).data('val',0); 
+                        tags_del.push(tags_normal[i]); //добавляем в удаленные 
+                        tags_normal.splice(i,1); // удаляем из нормальных от позиции i один элемент
 
                         break;
                     }
                   }
-                 $(this).data('val',1);
+                // $(this).data('val',1);
 
              update_tags();
             }
@@ -100,7 +95,7 @@
                         break;
                     }
                   }
-                 $(this).data('val',0);
+               //  $(this).data('val',0);
                update_tags();
 
             }
