@@ -84,24 +84,23 @@
                     }
                   }
                  $(this).data('val',1);
-           /*     for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
-                {
-                  if($(tags[i]).data('str') == $(this).data('str') )
-                  {
-                    $(tags[i]).data('val',0);
-                    break;
-                  }*/
-                
-             //   $(this).data('val',0);
 
              update_tags();
             }
             else
             {
-               $(this).data('val',0);
-               console.log("0");
-                console.log($(this).data('str'));
-                  $(this).css('color',  '#24B47E');
+                 for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
+                  {
+                    if($(tags_del[i]).data('str') == $(this).data('str'))
+                    {
+                       $(tags_del[i]).data('val',1);
+                        tags_normal.push(tags_normal[i]);
+                        tags_del[i] = 0;
+
+                        break;
+                    }
+                  }
+                 $(this).data('val',0);
                update_tags();
 
              //ВОСТАНОВЛЕНИЕ
