@@ -78,7 +78,7 @@
                         break;
                     }
                   }
-                // $(this).data('val',1);
+                // $(this).data('val',1); ну надо примени не надо удали 
 
              update_tags();
             }
@@ -122,7 +122,7 @@
 
                 }
 
-                  tags_normal = [];
+            /*     tags_normal = []; 
                   tags_del = [];
                 for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
                       {
@@ -135,7 +135,7 @@
                           tags_del.push(document.getElementsByName("tags_button")[i]);
                         }
                         
-                      }
+                      }*/
              
        }
 
