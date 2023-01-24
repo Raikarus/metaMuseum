@@ -21,27 +21,39 @@ var podborka = [];
 var selected_in_podborka = [];
 var mod = 'gallery';
 var active_podborka = "-1";
-
+var form;
 var poisk = [];
 function build_poisk()
 {
-  poisk = [];
-  if(mod == "gallery")
+  if(form == "home.php")
   {
+    poisk = [];
+    if(mod == "gallery")
+    {
+      var kwords = document.querySelectorAll(".kword_solo");
+      for (var i = 0; i < kwords.length; i++) {
+        poisk.push($(kwords[i]).data("tag"));
+      }
+    }
+    else
+    {
+      var podborki = document.querySelectorAll(".podborka");
+      for (var i = 0; i < podborki.length;i++)
+      {
+        poisk.push($(podborki[i]).data("sel_name"));
+      }
+    }
+    autocomplete(document.getElementById('myInput'),poisk);  
+  }
+  else if(form == "image_tags.php")
+  {
+    poisk = [];
     var kwords = document.querySelectorAll(".kword_solo");
     for (var i = 0; i < kwords.length; i++) {
       poisk.push($(kwords[i]).data("tag"));
     }
+    autocomplete(document.getElementById('myInput'),poisk);  
   }
-  else
-  {
-    var podborki = document.querySelectorAll(".podborka");
-    for (var i = 0; i < podborki.length;i++)
-    {
-      poisk.push($(podborki[i]).data("sel_name"));
-    }
-  }
-  autocomplete(document.getElementById('myInput'),poisk);
 }
 
 function autocomplete(inp, arr) {
@@ -207,9 +219,12 @@ function load()  {
       $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
     }
     else {
-      current_page-=1;
-      $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
-      load();
+      if(current_page != 1)
+        {
+          current_page-=1;
+          $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
+          load();
+        }
     } 
   });
 }
@@ -242,40 +257,54 @@ $(document).ready(function(){
 
   $('#addtag').on("click",function()
   {
-    elem = $('.kword_solo[data-tag="'+$('#myInput').val()+'"]');
-    var index = result_tags.indexOf($(elem).data("tag"));
-    if (index >= 0) {
-      result_tags.splice(index, 1);
-      result_tags_invers.splice(index, 1);
+    if(form == "home.php")
+    {
+      elem = $('.kword_solo[data-tag="'+$('#myInput').val()+'"]');
+
+      var index = result_tags.indexOf($(elem).data("tag"));
+      if($(elem).data("tag"))
+      {
+        if (index >= 0) {
+          result_tags.splice(index, 1);
+          result_tags_invers.splice(index, 1);
+        }
+        else{
+          result_tags.push($(elem).data("tag"));
+          result_tags_invers.push(0);
+        }
+        $(".wrap").html("");
+        for (var i = 0; i <=result_tags.length - 1; i++) {
+          $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'<button class = "tag_button" data-tag = "'+result_tags[i]+'" onclick="tag_delete($(this))">×</button></li>');
+        }
+        check_invers();
+        load();  
+      }
     }
-    else{
-      result_tags.push($(elem).data("tag"));
-      result_tags_invers.push(0);
-    }
-    $(".wrap").html("");
-    for (var i = 0; i <=result_tags.length - 1; i++) {
-      $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'<button class = "tag_button" data-tag = "'+result_tags[i]+'" onclick="tag_delete($(this))">×</button></li>');
-    }
-    check_invers();
-    load();
   });
 
   $('.list_of_groups ').on("click",".tag_group .group_name .kword_solo",function (){
-    var index = result_tags.indexOf($(this).data("tag"));
-    if (index >= 0) {
-      result_tags.splice(index, 1);
-      result_tags_invers.splice(index, 1);
+    if(form == "home.php")
+    {
+      var index = result_tags.indexOf($(this).data("tag"));
+      if (index >= 0) {
+        result_tags.splice(index, 1);
+        result_tags_invers.splice(index, 1);
+      }
+      else{
+        result_tags.push($(this).data("tag"));
+        result_tags_invers.push(0);
+      }
+      $(".wrap").html("");
+      for (var i = 0; i <=result_tags.length - 1; i++) {
+        $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'<button class = "tag_button" data-tag = "'+result_tags[i]+'" onclick="tag_delete($(this))">×</button></li>');
+      }
+      check_invers();
+      load();
     }
-    else{
-      result_tags.push($(this).data("tag"));
-      result_tags_invers.push(0);
+    else if (form == "image_tags.php")
+    {
+
     }
-    $(".wrap").html("");
-    for (var i = 0; i <=result_tags.length - 1; i++) {
-      $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'<button class = "tag_button" data-tag = "'+result_tags[i]+'" onclick="tag_delete($(this))">×</button></li>');
-    }
-    check_invers();
-    load();
   });
 
   $('.list_of_groups ').on("click", ".tag_list li a",function (){
@@ -295,9 +324,6 @@ $(document).ready(function(){
     check_invers();
     load();
   });
-
-
-
 
    let but1 = document.getElementById('mod_gallery');
    let but2 = document.getElementById('mod_finder');
@@ -325,8 +351,6 @@ $(document).ready(function(){
       finder.style.display = "block";
    });
 
-
-
    $(size1).click(function()
    {
       size1.style.backgroundColor = "#24B47E";
@@ -348,6 +372,7 @@ $(document).ready(function(){
       wrap.style.gridTemplateColumns = "repeat(4, 1fr)";
       wrap.style.gridTemplateRows = "repeat(3, 1fr)";
       limit_of_pages = 12;
+
       size='4x3';
       load();
    });
@@ -360,6 +385,7 @@ $(document).ready(function(){
       wrap.style.gridTemplateColumns = "repeat(3, 1fr)";
       wrap.style.gridTemplateRows = "repeat(2, 1fr)";
       limit_of_pages = 6;
+      
       size='3x2';
       load();
    });
@@ -551,7 +577,98 @@ $(document).ready(function(){
     });
   });
 
-  show_kwords();
-  build_poisk();
-  load();
+  function get_form_value(){
+    var ajaxurl = 'ajax.php';
+    data = {'action':'get_form_value'};
+    $.post(ajaxurl,data).done(function(responce){
+      form = responce;
+      if(form == "home.php")
+      {
+        show_kwords();
+        build_poisk();
+        load();  
+      }
+    });
+  }
+  get_form_value();
+// try
+// {
+//   var ajaxurl = 'ajax.php';
+//   $.ajax({
+//     url:"ajax.php",
+//     type:"POST",
+//     data: {'action':'get_podborka_value'},
+//     success:function(responce){
+//         //{"a":"b|","c","d|"}
+//         var json = $.parseJSON(JSON.stringify(responce));
+//         podborka = json.podborka.split("|");
+//         podborka.splice(-1,1);
+//         result_tags = json.result_tags.split("|");
+//         result_tags.splice(-1,1);
+//         result_tags_invers = json.result_tags_invers.split("|");
+//         result_tags_invers.splice(-1,1);
+//         size = json.size;
+//         pre_podborka = json.pre_podborka.split("|");
+//         pre_podborka.splice(-1,1);
+//         selected_in_podborka = json.selected_in_podborka.split("|");
+//         mod = json.mod;
+//         if(mod == "podborka")
+//         {
+//           but1.style.backgroundColor = "#181818";
+//           but2.style.backgroundColor = "#24B47E";
+//           gallery.style.display = "none";
+//           finder.style.display = "block";
+//         }
+//         $(".wrap").html("");
+//         for (var i = 0; i <=result_tags.length - 1; i++) {
+//           $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'<button class = "tag_button" data-tag = "'+result_tags[i]+'" onclick="tag_delete($(this))">×</button></li>');
+//         }
+//         check_invers();
+//         show_kwords();
+//         build_poisk();
+//         load();
+//     },
+//     dataType:"json"
+//   });
+// } 
+//   catch(error)
+//   {
+
+
+
+// }
+  
+  $('#set_tag').click(function(){
+
+    var ajaxurl = 'ajax.php';
+    var result_tags_string = "";
+    var result_tags_invers_string = "";
+    var pre_podborka_string = "";
+    var podborka_string = "";
+    var selected_in_podborka_string = "";
+
+    for (var i = 0; i < result_tags.length; i++) {
+      result_tags_string += result_tags[i]+"|";
+      result_tags_invers_string += result_tags_invers[i]+"|";
+    }
+    for(var i = 0; i < pre_podborka.length; i++)
+    {
+      pre_podborka_string += pre_podborka[i]+"|";
+    }
+    for(var i = 0; i < podborka.length; i++)
+    {
+      podborka_string += podborka[i]+"|";
+    }
+    for(var i = 0; i < selected_in_podborka.length; i++)
+    {
+      selected_in_podborka_string += selected_in_podborka[i]+"|";
+    }
+
+    data = {'action':'set_podborka_value', 'podborka':podborka_string,'result_tags':result_tags_string,'result_tags_invers':result_tags_invers_string,'size':size,'pre_podborka':pre_podborka_string,'selected_in_podborka':selected_in_podborka_string,'mod':mod};
+    $.post(ajaxurl,data).done(function(responce){
+      //alert(responce);
+    });
+
+  });
+
 });
