@@ -146,7 +146,7 @@
             for(var i = 0; i < tags_with_status.length;i++)
             {
                 str = tags_with_status[i];
-                 console.log(str);
+                 console.log(str.split('|')[1]);
                  if(str.split('|')[1] == 0 && str.split('|')[1] == 1 && str.split('|')[1] == 2)
                  {
                     tags_normal.push((tags_with_status[i]).split('|')[0]);
