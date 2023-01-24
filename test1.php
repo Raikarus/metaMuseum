@@ -163,7 +163,7 @@
                         {
                            $size = 30;
                             echo ' <label name="tags_button" data-val = "1" data-str ="'.$tag[$i].'">
-                                   <input type="checkbox" name = "transparent_check_box" data-str =".$'tag[$i].'" class="transparent_check_box" checked>
+                                   <input type="checkbox" name = "transparent_check_box" data-str ="'.$tag[$i].'" class="transparent_check_box" checked>
                                    <span class = "cloud_tag" style="font-size:'.$size.';">'.$tag[$i]."($size) ".'</span>
                                    </label>';
                         }
@@ -180,7 +180,7 @@
                         {
                            $size = 30;
                             echo ' <label name="tags_button" data-val = "0" data-str ="'.$tag[$i].'">
-                                   <input type="checkbox" name = "transparent_check_box" data-str =".$'tag[$i].'" class="transparent_check_box">
+                                   <input type="checkbox" name = "transparent_check_box" data-str ="'.$tag[$i].'" class="transparent_check_box">
                                    <span class = "cloud_tag" style="font-size:'.$size.';color: #CD5C5C;">'.$tag[$i]."($size) ".'</span>
                                    </label>';
                             echo "\n";
