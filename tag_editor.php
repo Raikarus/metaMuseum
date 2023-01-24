@@ -46,7 +46,7 @@
  $(document).ready(function(){
     load_tags();
  
-  console.log(tags_with_status);
+  
   for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)    //заполнили массивы всем что сейчас есть можно, переписать когда инфа будет приходить с бека
         {
           if($(document.getElementsByName("tags_button")[i]).data('val') == 1)
@@ -136,7 +136,7 @@
        {
         var ajaxurl = 'ajax_tags.php';
         data = {'action':'load_tags'};
-        $.post(ajaxurl,data).done(function(responce){ tags_with_status = responce.split('|');});
+        $.post(ajaxurl,data).done(function(responce){ tags_with_status = responce.split('|'); console.log(tags_with_status);});
 
        }
 
