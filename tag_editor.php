@@ -140,10 +140,13 @@
         data = {'action':'load_tags'};
         $.post(ajaxurl,data).done(function(responce){ 
             
-            //console.log(((tags_with_status[0]).split('|'))[1]);
+           
             tags_with_status = responce.split(',');
+            var str;
             for(var i = 0; i < tags_with_status.length;i++)
             {
+                str = tags_with_status[i];
+                 console.log(str);
                  if((tags_with_status[i]).split('|')[1] == 0 && (tags_with_status[i]).split('|')[1] == 1 && (tags_with_status[i]).split('|')[1] == 2)
                  {
                     tags_normal.push((tags_with_status[i]).split('|')[0]);
