@@ -63,11 +63,11 @@
                     $(tags[i]).data('val',0);
                     break;
                   }*/
-                }
+                
              //   $(this).data('val',0);
 
              update_tags();
-            //}
+            }
             else
             {
                console.log("0");
@@ -75,7 +75,7 @@
              //ВОСТАНОВЛЕНИЕ
             }
           });
-        });
+      
           
 
        
