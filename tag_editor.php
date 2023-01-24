@@ -73,7 +73,7 @@
                  console.log(tags_del);
                 for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
                   {
-                    if($(tags_normal[i]).data('str') == $(this).data('str')) // ищем к какому объекту в массиве принадлежит жмакнутый черт по data str
+                    if(tags_normal[i] == $(this).data('str')) // ищем к какому объекту в массиве принадлежит жмакнутый черт по data str
                     {
                      //  $(tags_normal[i]).data('val',0); 
                         tags_del.push(tags_normal[i]); //добавляем в удаленные 
@@ -90,7 +90,7 @@
             {
                  for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
                   {
-                    if($(tags_del[i]).data('str') == $(this).data('str'))
+                    if(tags_del[i]== $(this).data('str'))
                     {
                       // $(tags_del[i]).data('val',1);
                         tags_normal.push(tags_del[i]);
