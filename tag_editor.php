@@ -47,7 +47,7 @@
     load_tags();
  
   
-  for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)    //заполнили массивы всем что сейчас есть можно, переписать когда инфа будет приходить с бека
+ /* for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)    //заполнили массивы всем что сейчас есть можно, переписать когда инфа будет приходить с бека
         {
           if($(document.getElementsByName("tags_button")[i]).data('val') == 1)
           {
@@ -59,7 +59,7 @@
           }
           
         }
-
+*/
         update_tags();    // отображаем все теги что есть 
 
         $('.normal_tags').on("click",".transparent_check_box",function(){
@@ -136,7 +136,23 @@
        {
         var ajaxurl = 'ajax_tags.php';
         data = {'action':'load_tags'};
-        $.post(ajaxurl,data).done(function(responce){ tags_with_status = responce.split('|'); console.log(responce);});
+        $.post(ajaxurl,data).done(function(responce){ 
+            
+            tags_with_status = responce.split(',');
+            for(var i = 0; i < tags_with_status.length;i++)
+            {
+                 if((tags_with_status[i]).split('|')[1] == 0 && (tags_with_status[i]).split('|')[1] == 1 && (tags_with_status[i]).split('|')[1] == 2)
+                 {
+                    tags_normal.push((tags_with_status[i]).split('|')[0]);
+                 }
+                 else
+                 {
+                    tags_del.push((tags_with_status[i]).split('|')[0]);
+                 }
+            }
+           
+
+        });
 
        }
 
