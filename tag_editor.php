@@ -118,13 +118,13 @@
               //  console.log(tags_normal);
              //    console.log(tags_del);
               $(".normal_tags").html("");
-               for(var i = 1; i < tags_normal.length;i++)
+               for(var i = 0; i < tags_normal.length;i++)
                 {
                      
                         $("#norm_tags").append('<label name="tags_button" data-val = "1"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+tags_normal[i]+' checked><span class = "cloud_tag" style="font-size:40 ;">'+tags_normal[i]+'</span></label>');
                       
                 }
-                for(var i = 1; i < tags_del.length;i++)
+                for(var i = 0; i < tags_del.length;i++)
                 {
                 
                          $("#del_tags").append('<label name="tags_button" data-val = "0"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+tags_del[i]+' ><span class = "cloud_tag" style="font-size:40 ;color: #CD5C5C;">'+tags_del[i]+'</span></label>');
@@ -169,11 +169,11 @@
         function save_tags()
         {
             var responce_str;
-            for(var i = 1; i < tags_normal.length;i++)
+            for(var i = 0; i < tags_normal.length;i++)
             {
                 responce_str += tags_normal[i]+"|1,"; 
             }
-             for(var i = 1; i < tags_del.length;i++)
+             for(var i = 0; i < tags_del.length;i++)
             {
                 responce_str += tags_del[i]+"|11,"; 
             }
