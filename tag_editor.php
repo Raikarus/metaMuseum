@@ -110,6 +110,8 @@
        {  
             try
               {
+                console.log(tags_normal);
+                 console.log(tags_del);
               $(".normal_tags").html();
                for(var i = 0; i < tags_normal.length;i++)
                 {
