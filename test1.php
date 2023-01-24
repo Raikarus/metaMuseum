@@ -45,31 +45,33 @@
             
            
 
-            for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
+         /*   for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
             {
             tags.push(document.getElementsByName("tags_button")[i]);
           
-            }
+            }*/
            
             if(clickBtnValue=='0')
             {
              // $(this).data('val',1);
-              
-                console.log($(this).data('str'));
-               for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
+               console.log("1");
+                console.log("$(this).data('str')");
+           /*     for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
                 {
                   if($(tags[i]).data('str') == $(this).data('str') )
                   {
                     $(tags[i]).data('val',0);
                     break;
-                  }
+                  }*/
                 }
-                $(this).data('val',0);
+             //   $(this).data('val',0);
 
              update_tags();
-            }
+            //}
             else
             {
+               console.log("0");
+                console.log("$(this).data('str')");
              //ВОСТАНОВЛЕНИЕ
             }
           });
@@ -80,7 +82,7 @@
        function update_tags()
        {
 
-               for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
+       /*        for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
                 {
                   if($(tags[i]).data('val') == 1 )
                   {
@@ -107,7 +109,7 @@
                    
                   }
 
-                }
+                }*/
              
        }
 
