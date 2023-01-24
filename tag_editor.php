@@ -46,7 +46,7 @@
  $(document).ready(function(){
     load_tags();
   tags_with_status = responce_str.split('|');
-  console.log(tags_with_status[0]);
+  console.log(responce_str);
   for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)    //заполнили массивы всем что сейчас есть можно, переписать когда инфа будет приходить с бека
         {
           if($(document.getElementsByName("tags_button")[i]).data('val') == 1)
