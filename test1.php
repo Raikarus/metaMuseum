@@ -37,7 +37,7 @@
 
     <script>
        let tags = []; // фиксированный пизже
-       update_tags();
+     //  update_tags();
  $(document).ready(function(){
         $('.normal_tags').on("click",".transparent_check_box",function(){
           
@@ -66,7 +66,7 @@
                 
              //   $(this).data('val',0);
 
-             update_tags();
+           //  update_tags();
             }
             else
             {
@@ -79,10 +79,10 @@
           
 
        
-       function update_tags()
+     /*  function update_tags()
        {
 
-       /*        for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
+               for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
                 {
                   if($(tags[i]).data('val') == 1 )
                   {
@@ -109,9 +109,9 @@
                    
                   }
 
-                }*/
+                }
              
-       }
+       }*/
 
 
     </script>
