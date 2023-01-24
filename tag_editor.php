@@ -130,6 +130,13 @@
 
              
        }
+       function load_tags()
+       {
+        var ajaxurl = 'ajax_tags.php';
+        data = {'action':'load_tags'};
+        $.post(ajaxurl,data).done(function(responce){ console.log(responce)});
+
+       }
 
        
     </script>
