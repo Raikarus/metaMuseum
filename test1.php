@@ -122,7 +122,8 @@
               {
                 console.log("oh no CRINGE");
               }
-              $(".normal_tags").append(tags_normal[i]);
+              $(".normal_tags").html();
+              $("#norm_tags").append(tags_normal[i]);
 
              
        }
