@@ -10,7 +10,7 @@
 function load_tags()
 {
 	 $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
-	 $query = "SELECT kword_name,status FROM kwords";
+	 $query = "SELECT kword_name,status FROM kwords WHERE tag_id = 10";
 	 $res = pg_query($cn,$query);
 	 $responce_str ="";
      while ($row = pg_fetch_object($res)) 
