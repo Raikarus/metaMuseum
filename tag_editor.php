@@ -164,6 +164,8 @@
 
         });
 
+       }
+
         function save_tags()
         {
             var responce_str;
@@ -179,9 +181,6 @@
             console.log(responce_str);
 
         }
-
-       }
-
        
     </script>
 <title>Главная</title>
