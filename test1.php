@@ -51,6 +51,8 @@
           }
           
         }
+        console.log(tags_normal[0]);
+        console.log(tags_del[0]);
         // фиксированный пизже
      //  update_tags();
  $(document).ready(function(){
