@@ -73,7 +73,7 @@
                   {
                     if($(tags_normal[i]).data('str') == $(this).data('str')) // ищем к какому объекту в массиве принадлежит жмакнутый черт по data str
                     {
-                       $(tags_normal[i]).data('val',0); 
+                     //  $(tags_normal[i]).data('val',0); 
                         tags_del.push(tags_normal[i]); //добавляем в удаленные 
                         tags_normal.splice(i,1); // удаляем из нормальных от позиции i один элемент
 
@@ -82,7 +82,7 @@
                   }
                 // $(this).data('val',1); ну надо примени не надо удали 
 
-             update_tags();
+             
             }
             else
             {
@@ -90,7 +90,7 @@
                   {
                     if($(tags_del[i]).data('str') == $(this).data('str'))
                     {
-                       $(tags_del[i]).data('val',1);
+                      // $(tags_del[i]).data('val',1);
                         tags_normal.push(tags_del[i]);
                         tags_del.splice(i,1);
 
@@ -98,9 +98,10 @@
                     }
                   }
                //  $(this).data('val',0);
-               update_tags();
+               //update_tags();
 
             }
+            update_tags();
           });
        });
           
