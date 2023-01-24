@@ -123,9 +123,9 @@
                 console.log("oh no CRINGE");
               }
 
-                tags_normal = []; 
+        /*        tags_normal = []; 
                 tags_del = [];
-                
+
                 for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
                       {
                         if($(document.getElementsByName("tags_button")[i]).data('val') == 1)
@@ -137,7 +137,7 @@
                           tags_del.push(document.getElementsByName("tags_button")[i]);
                         }
                         
-                      }
+                      }*/
              
        }
 
