@@ -112,7 +112,7 @@
               {
                 console.log(tags_normal);
                  console.log(tags_del);
-              $(".normal_tags").html();
+              $(".normal_tags").html("");
                for(var i = 0; i < tags_normal.length;i++)
                 {
                        tags_normal[i].innerHTML = ' <label name="tags_button" data-val = "1"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+$(tags_normal[i]).data('str')+' checked><span class = "cloud_tag" style="font-size:40 ;">'+$(tags_normal[i]).data('str')+'</span></label>';
@@ -145,8 +145,7 @@
             var str;
             for(var i = 0; i < tags_with_status.length;i++)
             {
-                str = tags_with_status[i];
-                 console.log(str.split('|')[1]);
+              
                  if((tags_with_status[i].split('|')[1] == 0) || (tags_with_status[i].split('|')[1] == 1) || (tags_with_status[i].split('|')[1] == 2))
                  {
                     tags_normal.push((tags_with_status[i]).split('|')[0]);
