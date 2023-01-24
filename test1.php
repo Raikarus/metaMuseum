@@ -147,7 +147,7 @@
          $('.searching_form').on("click",".submit",function()
          {
 
-
+          console.log("add");
          });
     </script>
 <title>Главная</title>
