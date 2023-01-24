@@ -169,11 +169,11 @@
         function save_tags()
         {
             var responce_str;
-            for(var i = 0; i < tags_normal.length;i++)
+            for(var i = 1; i < tags_normal.length;i++)
             {
                 responce_str += tags_normal[i]+"|1,"; 
             }
-             for(var i = 0; i < tags_del.length;i++)
+             for(var i = 1; i < tags_del.length;i++)
             {
                 responce_str += tags_del[i]+"|11,"; 
             }
