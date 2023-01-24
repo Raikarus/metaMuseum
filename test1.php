@@ -144,7 +144,11 @@
              
        }
 
+         $('.searching_form').on("click",".submit",function()
+         {
 
+
+         });
     </script>
 <title>Главная</title>
 </head>
