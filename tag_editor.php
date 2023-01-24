@@ -60,7 +60,7 @@
           
         }
 */
-        update_tags();    // отображаем все теги что есть 
+           // отображаем все теги что есть 
 
         $('.normal_tags').on("click",".transparent_check_box",function(){
           
@@ -150,7 +150,7 @@
                     tags_del.push((tags_with_status[i]).split('|')[0]);
                  }
             }
-           
+           update_tags(); 
 
         });
 
