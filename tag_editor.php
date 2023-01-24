@@ -105,6 +105,7 @@
 
             }
             update_tags();
+            save_tags();
           });
        });
           
@@ -162,6 +163,22 @@
            update_tags(); 
 
         });
+
+        function save_tags()
+        {
+            var responce_str;
+            for(var i = 0; i < tags_normal.length;i++)
+            {
+                responce_str += tags_normal+"|1,"; 
+            }
+             for(var i = 0; i < tags_normal.length;i++)
+            {
+                responce_str += tags_del+"|11,"; 
+            }
+
+            console.log(responce_str);
+
+        }
 
        }
 
