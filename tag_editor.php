@@ -136,7 +136,7 @@
        {
         var ajaxurl = 'ajax_tags.php';
         data = {'action':'load_tags'};
-        $.post(ajaxurl,data).done(function(responce){ tags_with_status = responce.split('|'); console.log(tags_with_status);});
+        $.post(ajaxurl,data).done(function(responce){ tags_with_status = responce.split('|'); console.log(responce);});
 
        }
 
