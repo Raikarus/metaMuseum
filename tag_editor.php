@@ -39,14 +39,14 @@
        let tags_with_status = [];
        let tags_normal = [];
        let tags_del = [];
-       var responce_str = "";
+      
 
         // фиксированный пизже
      
  $(document).ready(function(){
     load_tags();
-  tags_with_status = responce_str.split('|');
-  console.log(responce_str);
+ 
+  console.log(tags_with_status[0]);
   for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)    //заполнили массивы всем что сейчас есть можно, переписать когда инфа будет приходить с бека
         {
           if($(document.getElementsByName("tags_button")[i]).data('val') == 1)
@@ -136,7 +136,7 @@
        {
         var ajaxurl = 'ajax_tags.php';
         data = {'action':'load_tags'};
-        $.post(ajaxurl,data).done(function(responce){ responce_str = responce});
+        $.post(ajaxurl,data).done(function(responce){ tags_with_status = responce.split('|');});
 
        }
 
