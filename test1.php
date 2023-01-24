@@ -108,22 +108,25 @@
        {  
             try
               {
+              $(".normal_tags").html();
                for(var i = 0; i < tags_normal.length;i++)
                 {
                        tags_normal[i].innerHTML = ' <label name="tags_button" data-val = "1"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+$(tags_normal[i]).data('str')+' checked><span class = "cloud_tag" style="font-size:40 ;">'+$(tags_normal[i]).data('str')+'</span></label>';
-                        $(".description_class").append();
+                        $("#norm_tags").append(tags_normal[i]);
+                      
                 }
                 for(var i = 0; i < tags_del.length;i++)
                 {
                         tags_del[i].innerHTML = ' <label name="tags_button" data-val = "0"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+$(tags_del[i]).data('str')+' ><span class = "cloud_tag" style="font-size:40 ;color: #CD5C5C;">'+$(tags_del[i]).data('str')+'</span></label>';
+                         $("#del_tags").append(tags_del[i]);
                 }
               }
               catch
               {
                 console.log("oh no CRINGE");
               }
-              $(".normal_tags").html();
-              $("#del_tags").append(tags_normal[i]);
+             
+             
 
              
        }
