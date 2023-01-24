@@ -83,7 +83,7 @@
                 
              //   $(this).data('val',0);
 
-           //  update_tags();
+             update_tags();
             }
             else
             {
@@ -91,7 +91,7 @@
                console.log("0");
                 console.log($(this).data('str'));
                   $(this).css('color',  '#24B47E');
-               
+               update_tags();
 
              //ВОСТАНОВЛЕНИЕ
             }
