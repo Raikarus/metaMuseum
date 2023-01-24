@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Potentiometer Demo 1</title>
+
+	<script src="../src/js/potentiometer.js" type="text/javascript"></script>
+
+	<!-- Just some quick styling -->
+	<style>
+		body {
+			background: #020306;
+			padding-top: 100px;
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			color: white;
+		}
+		#pots {
+			display: inline-block;
+			margin: 30px auto 15px;
+			margin-left: calc(50% - 83px);
+		}
+		#labels {
+			text-align: center;
+			margin-left: -15px;
+		}
+		#labels span { 
+			margin: 0 12px; 
+		}
+		canvas {
+			float: left;
+			margin-right: 20px;
+		}
+		p {
+			width: 600px;
+			margin: 0 auto;
+			margin-top: 30px;
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<h1 style="font-size: 100%; text-align: center">A basic EQ use case scenario:</h1>
+
+	<!-- Here we've lined up 3 widgets with labels for each of them -->
+	<div id="pots">
+		<div id="labels">
+			<span>Bass</span>
+			<span>&nbsp;Mid</span>
+			<span>Treble</span>
+		</div>
+		<canvas id="pot1"></canvas>
+		<canvas id="pot2"></canvas>
+		<canvas id="pot3"></canvas>
+	</div>
+	
+	<!-- This div displays the information "broadcasted" by the widgets -->
+	<div id="db" style="display: block; font-style: italic; text-align: center;">0 db</div>
+	
+	<p>
+		Click on the knobs and drag up or down to adjust their value.
+	</p>
+
+	<p>
+		The 'Mid' knob is more precise than the other knobs (it's harder to move it). It is set for fine tuning.
+	</p>
+
+	<p>
+		The 'Treble' knob has limited movement range, which can be specified (or omitted) in the
+		<em>options</em> object's <em>bounds</em> object <em>left</em> and <em>right</em> properties.
+	</p>
+
+	<p>
+		To fine tune the knob values, hold <em>ctrl</em> (<em>option</em> on Mac) while adjusting the knob value.
+	</p>	
+
+	<script type="text/javascript">
+
+		// We declare the widget variable in the global namespace
+		var pot1, pot2, pot3;
+		var canvas, canvas2;
+		var label = document.getElementById('db');
+
+		window.onload = function() {
+
+			"use strict";
+
+			// Here's how we load the widget the 'long way':
+			canvas = document.getElementById('pot1');
+
+			var options = { canvas: canvas, 
+							spritesheetUrl: '../src/img/HyBrit_pot.png',
+						    verticalDrag: true };
+
+			pot1 = new Potentiometer(options);
+
+			// Now here's a shorter way:
+			canvas2 = document.getElementById('pot2');
+			pot2 = new Potentiometer({ canvas: canvas2, 
+						    		   verticalDrag: true,
+						    		   sensitivity: 5,
+							   		   spritesheetUrl: '../src/img/HyBrit_pot.png' });
+
+			// And the shortest way:
+			pot3 = new Potentiometer({ canvas: document.getElementById('pot3'), 
+							  	 	   spritesheetUrl: '../src/img/HyBrit_pot.png',
+						    		   verticalDrag: true,
+							  	 	   bounds: { // bounds are optional, they're used to limit the movement of the knob
+							   		   		left: 10,
+							   		   		right: 60
+							   		   }
+									});
+
+
+			// Listen for potentiometer widget change events
+			document.addEventListener('potValueChanged', function(event) {
+
+				/* This widget's value ranges from 0 to 100, it's up to you to decide
+				/* what to do with that data. You can display it, use it for some calculations
+				/* or who knows what :) */
+
+				// Here I use the event value to change the label with the value info we've got from the event
+				label.innerHTML = ~~(12 * event.srcValue / 100) - 6 + ' db';
+
+
+			}, false);
+
+		};
+
+	</script>
+
+</body>
