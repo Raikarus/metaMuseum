@@ -69,6 +69,8 @@
            
             if(clickBtnValue=='0')  //тег есть жмакнули для удаления
             {
+                console.log(tags_normal);
+                 console.log(tags_del);
                 for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
                   {
                     if($(tags_normal[i]).data('str') == $(this).data('str')) // ищем к какому объекту в массиве принадлежит жмакнутый черт по data str
@@ -82,7 +84,7 @@
                   }
                 // $(this).data('val',1); ну надо примени не надо удали 
                 console.log("1");
-             
+           
             }
             else
             {
@@ -112,8 +114,8 @@
        {  
             try
               {
-                console.log(tags_normal);
-                 console.log(tags_del);
+              //  console.log(tags_normal);
+             //    console.log(tags_del);
               $(".normal_tags").html("");
                for(var i = 0; i < tags_normal.length;i++)
                 {
