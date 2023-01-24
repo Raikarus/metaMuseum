@@ -39,7 +39,13 @@
        let tags_normal = [];
        let tags_del = [];
 
-        for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
+
+        // фиксированный пизже
+     //  update_tags();
+ $(document).ready(function(){
+    tags_normal = [];
+    tags_del = [];
+  for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
         {
           if($(document.getElementsByName("tags_button")[i]).data('val') == 1)
           {
@@ -53,9 +59,7 @@
         }
         console.log(tags_normal[0]);
         console.log(tags_del[0]);
-        // фиксированный пизже
-     //  update_tags();
- $(document).ready(function(){
+
         $('.normal_tags').on("click",".transparent_check_box",function(){
           
             var clickBtnValue = $(this).is(":checked");
