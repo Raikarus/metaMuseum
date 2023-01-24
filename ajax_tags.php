@@ -19,6 +19,7 @@ function load_tags()
      	$status = $row -> status;
      	$responce_str .=$kword_name.'|'.$status.',';
      }
+     $responce_str = substr($responce_str,0,count($responce_str)-1);
      echo $responce_str;
 
 }
