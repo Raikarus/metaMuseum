@@ -41,10 +41,10 @@
 
 
         // фиксированный пизже
-     //  update_tags();
+     
  $(document).ready(function(){
-    tags_normal = [];
-    tags_del = [];
+
+
   for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
         {
           if($(document.getElementsByName("tags_button")[i]).data('val') == 1)
@@ -103,15 +103,14 @@
                  $(this).data('val',0);
                update_tags();
 
-             //ВОСТАНОВЛЕНИЕ
             }
           });
        });
           
 
        
-       function update_tags()
-       {
+       function update_tags() //добавить вывод в разные блоки вместо изменения существующих тегов
+       {  
 
                for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
                 {
