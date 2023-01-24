@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Potentiometer Demo 2</title>
+
+	<script src="../src/js/potentiometer.js" type="text/javascript"></script>
+
+	<!-- Just some quick styling -->
+	<style>
+		body
+      {
+        background-image: url(https://c.wallhere.com/photos/ea/60/abstract_fluid_liquid_artwork_colorful_shapes_ArtStation_dark-2013259.jpg!d);
+        background-size: 100% auto;
+        margin:0;
+        padding: 0;
+        min-height: 100vh;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+      #main
+      {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #play_cat
+      {
+        height: 90vh;
+        width: 55%;
+        margin-left: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+      }
+      .case{
+         top: 0;
+         width: 100%;
+         height: 57vh;
+         background-color:rgba(255,255,255,0);
+         border-radius: 20px;
+         backdrop-filter: blur(50px);
+         overflow: hidden;
+         align-items: center;
+         display: flex;
+         justify-content: center;
+      }
+
+       .case_norm{
+        bottom:0px;
+        width: 100%;
+        height: 27vh;
+        background-color:rgba(255,255,255,0);
+        border-radius: 20px;
+        backdrop-filter: blur(50px);
+        overflow: hidden;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+
+      #right_inf
+      {
+        height: 90vh;
+        width: 40%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+      }
+       .case_small_1{
+        width: 85%;
+        height: 27vh;
+        background-color:rgba(255,255,255,0);
+        border-radius: 20px;
+        backdrop-filter: blur(50px);
+        overflow: hidden;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+     .case_small_2{
+        width: 85%;
+        height: 57vh;
+        background-color:rgba(255,255,255,0);
+        border-radius: 20px;
+        backdrop-filter: blur(50px);
+        overflow: hidden;
+               justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+       
+      }
+
+      .ass_button{
+        max-height: 100%;
+        height: 250px;
+        width: 250px;
+        /*outline: 1px solid rgba(255,255,255,0); */
+        border-radius: 200px;
+        background-color:rgba(255,255,255,0);
+        backdrop-filter: blur(50px);
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+      .switch_button{
+         max-height: 100%;
+        height: 150px;
+        width: 150px;
+        /*outline: 1px solid rgba(255,255,255,0); */
+        border-radius: 200px;
+        background-color:rgba(255,255,255,0);
+        backdrop-filter: blur(50px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        display:inline;
+        
+      }
+      .canvas {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        filter: blur(7px);
+      }
+
+      #devka
+      {
+        height: 100%;
+        position: fixed;
+        z-index: 99;
+      }
+
+      @media screen and (max-device-width: 750px)
+      {
+        #main
+        {
+          justify-content: center;
+        }
+        .case
+        {
+            height: 45vh;
+        }
+        #right_inf
+        {
+          display: none;
+        }
+        #play_cat
+        {
+            height: 75vh;
+          width: 70%;
+          margin: 0;
+        }
+        #devka
+        {
+          width:90%;
+
+          height: auto;
+          bottom: 0;
+        }
+      }
+		#pots {
+			display: block;
+			margin: 30px auto 15px;
+			padding-left: 120px;
+			text-align: center;
+		}
+		#small-pots {
+			height: 150px;
+			width: 370px;
+			margin: 0 auto;
+			margin-top: -40px;
+		}
+		.small-pot { 
+			float: left;
+		}
+		#big-pot {
+			display: block;
+			margin-left: -430px;
+		}
+		label {
+			margin-left: -1.3em;
+			font-weight: bold;
+		}
+		input[type='number'] {
+		    -moz-appearance:textfield;
+		}
+
+		input::-webkit-outer-spin-button,
+		input::-webkit-inner-spin-button {
+		    -webkit-appearance: none;
+		}
+		.pot-value {
+			font-size: 1em;
+			text-align: center;
+			width: 2.4em;
+			position: absolute;
+			background-color: #222;
+			border: 1px solid #333;
+			display: none;
+			margin-left: 1.8em;
+		}
+		#pot1-value {
+			margin-left: 1.7em;
+		}
+		p {
+			text-align: left;
+			text-indent: 2em;
+			width: 600px;
+			margin: 0 auto;
+			margin-top: 30px;
+		}
+	</style>
+
+</head>
+
+    <script>
+        
+         var audio;
+          audio = new Audio(); // Создаём новый элемент Audio
+    audio.src = 'http://s0.radioheart.ru:8000/RH62990'; // Указываем путь к звуку "клика"
+var flag = false;
+ var canvas_button;
+ var ctx_but ;
+
+function switch_play(chanel)
+{
+    ctx_but.clearRect(0,0,canvas.width,canvas.height);
+    switch (chanel) {
+  case 1:
+     audio.src = 'https://icecast-mirtv.cdnvideo.ru/radio_mir128';
+        canvas_button = document.getElementById("canvas_but1");
+     ctx_but = canvas_button.getContext("2d");
+    break;
+  case 2:
+     audio.src ="https://radio.stereoanime.net/listen/stereoanime/128";
+      canvas_button = document.getElementById("canvas_but2");
+     ctx_but = canvas_button.getContext("2d");
+    break;
+  case 3:
+    audio.src = 'http://s0.radioheart.ru:8000/RH62990';
+     canvas_button = document.getElementById("canvas_but3");
+     ctx_but = canvas_button.getContext("2d");
+    break;
+  default:
+     audio.src = 'http://s0.radioheart.ru:8000/RH62990';
+}
+    
+  
+}
+
+
+
+
+function audio_play()
+{
+  if(!flag)
+  {
+    hard();
+    flag = true;
+  }
+  audio.paused ? audio.play() : audio.pause();
+}
+    function hard(){
+   
+    audio.crossOrigin = "anonymous";
+    audio.load();
+    audio.volume=0.1;
+    var context = new AudioContext();
+    var src = context.createMediaElementSource(audio);
+    var analyser = context.createAnalyser();
+
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+
+   canvas_button = document.getElementById("canvas_but3");
+     ctx_but = canvas_button.getContext("2d");
+
+    src.connect(analyser);
+    analyser.connect(context.destination);
+
+    analyser.fftSize = 256;
+
+    var bufferLength = analyser.frequencyBinCount;
+    console.log(bufferLength);
+
+    var dataArray = new Uint8Array(bufferLength);
+
+    var WIDTH = canvas.width;
+    var HEIGHT = canvas.height;
+
+    var barWidth = (WIDTH / bufferLength) * 2.5;
+    var barHeight;
+    var x = 0;
+
+    function renderFrame() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx_but.clearRect(0,0,canvas.width,canvas.height);
+
+      requestAnimationFrame(renderFrame);
+        
+      x = 0;
+
+      analyser.getByteFrequencyData(dataArray);
+
+      ctx.fillStyle = "rgba(255,255,255,0)";
+      
+      ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+      for (var i = 0; i < bufferLength; i++) {
+        barHeight = dataArray[i] ;
+        
+        var r = barHeight + (25 * (i/bufferLength)) -50;
+        var g = 250 * (i/bufferLength) - 110;
+        var b = 100;
+        
+        ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
+        barHeight = dataArray[i] /2;
+
+        ctx_but.beginPath();
+        ctx_but.arc(canvas_button.width/2, canvas_button.height/2,barHeight/2.3,0,2*Math.PI);
+        ctx_but.strokeStyle="rgb(" + r + "," + g + "," + b + ")";
+        ctx_but.stroke();
+        ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
+        x += barWidth + 1;
+
+      }
+    }
+    
+    //audio.play();
+    renderFrame();
+
+ 
+};
+
+    </script>
+<body>
+
+	
+<div id = "main">
+    <div id = "play_cat">
+      <div class = "case">
+          
+          <img id = "devka" src = "https://cdn130.picsart.com/304871995484211.png">
+
+         <canvas class="canvas" id = "canvas"></canvas>
+
+      </div>
+
+       <div class = "case_norm" >
+          <button class = "ass_button" onclick="audio_play()"> 
+              <img src="cat.png" width="100%">
+
+          </button>
+             
+      </div>
+    </div>
+    <div id = "right_inf">
+     <div class = "case_small_1" >
+
+         <button class = "switch_button" onclick="switch_play(1)"> <canvas class="canvas" id = "canvas_but1" width="100%" height="100%" style="z-index: -99;"></canvas>  <img src="cringe.png" width="100%" style="z-index: 99;">    </button>
+        
+         <button class = "switch_button" onclick="switch_play(2)"> <canvas class="canvas" id = "canvas_but2" width="100%" height="100%" style="z-index: -99;"></canvas>  <img src="https://prod.cloud.rockstargames.com/crews/sc/1304/39090563/publish/emblem/emblem_512.png" width="90%"> </button>
+
+          <button class = "switch_button" onclick="switch_play(3)"> <canvas class="canvas" id = "canvas_but3" width="100%" height="100%" style="z-index: -99;"></canvas> <img src="radio_hearth.png" width="90%" height="90%"> </button>
+    </div>
+
+      <div class = "case_small_2" >
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diem 
+  nonummy nibh euismod tincidunt ut lacreet dolore magna aliguam erat volutpat.
+ Ut wisis enim ad minim veniam, quis nostrud exerci tution ullamcorper 
+  suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+    </div>
+    </div>
+    </div>
+
+	<div id="pots">
+		
+		<div id="big-pot">
+			<input class="pot-value" id="pot1-value" type="number" value="0" disabled></input>
+			<canvas id="pot1"></canvas>
+			<br>
+			
+		</div>
+
+	</div>
+
+	<script type="text/javascript">
+
+		// We declare the widget variables in the global namespace
+		var pot1;
+
+		// Each of the widget's value displays
+		var pot1value = document.getElementById('pot1-value');
+		
+	
+
+		// All widget value displays
+		var allValueLabels = document.getElementsByClassName('pot-value');
+
+		window.onload = function() {
+
+			"use strict";
+
+			// A big pot
+			pot1 = new Potentiometer({ canvas: document.getElementById('pot1'), 
+						    		   spritesheetUrl: '../src/img/decapitator_pot_big.png',
+						    		   bounds: {
+							   		   		left: 8,
+							   		   		right: 92
+							   		   } });
+
+			// 3 small ones
+			
+
+		
+
+			// Used for storing all timeouts
+			var valueDisplayTimeouts = [];
+
+			// Listen for potentiometer widget change events
+			document.addEventListener('potValueChanged', function(event) {
+
+				/* This widget's value ranges from 0 to 100, it's up to you to decide
+				* what to do with that data. You can display it, use it for some calculations
+				* or who knows what :) */
+
+				// In this example I will show the value of the pots on a simple value display
+				// which appers when the pot is activated, and disappears after 1 second
+
+				var eventEmitterId = event.srcId;
+
+
+				// I know that using switch statements is not performant, I've used here just for readability purposes
+				switch (eventEmitterId) {
+					case 'pot1':
+						showValueDisplay(pot1value);
+						break;
+					
+				}
+
+				function showValueDisplay(potLabel) {
+
+					clearTimeouts();
+					
+					hideAllValueLabels();
+
+					// show the right one
+					//potLabel.style.display = 'inline-block';
+
+					// give it appropriate text
+					potLabel.value = (event.srcValue / 100).toFixed(1);
+					audio.volume = potLabel.value;
+					// hide it after 1 second
+					valueDisplayTimeouts.push(setTimeout(function() {
+						hideAllValueLabels();
+					}, 1000));
+
+				}
+				
+
+			}, false);
+
+			function hideAllValueLabels() {
+				for (var i = allValueLabels.length - 1; i >= 0; i--) {
+					allValueLabels[i].style.display = 'none';
+					allValueLabels[i].disabled = true;
+				}
+			}
+
+			function clearTimeouts() {
+				valueDisplayTimeouts.forEach(function(timeout) {
+					clearTimeout(timeout);
+				});
+			}
+
+			// Listen for potentiometer double clicks
+			document.addEventListener('potDoubleClick', function(event) {
+
+				var eventEmitterId = event.srcId;
+
+
+				// I know that using switch statements is not performant, I've used here just for readability purposes
+				switch (eventEmitterId) {
+					case 'pot1':
+						editPotValue(pot1value);
+						break;
+					
+					
+				}
+
+				function editPotValue(potValue) {
+					potValue.disabled = false;
+					clearTimeouts();
+					potValue.focus();
+					potValue.select();
+				}
+
+			}, false);
+
+			// Listen for input 'enter' events
+			// Breaking the DRY rule, I know, just too lazy to condense it for the demo
+			pot1value.onkeypress = function(event) {
+				limitChars(pot1value);
+				var keyCode = event.keyCode;
+				if (keyCode === 13) {
+					inputValue(pot1value, pot1);
+					return false;
+				}
+			};
+			pot1value.onblur = function(event) { 
+				pot1value.value = (pot1.getValue() / 10).toFixed(1); 
+				setTimeout(function() {
+					hideAllValueLabels();
+				}, 1000);
+			};
+
+		
+
+			
+
+			// Limits the inputs to 4 characters
+			function limitChars(potLabel) {
+				if (potLabel.value.length > 3)
+					potLabel.value = potLabel.value.slice(0, 4);
+			}
+
+			// Sets the widget to the value we've specified in the input box
+			function inputValue(potLabel, pot) {
+
+				var value = Number(potLabel.value);
+
+				if (isNaN(value)) {
+					potLabel.value = (pot.getValue() / 10).toFixed(1);
+				} else {
+
+					if      (value > 10) value = 10;
+					else if (value < 0 ) value = 0;
+
+					potLabel.value = value.toFixed(1);
+					pot.setValue(value.toFixed(1) * 10);
+
+				}
+				potLabel.blur();
+				potLabel.disabled = true;
+
+				setTimeout(function() {
+					hideAllValueLabels();
+				}, 1000);
+			}
+
+		};
+
+	</script>
+
+</body>
