@@ -94,7 +94,7 @@
                     if($(tags_del[i]).data('str') == $(this).data('str'))
                     {
                        $(tags_del[i]).data('val',1);
-                        tags_normal.push(tags_normal[i]);
+                        tags_normal.push(tags_del[i]);
                         tags_del[i] = 0;
 
                         break;
