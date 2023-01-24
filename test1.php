@@ -55,7 +55,7 @@
             {
              // $(this).data('val',1);
                console.log("1");
-                console.log("$(this).data('str')");
+                console.log($(this).data('str'));
            /*     for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
                 {
                   if($(tags[i]).data('str') == $(this).data('str') )
@@ -71,7 +71,7 @@
             else
             {
                console.log("0");
-                console.log("$(this).data('str')");
+                console.log($(this).data('str'));
              //ВОСТАНОВЛЕНИЕ
             }
           });
