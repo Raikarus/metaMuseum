@@ -94,6 +94,7 @@
                         break;
                     }
                   }
+                  console.log(selected);
                 // $(this).data('val',1); ну надо примени не надо удали 
                 console.log("1");
            
