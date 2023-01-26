@@ -94,7 +94,7 @@
     var index = tags_right_bot.indexOf(tag_name);
     if(index >= 0)
     {
-      selected_right_bot.push(tags_right_up[index]);
+      selected_right_bot.push(tags_right_bot[index]);
       $(this).css('color','red');
     }
   });
