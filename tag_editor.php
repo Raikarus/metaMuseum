@@ -229,7 +229,7 @@
                   </div>
                   <div class="normal_tags" style="border-top: 1px solid white; " id = "del_tags">
                   </div>
-                  <div class="normal_tags" style="border-top: 1px solid white; " id = "del_tags">
+                  <div class="normal_tags" style="border-top: 1px solid white;border-left: 1px solid white; " id = "del_tags">
                
                     
                   </div>
