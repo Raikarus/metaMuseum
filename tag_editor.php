@@ -96,7 +96,7 @@
     var index_left_up = selected_left_up.indexOf(tag_name);
     var index_right_bot = selected_right_bot.indexOf(tag_name);
     var index_right_up = selected_right_up.indexOf(tag_name);
-    if(index_left_up!=-1 && index_right_up!=-1 && index_left_bot!=-1 && index_right_bot!=-1)
+    if(index_left_up==-1 && index_right_up==-1 && index_left_bot==-1 && index_right_bot==-1)
     {
       var index = tags_left_up.indexOf(tag_name);
       if(index >= 0)
@@ -113,18 +113,18 @@
       var index = tags_right_bot.indexOf(tag_name);
       if(index >= 0)
         selected_right_bot.push(tags_right_bot[index]);
-      
+
       $(this).css('color','red');
     }
     else
     {
-      if(index_right_up==-1)
+      if(index_right_up!=-1)
         selected_right_up.splice(index_right_up,1);
-      if(index_right_bot==-1)
+      if(index_right_bot!=-1)
         selected_right_bot.splice(index_right_bot,1);
-      if(index_left_bot==-1)
+      if(index_left_bot!=-1)
         selected_left_bot.splice(index_left_bot,1);
-      if(index_left_up==-1)
+      if(index_left_up!=-1)
         selected_left_up.splice(index_left_up,1);
       $(this).css('color','white');
     }
