@@ -106,19 +106,19 @@
     $(".normal_tags").html("");
     for(var i = 0; i < tags_normal.length;i++)
     {
-      $("#norm_tags").append('<label class="tags_button" data-val = "1"><input type="checkbox" class="transparent_check_box" data-str = '+tags_normal[i]+' checked><span class = "solo_tag" style="font-size:40 ;">'+tags_normal[i]+'</span></label>');
+      $("#norm_tags").append('<label class="tags_button" data-val = "1"><input type="checkbox" class="transparent_check_box" data-str = '+tags_normal[i]+' checked><span class = "solo_tag" style="font-size:40px;">'+tags_normal[i]+'</span></label>');
     }
     for(var i = 0; i < tags_del.length;i++)
     {
-     $("#del_tags").append('<label class="tags_button" data-val = "0"><input type="checkbox" class="transparent_check_box" data-str = '+tags_del[i]+' ><span class = "solo_tag" style="font-size:40 ;color: #CD5C5C;">'+tags_del[i]+'</span></label>');
+     $("#del_tags").append('<label class="tags_button" data-val = "0"><input type="checkbox" class="transparent_check_box" data-str = '+tags_del[i]+' ><span class = "solo_tag" style="font-size:40px;color: #CD5C5C;">'+tags_del[i]+'</span></label>');
     }
     for(var i = 0; i < tags_auto.length;i++)
     {
-     $("#tags_auto").append('<label class="tags_button" data-val = "0"><input type="checkbox" class="transparent_check_box" data-str = '+tags_auto[i]+' checked><span class = "solo_tag" style="font-size:40 ;color: #2c75ff;">'+tags_auto[i]+'</span></label>');
+     $("#tags_auto").append('<label class="tags_button" data-val = "0"><input type="checkbox" class="transparent_check_box" data-str = '+tags_auto[i]+' checked><span class = "solo_tag" style="font-size:40px;color: #2c75ff;">'+tags_auto[i]+'</span></label>');
     }
      for(var i = 0; i < tags_auto_del.length;i++)
     {
-     $("#tags_auto_del").append('<label class="tags_button" data-val = "0"><input type="checkbox" class="transparent_check_box" data-str = '+tags_auto_del[i]+' ><span class = "solo_tag" style="font-size:40 ;color: #CD5C5C;">'+tags_auto_del[i]+'</span></label>');
+     $("#tags_auto_del").append('<label class="tags_button" data-val = "0"><input type="checkbox" class="transparent_check_box" data-str = '+tags_auto_del[i]+' ><span class = "solo_tag" style="font-size:40px;color: #CD5C5C;">'+tags_auto_del[i]+'</span></label>');
     }
   }
   catch
