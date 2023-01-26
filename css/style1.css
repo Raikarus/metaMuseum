@@ -106,7 +106,7 @@
    border: 1px solid white;
    font-size: 20px;
 }
-.combo_tags.solo_tag
+.combo_tags div .solo_tag
 {
    margin-left: 5px;
 }
