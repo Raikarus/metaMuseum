@@ -175,8 +175,8 @@
                     {
                         if($(document.getElementsByName("transparent_check_box")[i]).data('str') == selected[j])
                         {
-                            $(document.getElementsByName("transparent_check_box")[i]).css('color','#2c75ff');
-                            console.log("HELL");
+                            $(document.getElementsByName("transparent_check_box")[i]).css('color','red');
+                            
                         }
                     }
                 }
