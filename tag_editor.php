@@ -90,40 +90,27 @@
         tags_auto_del.splice(index,1);
       }
 
-      update_tags();
       save_tags();
     });
  });
     
 
  
- function update_tags() //добавить вывод в разные блоки вместо изменения существующих тегов
- {  
-  try
-  {
-    $(".combo_tags div").html("");
-    for(var i = 0; i < tags_normal.length;i++)
-    {
-      $("#norm_tags").append('<span class = "solo_tag">'+tags_normal[i]+'</span>');
-    }
-    for(var i = 0; i < tags_del.length;i++)
-    {
-     $("#del_tags").append('<span class = "solo_tag">'+tags_del[i]+'</span>');
-    }
-    for(var i = 0; i < tags_auto.length;i++)
-    {
-     $("#tags_auto").append('<span class = "solo_tag">'+tags_auto[i]+'</span>');
-    }
-     for(var i = 0; i < tags_auto_del.length;i++)
-    {
-     $("#tags_auto_del").append('<span class = "solo_tag">'+tags_auto_del[i]+'</span>');
-    }
-  }
-  catch
-  {
-    console.log("oh no CRINGE");
-  }
+ function update_tags() {  
+  $(".combo_tags div").html("");
+  for(var i = 0; i < tags_normal.length;i++)
+    $("#norm_tags").append('<span class = "solo_tag">'+tags_normal[i]+'</span>');
+
+  for(var i = 0; i < tags_del.length;i++)
+   $("#del_tags").append('<span class = "solo_tag">'+tags_del[i]+'</span>');
+
+  for(var i = 0; i < tags_auto.length;i++)
+   $("#tags_auto").append('<span class = "solo_tag">'+tags_auto[i]+'</span>');
+
+  for(var i = 0; i < tags_auto_del.length;i++)
+  $("#tags_auto_del").append('<span class = "solo_tag">'+tags_auto_del[i]+'</span>');
  }
+
  function load_tags() {
   var ajaxurl = 'ajax_tags.php';
   data = {'action':'load_tags'};
@@ -137,7 +124,7 @@
         if(tags_with_status[i].split('|')[1] == 1) 
           tags_normal.push((tags_with_status[i]).split('|')[0]);
         else if(tags_with_status[i].split('|')[1] == 11) 
-            tags_del.push((tags_with_status[i]).split('|')[0]);
+          tags_del.push((tags_with_status[i]).split('|')[0]);
       }
      update_tags(); 
   });
