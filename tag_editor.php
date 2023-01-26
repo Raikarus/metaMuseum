@@ -101,7 +101,7 @@
 
         });
 
-        $('#del_button').click(function(){
+        $('#undelete_button').click(function(){
             for(var i = 0; i < selected.length;i++)
             {
                      tags_normal.push(selected[i]);       
