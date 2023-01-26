@@ -81,6 +81,15 @@
 
                         break;
                     }
+
+                    if(tags_auto[i] == $(this).data('str')) // ищем к какому объекту в массиве принадлежит жмакнутый черт по data str
+                    {
+                     //  $(tags_normal[i]).data('val',0); 
+                        tags_auto_del.push(tags_auto[i]); //добавляем в удаленные 
+                        tags_auto.splice(i,1); // удаляем из нормальных от позиции i один элемент
+
+                        break;
+                    }
                   }
                 // $(this).data('val',1); ну надо примени не надо удали 
                 console.log("1");
@@ -95,6 +104,14 @@
                       // $(tags_del[i]).data('val',1);
                         tags_normal.push(tags_del[i]);
                         tags_del.splice(i,1);
+
+                        break;
+                    }
+                      if(tags_auto_del[i] == $(this).data('str')) // ищем к какому объекту в массиве принадлежит жмакнутый черт по data str
+                    {
+                     //  $(tags_normal[i]).data('val',0); 
+                        tags_auto.push(tags_auto_del[i]); //добавляем в удаленные 
+                        tags_auto_del.splice(i,1); // удаляем из нормальных от позиции i один элемент
 
                         break;
                     }
@@ -133,7 +150,7 @@
                  for(var i = 0; i < tags_auto.length;i++)
                 {
                 
-                         $("#tags_auto").append('<label name="tags_button" data-val = "0"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+tags_auto[i]+' ><span class = "cloud_tag" style="font-size:40 ;color: #2c75ff;">'+tags_auto[i]+'</span></label>');
+                         $("#tags_auto").append('<label name="tags_button" data-val = "0"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+tags_auto[i]+' checked><span class = "cloud_tag" style="font-size:40 ;color: #2c75ff;">'+tags_auto[i]+'</span></label>');
                 }
                  for(var i = 0; i < tags_auto_del.length;i++)
                 {
