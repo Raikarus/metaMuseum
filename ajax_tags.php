@@ -1,5 +1,5 @@
 <?php
-
+echo "123123132131";
 if (isset($_POST['action'])) {
   switch ($_POST['action']) {
     case 'load_tags':
