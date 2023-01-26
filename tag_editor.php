@@ -1,28 +1,5 @@
 <?php
-  $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
-  $res = pg_query($cn,"SELECT * FROM gallery");
-  //gallery(id,name,party,meta [0/1])
-  $form = $_GET['form'];
-  $msg = "";
-  if($form=='auth'){
-    if($_POST['pswd'] == "schef2002"){
-      $query = "SELECT * FROM gallery WHERE name='".$_POST['name']."'";
-      $res = pg_query($cn,$query);
-      $access = "ok";
-      while($row=pg_fetch_object($res)){
-        $access = "not ok";
-        break;
-      }
-      if($access=="ok"){
-        $query="INSERT INTO gallery(name,party,meta) VALUES('".$_POST['name']."','".$_POST['party']."','".$_POST['meta']."')";
-        $res = pg_query($cn,$query);
-        header("location:/?form=show");
-      }
-      else{
-        $msg = "Такой тэг уже существует";
-      }
-    }
-  }
+
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -31,292 +8,208 @@
 <meta http-equiv="Content-Type" content="text/html">
 <link rel="stylesheet" href="css/style_header.css"  type="text/css">
 <link rel="stylesheet" href="css/style1.css"  type="text/css">
-<script type="text/javascript" src = "js/jq.js"></script>
-<script type="text/javascript" src = "js/script.js"></script>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
-    <script>
-       let tags_with_status = [];
-       let tags_normal = [];
-       let tags_del = [];
-       let tags_auto = [];
-       let tags_auto_del = [];
-       let selected = [];
-       let selected_auto = [];
-        // фиксированный пизже
+<script>
+  let tags_with_status = [];
+  let tags_left_up = [];
+  let tags_left_bot = [];
+  let tags_right_up = [];
+  let tags_right_bot = [];
+  let selected_left_up = [];
+  let selected_left_bot = [];
+  let selected_right_up = [];
+  let selected_right_bot = [];
      
- $(document).ready(function(){
+  $(document).ready(function(){
     load_tags();
-    load_auto_tags();
   
- /* for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)    //заполнили массивы всем что сейчас есть можно, переписать когда инфа будет приходить с бека
-        {
-          if($(document.getElementsByName("tags_button")[i]).data('val') == 1)
-          {
-             tags_normal.push(document.getElementsByName("tags_button")[i]);
-          }
-          else
-          {
-            tags_del.push(document.getElementsByName("tags_button")[i]);
-          }
-          
-        }
-*/
-           // отображаем все теги что есть 
-        $('#del_button').click(function(){
-            for(var i = 0; i < selected.length;i++)
-            {
-                     tags_del.push(selected[i]);       
-            }
-            
-            selected = [];
+    $('#del_button').click(function(){
+      update_bd('delete');
+      for(var i = 0; i < selected_left_up.length;i++)
+      {
+        tags_left_bot.push(selected_left_up[i]);
+        var index = tags_left_up.indexOf(selected_left_up[i]);
+        if(index >= 0)
+          tags_left_up.splice(index,1);
+      }
+      selected_left_up = [];
 
-            for(var i = 0; i < selected_auto.length;i++)
-            {
-                     tags_auto_del.push(selected_auto[i]);       
-            }
-            
-            selected_auto = [];
-            update_tags();
+      for(var i = 0; i < selected_right_up.length;i++)
+      {
+        tags_right_bot.push(selected_right_up[i]);
+        var index = tags_right_up.indexOf(selected_right_up[i]);
+        if(index>=0)
+          tags_right_up.splice(index,1);
+      }
+      selected_right_up = [];
+      update_tags();
+    });
 
-        });
+   $('#replace_button').click(function(){
+    update_bd('replace');
+    for(var i = 0; i < selected_left_up.length;i++)
+    {
+      tags_right_up.push(selected_left_up[i]);
+      var index = tags_left_up.indexOf(selected_left_up[i]);
+      if(index >= 0)
+        tags_left_up.splice(index,1);
+    }
+    selected_left_up = [];
 
-         $('#replace_button').click(function(){
-            for(var i = 0; i < selected.length;i++)
-            {
-                     
-                     tags_auto.push(selected[i]);
-               
-            }
-            selected = [];
-            for(var i = 0; i < selected_auto.length;i++)
-            {
-                     
-                     tags_normal.push(selected_auto[i]);
-               
-            }
-            selected_auto = [];
+    for(var i = 0; i < selected_right_up.length;i++)
+    {
+      tags_left_up.push(selected_right_up[i]);
+      var index = tags_right_up.indexOf(selected_right_up[i]);
+      if(index >= 0)
+        tags_right_up.splice(index,1);
+    }
+    selected_right_up = [];
 
-            update_tags();
+    update_tags();
+  });
 
-        });
+  $('#undel_button').click(function(){
+    update_bd('undelete');
+    for(var i = 0; i < selected_left_bot.length;i++)
+    {
+      tags_left_up.push(selected_left_bot[i]);
+      var index = tags_left_bot.indexOf(selected_left_bot[i]);
+      if(index >= 0)
+        tags_left_bot.splice(index,1);
+    }
+    selected_left_bot = [];
 
-        $('#undelete_button').click(function(){
-            for(var i = 0; i < selected.length;i++)
-            {
-                     tags_normal.push(selected[i]);       
-            }
-            
-            selected = [];
+    for(var i = 0; i < selected_right_bot.length;i++)
+    {
+      tags_right_up.push(selected_right_bot[i]);
+      var index = tags_right_bot.indexOf(selected_right_bot[i]);
+      if(index >= 0)
+        tags_right_bot.splice(index,1);
+    }
+    selected_right_bot = [];
 
-            for(var i = 0; i < selected_auto.length;i++)
-            {
-                     tags_auto.push(selected_auto[i]);       
-            }
-            
-            selected_auto = [];
-            update_tags();
+    update_tags();
+  });
+  
+  $('.combo_tags').on("click","div .solo_tag",function(){
+    var tag_name = $(this).text();
+    var index_left_bot = selected_left_bot.indexOf(tag_name);
+    var index_left_up = selected_left_up.indexOf(tag_name);
+    var index_right_bot = selected_right_bot.indexOf(tag_name);
+    var index_right_up = selected_right_up.indexOf(tag_name);
+    if(index_left_up==-1 && index_right_up==-1 && index_left_bot==-1 && index_right_bot==-1)
+    {
+      var index = tags_left_up.indexOf(tag_name);
+      if(index >= 0)
+        selected_left_up.push(tags_left_up[index]);
 
-        });
-        
-        $('.normal_tags').on("click",".transparent_check_box",function(){
-          
-            var clickBtnValue = $(this).is(":checked");
-            
-           
-            if(clickBtnValue=='0')  //тег есть жмакнули для удаления
-            {
+      var index = tags_right_up.indexOf(tag_name);
+      if(index >= 0)
+        selected_right_up.push(tags_right_up[index]);
 
-                console.log(tags_normal);
-                 console.log(tags_del);
-                for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
-                  {
-                    if(tags_normal[i] == $(this).data('str')) // ищем к какому объекту в массиве принадлежит жмакнутый черт по data str
-                    {
-                     //  $(tags_normal[i]).data('val',0); 
-                        //tags_del.push(tags_normal[i]); //добавляем в удаленные 
+      var index = tags_left_bot.indexOf(tag_name);
+      if(index >= 0)
+        selected_left_bot.push(tags_left_bot[index]);
 
-                        selected.push(tags_normal[i]);
-                        tags_normal.splice(i,1); // удаляем из нормальных от позиции i один элемент
+      var index = tags_right_bot.indexOf(tag_name);
+      if(index >= 0)
+        selected_right_bot.push(tags_right_bot[index]);
 
-                        break;
-                    }
+      $(this).css('color','red');
+    }
+    else
+    {
+      if(index_right_up!=-1)
+        selected_right_up.splice(index_right_up,1);
+      if(index_right_bot!=-1)
+        selected_right_bot.splice(index_right_bot,1);
+      if(index_left_bot!=-1)
+        selected_left_bot.splice(index_left_bot,1);
+      if(index_left_up!=-1)
+        selected_left_up.splice(index_left_up,1);
+      $(this).css('color','white');
+    }
+  });
+ });
+    
 
-                    if(tags_auto[i] == $(this).data('str')) // ищем к какому объекту в массиве принадлежит жмакнутый черт по data str
-                    {
-                     //  $(tags_normal[i]).data('val',0); 
-                        selected_auto.push(tags_auto[i]); //добавляем в удаленные 
-                        tags_auto.splice(i,1); // удаляем из нормальных от позиции i один элемент
+ 
+ function update_tags() {  
+  $(".combo_tags div").html("");
+  for(var i = 0; i < tags_left_up.length;i++)
+    $("#tags_left_up").append('<span class = "solo_tag">'+tags_left_up[i]+'</span>');
 
-                        break;
-                    }
-                  }
-                  console.log(selected);
-                  console.log(selected_auto);
-                // $(this).data('val',1); ну надо примени не надо удали 
-                console.log("1");
-           
-            }
-            else
-            {
-                 for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
-                  {
-                    if(tags_del[i]== $(this).data('str'))
-                    {
-                      
-                     
-                         selected.push(tags_del[i]);
-                        tags_del.splice(i,1);
-                      
-                        break;
-                    }
-                      if(tags_auto_del[i] == $(this).data('str')) // ищем к какому объекту в массиве принадлежит жмакнутый черт по data str
-                    {
-                     //  $(tags_normal[i]).data('val',0); 
-                         selected_auto.push(tags_auto_del[i]); //добавляем в удаленные 
-                        tags_auto_del.splice(i,1); // удаляем из нормальных от позиции i один элемент
+  for(var i = 0; i < tags_left_bot.length;i++)
+   $("#tags_left_bot").append('<span class = "solo_tag">'+tags_left_bot[i]+'</span>');
 
-                        break;
-                    }
-                  }
+  for(var i = 0; i < tags_right_up.length;i++)
+   $("#tags_right_up").append('<span class = "solo_tag">'+tags_right_up[i]+'</span>');
 
-                   console.log("1");
-               //  $(this).data('val',0);
-               //update_tags();
+  for(var i = 0; i < tags_right_bot.length;i++)
+  $("#tags_right_bot").append('<span class = "solo_tag">'+tags_right_bot[i]+'</span>');
 
-            }
-            update_tags();
-            save_tags();
-          });
-       });
-          
+  check_selections();
+ }
 
+ function load_tags() {
+  var ajaxurl = 'ajax_tags.php';
+  data = {'action':'load_tags'};
+  $.post(ajaxurl,data).done(function(responce){ 
+
+      tags_with_status = responce.split(',');
+
+      for(var i = 0; i < tags_with_status.length;i++)
+      {
+        if(tags_with_status[i].split('|')[1] == 1) 
+          tags_left_up.push((tags_with_status[i]).split('|')[0]);
+        else if(tags_with_status[i].split('|')[1] == 11) 
+          tags_left_bot.push((tags_with_status[i]).split('|')[0]);
+        if(tags_with_status[i].split('|')[1] == 0) 
+          tags_right_up.push((tags_with_status[i]).split('|')[0]);
+        else if(tags_with_status[i].split('|')[1] == 10) 
+          tags_right_bot.push((tags_with_status[i]).split('|')[0]);
+      }
+     update_tags(); 
+  });
+ }
+
+ function check_selections(){
+    $('.solo_tag').each(function(){
+      if(selected_right_up.indexOf($(this).text())!=-1)
+        $(this).css('color','red');
+      if(selected_right_bot.indexOf($(this).text())!=-1)
+        $(this).css('color','red');
+      if(selected_left_up.indexOf($(this).text())!=-1)
+        $(this).css('color','red');
+      if(selected_left_bot.indexOf($(this).text())!=-1)
+        $(this).css('color','red');
+    });
+ }
+
+  function update_bd(mod)
+  {
+    console.log(mod);
+    var ajaxurl = "ajax_tags.php";
+    var selected_right_bot_string = "";
+    var selected_right_up_string = "";
+    var selected_left_up_string = "";
+    var selected_left_bot_string = "";
+    for (var i = 0; i < selected_left_up.length; i++)
+      selected_left_up_string += selected_left_up[i]+"|";
+    for (var i = 0; i < selected_left_bot.length; i++)
+      selected_left_bot_string += selected_left_bot[i]+"|";
+    for (var i = 0; i < selected_right_up.length; i++)
+      selected_right_up_string += selected_right_up[i]+"|";
+    for (var i = 0; i < selected_right_bot.length; i++)
+      selected_right_bot_string += selected_right_bot[i]+"|";
+    data = {'action':'update_bd','selected_left_up':selected_left_up_string,'selected_left_bot':selected_left_bot_string,'selected_right_up':selected_right_up_string,'selected_right_bot':selected_right_bot_string,'mod':mod};  
+    $.post(ajaxurl,data).done(function(responce){
+      console.log(responce);
+    });
+  }
        
-       function update_tags() //добавить вывод в разные блоки вместо изменения существующих тегов
-       {  
-            try
-              {
-              //  console.log(tags_normal);
-             //    console.log(tags_del);
-              $(".normal_tags").html("");
-               for(var i = 0; i < tags_normal.length;i++)
-                {
-                     
-                        $("#norm_tags").append('<label name="tags_button" data-val = "1"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+tags_normal[i]+' checked><span class = "cloud_tag" style="font-size:40 ;">'+tags_normal[i]+'</span></label>');
-                      
-                }
-                for(var i = 0; i < tags_del.length;i++)
-                {
-                
-                         $("#del_tags").append('<label name="tags_button" data-val = "0"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+tags_del[i]+' ><span class = "cloud_tag" style="font-size:40 ;color: #CD5C5C;">'+tags_del[i]+'</span></label>');
-                }
-
-                 for(var i = 0; i < tags_auto.length;i++)
-                {
-                
-                         $("#tags_auto").append('<label name="tags_button" data-val = "0"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+tags_auto[i]+' checked><span class = "cloud_tag" style="font-size:40 ;color: #2c75ff;">'+tags_auto[i]+'</span></label>');
-                }
-                 for(var i = 0; i < tags_auto_del.length;i++)
-                {
-                
-                         $("#tags_auto_del").append('<label name="tags_button" data-val = "0"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+tags_auto_del[i]+' ><span class = "cloud_tag" style="font-size:40 ;color: #CD5C5C;">'+tags_auto_del[i]+'</span></label>');
-                }
-
-
-              }
-              catch
-              {
-                console.log("oh no CRINGE");
-              }
-           /*     $('.transparent_check_box').each(function(){
-                 if(selected.indexOf($(this).data('str')) != -1)
-                        {
-                           $(this).html('<input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+tags_auto_del[i]+' ><span class = "cloud_tag" style="font-size:40 ;color: #CD5C5C;">'+tags_auto_del[i]+'</span></label>');
-                            
-                        }});*/
-              
-
-             
-       }
-       function load_tags()
-       {
-        var ajaxurl = 'ajax_tags.php';
-        data = {'action':'load_tags'};
-        $.post(ajaxurl,data).done(function(responce){ 
-
-         
-           console.log(responce);
-            tags_with_status = responce.split(',');
-            var str;
-            for(var i = 0; i < tags_with_status.length;i++)
-            {
-              
-                 if(tags_with_status[i].split('|')[1] == 1) 
-                 {
-                    tags_normal.push((tags_with_status[i]).split('|')[0]);
-                 }
-                 else
-                 {
-                    if(tags_with_status[i].split('|')[1] == 11) 
-                    {
-                         tags_del.push((tags_with_status[i]).split('|')[0]);
-                    }
-                 }
-            }
-           update_tags(); 
-
-        });
-
-       }
-
-       function load_auto_tags()
-       {
-        var ajaxurl = 'ajax_tags.php';
-        data = {'action':'load_auto_tags'};
-        $.post(ajaxurl,data).done(function(responce){ 
-
-         
-           console.log(responce);
-            tags_with_status = responce.split(',');
-            var str;
-            for(var i = 0; i < tags_with_status.length;i++)
-            {
-              
-                  if(tags_with_status[i].split('|')[1] == 0) 
-                 {
-                    tags_auto.push((tags_with_status[i]).split('|')[0]);
-                 }
-                 else
-                 {
-                    if(tags_with_status[i].split('|')[1] == 10) 
-                    {
-                         tags_auto_del.push((tags_with_status[i]).split('|')[0]);
-                    }
-                 }
-            }
-           update_tags(); 
-
-        });
-
-       }
-
-        function save_tags()
-        {
-            var responce_str;
-            for(var i = 0; i < tags_normal.length;i++)
-            {
-                responce_str += tags_normal[i]+"|1,"; 
-            }
-             for(var i = 0; i < tags_del.length;i++)
-            {
-                responce_str += tags_del[i]+"|11,"; 
-            }
-
-            console.log(responce_str);
-
-        }
-       
-    </script>
+</script>
 <title>Главная</title>
 </head>
 <body>
@@ -351,22 +244,16 @@
                </div>
                <div class = "tags_group" >
                 <div style="width: 100%; height: 90%;"> </div>
-                <div style="width: 100%; height: 10%;display: flex;justify-content: center;"> <button id ="save_button"> save</button> <button id ="del_button"> delete</button> <button id ="replace_button">replace</button> <button id ="undelete_button">undelete</button></div>
-
+                <div style="width: 100%; height: 10%;display: flex;justify-content: center;">
+                  <button id ="del_button"> delete</button>
+                  <button id ="replace_button">replace</button>
+                  <button id ="undel_button">undelete</button></div>
                </div>
                <div class = "combo_tags">
-                <div class="normal_tags" id = "norm_tags">
-
-                  </div>
-                  <div class="normal_tags" id = "tags_auto">
-
-                  </div>
-                  <div class="normal_tags"  id = "del_tags">
-                  </div>
-                  <div class="normal_tags"  id = "tags_auto_del">
-               
-                    
-                  </div>
+                  <div id = "tags_left_up">                </div>
+                  <div id = "tags_right_up">                </div>
+                  <div id = "tags_left_bot">           </div>
+                  <div id = "tags_right_bot">                </div>
                </div>
                
          </div>      
