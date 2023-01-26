@@ -16,32 +16,33 @@
   let tags_del = [];
   let tags_auto = [];
   let tags_auto_del = [];
-  let selected = [];
-  let selected_auto = [];
+  let selected_left_up = [];
+  let selected_left_bot = [];
+  let selected_right_up = [];
+  let selected_right_bot = [];
      
   $(document).ready(function(){
     load_tags();
     load_auto_tags();
   
     $('#del_button').click(function(){
-        for(var i = 0; i < selected.length;i++)
+        for(var i = 0; i < selected_left_up.length;i++)
         {
-          tags_del.push(selected[i]);
-          var index = tags_normal.indexOf(selected[i]);
+          tags_del.push(selected_left_up[i]);
+          var index = tags_normal.indexOf(selected_left_up[i]);
           if(index >= 0)
             tags_normal.splice(index,1);
-
         }
-        selected = [];
+        selected_left_up = [];
 
-        for(var i = 0; i < selected_auto.length;i++)
+        for(var i = 0; i < selected_righ_up.length;i++)
         {
-          tags_auto_del.push(selected_auto[i]);
-          var index = tags_auto.indexOf(selected_auto[i]);
+          tags_auto_del.push(selected_right_up[i]);
+          var index = tags_auto.indexOf(selected_right_up[i]);
           if(index>=0)
             tags_auto.splice(index,1);
         }
-        selected_auto = [];
+        selected_right_up = [];
         update_tags();
     });
 
@@ -70,37 +71,33 @@
   });
   
   $('.combo_tags').on("click","div .solo_tag",function(){
-      var tag_name = $(this).text();
+    var tag_name = $(this).text();
 
-      var index = tags_normal.indexOf(tag_name);
-      if(index >= 0)
-      {
-        selected.push(tags_normal[index]);
-        $(this).css('color','red');
-        
-      }
-      index = tags_auto.indexOf(tag_name);
-      if(index >= 0)
-      {
-        selected_auto.push(tags_auto[index]);
-        $(this).css('color','red');
-        //tags_auto.splice(index,1);
-      }
-      index = tags_del.indexOf(tag_name);
-      if(index >= 0)
-      {
-        selected.push(tags_del[index]);
-        $(this).css('color','red');
-        //tags_del.splice(index,1);
-      }
-      index = tags_auto_del.indexOf(tag_name);
-      if(index >= 0)
-      {
-        selected_auto.push(tags_auto_del[index]);
-        $(this).css('color','red');
-        //tags_auto_del.splice(index,1);
-      }
-    });
+    var index = tags_normal.indexOf(tag_name);
+    if(index >= 0)
+    {
+      selected_left_up.push(tags_normal[index]);
+      $(this).css('color','red');
+    }
+    var index = tags_auto.indexOf(tag_name);
+    if(index >= 0)
+    {
+      selected_right_up.push(tags_auto[index]);
+      $(this).css('color','red');
+    }
+    var index = tags_del.indexOf(tag_name);
+    if(index >= 0)
+    {
+      selected_left_bot.push(tags_del[index]);
+      $(this).css('color','red');
+    }
+    var index = tags_auto_del.indexOf(tag_name);
+    if(index >= 0)
+    {
+      selected_right_bot.push(tags_auto_del[index]);
+      $(this).css('color','red');
+    }
+  });
  });
     
 
