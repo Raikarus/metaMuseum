@@ -83,7 +83,7 @@
     for(var i = 0; i < selected_right_bot.length;i++)
     {
       tags_right_up.push(selected_right_bot[i]);
-      var index = tags_right_bot.indexOf(selected_left_bot);
+      var index = tags_right_bot.indexOf(selected_right_bot[i]);
       if(index >= 0)
         tags_right_bot.splice(index,1);
     }
