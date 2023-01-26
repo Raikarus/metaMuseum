@@ -222,39 +222,11 @@
                </div>
                <div class = "combo_tags">
                 <div class="normal_tags" id = "norm_tags">
-                  <ul class = "wrap">
-                  </ul>
-                  <?php 
-                          $tags  = "step_mom massage anal ebony big_ ass teen threesome public anime creampie";
-                          $tag = explode(" ", $tags);
-                          
-                        for($i = 0; $i < count($tag);$i++)
-                        {
-                           $size = 30;
-                            echo ' <label name="tags_button" data-val = "1" data-str ="'.$tag[$i].'">
-                                   <input type="checkbox" name = "transparent_check_box" data-str ="'.$tag[$i].'" class="transparent_check_box" checked>
-                                   <span class = "cloud_tag" style="font-size:'.$size.';">'.$tag[$i]."($size) ".'</span>
-                                   </label>';
-                        }
-                        ?> 
+
                   </div>
                   <div class="normal_tags" style="border-left: 1px solid white; " id = "del_tags">
-                  <ul class = "wrap">
-                  </ul>
-                  <?php 
-                          $tags  = "japanese hentai lesbian milf korean asian";
-                          $tag = explode(" ", $tags);
-                          
-                        for($i = 0; $i < count($tag);$i++)
-                        {
-                           $size = 30;
-                            echo ' <label name="tags_button" data-val = "0" data-str ="'.$tag[$i].'">
-                                   <input type="checkbox" name = "transparent_check_box" data-str ="'.$tag[$i].'" class="transparent_check_box">
-                                   <span class = "cloud_tag" style="font-size:'.$size.';color: #CD5C5C;">'.$tag[$i]."($size) ".'</span>
-                                   </label>';
-                            echo "\n";
-                        }
-                        ?> 
+               
+                    
                   </div>
                </div>
                
