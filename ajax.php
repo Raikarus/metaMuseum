@@ -375,7 +375,7 @@
 
                 if($tag_id == 10)
                 {
-                   $query = "SELECT kword_name FROM kwords WHERE tag_id_num=$tag_id_num";
+                   $query = "SELECT kword_name FROM kwords WHERE tag_id_num=$tag_id_num and status = 1";
                    $res3 = pg_query($cn,$query);
                    $row3 = pg_fetch_object($res3);
                    $kword_name = $row3->kword_name;
