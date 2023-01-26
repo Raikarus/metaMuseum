@@ -279,8 +279,8 @@
                   </form>
                </div>
                <div class = "tags_group" >
-                <div style="width: 100%; height: 90%;gr">  </div>
-                <div style="width: 100%; height: 10%;gr">  </div>
+                <div style="width: 100%; height: 90%;"> </div>
+                <div style="width: 100%; height: 10%;"> <button> save</button> <button> delete</button> <button>replace</button> <button>undelete</button></div>
 
                </div>
                <div class = "combo_tags">
