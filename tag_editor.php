@@ -129,6 +129,12 @@
                 
                          $("#del_tags").append('<label name="tags_button" data-val = "0"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+tags_del[i]+' ><span class = "cloud_tag" style="font-size:40 ;color: #CD5C5C;">'+tags_del[i]+'</span></label>');
                 }
+
+                 for(var i = 0; i < tags_auto.length;i++)
+                {
+                
+                         $("#tags_auto").append('<label name="tags_button" data-val = "0"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+tags_auto[i]+' ><span class = "cloud_tag" style="font-size:40 ;color: #CD5C5C;">'+tags_auto[i]+'</span></label>');
+                }
               }
               catch
               {
@@ -258,12 +264,12 @@
                 <div class="normal_tags" id = "norm_tags">
 
                   </div>
-                  <div class="normal_tags" id = "norm_tags">
+                  <div class="normal_tags" id = "tags_auto">
 
                   </div>
                   <div class="normal_tags"  id = "del_tags">
                   </div>
-                  <div class="normal_tags"  id = "del_tags">
+                  <div class="normal_tags"  id = "tags_auto_del">
                
                     
                   </div>
