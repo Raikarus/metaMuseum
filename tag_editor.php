@@ -191,8 +191,6 @@
  }
 
  function check_selections(){
-  for(var i = 0; i < selected_right_up.length;i++)
-  {
     $('.solo_tag').each(function(){
       if(selected_right_up.indexOf($(this).text())!=-1)
         $(this).css('color','red');
@@ -202,9 +200,7 @@
         $(this).css('color','red');
       if(selected_left_bot.indexOf($(this).text())!=-1)
         $(this).css('color','red');
-      
     });
-  }
  }
 
   // function save_tags()
