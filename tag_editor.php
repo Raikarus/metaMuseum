@@ -65,7 +65,11 @@
         $('#del_button').click(function(){
             for(var i = 0; i < selected.length;i++)
             {
-            tags_del.push(selected[i]);
+                if(tags_del.indexOf(selected[i]) != -1)
+                {
+                     tags_del.push(selected[i]);
+                }
+               
             }
             
             selected = [];
