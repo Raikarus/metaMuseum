@@ -61,48 +61,35 @@
   
   $('.normal_tags').on("click",".transparent_check_box",function(){
       var clickBtnValue = $(this).is(":checked");
-
+      console.log($(this).text());
       if(clickBtnValue=='0')
       {
-        console.log(tags_normal);
-        console.log(tags_del);
-
         var index = tags_normal.indexOf($(this).data('str'));
-        console.log("INDEX = "+index);
-        for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
+        if(index >= 0)
         {
-          if(tags_normal[i] == $(this).data('str'))
-          {
-            selected.push(tags_normal[i]);
-            tags_normal.splice(i,1);
-            break;
-          }
-          if(tags_auto[i] == $(this).data('str'))
-          {
-            selected_auto.push(tags_auto[i]);
-            tags_auto.splice(i,1);
-            break;
-          }
+          selected.push(tags_normal[i]);
+          tags_normal.splice(i,1);
         }
-        console.log(selected);
-        console.log(selected_auto);
+        var index = tags_auto.indexOf($(this).data('str'));
+        if(index >= 0)
+        {
+          selected_auto.push(tags_auto[i]);
+          tags_auto.splice(i,1);
+        }
       }
       else
       {
-       for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
+        var index = tags_del.indexOf($(this).data('str'));
+        if(index >= 0)
         {
-          if(tags_del[i]== $(this).data('str'))
-          {
-            selected.push(tags_del[i]);
-            tags_del.splice(i,1);
-            break;
-          }
-            if(tags_auto_del[i] == $(this).data('str'))
-          {
-            selected_auto.push(tags_auto_del[i]);
-            tags_auto_del.splice(i,1);
-            break;
-          }
+          selected.push(tags_del[i]);
+          tags_del.splice(i,1);
+        }
+        var index = tags_auto_del.indexOf($(this).data('str'));
+        if(index >= 0)
+        {
+          selected_auto.push(tags_auto_del[i]);
+          tags_auto_del.splice(i,1);
         }
       }
       update_tags();
