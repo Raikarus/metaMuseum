@@ -62,7 +62,7 @@
         }
 */
            // отображаем все теги что есть 
-        $('.del_button').click(function(){
+        $('#del_button').click(function(){
             tags_del = selected;
             selected = [];
 
