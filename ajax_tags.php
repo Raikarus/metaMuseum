@@ -34,7 +34,7 @@ function update_bd()
 {
   $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
   $selected_left_up = explode("|",$_POST['selected_left_up']);
-  $selected_left_bot = explode("|",$_POST['selected_left_up']);
+  $selected_left_bot = explode("|",$_POST['selected_left_bot']);
   $selected_right_up = explode("|",$_POST['selected_right_up']);
   $selected_right_bot = explode("|",$_POST['selected_right_bot']);
   $mod = $_POST['mod'];
