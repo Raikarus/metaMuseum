@@ -41,6 +41,7 @@
        let tags_del = [];
        let tags_auto = [];
        let tags_auto_del = [];
+       let selected = [];
         // фиксированный пизже
      
  $(document).ready(function(){
@@ -69,16 +70,17 @@
            
             if(clickBtnValue=='0')  //тег есть жмакнули для удаления
             {
-                
-             /*   console.log(tags_normal);
+
+                console.log(tags_normal);
                  console.log(tags_del);
                 for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
                   {
                     if(tags_normal[i] == $(this).data('str')) // ищем к какому объекту в массиве принадлежит жмакнутый черт по data str
                     {
                      //  $(tags_normal[i]).data('val',0); 
-                        tags_del.push(tags_normal[i]); //добавляем в удаленные 
-                        tags_normal.splice(i,1); // удаляем из нормальных от позиции i один элемент
+                        //tags_del.push(tags_normal[i]); //добавляем в удаленные 
+                        selected.push(tags_normal[i]);
+                       // tags_normal.splice(i,1); // удаляем из нормальных от позиции i один элемент
 
                         break;
                     }
@@ -86,15 +88,15 @@
                     if(tags_auto[i] == $(this).data('str')) // ищем к какому объекту в массиве принадлежит жмакнутый черт по data str
                     {
                      //  $(tags_normal[i]).data('val',0); 
-                        tags_auto_del.push(tags_auto[i]); //добавляем в удаленные 
-                        tags_auto.splice(i,1); // удаляем из нормальных от позиции i один элемент
+                        selected.push(tags_auto[i]); //добавляем в удаленные 
+                       // tags_auto.splice(i,1); // удаляем из нормальных от позиции i один элемент
 
                         break;
                     }
                   }
                 // $(this).data('val',1); ну надо примени не надо удали 
                 console.log("1");
-           */
+           
             }
             else
             {
@@ -103,16 +105,16 @@
                     if(tags_del[i]== $(this).data('str'))
                     {
                       // $(tags_del[i]).data('val',1);
-                        tags_normal.push(tags_del[i]);
-                        tags_del.splice(i,1);
+                        selected.push(tags_auto[i]);
+                        //tags_del.splice(i,1);
 
                         break;
                     }
                       if(tags_auto_del[i] == $(this).data('str')) // ищем к какому объекту в массиве принадлежит жмакнутый черт по data str
                     {
                      //  $(tags_normal[i]).data('val',0); 
-                        tags_auto.push(tags_auto_del[i]); //добавляем в удаленные 
-                        tags_auto_del.splice(i,1); // удаляем из нормальных от позиции i один элемент
+                         selected.push(tags_auto[i]); //добавляем в удаленные 
+                        //tags_auto_del.splice(i,1); // удаляем из нормальных от позиции i один элемент
 
                         break;
                     }
@@ -157,6 +159,16 @@
                 {
                 
                          $("#tags_auto_del").append('<label name="tags_button" data-val = "0"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+tags_auto_del[i]+' ><span class = "cloud_tag" style="font-size:40 ;color: #CD5C5C;">'+tags_auto_del[i]+'</span></label>');
+                }
+                for(var i = 0; i < document.getElementsByName("transparent_check_box").length;i++)
+                {
+                     for(var j = 0; j < selected.length;j++)
+                    {
+                        if($(document.getElementsByName("transparent_check_box")[i]).data('str') == selected[j])
+                        {
+                            document.getElementsByName("transparent_check_box")[i].html = '<label name="tags_button" data-val = "0"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+selected[j]+' checked><span class = "cloud_tag" style="font-size:40 ;color: #2c75ff;">'+selected[j]+'</span></label>';
+                        }
+                    }
                 }
               }
               catch
