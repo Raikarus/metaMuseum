@@ -59,7 +59,7 @@
     update_tags();
   });
   
-  $('.normal_tags').on("click",".solo_tag",function(){
+  $('.combo_tags').on("click","div .solo_tag",function(){
       console.log('1');
 
       var tag_name = $(this).text();
