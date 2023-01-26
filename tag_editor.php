@@ -65,7 +65,7 @@
         $('#del_button').click(function(){
             for(var i = 0; i < selected.length;i++)
             {
-                if(tags_del.indexOf(selected[i]) != -1)
+                if(tags_del.indexOf(selected[i]) == -1)
                 {
                      tags_del.push(selected[i]);
                 }
