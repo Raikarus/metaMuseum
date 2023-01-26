@@ -175,7 +175,7 @@
                     {
                         if($(document.getElementsByName("transparent_check_box")[i]).data('str') == selected[j])
                         {
-                            $(document.getElementsByName("transparent_check_box")[i]).css('color','red');
+                            $(document.getElementsByName("transparent_check_box")[i]).css('color','red !important');
                             
                         }
                     }
