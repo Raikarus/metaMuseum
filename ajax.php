@@ -80,7 +80,7 @@
 
     function kwords() {
         $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
-        $query = "SELECT * FROM kwords WHERE status = 1";
+        $query = "SELECT * FROM kwords";
         $res = pg_query($cn,$query);
         $row = pg_fetch_all($res);
         echo "<pre>";
@@ -366,7 +366,7 @@
           if($gkword_id == 0)
           {
              //Если нет никакой группы
-             $query = "SELECT tag_id,tag_id_num FROM kwgkw WHERE gkword_id=$gkword_id";
+             $query = "SELECT tag_id,tag_id_num FROM kwgkw WHERE gkword_id=$gkword_id and status = 1";
              $res2 = pg_query($cn,$query);
              while($row2=pg_fetch_object($res2))
              {
