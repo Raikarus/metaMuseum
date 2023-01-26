@@ -101,7 +101,7 @@
  {  
   try
   {
-    $(".normal_tags").html("");
+    $(".combo_tags div").html("");
     for(var i = 0; i < tags_normal.length;i++)
     {
       $("#norm_tags").append('<span class = "solo_tag">'+tags_normal[i]+'</span>');
@@ -217,10 +217,10 @@
                   <button id ="undelete_button">undelete</button></div>
                </div>
                <div class = "combo_tags">
-                <div class="normal_tags" id = "norm_tags">                </div>
-                <div class="normal_tags" id = "tags_auto">                </div>
-                <div class="normal_tags"  id = "del_tags">                </div>
-                <div class="normal_tags"  id = "tags_auto_del">           </div>
+                  <div id = "norm_tags">                </div>
+                  <div id = "tags_auto">                </div>
+                  <div id = "del_tags">                </div>
+                  <div id = "tags_auto_del">           </div>
                </div>
                
          </div>      
