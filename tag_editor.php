@@ -46,29 +46,29 @@
         update_tags();
     });
 
-   $('#replace_button').click(function(){
-    for(var i = 0; i < selected.length;i++)
-      tags_right_up.push(selected[i]);
-    selected = [];
+  //  $('#replace_button').click(function(){
+  //   for(var i = 0; i < selected.length;i++)
+  //     tags_right_up.push(selected[i]);
+  //   selected = [];
 
-    for(var i = 0; i < selected_auto.length;i++)
-      tags_left_up.push(selected_auto[i]);
-    selected_auto = [];
+  //   for(var i = 0; i < selected_auto.length;i++)
+  //     tags_left_up.push(selected_auto[i]);
+  //   selected_auto = [];
 
-    update_tags();
-  });
+  //   update_tags();
+  // });
 
-  $('#undel_button').click(function(){
-    for(var i = 0; i < selected.length;i++)
-      tags_left_up.push(selected[i]);       
-    selected = [];
+  // $('#undel_button').click(function(){
+  //   for(var i = 0; i < selected.length;i++)
+  //     tags_left_up.push(selected[i]);       
+  //   selected = [];
 
-    for(var i = 0; i < selected_auto.length;i++)
-      tags_right_up.push(selected_auto[i]);       
-    selected_auto = [];
+  //   for(var i = 0; i < selected_auto.length;i++)
+  //     tags_right_up.push(selected_auto[i]);       
+  //   selected_auto = [];
 
-    update_tags();
-  });
+  //   update_tags();
+  // });
   
   $('.combo_tags').on("click","div .solo_tag",function(){
     var tag_name = $(this).text();
@@ -91,10 +91,10 @@
       selected_left_bot.push(tags_left_bot[index]);
       $(this).css('color','red');
     }
-    var index = tags_right_up_del.indexOf(tag_name);
+    var index = tags_right_up.indexOf(tag_name);
     if(index >= 0)
     {
-      selected_right_bot.push(tags_right_up_del[index]);
+      selected_right_bot.push(tags_right_up[index]);
       $(this).css('color','red');
     }
   });
