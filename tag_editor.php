@@ -61,16 +61,17 @@
   
   $('.normal_tags').on("click",".tags_button .transparent_check_box",function(){
       var clickBtnValue = $(this).is(":checked");
-      console.log($(this).closest('.tags_button').children('.solo_tag').text()+" = JEJ");
+      console.log(+" = JEJ");
+      var tag_name = $(this).closest('.tags_button').children('.solo_tag').text()
       if(clickBtnValue=='0')
       {
-        var index = tags_normal.indexOf($(this).data('str'));
+        var index = tags_normal.indexOf(tag_name);
         if(index >= 0)
         {
           selected.push(tags_normal[index]);
           tags_normal.splice(index,1);
         }
-        var index = tags_auto.indexOf($(this).data('str'));
+        var index = tags_auto.indexOf(tag_name);
         if(index >= 0)
         {
           selected_auto.push(tags_auto[index]);
@@ -79,13 +80,13 @@
       }
       else
       {
-        var index = tags_del.indexOf($(this).data('str'));
+        var index = tags_del.indexOf(tag_name);
         if(index >= 0)
         {
           selected.push(tags_del[index]);
           tags_del.splice(index,1);
         }
-        var index = tags_auto_del.indexOf($(this).data('str'));
+        var index = tags_auto_del.indexOf(tag_name);
         if(index >= 0)
         {
           selected_auto.push(tags_auto_del[index]);
