@@ -79,22 +79,22 @@
       selected_left_up.push(tags_left_up[index]);
       $(this).css('color','red');
     }
-    var index = tags_right_up.indexOf(tag_name);
+    var index = tags_right_bot.indexOf(tag_name);
     if(index >= 0)
     {
-      selected_right_up.push(tags_right_up[index]);
+      selected_right_bot.push(tags_right_up[index]);
       $(this).css('color','red');
     }
-    var index = tags_left_bot.indexOf(tag_name);
+    var index = tags_left_up.indexOf(tag_name);
     if(index >= 0)
     {
-      selected_left_bot.push(tags_left_bot[index]);
+      selected_left_up.push(tags_left_bot[index]);
       $(this).css('color','red');
     }
-    var index = tags_right_up.indexOf(tag_name);
+    var index = tags_right_bot.indexOf(tag_name);
     if(index >= 0)
     {
-      selected_right_up.push(tags_right_up[index]);
+      selected_right_bot.push(tags_right_up[index]);
       $(this).css('color','red');
     }
   });
