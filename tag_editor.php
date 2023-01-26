@@ -162,7 +162,7 @@
                          $("#tags_auto_del").append('<label name="tags_button" data-val = "0"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+tags_auto_del[i]+' ><span class = "cloud_tag" style="font-size:40 ;color: #CD5C5C;">'+tags_auto_del[i]+'</span></label>');
                 }
 
-           
+
               }
               catch
               {
@@ -176,7 +176,7 @@
                         if($(document.getElementsByName("transparent_check_box")[i]).data('str') == selected[j])
                         {
                             $(document.getElementsByName("transparent_check_box")[i]).css('color','#2c75ff');
-                            console("HELL");
+                            console.log("HELL");
                         }
                     }
                 }
