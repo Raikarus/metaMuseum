@@ -210,8 +210,8 @@
                   <button id ="undel_button">undelete</button></div>
                </div>
                <div class = "combo_tags">
-                  <div id = "tags_right_up">                </div>
                   <div id = "tags_left_up">                </div>
+                  <div id = "tags_right_up">                </div>
                   <div id = "tags_left_bot">           </div>
                   <div id = "tags_right_bot">                </div>
                </div>
