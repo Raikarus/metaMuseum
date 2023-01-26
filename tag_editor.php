@@ -100,6 +100,24 @@
             update_tags();
 
         });
+
+        $('#del_button').click(function(){
+            for(var i = 0; i < selected.length;i++)
+            {
+                     tags_normal.push(selected[i]);       
+            }
+            
+            selected = [];
+
+            for(var i = 0; i < selected_auto.length;i++)
+            {
+                     tags_auto.push(selected_auto[i]);       
+            }
+            
+            selected_auto = [];
+            update_tags();
+
+        });
         
         $('.normal_tags').on("click",".transparent_check_box",function(){
           
