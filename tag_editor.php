@@ -279,8 +279,9 @@
                   </form>
                </div>
                <div class = "tags_group" >
-               
-                
+                <div style="width: 100%; height: 90%;gr">  </div>
+                <div style="width: 100%; height: 10%;gr">  </div>
+
                </div>
                <div class = "combo_tags">
                 <div class="normal_tags" id = "norm_tags">
