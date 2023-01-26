@@ -113,7 +113,7 @@
   for(var i = 0; i < tags_right_up.length;i++)
    $("#tags_right_up").append('<span class = "solo_tag">'+tags_right_up[i]+'</span>');
 
-  for(var i = 0; i < tags_right_up.length;i++)
+  for(var i = 0; i < tags_right_bot.length;i++)
   $("#tags_right_bot").append('<span class = "solo_tag">'+tags_right_bot[i]+'</span>');
  }
 
