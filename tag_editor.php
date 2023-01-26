@@ -127,6 +127,7 @@
                     }
                   }
                   console.log(selected);
+                  console.log(selected_auto);
                 // $(this).data('val',1); ну надо примени не надо удали 
                 console.log("1");
            
@@ -153,7 +154,7 @@
                         break;
                     }
                   }
-                   console.log(selected_auto);
+
                    console.log("1");
                //  $(this).data('val',0);
                //update_tags();
