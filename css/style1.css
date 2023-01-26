@@ -104,8 +104,13 @@
    float: left;
    box-sizing: border-box;
    border: 1px solid white;
- 
+   font-size: 20px;
 }
+.normal_tags .solo_tag
+{
+   margin-left: 5px;
+}
+
 .del_tags {
    height: 100%;
    width: 49%;
@@ -131,4 +136,5 @@
    word-break: normal;
    margin-right: 5px;
 }
+
 

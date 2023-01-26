@@ -104,19 +104,19 @@
     $(".normal_tags").html("");
     for(var i = 0; i < tags_normal.length;i++)
     {
-      $("#norm_tags").append('<span class = "solo_tag" style="font-size:40px;">'+tags_normal[i]+'</span>');
+      $("#norm_tags").append('<span class = "solo_tag">'+tags_normal[i]+'</span>');
     }
     for(var i = 0; i < tags_del.length;i++)
     {
-     $("#del_tags").append('<span class = "solo_tag" style="font-size:40px;color: #CD5C5C;">'+tags_del[i]+'</span>');
+     $("#del_tags").append('<span class = "solo_tag">'+tags_del[i]+'</span>');
     }
     for(var i = 0; i < tags_auto.length;i++)
     {
-     $("#tags_auto").append('<span class = "solo_tag" style="font-size:40px;color: #2c75ff;">'+tags_auto[i]+'</span>');
+     $("#tags_auto").append('<span class = "solo_tag">'+tags_auto[i]+'</span>');
     }
      for(var i = 0; i < tags_auto_del.length;i++)
     {
-     $("#tags_auto_del").append('<span class = "solo_tag" style="font-size:40px;color: #CD5C5C;">'+tags_auto_del[i]+'</span>');
+     $("#tags_auto_del").append('<span class = "solo_tag">'+tags_auto_del[i]+'</span>');
     }
   }
   catch
