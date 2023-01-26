@@ -42,6 +42,7 @@
        let tags_auto = [];
        let tags_auto_del = [];
        let selected = [];
+       let selected_auto = [];
         // фиксированный пизже
      
  $(document).ready(function(){
@@ -65,7 +66,25 @@
         $('#del_button').click(function(){
             for(var i = 0; i < selected.length;i++)
             {
-                
+                     tags_del.push(selected[i]);       
+            }
+            
+            selected = [];
+
+            for(var i = 0; i < selected.length;i++)
+            {
+                     tags_auto_del.push(selected_auto[i]);       
+            }
+            
+            selected_auto = [];
+            update_tags();
+
+        });
+
+         $('#replace_button').click(function(){
+            for(var i = 0; i < selected.length;i++)
+            {
+                if()
                      tags_del.push(selected[i]);
                
             }
@@ -74,7 +93,6 @@
             update_tags();
 
         });
-
         
         $('.normal_tags').on("click",".transparent_check_box",function(){
           
@@ -102,7 +120,7 @@
                     if(tags_auto[i] == $(this).data('str')) // ищем к какому объекту в массиве принадлежит жмакнутый черт по data str
                     {
                      //  $(tags_normal[i]).data('val',0); 
-                        selected.push(tags_auto[i]); //добавляем в удаленные 
+                        selected_auto.push(tags_auto[i]); //добавляем в удаленные 
                         tags_auto.splice(i,1); // удаляем из нормальных от позиции i один элемент
 
                         break;
@@ -119,7 +137,7 @@
                   {
                     if(tags_del[i]== $(this).data('str'))
                     {
-                      // $(tags_del[i]).data('val',1);
+                      
                      
                          selected.push(tags_del[i]);
                         tags_del.splice(i,1);
@@ -129,7 +147,7 @@
                       if(tags_auto_del[i] == $(this).data('str')) // ищем к какому объекту в массиве принадлежит жмакнутый черт по data str
                     {
                      //  $(tags_normal[i]).data('val',0); 
-                         selected.push(tags_auto[i]); //добавляем в удаленные 
+                         selected_auto.push(tags_auto_del[i]); //добавляем в удаленные 
                         tags_auto_del.splice(i,1); // удаляем из нормальных от позиции i один элемент
 
                         break;
