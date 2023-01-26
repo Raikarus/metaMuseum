@@ -47,7 +47,7 @@
     });
 
    $('#replace_button').click(function(){
-    update_bd();
+    update_bd('replace');
     for(var i = 0; i < selected_left_up.length;i++)
     {
       tags_right_up.push(selected_left_up[i]);
@@ -70,7 +70,7 @@
   });
 
   $('#undel_button').click(function(){
-    update_bd();
+    update_bd('undelete');
     for(var i = 0; i < selected_left_bot.length;i++)
     {
       tags_left_up.push(selected_left_bot[i]);

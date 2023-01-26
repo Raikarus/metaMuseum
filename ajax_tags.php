@@ -52,7 +52,31 @@ function update_bd()
         $res = pg_query($cn,$query);
       }
       break;
-    
+    case 'undelete':
+      for ($i=0; $i < count($selected_left_bot)-1; $i++) { 
+        $query = "UPDATE kwords SET status=1 WHERE kword_name='$selected_left_bot[$i]'";
+        echo "ЗАПРОСИК $query";
+        $res = pg_query($cn,$query);
+      }
+      for ($i=0; $i < count($selected_right_bot)-1; $i++) { 
+        $query = "UPDATE kwords SET status=0 WHERE kword_name='$selected_right_bot[$i]'";
+        echo "ЗАПРОСИК $query";
+        $res = pg_query($cn,$query);
+      }
+      break;
+    case 'replace':
+      for ($i=0; $i < count($selected_left_up)-1; $i++) { 
+        $query = "UPDATE kwords SET status=0 WHERE kword_name='$selected_left_up[$i]'";
+        echo "ЗАПРОСИК $query";
+        $res = pg_query($cn,$query);
+      }
+      for ($i=0; $i < count($selected_right_up)-1; $i++) { 
+        $query = "UPDATE kwords SET status=1 WHERE kword_name='$selected_right_up[$i]'";
+        echo "ЗАПРОСИК $query";
+        $res = pg_query($cn,$query);
+      }
+      break;
+      break;
     default:
       echo "err";
       break;
