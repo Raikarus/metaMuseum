@@ -68,7 +68,8 @@
       if(index >= 0)
       {
         selected.push(tags_normal[index]);
-        tags_normal.splice(index,1);
+        $(this).css('color','red');
+        //tags_normal.splice(index,1);
       }
       var index = tags_auto.indexOf(tag_name);
       if(index >= 0)
