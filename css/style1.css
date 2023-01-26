@@ -102,9 +102,11 @@
 }
 .normal_tags {
    height: 50%;
-   width: 49%;
+   width: 50%;
    overflow: hidden;
    float: left;
+   box-sizing: border-box;
+   border: 1px solid white;
  
 }
 .del_tags {
