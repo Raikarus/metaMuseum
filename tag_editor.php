@@ -39,8 +39,8 @@
        let tags_with_status = [];
        let tags_normal = [];
        let tags_del = [];
-      
-
+       let tags_auto = [];
+       let tags_auto_del = [];
         // фиксированный пизже
      
  $(document).ready(function(){
@@ -152,13 +152,47 @@
             for(var i = 0; i < tags_with_status.length;i++)
             {
               
-                 if((tags_with_status[i].split('|')[1] == 0) || (tags_with_status[i].split('|')[1] == 1) || (tags_with_status[i].split('|')[1] == 2))
+                 if(tags_with_status[i].split('|')[1] == 1) 
                  {
                     tags_normal.push((tags_with_status[i]).split('|')[0]);
                  }
                  else
                  {
-                    tags_del.push((tags_with_status[i]).split('|')[0]);
+                    if(tags_with_status[i].split('|')[1] == 11) 
+                    {
+                         tags_del.push((tags_with_status[i]).split('|')[0]);
+                    }
+                 }
+            }
+           update_tags(); 
+
+        });
+
+       }
+
+       function load_auto_tags()
+       {
+        var ajaxurl = 'ajax_tags.php';
+        data = {'action':'load_auto_tags'};
+        $.post(ajaxurl,data).done(function(responce){ 
+
+         
+           console.log(responce);
+            tags_with_status = responce.split(',');
+            var str;
+            for(var i = 0; i < tags_with_status.length;i++)
+            {
+              
+                  if(tags_with_status[i].split('|')[1] == 0) 
+                 {
+                    tags_auto.push((tags_with_status[i]).split('|')[0]);
+                 }
+                 else
+                 {
+                    if(tags_with_status[i].split('|')[1] == 10) 
+                    {
+                         tags_auto_del.push((tags_with_status[i]).split('|')[0]);
+                    }
                  }
             }
            update_tags(); 
