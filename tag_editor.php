@@ -25,7 +25,7 @@
     load_tags();
   
     $('#del_button').click(function(){
-      update_bd();
+      update_bd('delete');
       for(var i = 0; i < selected_left_up.length;i++)
       {
         tags_left_bot.push(selected_left_up[i]);
