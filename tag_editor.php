@@ -61,7 +61,7 @@
   
   $('.tags_button').on("click",".transparent_check_box",function(){
       var clickBtnValue = $(this).is(":checked");
-      console.log($(this).closest('.tags_button').children('.solo_tag').text());
+      console.log($(this).closest('.tags_button').children('.solo_tag').text()+" = JEJ");
       if(clickBtnValue=='0')
       {
         var index = tags_normal.indexOf($(this).data('str'));
