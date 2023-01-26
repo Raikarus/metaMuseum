@@ -65,6 +65,7 @@
         $('#del_button').click(function(){
             tags_del = selected;
             selected = [];
+            update_tags();
 
         });
 
