@@ -76,7 +76,6 @@ function update_bd()
         $res = pg_query($cn,$query);
       }
       break;
-      break;
     default:
       echo "err";
       break;
