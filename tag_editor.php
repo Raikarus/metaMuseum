@@ -63,7 +63,11 @@
 */
            // отображаем все теги что есть 
         $('#del_button').click(function(){
-            tags_del += selected;
+            for(var i = 0; i < selected.length;i++)
+            {
+            tags_del.push(selected[i]);
+            }
+            
             selected = [];
             update_tags();
 
