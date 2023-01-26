@@ -366,7 +366,7 @@
           if($gkword_id == 0)
           {
              //Если нет никакой группы
-             $query = "SELECT tag_id,tag_id_num FROM kwgkw WHERE gkword_id=$gkword_id";
+             $query = "SELECT tag_id,tag_id_num FROM kwgkw WHERE gkword_id=$gkword_id and status = 1";
              $res2 = pg_query($cn,$query);
              while($row2=pg_fetch_object($res2))
              {
@@ -375,7 +375,7 @@
 
                 if($tag_id == 10)
                 {
-                   $query = "SELECT kword_name FROM kwords WHERE tag_id_num=$tag_id_num and status = 1";
+                   $query = "SELECT kword_name FROM kwords WHERE tag_id_num=$tag_id_num";
                    $res3 = pg_query($cn,$query);
                    $row3 = pg_fetch_object($res3);
                    $kword_name = $row3->kword_name;
