@@ -59,9 +59,9 @@
     update_tags();
   });
   
-  $('.normal_tags').on("click",".transparent_check_box",function(){
+  $('.tags_button').on("click",".transparent_check_box",function(){
       var clickBtnValue = $(this).is(":checked");
-      console.log($(this).closest('.solo_tag').text());
+      console.log($(this).closest('.tags_button').children('.solo_tag').text());
       if(clickBtnValue=='0')
       {
         var index = tags_normal.indexOf($(this).data('str'));
