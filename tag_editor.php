@@ -84,7 +84,7 @@
          $('#replace_button').click(function(){
             for(var i = 0; i < selected.length;i++)
             {
-                if()
+                
                      tags_del.push(selected[i]);
                
             }
