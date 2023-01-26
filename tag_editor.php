@@ -69,7 +69,8 @@
            
             if(clickBtnValue=='0')  //тег есть жмакнули для удаления
             {
-                console.log(tags_normal);
+                
+             /*   console.log(tags_normal);
                  console.log(tags_del);
                 for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)
                   {
@@ -93,7 +94,7 @@
                   }
                 // $(this).data('val',1); ну надо примени не надо удали 
                 console.log("1");
-           
+           */
             }
             else
             {
