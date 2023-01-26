@@ -12,10 +12,10 @@
 
 <script>
   let tags_with_status = [];
-  let tags_normal = [];
-  let tags_del = [];
-  let tags_auto = [];
-  let tags_auto_del = [];
+  let tags_left_up = [];
+  let tags_left_bot = [];
+  let tags_right_up = [];
+  let tags_right_bot = [];
   let selected_left_up = [];
   let selected_left_bot = [];
   let selected_right_up = [];
@@ -28,19 +28,19 @@
     $('#del_button').click(function(){
         for(var i = 0; i < selected_left_up.length;i++)
         {
-          tags_del.push(selected_left_up[i]);
-          var index = tags_normal.indexOf(selected_left_up[i]);
+          tags_left_bot.push(selected_left_up[i]);
+          var index = tags_left_up.indexOf(selected_left_up[i]);
           if(index >= 0)
-            tags_normal.splice(index,1);
+            tags_left_up.splice(index,1);
         }
         selected_left_up = [];
 
         for(var i = 0; i < selected_righ_up.length;i++)
         {
-          tags_auto_del.push(selected_right_up[i]);
-          var index = tags_auto.indexOf(selected_right_up[i]);
+          tags_right_up.push(selected_right_up[i]);
+          var index = tags_right_up.indexOf(selected_right_up[i]);
           if(index>=0)
-            tags_auto.splice(index,1);
+            tags_right_up.splice(index,1);
         }
         selected_right_up = [];
         update_tags();
@@ -48,11 +48,11 @@
 
    $('#replace_button').click(function(){
     for(var i = 0; i < selected.length;i++)
-      tags_auto.push(selected[i]);
+      tags_right_up.push(selected[i]);
     selected = [];
 
     for(var i = 0; i < selected_auto.length;i++)
-      tags_normal.push(selected_auto[i]);
+      tags_left_up.push(selected_auto[i]);
     selected_auto = [];
 
     update_tags();
@@ -60,11 +60,11 @@
 
   $('#undel_button').click(function(){
     for(var i = 0; i < selected.length;i++)
-      tags_normal.push(selected[i]);       
+      tags_left_up.push(selected[i]);       
     selected = [];
 
     for(var i = 0; i < selected_auto.length;i++)
-      tags_auto.push(selected_auto[i]);       
+      tags_right_up.push(selected_auto[i]);       
     selected_auto = [];
 
     update_tags();
@@ -73,28 +73,28 @@
   $('.combo_tags').on("click","div .solo_tag",function(){
     var tag_name = $(this).text();
 
-    var index = tags_normal.indexOf(tag_name);
+    var index = tags_left_up.indexOf(tag_name);
     if(index >= 0)
     {
-      selected_left_up.push(tags_normal[index]);
+      selected_left_up.push(tags_left_up[index]);
       $(this).css('color','red');
     }
-    var index = tags_auto.indexOf(tag_name);
+    var index = tags_right_up.indexOf(tag_name);
     if(index >= 0)
     {
-      selected_right_up.push(tags_auto[index]);
+      selected_right_up.push(tags_right_up[index]);
       $(this).css('color','red');
     }
-    var index = tags_del.indexOf(tag_name);
+    var index = tags_left_bot.indexOf(tag_name);
     if(index >= 0)
     {
-      selected_left_bot.push(tags_del[index]);
+      selected_left_bot.push(tags_left_bot[index]);
       $(this).css('color','red');
     }
-    var index = tags_auto_del.indexOf(tag_name);
+    var index = tags_right_up_del.indexOf(tag_name);
     if(index >= 0)
     {
-      selected_right_bot.push(tags_auto_del[index]);
+      selected_right_bot.push(tags_right_up_del[index]);
       $(this).css('color','red');
     }
   });
@@ -104,17 +104,17 @@
  
  function update_tags() {  
   $(".combo_tags div").html("");
-  for(var i = 0; i < tags_normal.length;i++)
-    $("#norm_tags").append('<span class = "solo_tag">'+tags_normal[i]+'</span>');
+  for(var i = 0; i < tags_left_up.length;i++)
+    $("#tags_left_up").append('<span class = "solo_tag">'+tags_left_up[i]+'</span>');
 
-  for(var i = 0; i < tags_del.length;i++)
-   $("#del_tags").append('<span class = "solo_tag">'+tags_del[i]+'</span>');
+  for(var i = 0; i < tags_left_bot.length;i++)
+   $("#tags_left_bot").append('<span class = "solo_tag">'+tags_left_bot[i]+'</span>');
 
-  for(var i = 0; i < tags_auto.length;i++)
-   $("#tags_auto").append('<span class = "solo_tag">'+tags_auto[i]+'</span>');
+  for(var i = 0; i < tags_right_up.length;i++)
+   $("#tags_right_up").append('<span class = "solo_tag">'+tags_right_up[i]+'</span>');
 
-  for(var i = 0; i < tags_auto_del.length;i++)
-  $("#tags_auto_del").append('<span class = "solo_tag">'+tags_auto_del[i]+'</span>');
+  for(var i = 0; i < tags_right_up.length;i++)
+  $("#tags_right_bot").append('<span class = "solo_tag">'+tags_right_bot[i]+'</span>');
  }
 
  function load_tags() {
@@ -128,9 +128,9 @@
       for(var i = 0; i < tags_with_status.length;i++)
       {
         if(tags_with_status[i].split('|')[1] == 1) 
-          tags_normal.push((tags_with_status[i]).split('|')[0]);
+          tags_left_up.push((tags_with_status[i]).split('|')[0]);
         else if(tags_with_status[i].split('|')[1] == 11) 
-          tags_del.push((tags_with_status[i]).split('|')[0]);
+          tags_left_bot.push((tags_with_status[i]).split('|')[0]);
       }
      update_tags(); 
   });
@@ -147,10 +147,10 @@
       for(var i = 0; i < tags_with_status.length;i++)
       {
         if(tags_with_status[i].split('|')[1] == 0) 
-          tags_auto.push((tags_with_status[i]).split('|')[0]);
+          tags_right_up.push((tags_with_status[i]).split('|')[0]);
 
         else if(tags_with_status[i].split('|')[1] == 10) 
-          tags_auto_del.push((tags_with_status[i]).split('|')[0]);
+          tags_right_up.push((tags_with_status[i]).split('|')[0]);
       }
      update_tags(); 
   });
@@ -160,11 +160,11 @@
   // function save_tags()
   // {
   //     var responce_str;
-  //     for(var i = 0; i < tags_normal.length;i++)
-  //       responce_str += tags_normal[i]+"|1,"; 
+  //     for(var i = 0; i < tags_left_up.length;i++)
+  //       responce_str += tags_left_up[i]+"|1,"; 
 
-  //      for(var i = 0; i < tags_del.length;i++)
-  //       responce_str += tags_del[i]+"|11,"; 
+  //      for(var i = 0; i < tags_left_bot.length;i++)
+  //       responce_str += tags_left_bot[i]+"|11,"; 
   //     console.log(responce_str);
   // }
        
@@ -210,10 +210,10 @@
                   <button id ="undel_button">undelete</button></div>
                </div>
                <div class = "combo_tags">
-                  <div id = "norm_tags">                </div>
-                  <div id = "tags_auto">                </div>
-                  <div id = "del_tags">                </div>
-                  <div id = "tags_auto_del">           </div>
+                  <div id = "tags_right_up">                </div>
+                  <div id = "tags_left_up">                </div>
+                  <div id = "tags_left_bot">           </div>
+                  <div id = "tags_right_bot">                </div>
                </div>
                
          </div>      
