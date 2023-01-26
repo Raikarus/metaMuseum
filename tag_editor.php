@@ -71,7 +71,7 @@
             
             selected = [];
 
-            for(var i = 0; i < selected.length;i++)
+            for(var i = 0; i < selected_auto.length;i++)
             {
                      tags_auto_del.push(selected_auto[i]);       
             }
