@@ -37,7 +37,7 @@
 
         for(var i = 0; i < selected_right_up.length;i++)
         {
-          tags_right_bot.push(selected_right_bot[i]);
+          tags_right_bot.push(selected_right_up[i]);
           var index = tags_right_up.indexOf(selected_right_up[i]);
           if(index>=0)
             tags_right_up.splice(index,1);
