@@ -167,7 +167,7 @@
                     {
                         if($(document.getElementsByName("transparent_check_box")[i]).data('str') == selected[j])
                         {
-                            document.getElementsByName("transparent_check_box")[i].html = '<label name="tags_button" data-val = "0"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+selected[j]+' checked><span class = "cloud_tag" style="font-size:40 ;color: #2c75ff;">'+selected[j]+'</span></label>';
+                            $(document.getElementsByName("transparent_check_box")[i]).css('color','#2c75ff');
                         }
                     }
                 }
