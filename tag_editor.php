@@ -35,7 +35,7 @@
         }
         selected_left_up = [];
 
-        for(var i = 0; i < selected_righ_up.length;i++)
+        for(var i = 0; i < selected_right_up.length;i++)
         {
           tags_right_up.push(selected_right_up[i]);
           var index = tags_right_up.indexOf(selected_right_up[i]);
