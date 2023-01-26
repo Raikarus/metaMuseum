@@ -95,7 +95,7 @@
                      tags_normal.push(selected_auto[i]);
                
             }
-            selected = [];
+            selected_auto = [];
 
             update_tags();
 
