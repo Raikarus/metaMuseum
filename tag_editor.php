@@ -92,30 +92,41 @@
   
   $('.combo_tags').on("click","div .solo_tag",function(){
     var tag_name = $(this).text();
+    var index_left_bot = selected_left_bot.indexOf(tag_name);
+    var index_left_up = selected_left_up.indexOf(tag_name);
+    var index_right_bot = selected_right_bot.indexOf(tag_name);
+    var index_right_up = selected_right_up.indexOf(tag_name);
+    if(index_left_up!=-1 && index_right_up!=-1 && index_left_bot!=-1 && index_right_bot!=-1)
+    {
+      var index = tags_left_up.indexOf(tag_name);
+      if(index >= 0)
+        selected_left_up.push(tags_left_up[index]);
 
-    var index = tags_left_up.indexOf(tag_name);
-    if(index >= 0)
-    {
-      selected_left_up.push(tags_left_up[index]);
+      var index = tags_right_up.indexOf(tag_name);
+      if(index >= 0)
+        selected_right_up.push(tags_right_up[index]);
+
+      var index = tags_left_bot.indexOf(tag_name);
+      if(index >= 0)
+        selected_left_bot.push(tags_left_bot[index]);
+
+      var index = tags_right_bot.indexOf(tag_name);
+      if(index >= 0)
+        selected_right_bot.push(tags_right_bot[index]);
+      
       $(this).css('color','red');
     }
-    var index = tags_right_up.indexOf(tag_name);
-    if(index >= 0)
+    else
     {
-      selected_right_up.push(tags_right_up[index]);
-      $(this).css('color','red');
-    }
-    var index = tags_left_bot.indexOf(tag_name);
-    if(index >= 0)
-    {
-      selected_left_bot.push(tags_left_bot[index]);
-      $(this).css('color','red');
-    }
-    var index = tags_right_bot.indexOf(tag_name);
-    if(index >= 0)
-    {
-      selected_right_bot.push(tags_right_bot[index]);
-      $(this).css('color','red');
+      if(index_right_up==-1)
+        selected_right_up.splice(index_right_up,1);
+      if(index_right_bot==-1)
+        selected_right_bot.splice(index_right_bot,1);
+      if(index_left_bot==-1)
+        selected_left_bot.splice(index_left_bot,1);
+      if(index_left_up==-1)
+        selected_left_up.splice(index_left_up,1);
+      $(this).css('color','white');
     }
   });
  });
