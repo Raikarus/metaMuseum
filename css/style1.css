@@ -10,8 +10,6 @@
    border-bottom: 1px solid white;
 }
 
-
-
 .main_right_version {
    width: 100%;
    height: 100%;
@@ -20,7 +18,6 @@
    align-items: center;
    justify-content: space-between;
    border-left: 1px solid white;
-
 }
 
 .high_main {
@@ -113,8 +110,6 @@
    height: 100%;
    width: 49%;
    overflow: hidden;
-
- 
 }
 
 .wrap {
