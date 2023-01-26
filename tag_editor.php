@@ -189,6 +189,7 @@
 
   function update_bd(mod)
   {
+    console.log(mod);
     var ajaxurl = "ajax_tags.php";
     var selected_right_bot_string = "";
     var selected_right_up_string = "";
