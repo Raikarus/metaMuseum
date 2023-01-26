@@ -168,18 +168,13 @@
               {
                 console.log("oh no CRINGE");
               }
-             
-                  for(var i = 0; i < document.getElementsByName("transparent_check_box").length;i++)
-                {
-                     for(var j = 0; j < selected.length;j++)
-                    {
-                        if($(document.getElementsByName("transparent_check_box")[i]).data('str') == selected[j])
+                $('.transparent_check_box').each(function(){
+                 if(selected.IndexOf($(this).data('str')) != -1)
                         {
-                            $(document.getElementsByName("transparent_check_box")[i]).css('color','red !important');
+                           $(this).css('color','red !important');
                             
-                        }
-                    }
-                }
+                        }})
+              
 
              
        }
