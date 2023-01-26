@@ -45,7 +45,7 @@
      
  $(document).ready(function(){
     load_tags();
- 
+    load_auto_tags();
   
  /* for(var i = 0; i < (document.getElementsByName("tags_button")).length;i++)    //заполнили массивы всем что сейчас есть можно, переписать когда инфа будет приходить с бека
         {
