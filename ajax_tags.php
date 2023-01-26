@@ -43,10 +43,12 @@ function update_bd()
     case 'delete':
       for ($i=0; $i < $selected_left_up; $i++) { 
         $query = "UPDATE kwords SET status=11 WHERE kword_name='$selected_left_up[$i]'";
+        echo "ЗАПРОСИК $query";
         $res = pg_query($cn,$query);
       }
       for ($i=0; $i < $selected_right_up; $i++) { 
         $query = "UPDATE kwords SET status=11 WHERE kword_name='$selected_right_up[$i]'";
+        echo "ЗАПРОСИК $query";
         $res = pg_query($cn,$query);
       }
       break;
