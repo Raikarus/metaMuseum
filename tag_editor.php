@@ -59,7 +59,7 @@
     update_tags();
   });
   
-  $('.tags_button').on("click",".transparent_check_box",function(){
+  $('.normal_tags').on("click",".tags_button .transparent_check_box",function(){
       var clickBtnValue = $(this).is(":checked");
       console.log($(this).closest('.tags_button').children('.solo_tag').text()+" = JEJ");
       if(clickBtnValue=='0')
