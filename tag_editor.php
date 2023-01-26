@@ -171,7 +171,7 @@
                 $('.transparent_check_box').each(function(){
                  if(selected.indexOf($(this).data('str')) != -1)
                         {
-                           $(this).css('color','red !important');
+                           $(this).html('<input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+tags_auto_del[i]+' ><span class = "cloud_tag" style="font-size:40 ;color: #CD5C5C;">'+tags_auto_del[i]+'</span></label>');
                             
                         }});
               
