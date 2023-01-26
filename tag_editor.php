@@ -162,7 +162,14 @@
                          $("#tags_auto_del").append('<label name="tags_button" data-val = "0"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+tags_auto_del[i]+' ><span class = "cloud_tag" style="font-size:40 ;color: #CD5C5C;">'+tags_auto_del[i]+'</span></label>');
                 }
 
-                for(var i = 0; i < document.getElementsByName("transparent_check_box").length;i++)
+           
+              }
+              catch
+              {
+                console.log("oh no CRINGE");
+              }
+             
+                  for(var i = 0; i < document.getElementsByName("transparent_check_box").length;i++)
                 {
                      for(var j = 0; j < selected.length;j++)
                     {
@@ -173,13 +180,6 @@
                         }
                     }
                 }
-              }
-              catch
-              {
-                console.log("oh no CRINGE");
-              }
-             
-             
 
              
        }
