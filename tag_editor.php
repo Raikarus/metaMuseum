@@ -133,7 +133,12 @@
                  for(var i = 0; i < tags_auto.length;i++)
                 {
                 
-                         $("#tags_auto").append('<label name="tags_button" data-val = "0"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+tags_auto[i]+' ><span class = "cloud_tag" style="font-size:40 ;color: #CD5C5C;">'+tags_auto[i]+'</span></label>');
+                         $("#tags_auto").append('<label name="tags_button" data-val = "0"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+tags_auto[i]+' ><span class = "cloud_tag" style="font-size:40 ;color: #2c75ff;">'+tags_auto[i]+'</span></label>');
+                }
+                 for(var i = 0; i < tags_auto_del.length;i++)
+                {
+                
+                         $("#tags_auto_del").append('<label name="tags_button" data-val = "0"><input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+tags_auto_del[i]+' ><span class = "cloud_tag" style="font-size:40 ;color: #CD5C5C;">'+tags_auto_del[i]+'</span></label>');
                 }
               }
               catch
