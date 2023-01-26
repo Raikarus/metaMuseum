@@ -202,7 +202,7 @@
       selected_right_up_string += selected_right_up[i]+"|";
     for (var i = 0; i < selected_right_bot.length; i++)
       selected_right_bot_string += selected_right_bot[i]+"|";
-    data = {'action':'update_bd','selected_left_up':selected_left_up_string,'selected_left_bot',selected_left_bot_string,'selected_right_up':selected_right_up_string,'selected_right_bot':selected_right_bot_string,'mod':mod};  
+    data = {'action':'update_bd','selected_left_up':selected_left_up_string,'selected_left_bot':selected_left_bot_string,'selected_right_up':selected_right_up_string,'selected_right_bot':selected_right_bot_string,'mod':mod};  
     $.post(ajaxurl,data).done(function(responce){
       console.log(responce);
     });
