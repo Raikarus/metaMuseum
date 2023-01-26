@@ -62,7 +62,13 @@
         }
 */
            // отображаем все теги что есть 
+        $('.delete').click(function(){
+            tags_del = selected;
+            selected = [];
 
+        });
+
+        
         $('.normal_tags').on("click",".transparent_check_box",function(){
           
             var clickBtnValue = $(this).is(":checked");
@@ -80,7 +86,7 @@
                      //  $(tags_normal[i]).data('val',0); 
                         //tags_del.push(tags_normal[i]); //добавляем в удаленные 
                         selected.push(tags_normal[i]);
-                       // tags_normal.splice(i,1); // удаляем из нормальных от позиции i один элемент
+                        tags_normal.splice(i,1); // удаляем из нормальных от позиции i один элемент
 
                         break;
                     }
@@ -89,7 +95,7 @@
                     {
                      //  $(tags_normal[i]).data('val',0); 
                         selected.push(tags_auto[i]); //добавляем в удаленные 
-                       // tags_auto.splice(i,1); // удаляем из нормальных от позиции i один элемент
+                        tags_auto.splice(i,1); // удаляем из нормальных от позиции i один элемент
 
                         break;
                     }
@@ -107,7 +113,7 @@
                     {
                       // $(tags_del[i]).data('val',1);
                         selected.push(tags_auto[i]);
-                        //tags_del.splice(i,1);
+                        tags_del.splice(i,1);
 
                         break;
                     }
@@ -115,7 +121,7 @@
                     {
                      //  $(tags_normal[i]).data('val',0); 
                          selected.push(tags_auto[i]); //добавляем в удаленные 
-                        //tags_auto_del.splice(i,1); // удаляем из нормальных от позиции i один элемент
+                        tags_auto_del.splice(i,1); // удаляем из нормальных от позиции i один элемент
 
                         break;
                     }
