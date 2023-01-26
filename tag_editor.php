@@ -120,10 +120,10 @@
                     if(tags_del[i]== $(this).data('str'))
                     {
                       // $(tags_del[i]).data('val',1);
-                      
-                        selected.push(tags_normal[i]);
+                     
+                         selected.push(tags_del[i]);
                         tags_del.splice(i,1);
-
+                      
                         break;
                     }
                       if(tags_auto_del[i] == $(this).data('str')) // ищем к какому объекту в массиве принадлежит жмакнутый черт по data str
