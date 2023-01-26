@@ -59,7 +59,7 @@
     update_tags();
   });
   
-  $('.normal_tags').on("click",".tags_button .solo_tag",function(){
+  $('.normal_tags').on("click",".solo_tag",function(){
       console.log('1');
 
       var tag_name = $(this).text();
@@ -103,19 +103,19 @@
     $(".normal_tags").html("");
     for(var i = 0; i < tags_normal.length;i++)
     {
-      $("#norm_tags").append('<label class="tags_button"><span class = "solo_tag" style="font-size:40px;">'+tags_normal[i]+'</span></label>');
+      $("#norm_tags").append('<span class = "solo_tag" style="font-size:40px;">'+tags_normal[i]+'</span>');
     }
     for(var i = 0; i < tags_del.length;i++)
     {
-     $("#del_tags").append('<label class="tags_button"><span class = "solo_tag" style="font-size:40px;color: #CD5C5C;">'+tags_del[i]+'</span></label>');
+     $("#del_tags").append('<span class = "solo_tag" style="font-size:40px;color: #CD5C5C;">'+tags_del[i]+'</span>');
     }
     for(var i = 0; i < tags_auto.length;i++)
     {
-     $("#tags_auto").append('<label class="tags_button"><span class = "solo_tag" style="font-size:40px;color: #2c75ff;">'+tags_auto[i]+'</span></label>');
+     $("#tags_auto").append('<span class = "solo_tag" style="font-size:40px;color: #2c75ff;">'+tags_auto[i]+'</span>');
     }
      for(var i = 0; i < tags_auto_del.length;i++)
     {
-     $("#tags_auto_del").append('<label class="tags_button"><span class = "solo_tag" style="font-size:40px;color: #CD5C5C;">'+tags_auto_del[i]+'</span></label>');
+     $("#tags_auto_del").append('<span class = "solo_tag" style="font-size:40px;color: #CD5C5C;">'+tags_auto_del[i]+'</span>');
     }
   }
   catch
