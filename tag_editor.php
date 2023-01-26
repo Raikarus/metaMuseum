@@ -89,8 +89,6 @@
         selected_auto.push(tags_auto_del[index]);
         tags_auto_del.splice(index,1);
       }
-
-      save_tags();
     });
  });
     
@@ -151,16 +149,16 @@
 
  }
 
-  function save_tags()
-  {
-      var responce_str;
-      for(var i = 0; i < tags_normal.length;i++)
-        responce_str += tags_normal[i]+"|1,"; 
+  // function save_tags()
+  // {
+  //     var responce_str;
+  //     for(var i = 0; i < tags_normal.length;i++)
+  //       responce_str += tags_normal[i]+"|1,"; 
 
-       for(var i = 0; i < tags_del.length;i++)
-        responce_str += tags_del[i]+"|11,"; 
-      console.log(responce_str);
-  }
+  //      for(var i = 0; i < tags_del.length;i++)
+  //       responce_str += tags_del[i]+"|11,"; 
+  //     console.log(responce_str);
+  // }
        
 </script>
 <title>Главная</title>
