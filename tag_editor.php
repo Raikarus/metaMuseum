@@ -84,12 +84,19 @@
          $('#replace_button').click(function(){
             for(var i = 0; i < selected.length;i++)
             {
-                
-                     tags_del.push(selected[i]);
+                     
+                     tags_auto.push(selected[i]);
                
             }
-            
             selected = [];
+            for(var i = 0; i < selected_auto.length;i++)
+            {
+                     
+                     tags_normal.push(selected_auto[i]);
+               
+            }
+            selected = [];
+
             update_tags();
 
         });
