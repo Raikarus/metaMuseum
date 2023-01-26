@@ -65,10 +65,8 @@
         $('#del_button').click(function(){
             for(var i = 0; i < selected.length;i++)
             {
-                if(tags_del.indexOf(selected[i]) == -1)
-                {
+                
                      tags_del.push(selected[i]);
-                }
                
             }
             
@@ -94,6 +92,7 @@
                     {
                      //  $(tags_normal[i]).data('val',0); 
                         //tags_del.push(tags_normal[i]); //добавляем в удаленные 
+
                         selected.push(tags_normal[i]);
                         tags_normal.splice(i,1); // удаляем из нормальных от позиции i один элемент
 
@@ -121,7 +120,8 @@
                     if(tags_del[i]== $(this).data('str'))
                     {
                       // $(tags_del[i]).data('val',1);
-                        selected.push(tags_auto[i]);
+                      
+                        selected.push(tags_normal[i]);
                         tags_del.splice(i,1);
 
                         break;
