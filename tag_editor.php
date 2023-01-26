@@ -153,6 +153,7 @@
                         break;
                     }
                   }
+                   console.log(selected_auto);
                    console.log("1");
                //  $(this).data('val',0);
                //update_tags();
