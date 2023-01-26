@@ -47,7 +47,7 @@ function update_bd()
         $res = pg_query($cn,$query);
       }
       for ($i=0; $i < count($selected_right_up)-1; $i++) { 
-        $query = "UPDATE kwords SET status=11 WHERE kword_name='$selected_right_up[$i]'";
+        $query = "UPDATE kwords SET status=10 WHERE kword_name='$selected_right_up[$i]'";
         echo "ЗАПРОСИК $query";
         $res = pg_query($cn,$query);
       }
