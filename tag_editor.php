@@ -67,14 +67,14 @@
         var index = tags_normal.indexOf($(this).data('str'));
         if(index >= 0)
         {
-          selected.push(tags_normal[i]);
-          tags_normal.splice(i,1);
+          selected.push(tags_normal[index]);
+          tags_normal.splice(index,1);
         }
         var index = tags_auto.indexOf($(this).data('str'));
         if(index >= 0)
         {
-          selected_auto.push(tags_auto[i]);
-          tags_auto.splice(i,1);
+          selected_auto.push(tags_auto[index]);
+          tags_auto.splice(index,1);
         }
       }
       else
@@ -82,14 +82,14 @@
         var index = tags_del.indexOf($(this).data('str'));
         if(index >= 0)
         {
-          selected.push(tags_del[i]);
-          tags_del.splice(i,1);
+          selected.push(tags_del[index]);
+          tags_del.splice(index,1);
         }
         var index = tags_auto_del.indexOf($(this).data('str'));
         if(index >= 0)
         {
-          selected_auto.push(tags_auto_del[i]);
-          tags_auto_del.splice(i,1);
+          selected_auto.push(tags_auto_del[index]);
+          tags_auto_del.splice(index,1);
         }
       }
       update_tags();
