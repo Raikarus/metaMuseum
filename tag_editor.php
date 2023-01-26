@@ -59,39 +59,35 @@
     update_tags();
   });
   
-  $('.normal_tags').on("click",".tags_button .transparent_check_box",function(){
-      var clickBtnValue = $(this).is(":checked");
-      var tag_name = $(this).closest('.tags_button').children('.solo_tag').text();
-      if(clickBtnValue=='0')
+  $('.normal_tags').on("click",".tags_button solo_tag",function(){
+
+      var tag_name = $(this).text();
+
+      var index = tags_normal.indexOf(tag_name);
+      if(index >= 0)
       {
-        var index = tags_normal.indexOf(tag_name);
-        if(index >= 0)
-        {
-          selected.push(tags_normal[index]);
-          tags_normal.splice(index,1);
-        }
-        var index = tags_auto.indexOf(tag_name);
-        if(index >= 0)
-        {
-          selected_auto.push(tags_auto[index]);
-          tags_auto.splice(index,1);
-        }
+        selected.push(tags_normal[index]);
+        tags_normal.splice(index,1);
       }
-      else
+      var index = tags_auto.indexOf(tag_name);
+      if(index >= 0)
       {
-        var index = tags_del.indexOf(tag_name);
-        if(index >= 0)
-        {
-          selected.push(tags_del[index]);
-          tags_del.splice(index,1);
-        }
-        var index = tags_auto_del.indexOf(tag_name);
-        if(index >= 0)
-        {
-          selected_auto.push(tags_auto_del[index]);
-          tags_auto_del.splice(index,1);
-        }
+        selected_auto.push(tags_auto[index]);
+        tags_auto.splice(index,1);
       }
+      var index = tags_del.indexOf(tag_name);
+      if(index >= 0)
+      {
+        selected.push(tags_del[index]);
+        tags_del.splice(index,1);
+      }
+      var index = tags_auto_del.indexOf(tag_name);
+      if(index >= 0)
+      {
+        selected_auto.push(tags_auto_del[index]);
+        tags_auto_del.splice(index,1);
+      }
+
       update_tags();
       save_tags();
     });
@@ -106,19 +102,19 @@
     $(".normal_tags").html("");
     for(var i = 0; i < tags_normal.length;i++)
     {
-      $("#norm_tags").append('<label class="tags_button" data-val = "1"><input type="checkbox" class="transparent_check_box" checked><span class = "solo_tag" style="font-size:40px;">'+tags_normal[i]+'</span></label>');
+      $("#norm_tags").append('<label class="tags_button" data-val = "1"><span class = "solo_tag" style="font-size:40px;">'+tags_normal[i]+'</span></label>');
     }
     for(var i = 0; i < tags_del.length;i++)
     {
-     $("#del_tags").append('<label class="tags_button" data-val = "0"><input type="checkbox" class="transparent_check_box"><span class = "solo_tag" style="font-size:40px;color: #CD5C5C;">'+tags_del[i]+'</span></label>');
+     $("#del_tags").append('<label class="tags_button" data-val = "0"><span class = "solo_tag" style="font-size:40px;color: #CD5C5C;">'+tags_del[i]+'</span></label>');
     }
     for(var i = 0; i < tags_auto.length;i++)
     {
-     $("#tags_auto").append('<label class="tags_button" data-val = "0"><input type="checkbox" class="transparent_check_box" checked><span class = "solo_tag" style="font-size:40px;color: #2c75ff;">'+tags_auto[i]+'</span></label>');
+     $("#tags_auto").append('<label class="tags_button" data-val = "0"><span class = "solo_tag" style="font-size:40px;color: #2c75ff;">'+tags_auto[i]+'</span></label>');
     }
      for(var i = 0; i < tags_auto_del.length;i++)
     {
-     $("#tags_auto_del").append('<label class="tags_button" data-val = "0"><input type="checkbox" class="transparent_check_box"><span class = "solo_tag" style="font-size:40px;color: #CD5C5C;">'+tags_auto_del[i]+'</span></label>');
+     $("#tags_auto_del").append('<label class="tags_button" data-val = "0"><span class = "solo_tag" style="font-size:40px;color: #CD5C5C;">'+tags_auto_del[i]+'</span></label>');
     }
   }
   catch
