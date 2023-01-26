@@ -168,12 +168,12 @@
               {
                 console.log("oh no CRINGE");
               }
-                $('.transparent_check_box').each(function(){
+           /*     $('.transparent_check_box').each(function(){
                  if(selected.indexOf($(this).data('str')) != -1)
                         {
                            $(this).html('<input type="checkbox" name = "transparent_check_box" class="transparent_check_box" data-str = '+tags_auto_del[i]+' ><span class = "cloud_tag" style="font-size:40 ;color: #CD5C5C;">'+tags_auto_del[i]+'</span></label>');
                             
-                        }});
+                        }});*/
               
 
              
@@ -291,7 +291,7 @@
                </div>
                <div class = "tags_group" >
                 <div style="width: 100%; height: 90%;"> </div>
-                <div style="width: 100%; height: 10%;display: flex;justify-content: center;"> <button> save</button> <button> delete</button> <button>replace</button> <button>undelete</button></div>
+                <div style="width: 100%; height: 10%;display: flex;justify-content: center;"> <button id ="save_button"> save</button> <button id ="del_button"> delete</button> <button id ="replace_button">replace</button> <button id ="undelete_button">undelete</button></div>
 
                </div>
                <div class = "combo_tags">
