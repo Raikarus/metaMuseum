@@ -25,12 +25,22 @@
   
     $('#del_button').click(function(){
         for(var i = 0; i < selected.length;i++)
+        {
           tags_del.push(selected[i]);
+          var index = tags_normal.indexOf(selected[i]);
+          if(index >= 0)
+            tags_normal.splice(index,1);
+
+        }
         selected = [];
 
         for(var i = 0; i < selected_auto.length;i++)
+        {
           tags_auto_del.push(selected_auto[i]);
-
+          var index = tags_auto.indexOf(selected_auto[i]);
+          if(index>=0)
+            tags_auto.splice(index,1);
+        }
         selected_auto = [];
         update_tags();
     });
@@ -47,7 +57,7 @@
     update_tags();
   });
 
-  $('#undelete_button').click(function(){
+  $('#undel_button').click(function(){
     for(var i = 0; i < selected.length;i++)
       tags_normal.push(selected[i]);       
     selected = [];
@@ -60,8 +70,6 @@
   });
   
   $('.combo_tags').on("click","div .solo_tag",function(){
-      console.log('1');
-
       var tag_name = $(this).text();
 
       var index = tags_normal.indexOf(tag_name);
@@ -69,25 +77,28 @@
       {
         selected.push(tags_normal[index]);
         $(this).css('color','red');
-        //tags_normal.splice(index,1);
+        
       }
-      var index = tags_auto.indexOf(tag_name);
+      index = tags_auto.indexOf(tag_name);
       if(index >= 0)
       {
         selected_auto.push(tags_auto[index]);
-        tags_auto.splice(index,1);
+        $(this).css('color','red');
+        //tags_auto.splice(index,1);
       }
-      var index = tags_del.indexOf(tag_name);
+      index = tags_del.indexOf(tag_name);
       if(index >= 0)
       {
         selected.push(tags_del[index]);
-        tags_del.splice(index,1);
+        $(this).css('color','red');
+        //tags_del.splice(index,1);
       }
-      var index = tags_auto_del.indexOf(tag_name);
+      index = tags_auto_del.indexOf(tag_name);
       if(index >= 0)
       {
         selected_auto.push(tags_auto_del[index]);
-        tags_auto_del.splice(index,1);
+        $(this).css('color','red');
+        //tags_auto_del.splice(index,1);
       }
     });
  });
@@ -199,7 +210,7 @@
                   <button id ="save_button"> save</button>
                   <button id ="del_button"> delete</button>
                   <button id ="replace_button">replace</button>
-                  <button id ="undelete_button">undelete</button></div>
+                  <button id ="undel_button">undelete</button></div>
                </div>
                <div class = "combo_tags">
                   <div id = "norm_tags">                </div>
