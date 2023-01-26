@@ -46,29 +46,49 @@
         update_tags();
     });
 
-  //  $('#replace_button').click(function(){
-  //   for(var i = 0; i < selected.length;i++)
-  //     tags_right_up.push(selected[i]);
-  //   selected = [];
+   $('#replace_button').click(function(){
+    for(var i = 0; i < selected_left_up.length;i++)
+    {
+      tags_right_up.push(selected_left_up[i]);
+      var index = tags_left_up.indexOf(selected_left_up[i]);
+      if(index >= 0)
+        tags_left_up.splice(index,1);
+    }
+    selected_left_up = [];
 
-  //   for(var i = 0; i < selected_auto.length;i++)
-  //     tags_left_up.push(selected_auto[i]);
-  //   selected_auto = [];
+    for(var i = 0; i < selected_right_up.length;i++)
+    {
+      tags_left_up.push(selected_right_up[i]);
+      var index = tags_right_up.indexOf(selected_right_up[i]);
+      if(index >= 0)
+        tags_right_up.splice(index,1);
+    }
+    selected_right_up = [];
 
-  //   update_tags();
-  // });
+    update_tags();
+  });
 
-  // $('#undel_button').click(function(){
-  //   for(var i = 0; i < selected.length;i++)
-  //     tags_left_up.push(selected[i]);       
-  //   selected = [];
+  $('#undel_button').click(function(){
+    for(var i = 0; i < selected_left_bot.length;i++)
+    {
+      tags_left_up.push(selected_left_bot[i]);
+      var index = tags_left_bot.indexOf(seleced_left_bot[i]);
+      if(index >= 0)
+        tags_left_bot.splice(index,1);
+    }
+    selected_left_bot = [];
 
-  //   for(var i = 0; i < selected_auto.length;i++)
-  //     tags_right_up.push(selected_auto[i]);       
-  //   selected_auto = [];
+    for(var i = 0; i < selected_right_bot.length;i++)
+    {
+      tags_right_up.push(selected_right_bot[i]);
+      var index = tags_right_bot.indexOf(selected_left_bot);
+      if(index >= 0)
+        tags_right_bot.splice(index,1);
+    }
+    selected_right_bot = [];
 
-  //   update_tags();
-  // });
+    update_tags();
+  });
   
   $('.combo_tags').on("click","div .solo_tag",function(){
     var tag_name = $(this).text();
