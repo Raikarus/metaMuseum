@@ -169,11 +169,11 @@
                 console.log("oh no CRINGE");
               }
                 $('.transparent_check_box').each(function(){
-                 if(selected.IndexOf($(this).data('str')) != -1)
+                 if(selected.indexOf($(this).data('str')) != -1)
                         {
                            $(this).css('color','red !important');
                             
-                        }})
+                        }});
               
 
              
