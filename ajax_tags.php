@@ -1,5 +1,4 @@
 <?php
-echo "123123132131";
 if (isset($_POST['action'])) {
   switch ($_POST['action']) {
     case 'load_tags':
@@ -33,7 +32,6 @@ function load_tags()
 
 function update_bd()
 {
-  echo "!@!#!@#@!@#";
   $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
   $selected_left_up = explode("|",$_POST['selected_left_up']);
   $selected_left_bot = explode("|",$_POST['selected_left_up']);
@@ -43,12 +41,12 @@ function update_bd()
   echo $mod;
   switch ($mod) {
     case 'delete':
-      for ($i=0; $i < $selected_left_up; $i++) { 
+      for ($i=0; $i < count($selected_left_up)-1; $i++) { 
         $query = "UPDATE kwords SET status=11 WHERE kword_name='$selected_left_up[$i]'";
         echo "ЗАПРОСИК $query";
         $res = pg_query($cn,$query);
       }
-      for ($i=0; $i < $selected_right_up; $i++) { 
+      for ($i=0; $i < count($selected_right_up)-1; $i++) { 
         $query = "UPDATE kwords SET status=11 WHERE kword_name='$selected_right_up[$i]'";
         echo "ЗАПРОСИК $query";
         $res = pg_query($cn,$query);
