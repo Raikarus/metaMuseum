@@ -39,6 +39,7 @@ function update_bd()
   $selected_right_up = explode("|",$_POST['selected_right_up']);
   $selected_right_bot = explode("|",$_POST['selected_right_bot']);
   $mod = $_POST['mod'];
+  echo $mod;
   switch ($mod) {
     case 'delete':
       for ($i=0; $i < $selected_left_up; $i++) { 
