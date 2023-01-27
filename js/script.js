@@ -754,8 +754,8 @@ $(document).ready(function(){
       var ajaxurl = "ajax.php";
       data = {'action':'copy_in_local','sel_id':active_podborka};
       $.post(ajaxurl,data).done(function(responce){
-        String(responce).splice(-1,1);
         podborka = responce.split("|");
+        podborka.splice(-1,1);
         selected_in_podborka = [];
         pre_podborka = [];
       });
