@@ -201,27 +201,6 @@
   }
        
 </script>
-<title>Главная</title>
-</head>
-<body>
-
-<header>
-      <div class = "container">
-         <div class = "logo_container">
-            <a class = "logo" href = "/?form=home">
-               DATABASE
-            </a>
-              <label class="switch">
-              <input type="checkbox">
-              
-            </label>
-         </div>
-         <ul class = username_exit>
-            <li class = "usit_elem username">Username</li>
-            <li class = "usit_elem exit"><a class = "exit" href = "#">Exit</a></li>
-         </ul>
-      </div>
-   </header>
 
 <div class = "main_tag">
   <div class = "main_right_version">
