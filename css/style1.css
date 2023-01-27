@@ -98,6 +98,7 @@
 
 }
 .combo_tags div {
+   word-break:break-word;
    height: 50%;
    width: 50%;
    overflow: hidden;
