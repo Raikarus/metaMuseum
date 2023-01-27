@@ -17,6 +17,9 @@ if (isset($_POST['action'])) {
             case 'load_cross_kwords':
                 load_cross_kwords();
                 break;
+            case 'link_keyword':
+                Link_Keyword();
+                break;
         }
     }
 
@@ -34,7 +37,13 @@ function load_podborka()
 
 function load_download()
 {
-    echo '<img src="Шефердия.png" alt="s" width="150%" height="150%"><span class = "cloud_tag" style="font-size: 40 me;">Загрузка</span>';
+    echo '
+    <form method="post" id="download_form" enctype="multipart/form-data">
+  <input type="password" placeholder="пароль" name="passDownload">
+    <input id="img" name="imgfile[]" type="file" multiple>
+  <input name="Download" value="Download" type="submit">
+</form>
+    ';
 }
 
 function get_podborka_value()
@@ -79,7 +88,8 @@ function load_cross_kwords()
     $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
     $pic_id_from_local_podborka = explode("|", $_POST['img_string']);
     if(count($pic_id_from_local_podborka)-1>=1)
-    {
+    {   
+        //Возможно это можно свернуть, но я пока не придумал как
         if(count($pic_id_from_local_podborka)-1==1)
         {
             //ЕСЛИ ВСЕГО ОДНА КАРТИНКА ВЫБРАНА
@@ -100,7 +110,7 @@ function load_cross_kwords()
                 {
                     $kword_name = $row->kword_name;
                     //СКОПИРОВАТЬ СТИЛИ ИЛИ ДОБАВИТЬ ДУБЛИКАТ СВОИХ
-                    echo "<li>$kword_name</li>";    
+                    echo "<li class = 'key_words' data-tag='$kword_name' data-status='automatic'>$kword_name</li>";    
                 }
             }
             else
@@ -135,7 +145,7 @@ function load_cross_kwords()
                 {
                     $kword_name = $row->kword_name;
                     //СКОПИРОВАТЬ СТИЛИ ИЛИ ДОБАВИТЬ ДУБЛИКАТ СВОИХ
-                    echo "<li>$kword_name</li>";
+                    echo "<li class = 'key_words' data-tag='$kword_name' data-status='automatic'>$kword_name</li>";
                 }
             }
             else
@@ -151,6 +161,92 @@ function load_cross_kwords()
         echo "<b class='warning'>Ничего не выбрано</b>";
     }
     //$query = "SELECT tag_id_num FROM pictags WHERE (tag_id=10)"
+}
+
+function Link_Keyword(){
+    //Добавить удаление через -=
+    $img_names = explode("|",$_POST['img_names']);
+    $new_kwords = explode("|",$_POST['new_kwords']);
+    array_pop($new_kwords);
+    $delete_kwords = explode("|",$_POST['delete_kwords']);
+    array_pop($delete_kwords);
+    $auto_kwords = explode("|",$_POST['auto_kwords']);
+    array_pop($auto_kwords);
+    print_r($auto_kwords);
+    $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+    for ($i=0; $i < count($img_names)-1; $i++) { 
+        $img_name = addcslashes($img_names[$i]," ");
+        $shl = 'exiftool -TagsFromFile img/'.$img_name.' img/file.xmp';
+        $res = shell_exec($shl);
+        echo "<pre>$res</pre>";
+
+        $shl = 'exiftool -XMP=img/'.$img_name;
+        $res = shell_exec($shl);
+        echo "<br><pre>$res</pre>";
+
+        $shl = 'exiftool -TagsFromFile img/file.xmp img/'.$img_name;
+        $res = shell_exec($shl);
+        echo "<br><pre>$res</pre>";
+
+        
+
+        $pic_id = substr($img_name,0,strpos($img_name,'.'));
+
+        for($j=0; $j < count($auto_kwords);$j++)
+        {
+            if($delete_kwords[$j]==1)
+            {
+                $shl = 'exiftool -XMP-dc:subject-="'.$auto_kwords[$j].'" img/'.$img_name;
+                $res = shell_exec($shl);
+                echo "$shl";
+                $query = "SELECT tag_id_num FROM kwords WHERE kword_name='$auto_kwords[$j]'";
+                $res = pg_query($cn,$query);
+                echo "$query";
+                $tag_id_num = pg_fetch_object($res)->tag_id_num;
+                $query = "DELETE FROM pictags WHERE tag_id_num=$tag_id_num AND pic_id=$pic_id";
+                $res = pg_query($cn,$query);
+            }
+        }
+
+        for ($j=0; $j < count($new_kwords); $j++)
+        {
+          $selected_kword = $new_kwords[$j];
+          $query="SELECT tag_id,tag_id_num FROM kwords WHERE kword_name='$selected_kword'";
+          $res = pg_query($cn,$query);
+          echo "ЗАПРОСИК $query<br>";
+          $row=pg_fetch_object($res);
+          $tag_id = $row->tag_id;
+          $tag_id_num = $row->tag_id_num;
+
+          $query = "SELECT pic_id FROM pictags WHERE pic_id=$pic_id AND tag_id_num=$tag_id_num";
+          $res = pg_query($cn,$query);
+          echo "ЗАПРОСИК $query<br>";
+          if(!pg_fetch_object($res))
+          {
+            
+            $shl = 'exiftool -XMP-dc:subject+="'.$selected_kword.'" img/'.$img_name;
+            $res = shell_exec($shl);
+            echo "<br>$shl<pre>$res</pre>";
+
+            $query="INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES (".$pic_id.",".$tag_id.",".$tag_id_num.")";
+            $res = pg_query($cn,$query);
+            echo "ЗАПРОСИК $query<br>";
+            echo $query."<br>";
+            }
+          else
+          {
+            echo "Ключевое слово $selected_kword уже существует<br>";
+          }
+        }
+
+        $shl = 'exiftool -XMP-dc:ALL img/'.$img_name." -b";
+        $res = shell_exec($shl);
+        echo "<br><pre>$res</pre>";
+
+        $shl = 'rm img/file.xmp';
+        $res = shell_exec($shl); 
+    }
+    
 }
 
 ?>

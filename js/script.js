@@ -11,8 +11,12 @@ function flipflop( id ) {
     element.style.display = element.style.display == "none" ? "" : "none";   
 }
 
+//Это для image_tags.php
+var result_tags_auto_pg2 = [];
+var result_tags_pg2 = [];
+var result_tags_delete_pg2 = [];
 
-
+//Это для home.php
 var result_tags = [];
 var result_tags_invers = [];
 var size = '3x2';
@@ -23,6 +27,30 @@ var mod = 'gallery';
 var active_podborka = "-1";
 var form;
 var poisk = [];
+
+//Обновление ключевых слов автоматических+пользователя
+function update_user_kwords()
+{
+  $('.wrap').html("");
+  for(var i = 0; i < result_tags_auto_pg2.length; i++)
+  {
+    $('.wrap').append("<li class='key_words' data-delete='"+result_tags_delete_pg2[i]+"' data-tag='"+result_tags_auto_pg2[i]+"' data-status='automatic'>"+result_tags_auto_pg2[i]+"</li>");  
+  }
+  for(var i = 0; i < result_tags_pg2.length; i++)
+  {
+    var index = result_tags_auto_pg2.indexOf(result_tags_pg2[i]);
+    if(index < 0)
+    {
+      $('.wrap').append("<li class='key_words' data-tag='"+result_tags_pg2[i]+"' data-status='user'>"+result_tags_pg2[i]+"</li>");
+    }
+    else
+    {
+      result_tags_pg2.splice(index,1);
+    }
+  }
+}
+
+//Создание подсказок
 function build_poisk()
 {
   if(form == "home.php")
@@ -151,8 +179,9 @@ function autocomplete(inp, arr) {
  document.addEventListener("click", function (e) {
      closeAllLists(e.target);
  });
- }
+}
 
+//Проверка отрицательных ключевых слов и изменение цвета
 function check_invers() {
   for (var i = 0; i < result_tags.length; i++) {
     e = document.getElementById(result_tags[i]);
@@ -167,6 +196,7 @@ function check_invers() {
   }
 }
 
+//Инвертирование тэга [на нём висит onclick=tag_invers($(this))]
 function tag_invers(e)  {
   if(event.target.tagName == "LI")
   {
@@ -189,6 +219,7 @@ function tag_invers(e)  {
   }
 }
 
+//Обновление страницы (работает только на home.php)
 function load()  {
   var current_page = Number($('#current_page').data('val'));
   var ajaxurl = 'ajax.php';
@@ -229,6 +260,7 @@ function load()  {
   });
 }
 
+//Нажатие на крестик около тэга onclick tag_delete($(this))
 function tag_delete(e)
 {
   var index = result_tags.indexOf($(e).data("tag"));
@@ -255,10 +287,12 @@ $(document).ready(function(){
       }
     });
 
+  //Нажатие на кнопку ADD (добавление тэга или подборки в нижний блок)
   $('#addtag').on("click",function()
   {
     if(form == "home.php")
     {
+      //Добавить работу с выпадающими группами
       elem = $('.kword_solo[data-tag="'+$('#myInput').val()+'"]');
 
       var index = result_tags.indexOf($(elem).data("tag"));
@@ -279,6 +313,40 @@ $(document).ready(function(){
         check_invers();
         load();  
       }
+    } 
+    else if(form == "image_tags.php")
+    {
+      //Добавить работу с выпадающими группами
+      elem = $('.kword_solo[data-tag="'+$('#myInput').val()+'"]');
+      console.log($(elem).data("tag"));
+      var index = result_tags_auto_pg2.indexOf($(elem).data("tag"));
+      if(index<0)
+      {
+        index = result_tags_pg2.indexOf($(elem).data("tag"));
+        //Если тэг уже есть в массиве пользовательских
+        if(index<0)
+        {
+          result_tags_pg2.push($(elem).data("tag"));
+          update_user_kwords();
+        }
+      }
+      // var index = result_tags.indexOf($(elem).data("tag"));
+      // if($(elem).data("tag"))
+      // {
+      //   if (index >= 0) {
+      //     result_tags.splice(index, 1);
+      //     result_tags_invers.splice(index, 1);
+      //   }
+      //   else{
+      //     result_tags.push($(elem).data("tag"));
+      //     result_tags_invers.push(0);
+      //   }
+      //   $(".wrap").html("");
+      //   for (var i = 0; i <=result_tags.length - 1; i++) {
+      //     $(".wrap").append('<li class = "choose_item" id="'+result_tags[i]+'" data-inversed = '+result_tags_invers[i]+' data-index='+i+' onclick="tag_invers($(this))">'+result_tags[i]+'<button class = "tag_button" data-tag = "'+result_tags[i]+'" onclick="tag_delete($(this))">×</button></li>');
+      //   }
+      //   check_invers();
+      // }
     }
   });
 
@@ -303,7 +371,16 @@ $(document).ready(function(){
     }
     else if (form == "image_tags.php")
     {
-
+      var index = result_tags_pg2.indexOf($(this).data("tag"));
+      if(index < 0)
+      {
+        result_tags_pg2.push($(this).data("tag"));
+      }
+      else
+      {
+        result_tags_pg2.splice(index,1);
+      }
+      update_user_kwords();
     }
   });
 
@@ -385,7 +462,7 @@ $(document).ready(function(){
       wrap.style.gridTemplateColumns = "repeat(3, 1fr)";
       wrap.style.gridTemplateRows = "repeat(2, 1fr)";
       limit_of_pages = 6;
-      
+
       size='3x2';
       load();
    });
@@ -414,7 +491,7 @@ $(document).ready(function(){
         else
         {
           pre_podborka.push(pic_id);
-          $(this).css('outline','3px solid red');
+          $(this).css('outline','3px solid rgb(228, 79, 79)');
           $(this).css('outline-offset','-3px');
         }  
       }
@@ -430,7 +507,7 @@ $(document).ready(function(){
       else
       {
         selected_in_podborka.push(pic_id);
-        $(this).css('outline','3px solid red');
+        $(this).css('outline','3px solid rgb(228, 79, 79)');
         $(this).css('outline-offset','-3px');
       }  
     }
@@ -470,7 +547,7 @@ $(document).ready(function(){
         {
           if(mod == "gallery") pre_podborka.push(pic_id);
           else selected_in_podborka.push(pic_id);
-          $(pictures[i]).css('outline','3px solid red');
+          $(pictures[i]).css('outline','3px solid rgb(228, 79, 79)');
           $(pictures[i]).css('outline-offset','-3px'); 
         }
       }  
@@ -633,10 +710,10 @@ $(document).ready(function(){
 // } 
 //   catch(error)
 //   {
-
-
-
-// }
+//      show_kwords();
+//      build_poisk();
+//      load();  
+//    }
   
   $('#set_tag').click(function(){
 

@@ -169,6 +169,62 @@
    background-repeat: no-repeat;
 }
 
+.key_words {
+   list-style: none;
+   height: 25px;
+   border: 1px solid white;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 10px;
+}
+
+.key_words[data-status="user"] {
+   background-color: green;
+}
+
+.key_words[data-status="automatic"]{
+   cursor: pointer;
+}
+
+.warning {
+   position: absolute;
+   top: 20px;
+   left: 20px;
+   z-index: 3;
+   color: rgb(228, 79, 79);
+}
+
+#download_form
+{   
+   margin-left: 30px;
+   margin-top:30px;
+   width:300px;
+   height: 100px;
+   display: flex;
+   justify-content: space-around;
+   flex-direction: column;
+}
+
+#download_form input[type="password"]
+{
+   padding: 5px;
+   font-size:100%;
+   height: 20%;
+   border: 1px solid black;
+   background-color: white;
+   color: #24B47E;
+}
+
+#download_form input[type="submit"]
+{
+   height: 25%;
+   border: 1px solid black;
+   background-color: rgba(255,255,255,0.5);
+   font-weight: 20;
+   color: white;
+}
+
 /*  классы для тегов 
 
 .list_item {
