@@ -83,7 +83,7 @@ function load_cross_kwords()
         if(count($pic_id_from_local_podborka)-1==1)
         {
             //ЕСЛИ ВСЕГО ОДНА КАРТИНКА ВЫБРАНА
-            $query = "SELECT tag_id_num FROM pictags WHERE pic_id=$pic_id_from_local_podborka[0] AND status=1"//tag_id=10";
+            $query = "SELECT tag_id_num FROM pictags WHERE pic_id=$pic_id_from_local_podborka[0] AND status=1";//tag_id=10";
             $res = pg_query($cn,$query);
             if($row = pg_fetch_object($res))
             {
