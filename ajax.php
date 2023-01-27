@@ -399,38 +399,38 @@
           else
           {
              //Если группа есть
-             echo '<li class = "tag_group">
-                      <p class = "group_name">
-                         <input type="checkbox" name = "tags_on" class = tags_checkbox>
-                            <a href = "javascript:flipflop('."'".$gkword_name."'".');">'.$gkword_name.'</a>
-                      </p>
-                      <ul class = "tag_list" id = '.$gkword_name.' style="display: none;">';
+             // echo '<li class = "tag_group">
+             //          <p class = "group_name">
+             //             <input type="checkbox" name = "tags_on" class = tags_checkbox>
+             //                <a href = "javascript:flipflop('."'".$gkword_name."'".');">'.$gkword_name.'</a>
+             //          </p>
+             //          <ul class = "tag_list" id = '.$gkword_name.' style="display: none;">';
 
-             $query = "SELECT tag_id,tag_id_num FROM kwgkw WHERE gkword_id=$gkword_id";
-             $res2 = pg_query($cn,$query);
+             // $query = "SELECT tag_id,tag_id_num FROM kwgkw WHERE gkword_id=$gkword_id";
+             // $res2 = pg_query($cn,$query);
 
-             while($row2=pg_fetch_object($res2))
-             {
-                $tag_id=$row2->tag_id;
-                $tag_id_num=$row2->tag_id_num;
+             // while($row2=pg_fetch_object($res2))
+             // {
+             //    $tag_id=$row2->tag_id;
+             //    $tag_id_num=$row2->tag_id_num;
                 
-                if($tag_id == 10)
-                {
-                   $query = "SELECT kword_name FROM kwords WHERE tag_id_num = $tag_id_num and status = 1";
-                   $res3 = pg_query($cn,$query);
-                   $row3 = pg_fetch_object($res3);
-                   $kword_name = $row3->kword_name;
-                   $query = "SELECT pic_id FROM pictags WHERE tag_id_num=$tag_id_num";
-                   $res3 = pg_query($cn,$query);
-                   $row3 = pg_num_rows($res3);
-                   $query = "SELECT pic_id FROM pictags WHERE tag_id = $tag_id";
-                   $res3 = pg_query($cn,$query);
-                   $total = pg_num_rows($res3);
-                   $font_size = (round(($row3/$total)*100)+10)."px";
-                   echo "<li class='list_item'><a href='#' data-en = 0 data-tag = $kword_name style='font-size:$font_size'>$kword_name ($row3)</a></li>";
-                }
-             }
-             echo '</ul></li>';
+             //    if($tag_id == 10)
+             //    {
+             //       $query = "SELECT kword_name FROM kwords WHERE tag_id_num = $tag_id_num and status = 1";
+             //       $res3 = pg_query($cn,$query);
+             //       $row3 = pg_fetch_object($res3);
+             //       $kword_name = $row3->kword_name;
+             //       $query = "SELECT pic_id FROM pictags WHERE tag_id_num=$tag_id_num";
+             //       $res3 = pg_query($cn,$query);
+             //       $row3 = pg_num_rows($res3);
+             //       $query = "SELECT pic_id FROM pictags WHERE tag_id = $tag_id";
+             //       $res3 = pg_query($cn,$query);
+             //       $total = pg_num_rows($res3);
+             //       $font_size = (round(($row3/$total)*100)+10)."px";
+             //       echo "<li class='list_item'><a href='#' data-en = 0 data-tag = $kword_name style='font-size:$font_size'>$kword_name ($row3)</a></li>";
+             //    }
+             // }
+             // echo '</ul></li>';
           }
        }
     }
