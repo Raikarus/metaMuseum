@@ -312,8 +312,8 @@
         $sel_name = $_POST['name_podborka'];
         $query = "SELECT sel_id FROM selections WHERE sel_name='$sel_name'";
         $res = pg_query($cn,$query);
-
-        if(!pg_fetch_object($res))
+        $sel_id = pg_fetch_object($res)->sel_id;
+        if(!$sel_id)
         {
             $podborka = explode("|", $_POST['podborka']);
             if(count($podborka)>2)
@@ -339,7 +339,30 @@
         }
         else
         {
-            echo "<b style='color:rgb(228, 79, 79)'>Подборка $sel_name уже существует</b>";
+            //echo "<b style='color:rgb(228, 79, 79)'>Подборка $sel_name уже существует</b>";
+            echo "<b style='color:rgb(228, 79, 79)'>Подборка $sel_name перезаписана</b>";
+            $query = "DELETE FROM selpics WHERE sel_id=$sel_id";
+            $podborka = explode("|", $_POST['podborka']);
+            if(count($podborka)>2)
+            {
+                $query = "INSERT INTO selections(sel_name) VALUES('$sel_name')";
+                $res = pg_query($cn,$query);
+
+                $query = "SELECT sel_id FROM selections WHERE sel_name='$sel_name'";
+                $res = pg_query($cn,$query);
+                $sel_id = pg_fetch_object($res)->sel_id;
+
+                for ($i=0; $i < count($podborka)-1; $i++) { 
+                    $pic_id  = $podborka[$i];
+                    $query = "INSERT INTO selpics(sel_id,pic_id) VALUES($sel_id,$pic_id)";
+                    $res = pg_query($cn,$query);
+                }
+                echo "<b style='color:#24B47E'>Подборка $sel_name успешно создана</b>";
+            }
+            else 
+            {
+                echo "<b style='color:rgb(228, 79, 79)'>Для создания подборки необходимо минимум два изображения</b>";
+            }
         }
     }
 
