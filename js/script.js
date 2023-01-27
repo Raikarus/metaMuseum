@@ -623,6 +623,8 @@ $(document).ready(function(){
    $.post(ajaxurl, data).done(function (response) {
     $(".list_of_groups").html(response);
     build_poisk();
+    $('.podborka:not([data-id='+sel_id+'])').css('color','white');
+    $('.podborka[data-id='+sel_id+']').css('color','red');
    });
   }
   
@@ -651,6 +653,8 @@ $(document).ready(function(){
       else
       {
        load();
+        $('.podborka:not([data-id='+sel_id+'])').css('color','white');
+        $('.podborka[data-id='+sel_id+']').css('color','red');
       }
       
     });
