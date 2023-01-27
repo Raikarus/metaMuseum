@@ -343,6 +343,7 @@
             //echo "<b style='color:rgb(228, 79, 79)'>Подборка $sel_name уже существует</b>";
             
             $query = "DELETE FROM selpics WHERE sel_id=$sel_id";
+            $res = pg_query($cn,$query);
             $podborka = explode("|", $_POST['podborka']);
             if(count($podborka)>2)
             {
