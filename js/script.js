@@ -623,8 +623,8 @@ $(document).ready(function(){
    $.post(ajaxurl, data).done(function (response) {
     $(".list_of_groups").html(response);
     build_poisk();
-    $('.podborka:not([data-id='+sel_id+'])').css('color','white');
-    $('.podborka[data-id='+sel_id+']').css('color','red');
+    $('.podborka:not([data-id='+active_podborka+'])').css('color','white');
+    $('.podborka[data-id='+active_podborka+']').css('color','red');
    });
   }
   
@@ -647,16 +647,13 @@ $(document).ready(function(){
     $.post(ajaxurl, data).done(function (response) {
       if(response!="error"){
         $("#wrapping").html(response);
-        $('.podborka:not([data-id='+sel_id+'])').css('color','white');
-        $('.podborka[data-id='+sel_id+']').css('color','red');
       }
       else
       {
        load();
-        $('.podborka:not([data-id='+sel_id+'])').css('color','white');
-        $('.podborka[data-id='+sel_id+']').css('color','red');
       }
-      
+      $('.podborka:not([data-id='+active_podborka+'])').css('color','white');
+      $('.podborka[data-id='+active_podborka+']').css('color','red');
     });
   });
 
