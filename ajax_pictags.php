@@ -83,17 +83,18 @@ function load_cross_kwords()
         if(count($pic_id_from_local_podborka)-1==1)
         {
             //ЕСЛИ ВСЕГО ОДНА КАРТИНКА ВЫБРАНА
-            $query = "SELECT tag_id_num FROM pictags WHERE pic_id=$pic_id_from_local_podborka[0] AND status=1";//tag_id=10";
+            $query = "SELECT tag_id_num FROM pictags WHERE pic_id=$pic_id_from_local_podborka[0]";//tag_id=10";
             $res = pg_query($cn,$query);
             if($row = pg_fetch_object($res))
             {
                 $tag_id_num = $row->tag_id_num;
-                $query = "SELECT kword_name FROM kwords WHERE tag_id_num=$tag_id_num";
+                $query = "SELECT kword_name,status FROM kwords WHERE status=1  AND (tag_id_num=$tag_id_num";
                 while($row = pg_fetch_object($res))
                 {
                     $tag_id_num = $row->tag_id_num;
                     $query .= " OR tag_id_num=$tag_id_num";
                 }
+                $query .= ")";
                 $res = pg_query($cn,$query);
                 while($row = pg_fetch_object($res))
                 {
@@ -121,12 +122,13 @@ function load_cross_kwords()
             if($row = pg_fetch_object($res))
             {
                 $tag_id_num = $row->tag_id_num;
-                $query = "SELECT kword_name FROM kwords WHERE tag_id_num=$tag_id_num";
+                $query = "SELECT kword_name FROM kwords WHERE status=1 AND (tag_id_num=$tag_id_num";
                 while($row = pg_fetch_object($res))
                 {
                     $tag_id_num = $row->tag_id_num;
                     $query .= " OR tag_id_num=$tag_id_num";
                 }
+                $query .= ")";
                 $res = pg_query($cn,$query);
                 
                 while($row = pg_fetch_object($res))
