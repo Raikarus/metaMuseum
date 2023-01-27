@@ -339,6 +339,7 @@
         }
         else
         {
+            //Ужать это можно, придумать как
             //echo "<b style='color:rgb(228, 79, 79)'>Подборка $sel_name уже существует</b>";
             echo "<b style='color:rgb(228, 79, 79)'>Подборка $sel_name перезаписана</b>";
             $query = "DELETE FROM selpics WHERE sel_id=$sel_id";
