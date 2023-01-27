@@ -215,7 +215,7 @@
   <div class = "main_right_version">
      <div class = "high_main">
            <div class = "searching">
-              <form class = "searching_form" action="?form=editor">
+              <form class = "searching_form" action="/?form=editor">
                  <input type = "text"   id="search_str" class = "search" placeholder="Add kwords!">
                  <input type = "submit" id="add" class = "submit" value="Add">
               </form>
