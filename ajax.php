@@ -375,7 +375,7 @@
                 $query = "SELECT status FROM kwords WHERE tag_id_num=$tag_id_num";
                 $res = pg_query($cn,$query);
                 $status = pg_fetch_object($res)->status;
-                if($tag_id == 10 && $status==1)
+                if($status==1) // возможна проверка на && tag_id == 10
                 {
                    $query = "SELECT kword_name FROM kwords WHERE tag_id_num=$tag_id_num";
                    $res3 = pg_query($cn,$query);

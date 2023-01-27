@@ -10,6 +10,9 @@ if (isset($_POST['action'])) {
     case 'update_bd':
       update_bd();
       break;
+    case 'add_kword':
+      add_kword();
+      break;
   }
 }
 
@@ -79,6 +82,32 @@ function update_bd()
     default:
       echo "err";
       break;
+  }
+}
+
+function add_kword()
+{
+  $kword_name = $_POST['kword_name'];
+  $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+  $query = "SELECT tag_id_num FROM kwords WHERE tag_id=10 AND kword_name='$kword_name'";
+  $res = pg_query($cn,$query);
+  $row = pg_fetch_object($res);
+  if(!$row->tag_id_num)
+  {
+    $query = "INSERT INTO kwords(tag_id,kword_name,status) VALUES(10,'$kword_name',1)";
+    $res = pg_query($cn,$query);
+
+    $query = "SELECT tag_id_num FROM kwords WHERE tag_id=10 AND kword_name='$kword_name'";
+    $res = pg_query($cn,$query);
+    $row = pg_fetch_object($res);
+    $tag_id_num = $row->tag_id_num;
+    $query = "INSERT INTO kwgkw(gkword_id,tag_id,tag_id_num) VALUES(0,10,$tag_id_num)";
+    $res = pg_query($cn,$query);
+    echo "ok";
+  }
+  else
+  {
+    echo "Тэг $kword_name уже существует <br>";
   }
 }
 

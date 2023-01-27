@@ -122,6 +122,15 @@
       $(this).css('color','white');
     }
   });
+
+  $('.submit').click(function(){
+    var ajaxurl = 'ajax_tags.php';
+    var kword = $('#search_str').val();
+    data = {'action':'add_kword','kword':kword}
+    $.post(ajaxurl,data).done(function(responce){
+      if(responce!="ok") alert(responce)
+    });
+  });
  });
     
 
@@ -207,8 +216,8 @@
      <div class = "high_main">
            <div class = "searching">
               <form class = "searching_form">
-                 <input type = "text" name = "search" class = "search" placeholder="Search tags!">
-                 <input type = "submit" name = "submit" class = "submit" value="ADD">
+                 <input type = "text"   id="search_str" class = "search" placeholder="Add kwords!">
+                 <input type = "submit" id="add" class = "submit" value="Add">
               </form>
            </div>
            <div class = "tags_group" >
