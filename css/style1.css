@@ -102,7 +102,7 @@
    overflow: auto;
    height: 50%;
    width: 50%;
-   overflow: hidden;
+   /*overflow: hidden;*/
    float: left;
    box-sizing: border-box;
    border: 1px solid white;
