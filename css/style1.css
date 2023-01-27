@@ -99,6 +99,7 @@
 }
 .combo_tags div {
    word-break:break-word;
+   overflow: auto;
    height: 50%;
    width: 50%;
    overflow: hidden;
