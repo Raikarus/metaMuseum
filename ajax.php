@@ -47,6 +47,9 @@
             case 'get_form_value':
                 get_form_value();
                 break;
+            case 'copy_in_local':
+                copy_in_local();
+                break;
         }
     }
 
@@ -260,7 +263,7 @@
                     break;
             }
             $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
-            if($_POST['active_podborka']=='-1')
+            if($_POST['sel_id']=='-1')
             {
                 $podborka = explode("|", $_POST['podborka']);
                 $selected_in_podborka = explode("|",$_POST['selected_in_podborka']);
@@ -513,4 +516,18 @@
         echo $_SESSION['form'];
     }
 
+    function copy_in_local()
+    {
+        $sel_id = $_POST['sel_id'];
+        $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+        $query = "SELECT pic_id FROM selpics WHERE sel_id=$sel_id";
+        $res = pg_query($cn,$query);
+        $responce = "";
+        while($row = pg_fetch_object($res))
+        {
+            $pic_id = $row->pic_id;
+            $responce .= $pic_id."|";
+        }
+        echo $responce;
+    }
 ?>

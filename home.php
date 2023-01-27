@@ -56,19 +56,20 @@
    </div>
    <div class = "instruments" id = "gal_ins">
       <ul class = "panel">
-         <li><input id = "add_to_podborka" type = "submit" name = "funtional" value="Добавить в подборку"></li>
-         <li><input class = "select_all" type = "submit" name = "funtional" value="Выделить всё"></li>
-         <li><input class = "unselect_all" type = "submit" name = "funtional" value="Снять выделение"></li>
+         <li><input id = "add_to_podborka" type = "submit" name = "functional" value="Добавить в подборку"></li>
+         <li><input class = "select_all" type = "submit" name = "functional" value="Выделить всё"></li>
+         <li><input class = "unselect_all" type = "submit" name = "functional" value="Снять выделение"></li>
          <!-- <li><input type = "submit" name = "funtional" value="Отменить"></li> -->
       </ul> 
    </div>
    <div class = "instruments" id = "fin_ins">
       <ul class = "panel">
-         <li><input type = "submit" name = "funtional" value="Скачать"></li>
-         <li><input id = "save_podborka" type = "submit" name = "funtional" value="Сохранить в подборку"></li>
-         <li><input id="delete_from_podborka" type = "submit" name = "funtional" value="Удалить из подборки"></li>
-         <li><input class = "select_all" type = "submit" name = "funtional" value="Выделить всё"></li>
-         <li><input class = "unselect_all" type = "submit" name = "funtional" value="Снять выделение"></li>
+         <li><input type = "submit" name = "functional" value="Скачать"></li>
+         <li><input id = "save_podborka" type = "submit" name = "functional" value="Сохранить в подборку"></li>
+         <li><input id="delete_from_podborka" type = "submit" name = "functional" value="Удалить из подборки"></li>
+         <li><input class = "select_all" type = "submit" name = "functional" value="Выделить всё"></li>
+         <li><input class = "unselect_all" type = "submit" name = "functional" value="Снять выделение"></li>
+         <li><input id = "copy_in_local" type = "submit" name = "functional" value="Скопировать в локальную"></li>
       </ul>        
    </div>
    <div class = "switch_size">
