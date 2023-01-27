@@ -1,15 +1,6 @@
 <?php
 
 ?>
-<!DOCTYPE HTML>
-<html>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="Content-Type" content="text/html">
-<link rel="stylesheet" href="css/style_header.css"  type="text/css">
-<link rel="stylesheet" href="css/style1.css"  type="text/css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-
 <script>
   let tags_with_status = [];
   let tags_left_up = [];
@@ -233,31 +224,28 @@
    </header>
 
 <div class = "main_tag">
-   
-      <div class = "main_right_version">
-         <div class = "high_main">
-               <div class = "searching">
-                  <form class = "searching_form">
-                     <input type = "text" name = "search" class = "search" placeholder="Search tags!">
-                     <input type = "submit" name = "submit" class = "submit" value="ADD">
-                  </form>
-               </div>
-               <div class = "tags_group" >
-                <div style="width: 100%; height: 90%;"> </div>
-                <div style="width: 100%; height: 10%;display: flex;justify-content: center;">
-                  <button id ="del_button"> delete</button>
-                  <button id ="replace_button">replace</button>
-                  <button id ="undel_button">undelete</button></div>
-               </div>
-               <div class = "combo_tags">
-                  <div id = "tags_left_up">                </div>
-                  <div id = "tags_right_up">                </div>
-                  <div id = "tags_left_bot">           </div>
-                  <div id = "tags_right_bot">                </div>
-               </div>
-               
-         </div>      
-      </div>
-   </div>
-</body>
-</html>
+  <div class = "main_right_version">
+     <div class = "high_main">
+           <div class = "searching">
+              <form class = "searching_form">
+                 <input type = "text" name = "search" class = "search" placeholder="Search tags!">
+                 <input type = "submit" name = "submit" class = "submit" value="ADD">
+              </form>
+           </div>
+           <div class = "tags_group" >
+            <div style="width: 100%; height: 90%;"> </div>
+            <div style="width: 100%; height: 10%;display: flex;justify-content: center;">
+              <button id ="del_button"> delete</button>
+              <button id ="replace_button">replace</button>
+              <button id ="undel_button">undelete</button></div>
+           </div>
+           <div class = "combo_tags">
+              <div id = "tags_left_up">                </div>
+              <div id = "tags_right_up">                </div>
+              <div id = "tags_left_bot">           </div>
+              <div id = "tags_right_bot">                </div>
+           </div>
+           
+     </div>      
+  </div>
+ </div>

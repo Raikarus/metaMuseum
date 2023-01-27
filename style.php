@@ -13,6 +13,9 @@
          session_destroy();
          header('location:/');
          break;
+      case 'editor':
+         $load_page = 'tag_editor.php';
+         break;
       default:
          $load_page = "home.php";
          break;
@@ -36,6 +39,10 @@ switch ($load_page) {
       echo '<link rel="stylesheet" href="css/style_home_image_tags.css"  type="text/css">';
       echo '<link rel="stylesheet" href="css/style_image_tags.css"  type="text/css">';
       break;
+
+   case 'tag_editor.php':
+      echo '<link rel="stylesheet" href="css/style_tag_editor.css" type="text/css">';
+      break;
 }
 
 ?>
@@ -52,13 +59,16 @@ switch ($load_page) {
             DATABASE
          </a>
       </div>
-      <!-- ТУТ ПОМЕНЯТЬ СТИЛИ -->
       <div>
          <a id = "set_tag" href="?form=pictags" class = "maketag">
             ПРИСВОИТЬ ТЭГ
          </a>
       </div>
-      <!-- ТУТ ПОМЕНЯТЬ СТИЛИ -->
+      <div>
+         <a id = "edit_tag" href="?form=editor">
+            ТЭГИ
+         </a>
+      </div>
       <ul class = username_exit>
          <li class = "usit_elem exit"><a class = "exit" href = "/?form=exit">Exit</a></li>
       </ul>
