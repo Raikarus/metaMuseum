@@ -164,6 +164,10 @@
    gap: 5px;
 }
 
+.tags_wrap::-webkit-scrollbar {
+   display: none;
+}
+
 .solo_tag {
    font-size: 17px;
    hyphens: auto;
