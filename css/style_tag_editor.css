@@ -141,6 +141,7 @@
 }
 
 #del_button {
+   padding: 0;
    width: 80px;
    height: 90%;
    display: flex;
