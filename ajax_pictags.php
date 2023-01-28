@@ -240,14 +240,12 @@ function link_kword(){
 function download() {
   //ДОБАВИТЬ ПРОВЕРКУ НА СЛУЧАЙ, ЕСЛИ title УЖЕ СУЩЕСТВУЕТ 
   
-  $dir = '/img_to_download';
-  $dir2 = 'img_to_download/';
-  $files = scandir($dir2);
-  echo $files;
+  $dir = 'img_to_download/';
+  $files = scandir($dir);
   foreach ($files as $key => $filename) {
       if($filename != '.' && $filename != '..')
       {
-        $filesize = filesize($dir2.$filename);
+        $filesize = filesize($dir.$filename);
         $ext = end(explode(".",$filename));
         add_to_bd($filename,$filesize,$ext);
       }
@@ -422,10 +420,13 @@ function add_to_bd($filename,$fsize,$ext) {
     pg_query($cn,$last_query);
     // echo "ЗАПРОСИК $last_query<br>";
 
-    $shl = 'mv img_to_download/'.addcslashes($filename," ")." img/$pic_id.$ext";
+    $shl = 'mv img_to_download/'.addcslashes($filename," ")." img_to_download/$pic_id.$ext";
     // echo "Попытка переименовать $shl <br>";
     $res = shell_exec($shl);
     // echo "$shl <br>$res<br>";
+    $shl = 'mv img_to_download/$pic_id.$ext img';
+    $res = shell_exec($shl);
+    
     echo "$pic_id|";
   }
   else
