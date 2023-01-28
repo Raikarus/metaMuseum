@@ -50,6 +50,9 @@
             case 'copy_in_local':
                 copy_in_local();
                 break;
+            case 'download':
+                download();
+                break;
         }
     }
 
@@ -112,7 +115,6 @@
         print_r($row);
         echo "</pre>";
         exit;
-
     }
 
     function remove()   {
