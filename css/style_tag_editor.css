@@ -162,7 +162,7 @@
    display: grid;
    grid-template-columns: repeat(5, 1fr);
    grid-auto-rows: 1fr;
-   font-size: 15px
+   font-size: 13px
 }
 
 .solo_tag {
