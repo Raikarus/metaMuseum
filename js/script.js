@@ -624,7 +624,7 @@ $(document).ready(function(){
     $(".list_of_groups").html(response);
     build_poisk();
     $('.podborka:not([data-id='+active_podborka+'])').css('color','white');
-    $('.podborka[data-id='+active_podborka+']').css('color','red');
+    $('.podborka[data-id='+active_podborka+']').css('color','rgb(228, 79, 79)');
    });
   }
   
@@ -653,7 +653,7 @@ $(document).ready(function(){
        load();
       }
       $('.podborka:not([data-id='+active_podborka+'])').css('color','white');
-      $('.podborka[data-id='+active_podborka+']').css('color','red');
+      $('.podborka[data-id='+active_podborka+']').css('color','rgb(228, 79, 79)');
     });
   });
 
