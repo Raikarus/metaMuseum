@@ -107,7 +107,7 @@
       if(index >= 0)
         selected_right_bot.push(tags_right_bot[index]);
 
-      $(this).css('color','red');
+      $(this).css('color','rgb(228, 79, 79)');
     }
     else
     {
