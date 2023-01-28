@@ -57,7 +57,7 @@ $(document).ready(function(){
       else
       {
         // Добавить стили
-        $('#wrapping').html('<button id = "download" style="border-radius:10px;width:100px;height:50px;font-size:30px;border:1px solid white;background-color:black"></button>');
+        $('#wrapping').html('<button id = "download" style="border-radius:10px;width:100px;height:50px;font-size:30px;border:1px solid white;background-color:black;margin-top:10px;margin-left:10px;">Загрузить</button>');
       }
     }
 
