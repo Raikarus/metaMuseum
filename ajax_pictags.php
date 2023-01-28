@@ -238,7 +238,7 @@ function download() {
   //ДОБАВИТЬ ПРОВЕРКУ НА СЛУЧАЙ, ЕСЛИ title УЖЕ СУЩЕСТВУЕТ 
   
   $dir = '/img_to_download';
-  $dir2 = 'img_to_download/'
+  $dir2 = 'img_to_download/';
   $files = scandir($dir);
   
   foreach ($files as $key => $filename) {
