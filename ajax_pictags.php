@@ -244,6 +244,7 @@ function download() {
   $dir2 = 'img_to_download/';
   $files = scandir($dir);
   echo $files;
+  echo "1111";
   foreach ($files as $key => $filename) {
       if($filename != '.' && $filename != '..')
       {
