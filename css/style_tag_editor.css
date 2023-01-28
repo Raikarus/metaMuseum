@@ -195,7 +195,7 @@
 .edit_big {
    width: 100%;
    height: 86%;
-   margin-bottom: auto;
+   margin-bottom: auto !important;
 }
 
 
