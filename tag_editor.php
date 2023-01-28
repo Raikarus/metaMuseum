@@ -221,8 +221,8 @@
               </form>
            </div>
            <div class = "tags_group" >
-            <div style="width: 100%; height: 90%;"> </div>
-            <div style="width: 100%; height: 10%;display: flex;justify-content: center;">
+            <div class = "edit_big"> </div>
+            <div class = "edit_div">
               <button id ="del_button" class = "edit_but"> delete</button>
               <button id ="replace_button" class = "edit_but">replace</button>
               <button id ="undel_button" class = "edit_but">undelete</button></div>
