@@ -110,7 +110,6 @@
 }
 .combo_tags div .solo_tag
 {
-   margin-left: 15px;
    cursor: pointer;
 }
 
@@ -165,8 +164,11 @@
 }
 
 .solo_tag {
-   font-size: 15px;
+   font-size: 17px;
    hyphens: auto;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 }
 
 
