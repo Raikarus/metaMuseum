@@ -17,6 +17,9 @@ if (isset($_POST['action'])) {
             case 'link_kword':
                 link_Kword();
                 break;
+            case 'download':
+                download();
+                break;
         }
     }
 
