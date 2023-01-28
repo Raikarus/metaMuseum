@@ -425,9 +425,9 @@ function add_to_bd($filename,$fsize,$ext) {
     $res = shell_exec($shl);
     //echo "$shl <br>$res<br>";
     $shl = "mv img_to_download/$pic_id.$ext img";
-    echo "Попытка перенести <br>";
+    // echo "Попытка перенести <br>";
     $res = shell_exec($shl);
-    echo "$shl <br>$res<br>";
+    // echo "$shl <br>$res<br>";
     //echo "$pic_id|";
   }
   else
