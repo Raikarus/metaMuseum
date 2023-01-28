@@ -108,7 +108,7 @@ $(document).ready(function(){
       $.post(ajaxurl,data).done(function(response){
         podborka = response.split("|");
         podborka.splice(-1,1);
-        alert(response);
+        console.log(response);
       });
     });
 
