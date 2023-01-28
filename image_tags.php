@@ -103,7 +103,8 @@ $(document).ready(function(){
 
     $('#wrapping').on("click","#download",function(){
       var ajaxurl = 'ajax_pictags.php';
-      data = {'action':'download'}
+      data = {'action':'download'};
+      console.log("begin");
       $.post(ajaxurl,data).done(function(response){
         podborka = response.split("|");
         podborka.splice(-1,1);
