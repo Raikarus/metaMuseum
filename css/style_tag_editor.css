@@ -140,4 +140,17 @@
    margin-right: 5px;
 }
 
+#del_button {
+   width: 80px;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border: 1px solid white;
+   background-color: rgba(0,0,0,0.8);
+   color: white;
+   font-size: 80%;
+   border-radius: 20px;
+}
+
 
