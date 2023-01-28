@@ -85,6 +85,7 @@ $(document).ready(function(){
     });
     
     $('#mod_swapper').change(function(){
+      console.log(podborka);
       if (switcher.checked)
       {
          switcher.checked = false;
@@ -106,9 +107,8 @@ $(document).ready(function(){
       data = {'action':'download'};
       console.log("begin");
       $.post(ajaxurl,data).done(function(response){
-        podborka = response.split("|");
-        podborka.splice(-1,1);
-        console.log(response);
+        podborka = response;
+        console.log(podborka);
       });
     });
 
