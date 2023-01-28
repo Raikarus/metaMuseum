@@ -421,11 +421,13 @@ function add_to_bd($filename,$fsize,$ext) {
     // echo "ЗАПРОСИК $last_query<br>";
 
     $shl = 'mv img_to_download/'.addcslashes($filename," ")." img_to_download/$pic_id.$ext";
-    echo "Попытка переименовать $shl <br>";
+    //echo "Попытка переименовать $shl <br>";
+    $res = shell_exec($shl);
+    //echo "$shl <br>$res<br>";
+    $shl = 'mv img_to_download/$pic_id.$ext img';
+    echo "Попытка перенести <br>";
     $res = shell_exec($shl);
     echo "$shl <br>$res<br>";
-    $shl = 'mv img_to_download/$pic_id.$ext img';
-    $res = shell_exec($shl);
     //echo "$pic_id|";
   }
   else
