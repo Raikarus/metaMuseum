@@ -76,6 +76,10 @@
    word-break: break-all;
    overflow: auto;
    border-bottom: 1px solid white;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-between;
 }
 
 .tags_group::-webkit-scrollbar {
@@ -195,7 +199,6 @@
 .edit_big {
    width: 100%;
    height: 86%;
-   margin-bottom: auto !important;
 }
 
 
