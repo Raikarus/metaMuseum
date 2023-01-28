@@ -138,16 +138,16 @@
  function update_tags() {  
   $(".combo_tags div").html("");
   for(var i = 0; i < tags_left_up.length;i++)
-    $("#tags_left_up").append('<div class = "solo_tag">'+tags_left_up[i]+'</div>');
+    $("#tags_left_up").append('<span class = "solo_tag">'+tags_left_up[i]+'</span>');
 
   for(var i = 0; i < tags_left_bot.length;i++)
-   $("#tags_left_bot").append('<div class = "solo_tag">'+tags_left_bot[i]+'</div>');
+   $("#tags_left_bot").append('<span class = "solo_tag">'+tags_left_bot[i]+'</span>');
 
   for(var i = 0; i < tags_right_up.length;i++)
-   $("#tags_right_up").append('<div class = "solo_tag">'+tags_right_up[i]+'</div>');
+   $("#tags_right_up").append('<span class = "solo_tag">'+tags_right_up[i]+'</span>');
 
   for(var i = 0; i < tags_right_bot.length;i++)
-  $("#tags_right_bot").append('<div class = "solo_tag">'+tags_right_bot[i]+'</div>');
+  $("#tags_right_bot").append('<span class = "solo_tag">'+tags_right_bot[i]+'</span>');
 
   check_selections();
  }
