@@ -189,6 +189,7 @@
    height: 12%;
    display: flex;
    justify-content: center;
+   margin-top: auto;
 }
 
 .edit_big {
