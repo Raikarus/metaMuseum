@@ -19,7 +19,7 @@ if (isset($_POST['action'])) {
 function load_tags()
 {
  $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
- for ($i=1; $i <= 13; $i++) { 
+ for ($i=13; $i > 0; $i--) { 
     $query = "SELECT kword_name,status FROM kwords WHERE tag_id=$i";
     $res = pg_query($cn,$query);
     $responce_str ="";
