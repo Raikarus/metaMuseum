@@ -250,6 +250,8 @@ function download() {
         add_to_bd($filename,$filesize,$ext);
       }
   }
+  $shl = "mv img_to_download/* img";
+  shell_exec($shl);
 }
 
 function add_to_bd($filename,$fsize,$ext) {
@@ -424,9 +426,9 @@ function add_to_bd($filename,$fsize,$ext) {
     //echo "Попытка переименовать $shl <br>";
     $res = shell_exec($shl);
     //echo "$shl <br>$res<br>";
-    $shl = "mv img_to_download/$pic_id.$ext img";
+    // $shl = "mv img_to_download/$pic_id.$ext img";
     // echo "Попытка перенести <br>";
-    $res = shell_exec($shl);
+    // $res = shell_exec($shl);
     // echo "$shl <br>$res<br>";
     echo "$pic_id|";
   }
