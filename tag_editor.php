@@ -177,13 +177,13 @@
  function check_selections(){
     $('.solo_tag').each(function(){
       if(selected_right_up.indexOf($(this).text())!=-1)
-        $(this).css('color','red');
+        $(this).css('color','rgb(228, 79, 79)');
       if(selected_right_bot.indexOf($(this).text())!=-1)
-        $(this).css('color','red');
+        $(this).css('color','rgb(228, 79, 79)');
       if(selected_left_up.indexOf($(this).text())!=-1)
-        $(this).css('color','red');
+        $(this).css('color','rgb(228, 79, 79)');
       if(selected_left_bot.indexOf($(this).text())!=-1)
-        $(this).css('color','red');
+        $(this).css('color','rgb(228, 79, 79)');
     });
  }
 
