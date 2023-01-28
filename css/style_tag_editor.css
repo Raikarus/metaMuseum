@@ -165,7 +165,8 @@
 }
 
 .solo_tag {
-   font-size: 13px;
+   font-size: 15px;
+   hyphens: auto;
 }
 
 
