@@ -151,6 +151,7 @@
    color: white;
    font-size: 80%;
    border-radius: 20px;
+   margin-right: 5px;
 }
 
 .edit_but:hover {
