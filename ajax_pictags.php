@@ -428,7 +428,7 @@ function add_to_bd($filename,$fsize,$ext) {
     // echo "Попытка перенести <br>";
     $res = shell_exec($shl);
     // echo "$shl <br>$res<br>";
-    //echo "$pic_id|";
+    echo "$pic_id|";
   }
   else
   {
