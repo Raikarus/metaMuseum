@@ -140,7 +140,7 @@
    margin-right: 5px;
 }
 
-#del_button {
+.edit_but {
    padding: 0;
    width: 80px;
    height: 90%;
@@ -152,6 +152,10 @@
    color: white;
    font-size: 80%;
    border-radius: 20px;
+}
+
+.edit_but:hover {
+   background-color: #24B47E;
 }
 
 

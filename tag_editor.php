@@ -223,9 +223,9 @@
            <div class = "tags_group" >
             <div style="width: 100%; height: 90%;"> </div>
             <div style="width: 100%; height: 10%;display: flex;justify-content: center;">
-              <button id ="del_button"> delete</button>
-              <button id ="replace_button">replace</button>
-              <button id ="undel_button">undelete</button></div>
+              <button id ="del_button" class = "edit_but"> delete</button>
+              <button id ="replace_button" class = "edit_but">replace</button>
+              <button id ="undel_button" class = "edit_but">undelete</button></div>
            </div>
            <div class = "combo_tags">
               <div id = "tags_left_up">                </div>
