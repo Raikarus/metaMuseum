@@ -207,11 +207,11 @@
                 }
                 if($add_where == "yes") 
                 {
-                    echo "<script>$('#kolvoTag').html('$kolvoTag')</script>";
+                    echo "<script>$('#kolvoTag').html('0, отображены все')</script>";
                 }
                 else
                 {
-                    echo "<script>$('#kolvoTag').html()</script>";
+                    echo "<script>$('#kolvoTag').html('$kolvoTag')</script>";
                 }
             }
             $res = pg_query($cn,$query);
