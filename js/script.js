@@ -245,7 +245,7 @@ function load()  {
   }
   data =  {'action': 'update_grid', 'current_page': current_page,'size':size,'result_tags':result_tags_string,'result_tags_invers':result_tags_invers_string,'pre_podborka':pre_podborka_string,'podborka':podborka_string,'selected_in_podborka': selected_in_podborka_string,'mod':mod,'sel_id':active_podborka}; 
   $.post(ajaxurl, data).done(function (response) {
-    if(response.includes('error')) {
+    if(!response.includes('error')) {
       $('#wrapping').html(response);
       $('#current_page').data('val',current_page).html(current_page).attr('data-val',current_page);
     }
