@@ -74,7 +74,7 @@
     }
 
     function pics()  {
-        $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+        $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
         $query = "SELECT * FROM pics";
         $res = pg_query($cn,$query);
         $row = pg_fetch_all($res);
@@ -85,7 +85,7 @@
     }
 
     function kwords() {
-        $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+        $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
         $query = "SELECT * FROM kwords";
         $res = pg_query($cn,$query);
         $row = pg_fetch_all($res);
@@ -96,7 +96,7 @@
     }
 
     function pictags()  {
-        $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+        $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
         $query = "SELECT * FROM pictags";
         $res = pg_query($cn,$query);
         $row = pg_fetch_all($res);
@@ -107,7 +107,7 @@
     }
 
     function kwgkw()    {
-        $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+        $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
         $query = "SELECT * FROM kwgkw";
         $res = pg_query($cn,$query);
         $row = pg_fetch_all($res);
@@ -118,7 +118,7 @@
     }
 
     function remove()   {
-        $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+        $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
         $query = "DELETE FROM pics";
         pg_query($cn,$query);
         $query = "DELETE FROM pictags";
@@ -147,7 +147,7 @@
             $pre_podborka = explode("|",$_POST['pre_podborka']);
             $podborka = explode("|",$_POST['podborka']);
 
-            $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+            $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
             if($result_tags == "")
             {
                 $query = "SELECT pic_id,fmt,title FROM pics";
@@ -274,7 +274,7 @@
                     $end = $start + 20;
                     break;
             }
-            $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+            $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
             if($_POST['sel_id']=='-1')
             {
                 $podborka = explode("|", $_POST['podborka']);
@@ -320,7 +320,7 @@
     }
 
     function save_podborka(){
-        $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+        $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
         $sel_name = $_POST['name_podborka'];
         $query = "SELECT sel_id FROM selections WHERE sel_name='$sel_name'";
         $res = pg_query($cn,$query);
@@ -375,7 +375,7 @@
 
     function show_podborki()
     {
-        $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+        $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
         $query = "SELECT sel_id,sel_name FROM selections";
         $res = pg_query($cn,$query);
         echo "<li class = 'tag_group'><p class='group_name'><a class='podborka' href = '#' data-id='-1' data-sel_name='Локальная'>Локальная</a></p></li>";
@@ -389,7 +389,7 @@
 
     function show_kwords()
     {
-       $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+       $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
        $query = "SELECT gkword_id,gkword_name FROM gkwords";
        $res = pg_query($cn,$query);
        while($row=pg_fetch_object($res))
@@ -478,7 +478,7 @@
         }
         else
         {
-            $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+            $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
             $query = "SELECT pic_id FROM selpics WHERE sel_id=$sel_id";
             $res = pg_query($cn,$query);
             if($row = pg_fetch_object($res))
@@ -549,7 +549,7 @@
     function copy_in_local()
     {
         $sel_id = $_POST['sel_id'];
-        $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+        $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
         $query = "SELECT pic_id FROM selpics WHERE sel_id=$sel_id";
         $res = pg_query($cn,$query);
         $responce = "";

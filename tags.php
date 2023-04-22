@@ -4,7 +4,7 @@
         if($_POST['passAdd']=="schef2002"){
         echo "П4р0ль пр0йд3н <br>";
         $kword_name = $_POST['kword_name'];
-        $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+        $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
         $query = "SELECT tag_id_num FROM kwords WHERE tag_id=10 AND kword_name='$kword_name'";
         echo "ЗАПРОСИК $query<br>";
         $res = pg_query($cn,$query);

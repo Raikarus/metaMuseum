@@ -1,5 +1,5 @@
 <?php
-$cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+$cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
 function upload_file($file, $nameFile='default', $upload_dir= 'img', $allowed_types= array('image/png','image/x-png','image/jpeg','image/webp','image/gif')){
       $blacklist = array(".php", ".phtml", ".php3", ".php4");
       $filename = $file['name']; // В переменную $filename заносим точное имя файла.
@@ -60,7 +60,7 @@ function Download() {
 
 
 function AddToBd($filename,$fsize,$ext) {
-  $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+  $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
   $date = '2023-01-18 01:55:53';
   $width = 0;
   $height = 0;
@@ -265,7 +265,7 @@ function LinkKeyword(){
     echo "<br><pre>$res</pre>";
 
 
-    $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+    $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
 
     $pic_id = substr($_POST['img_name'],0,strpos($_POST['img_name'],'.'));
 

@@ -46,7 +46,7 @@ function pre_load()
     $pic_id_from_local_podborka = explode("|", $_POST['podborka']);
     if($_POST['podborka'])
     {
-        $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+        $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
         $query = "SELECT pic_id,fmt,title FROM pics WHERE pic_id=$pic_id_from_local_podborka[0]";
         for ($i=1; $i < count($pic_id_from_local_podborka)-1; $i++) { 
             
@@ -75,7 +75,7 @@ function pre_load()
 
 function load_cross_kwords()
 {
-    $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+    $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
     $pic_id_from_local_podborka = explode("|", $_POST['img_string']);
     if(count($pic_id_from_local_podborka)-1>=1)
     {   
@@ -161,7 +161,7 @@ function link_kword(){
     $auto_kwords = explode("|",$_POST['auto_kwords']);
     array_pop($auto_kwords);
     print_r($auto_kwords);
-    $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+    $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
     for ($i=0; $i < count($img_names)-1; $i++) { 
         $img_name = addcslashes($img_names[$i]," ");
         $shl = 'exiftool -TagsFromFile img/'.$img_name.' img/file.xmp';
@@ -255,7 +255,7 @@ function download() {
 }
 
 function add_to_bd($filename,$fsize,$ext) {
-  $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+  $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
   $date = '2023-01-18 01:55:53';
   $width = 0;
   $height = 0;

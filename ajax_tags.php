@@ -18,7 +18,7 @@ if (isset($_POST['action'])) {
 
 function load_tags()
 {
- $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+ $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
  for ($i=13; $i > 0; $i--) { 
     $query = "SELECT kword_name,status FROM kwords WHERE tag_id=$i";
     $res = pg_query($cn,$query);
@@ -37,7 +37,7 @@ function load_tags()
 
 function update_bd()
 {
-  $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+  $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
   $selected_left_up = explode("|",$_POST['selected_left_up']);
   $selected_left_bot = explode("|",$_POST['selected_left_bot']);
   $selected_right_up = explode("|",$_POST['selected_right_up']);
@@ -90,7 +90,7 @@ function update_bd()
 function add_kword()
 {
   $kword_name = $_POST['kword_name'];
-  $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
+  $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
   $query = "SELECT tag_id_num FROM kwords WHERE tag_id=10 AND kword_name='$kword_name'";
   $res = pg_query($cn,$query);
   $row = pg_fetch_object($res);
