@@ -171,6 +171,7 @@
                     $res2 = pg_query($cn,$query2);
                     $tag_id_num_array_from_pic_id = pg_fetch_all($res2);
                     $ok = "ok";
+                    $kolvoTag = pg_num_rows($res2);
                     for ($i=0; $i < count($tag_id_num_array); $i++) { 
                         if($result_tags_invers_arr[$i] == "0")
                         {
@@ -206,7 +207,11 @@
                 }
                 if($add_where == "yes") 
                 {
-                    echo "<script> alert('Не найдено изображений по заданным ключевым словам')</script>";
+                    echo "<script>$('#kolvoTag').html('$kolvoTag')</script>";
+                }
+                else
+                {
+                    echo "<script>$('#kolvoTag').html()</script>";
                 }
             }
             $res = pg_query($cn,$query);

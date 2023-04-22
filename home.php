@@ -45,6 +45,9 @@
          <ul class = "wrap">
             
          </ul>
+         <div style="position: absolute;bottom: 0;left: 0;color:#24B47E;">
+            Найдено изображений: <span id="kolvoTag"></span>
+         </div>
       </div>
    </div>
 </div>
