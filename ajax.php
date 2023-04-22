@@ -164,6 +164,7 @@
                 $res = pg_query($cn,$query);
                 $query = "SELECT pic_id,fmt,title FROM pics";
                 $add_where = "yes";
+                $kolvoTag = 0;
                 while($row = pg_fetch_object($res))
                 {
                     $pic_id = $row->pic_id;
@@ -171,7 +172,6 @@
                     $res2 = pg_query($cn,$query2);
                     $tag_id_num_array_from_pic_id = pg_fetch_all($res2);
                     $ok = "ok";
-                    $kolvoTag = pg_num_rows($res2);
                     for ($i=0; $i < count($tag_id_num_array); $i++) { 
                         if($result_tags_invers_arr[$i] == "0")
                         {
@@ -193,6 +193,7 @@
 
                     if($ok == "ok") 
                     {
+                        $kolvoTag += 1;
                         if($add_where == "yes")
                         {
                             $add_where = "no";
