@@ -148,7 +148,11 @@
             $podborka = explode("|",$_POST['podborka']);
 
             $cn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=schef2002");
-            if($result_tags == "") $query = "SELECT pic_id,fmt,title FROM pics";
+            if($result_tags == "")
+            {
+                $query = "SELECT pic_id,fmt,title FROM pics";
+                echo "<script>$('#kolvoTag').html('отображены все')</script>";
+            }
             else
             {
                 //Если есть kwords
@@ -208,11 +212,11 @@
                 }
                 if($add_where == "yes") 
                 {
-                    echo "<script>$('#kolvoTag').html('0, отображены все')</script>";
+                    echo "<script>$('#kolvoTag').html('0, отображены все');</script>";
                 }
                 else
                 {
-                    echo "<script>$('#kolvoTag').html('$kolvoTag')</script>";
+                    echo "<script>$('#kolvoTag').html('$kolvoTag');</script>";
                 }
             }
             $res = pg_query($cn,$query);
