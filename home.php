@@ -1,4 +1,3 @@
-<!-- ТУТ ПОМЕНЯТЬ СТИЛИ -->
       <div id = "name_podborka_form_back">
          <div id = "name_podborka_form">
             <h3>Введите название:</h3>
@@ -7,7 +6,6 @@
             <div id = "response"></div>
          </div>
       </div>
-<!-- ТУТ ПОМЕНЯТЬ СТИЛИ -->
 
 
 <div class = "main">
