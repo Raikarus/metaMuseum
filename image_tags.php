@@ -225,11 +225,9 @@ $(document).ready(function(){
        <ul class = "wrap">
           
        </ul>
-       <!-- ПОМЕНЯТЬ СТИЛИ -->
        <button id = "link_tags" style="width:80px;height:35px;position: absolute;bottom: 15px;right: 15px;display: flex;justify-content: center;align-items: center;border: 1px solid white;background-color: rgba(0,0,0,0.8);color:white;font-size:80%;border-radius: 20px;">
          Сохранить
        </button>
-       <!-- ПОМЕНЯТЬ СТИЛИ -->
     </div>
   </div>
 
