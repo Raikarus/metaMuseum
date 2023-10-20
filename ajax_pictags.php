@@ -210,11 +210,11 @@ function link_kword(){
           if(!pg_fetch_object($res))
           {
             
-            $shl = 'exiftool -XMP-dc:subject+="'.$selected_kword.'" img/'.$img_name;
+            $shl = "exiftool -XMP-dc:subject+='{$selected_kword}' img/'{$img_name}";
             $res = shell_exec($shl);
             echo "<br>$shl<pre>$res</pre>";
 
-            $query="INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES (".$pic_id.",".$tag_id.",".$tag_id_num.")";
+            $query="INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES ({$pic_id},{$tag_id},{$tag_id_num})";
             $res = pg_query($query);
             echo "ЗАПРОСИК $query<br>";
             echo $query."<br>";
@@ -225,11 +225,11 @@ function link_kword(){
           }
         }
 
-        $shl = 'exiftool -XMP-dc:ALL img/'.$img_name." -b";
+        $shl = "exiftool -XMP-dc:ALL img/{$img_name} -b";
         $res = shell_exec($shl);
         echo "<br><pre>$res</pre>";
 
-        $shl = 'rm img/file.xmp';
+        $shl = "rm img/file.xmp";
         $res = shell_exec($shl); 
     }
     
@@ -238,7 +238,7 @@ function link_kword(){
 function download() {
   //ДОБАВИТЬ ПРОВЕРКУ НА СЛУЧАЙ, ЕСЛИ title УЖЕ СУЩЕСТВУЕТ 
   
-  $dir = "{$path}/img_to_download/";
+  $dir = "img_to_download/";
   $files = scandir($dir);
   foreach ($files as $key => $filename) {
       if($filename != '.' && $filename != '..')
@@ -248,7 +248,7 @@ function download() {
         add_to_bd($filename,$filesize,$ext);
       }
   }
-  $shl = "mv {$path}/img_to_download/* img";
+  $shl = "mv img_to_download/* img";
   shell_exec($shl);
 }
 
