@@ -143,7 +143,6 @@
             $pre_podborka = explode("|",$_POST['pre_podborka']);
             $podborka = explode("|",$_POST['podborka']);
 
-            $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
             if($result_tags == "")
             {
                 $query = "SELECT pic_id,fmt,title FROM pics";
@@ -158,10 +157,10 @@
                 for ($i=1; $i < count($result_tags_arr)-1; $i++) {
                     $query .= " UNION ALL SELECT tag_id_num FROM kwords WHERE kword_name='$result_tags_arr[$i]'"; 
                 }
-                $res = pg_query($cn,$query);
+                $res = pg_query($query);
                 $tag_id_num_array = pg_fetch_all($res);
                 $query = "SELECT pic_id FROM pics";
-                $res = pg_query($cn,$query);
+                $res = pg_query($query);
                 $query = "SELECT pic_id,fmt,title FROM pics";
                 $add_where = "yes";
                 $kolvoTag = 0;
@@ -169,7 +168,7 @@
                 {
                     $pic_id = $row->pic_id;
                     $query2 = "SELECT tag_id_num FROM pictags WHERE pic_id=$pic_id";
-                    $res2 = pg_query($cn,$query2);
+                    $res2 = pg_query($query2);
                     $tag_id_num_array_from_pic_id = pg_fetch_all($res2);
                     $ok = "ok";
                     for ($i=0; $i < count($tag_id_num_array); $i++) { 
@@ -215,7 +214,7 @@
                     echo "<script>$('#kolvoTag').html('$kolvoTag');</script>";
                 }
             }
-            $res = pg_query($cn,$query);
+            $res = pg_query($query);
             $start = 0;
             $end = 6;
             switch ($_POST['size']) {
@@ -240,9 +239,9 @@
     	         $title = pg_fetch_result($res, $i, 2);
                  if($pic_id)
                  {
-                    if(in_array($pic_id, $pre_podborka)) echo "<li class='photo_li' style='outline:3px solid rgb(228, 79, 79);outline-offset:-3px' data-id=$pic_id><div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div><div class='name'>$title</div></li>";   
-                    else if(in_array($pic_id, $podborka)) echo "<li class='photo_li' style='outline:3px solid #24B47E;outline-offset:-3px' data-id=$pic_id><div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div><div class='name'>$title</div></li>";
-                    else echo "<li class='photo_li' data-id=$pic_id><div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div><div class='name'>$title</div></li>";
+                    if(in_array($pic_id, $pre_podborka)) echo "<li class='photo_li' style='outline:3px solid rgb(228, 79, 79);outline-offset:-3px' data-id=$pic_id><div class='photo' style='background-image:url({$path}img//'{$pic_id}.{$fmt})'></div><div class='name'>$title</div></li>";   
+                    else if(in_array($pic_id, $podborka)) echo "<li class='photo_li' style='outline:3px solid #24B47E;outline-offset:-3px' data-id=$pic_id><div class='photo' style='background-image:url('img/{$pic_id}.{$fmt}')></div><div class='name'>$title</div></li>";
+                    else echo "<li class='photo_li' data-id=$pic_id><div class='photo' style='background-image:url('{$path}img//{$pic_id}.{$fmt})'></div><div class='name'>$title</div></li>";
                  }
     	        }
         	}
@@ -270,7 +269,6 @@
                     $end = $start + 20;
                     break;
             }
-            $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
             if($_POST['sel_id']=='-1')
             {
                 $podborka = explode("|", $_POST['podborka']);
@@ -281,7 +279,7 @@
                     for ($i=1; $i < count($podborka)-1; $i++) { 
                         $query .= "UNION ALL SELECT pic_id,fmt,title FROM pics WHERE pic_id=$podborka[$i]";
                     }
-                    $res = pg_query($cn,$query);
+                    $res = pg_query($query);
                     if(pg_fetch_result($res, $start, 0)){
                         for ($i=$start; $i < $end; $i++) { 
                          $pic_id = pg_fetch_result($res, $i, 0);
@@ -316,10 +314,9 @@
     }
 
     function save_podborka(){
-        $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
         $sel_name = $_POST['name_podborka'];
         $query = "SELECT sel_id FROM selections WHERE sel_name='$sel_name'";
-        $res = pg_query($cn,$query);
+        $res = pg_query($query);
         $sel_id = pg_fetch_object($res)->sel_id;
         if(!$sel_id)
         {
@@ -327,16 +324,16 @@
             if(count($podborka)>2)
             {
                 $query = "INSERT INTO selections(sel_name) VALUES('$sel_name')";
-                $res = pg_query($cn,$query);
+                $res = pg_query($query);
 
                 $query = "SELECT sel_id FROM selections WHERE sel_name='$sel_name'";
-                $res = pg_query($cn,$query);
+                $res = pg_query($query);
                 $sel_id = pg_fetch_object($res)->sel_id;
 
                 for ($i=0; $i < count($podborka)-1; $i++) { 
                     $pic_id  = $podborka[$i];
                     $query = "INSERT INTO selpics(sel_id,pic_id) VALUES($sel_id,$pic_id)";
-                    $res = pg_query($cn,$query);
+                    $res = pg_query($query);
                 }
                 echo "<b style='color:#24B47E'>Подборка $sel_name успешно создана</b>";
             }
@@ -351,14 +348,14 @@
             //echo "<b style='color:rgb(228, 79, 79)'>Подборка $sel_name уже существует</b>";
             
             $query = "DELETE FROM selpics WHERE sel_id=$sel_id";
-            $res = pg_query($cn,$query);
+            $res = pg_query($query);
             $podborka = explode("|", $_POST['podborka']);
             if(count($podborka)>2)
             {
                 for ($i=0; $i < count($podborka)-1; $i++) { 
                     $pic_id  = $podborka[$i];
                     $query = "INSERT INTO selpics(sel_id,pic_id) VALUES($sel_id,$pic_id)";
-                    $res = pg_query($cn,$query);
+                    $res = pg_query($query);
                 }
                 echo "<b style='color:rgb(228, 79, 79)'>Подборка $sel_name перезаписана</b>";
             }
@@ -371,9 +368,8 @@
 
     function show_podborki()
     {
-        $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
         $query = "SELECT sel_id,sel_name FROM selections";
-        $res = pg_query($cn,$query);
+        $res = pg_query($query);
         echo "<li class = 'tag_group'><p class='group_name'><a class='podborka' href = '#' data-id='-1' data-sel_name='Локальная'>Локальная</a></p></li>";
         while($row = pg_fetch_object($res))
         {
@@ -385,9 +381,8 @@
 
     function show_kwords()
     {
-       $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
        $query = "SELECT gkword_id,gkword_name FROM gkwords";
-       $res = pg_query($cn,$query);
+       $res = pg_query($query);
        while($row=pg_fetch_object($res))
        {
           $gkword_id = $row->gkword_id;
@@ -396,25 +391,25 @@
           {
              //Если нет никакой группы
              $query = "SELECT tag_id,tag_id_num FROM kwgkw WHERE gkword_id=$gkword_id";
-             $res2 = pg_query($cn,$query);
+             $res2 = pg_query($query);
              while($row2=pg_fetch_object($res2))
              {
                 $tag_id = $row2->tag_id;
                 $tag_id_num = $row2->tag_id_num;
                 $query = "SELECT status FROM kwords WHERE tag_id_num=$tag_id_num";
-                $res = pg_query($cn,$query);
+                $res = pg_query($query);
                 $status = pg_fetch_object($res)->status;
                 if($status==1) // возможна проверка на && tag_id == 10
                 {
                    $query = "SELECT kword_name FROM kwords WHERE tag_id_num=$tag_id_num";
-                   $res3 = pg_query($cn,$query);
+                   $res3 = pg_query($query);
                    $row3 = pg_fetch_object($res3);
                    $kword_name = $row3->kword_name;
                    $query = "SELECT pic_id FROM pictags WHERE tag_id_num=$tag_id_num";
-                   $res3 = pg_query($cn,$query);
+                   $res3 = pg_query($query);
                    $row3 = pg_num_rows($res3);
                    $query = "SELECT pic_id FROM pictags";// WHERE tag_id = $tag_id";
-                   $res3 = pg_query($cn,$query);
+                   $res3 = pg_query($query);
                    $total = pg_num_rows($res3);
                    $font_size = (round(($row3/$total)*100)+15)."px";
                    echo "<li class = 'tag_group'>
@@ -474,9 +469,8 @@
         }
         else
         {
-            $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
             $query = "SELECT pic_id FROM selpics WHERE sel_id=$sel_id";
-            $res = pg_query($cn,$query);
+            $res = pg_query($query);
             if($row = pg_fetch_object($res))
             {
                 $pic_id = $row->pic_id;
@@ -504,14 +498,14 @@
                     $end = $start + 20;
                     break;
             }
-            $res = pg_query($cn,$query);
+            $res = pg_query($query);
             if(pg_fetch_result($res, $start, 0)){
                 for ($i=$start; $i < $end; $i++) { 
                  $pic_id = pg_fetch_result($res, $i, 0);
                  $fmt = pg_fetch_result($res, $i, 1);
                  $title = pg_fetch_result($res, $i, 2);
                  if($pic_id){
-                    echo "<li class='photo_li' data-id=$pic_id><div class='photo' style='background-image:url(".'"img/'.$pic_id.".".$fmt.'"'.")'></div><div class='name'>$title</div></li>";
+                    echo "<li class='photo_li' data-id=$pic_id><div class='photo' style='background-image:url(".'"{$path}/img/'.$pic_id.".".$fmt.'"'.")'></div><div class='name'>$title</div></li>";
                  } 
                 }
             }
@@ -545,9 +539,8 @@
     function copy_in_local()
     {
         $sel_id = $_POST['sel_id'];
-        $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
         $query = "SELECT pic_id FROM selpics WHERE sel_id=$sel_id";
-        $res = pg_query($cn,$query);
+        $res = pg_query($query);
         $responce = "";
         while($row = pg_fetch_object($res))
         {

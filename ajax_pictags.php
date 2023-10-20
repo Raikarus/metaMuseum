@@ -1,5 +1,6 @@
 <?php 
 session_start();
+require_once "connect.php";
 if (isset($_POST['action'])) {
         switch ($_POST['action']) {
             case 'load_podborka':
@@ -31,7 +32,7 @@ function load_podborka()
     $img_string = explode('|', $_POST['img_string']);
     for($i = 0; $i < count($img_string)-1;$i++)
     {
-        echo '<li class = "main_li_photo" name ="img" style="background-image:url('."'".'img/'.$img_string[$i]."')".'"></li>' ;
+        echo "<li class = 'main_li_photo' name ='img' style='background-image:url('{$path}/img/{$img_string[$i]}')'></li>" ;
     }
 }
 
@@ -46,13 +47,12 @@ function pre_load()
     $pic_id_from_local_podborka = explode("|", $_POST['podborka']);
     if($_POST['podborka'])
     {
-        $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
         $query = "SELECT pic_id,fmt,title FROM pics WHERE pic_id=$pic_id_from_local_podborka[0]";
         for ($i=1; $i < count($pic_id_from_local_podborka)-1; $i++) { 
             
             $query .= "UNION ALL SELECT pic_id,fmt,title FROM pics WHERE pic_id=$pic_id_from_local_podborka[$i]";
         }
-        $res = pg_query($cn,$query);
+        $res = pg_query($query);
         while($row = pg_fetch_object($res))
         {
             $pic_id = $row->pic_id;
@@ -75,7 +75,6 @@ function pre_load()
 
 function load_cross_kwords()
 {
-    $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
     $pic_id_from_local_podborka = explode("|", $_POST['img_string']);
     if(count($pic_id_from_local_podborka)-1>=1)
     {   
@@ -84,7 +83,7 @@ function load_cross_kwords()
         {
             //ЕСЛИ ВСЕГО ОДНА КАРТИНКА ВЫБРАНА
             $query = "SELECT tag_id_num FROM pictags WHERE pic_id=$pic_id_from_local_podborka[0]";//tag_id=10";
-            $res = pg_query($cn,$query);
+            $res = pg_query($query);
             if($row = pg_fetch_object($res))
             {
                 $tag_id_num = $row->tag_id_num;
@@ -95,7 +94,7 @@ function load_cross_kwords()
                     $query .= " OR tag_id_num=$tag_id_num";
                 }
                 $query .= ")";
-                $res = pg_query($cn,$query);
+                $res = pg_query($query);
                 while($row = pg_fetch_object($res))
                 {
                     $kword_name = $row->kword_name;
@@ -118,7 +117,7 @@ function load_cross_kwords()
             }
             $count_of_pic_id = count($pic_id_from_local_podborka)-1;
             $query .= ") GROUP BY tag_id_num HAVING COUNT(tag_id_num)=$count_of_pic_id";
-            $res = pg_query($cn,$query);
+            $res = pg_query($query);
             if($row = pg_fetch_object($res))
             {
                 $tag_id_num = $row->tag_id_num;
@@ -129,7 +128,7 @@ function load_cross_kwords()
                     $query .= " OR tag_id_num=$tag_id_num";
                 }
                 $query .= ")";
-                $res = pg_query($cn,$query);
+                $res = pg_query($query);
                 
                 while($row = pg_fetch_object($res))
                 {
@@ -161,7 +160,6 @@ function link_kword(){
     $auto_kwords = explode("|",$_POST['auto_kwords']);
     array_pop($auto_kwords);
     print_r($auto_kwords);
-    $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
     for ($i=0; $i < count($img_names)-1; $i++) { 
         $img_name = addcslashes($img_names[$i]," ");
         $shl = 'exiftool -TagsFromFile img/'.$img_name.' img/file.xmp';
@@ -188,11 +186,11 @@ function link_kword(){
                 $res = shell_exec($shl);
                 echo "$shl";
                 $query = "SELECT tag_id_num FROM kwords WHERE kword_name='$auto_kwords[$j]'";
-                $res = pg_query($cn,$query);
+                $res = pg_query($query);
                 echo "$query";
                 $tag_id_num = pg_fetch_object($res)->tag_id_num;
                 $query = "DELETE FROM pictags WHERE tag_id_num=$tag_id_num AND pic_id=$pic_id";
-                $res = pg_query($cn,$query);
+                $res = pg_query($query);
             }
         }
 
@@ -200,14 +198,14 @@ function link_kword(){
         {
           $selected_kword = $new_kwords[$j];
           $query="SELECT tag_id,tag_id_num FROM kwords WHERE kword_name='$selected_kword'";
-          $res = pg_query($cn,$query);
+          $res = pg_query($query);
           echo "ЗАПРОСИК $query<br>";
           $row=pg_fetch_object($res);
           $tag_id = $row->tag_id;
           $tag_id_num = $row->tag_id_num;
 
           $query = "SELECT pic_id FROM pictags WHERE pic_id=$pic_id AND tag_id_num=$tag_id_num";
-          $res = pg_query($cn,$query);
+          $res = pg_query($query);
           echo "ЗАПРОСИК $query<br>";
           if(!pg_fetch_object($res))
           {
@@ -217,7 +215,7 @@ function link_kword(){
             echo "<br>$shl<pre>$res</pre>";
 
             $query="INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES (".$pic_id.",".$tag_id.",".$tag_id_num.")";
-            $res = pg_query($cn,$query);
+            $res = pg_query($query);
             echo "ЗАПРОСИК $query<br>";
             echo $query."<br>";
             }
@@ -240,7 +238,7 @@ function link_kword(){
 function download() {
   //ДОБАВИТЬ ПРОВЕРКУ НА СЛУЧАЙ, ЕСЛИ title УЖЕ СУЩЕСТВУЕТ 
   
-  $dir = 'img_to_download/';
+  $dir = "{$path}/img_to_download/";
   $files = scandir($dir);
   foreach ($files as $key => $filename) {
       if($filename != '.' && $filename != '..')
@@ -250,12 +248,11 @@ function download() {
         add_to_bd($filename,$filesize,$ext);
       }
   }
-  $shl = "mv img_to_download/* img";
+  $shl = "mv {$path}/img_to_download/* img";
   shell_exec($shl);
 }
 
 function add_to_bd($filename,$fsize,$ext) {
-  $cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
   $date = '2023-01-18 01:55:53';
   $width = 0;
   $height = 0;
@@ -263,7 +260,7 @@ function add_to_bd($filename,$fsize,$ext) {
   $subscr = "";
   $rights = "";
   // echo "ФОРМИРОВАНИЕ КОМАНД НА ЧТЕНИЕ МЕТАИНФОРМАЦИИ <br>";
-  $shl = 'exiftool img_to_download/'.addcslashes($filename, " ");
+  $shl = 'exiftool {$path}/img_to_download/'.addcslashes($filename, " ");
   $res = shell_exec($shl);
   $arr = explode("\n", $res);
   $list = array("DateTime",
@@ -305,7 +302,7 @@ function add_to_bd($filename,$fsize,$ext) {
       $tag_id = $list2[array_search($strTag, $list)];
 
       $query = "SELECT pics_name FROM tags WHERE tag_id=$tag_id";
-      $res = pg_query($cn,$query);
+      $res = pg_query($query);
       $row = pg_fetch_object($res);
       $pics_name = $row->pics_name;
       if($pics_name=='date')
@@ -319,7 +316,7 @@ function add_to_bd($filename,$fsize,$ext) {
       }
 
       $query = "SELECT tag_id_num FROM kwords WHERE tag_id=$tag_id AND kword_name='".$strValue."'";
-      $res = pg_query($cn,$query);
+      $res = pg_query($query);
       // echo "ЗАПРОСИК $query <br>";
       $row = pg_fetch_object($res);
       $tag_id_num = $row->tag_id_num;
@@ -330,15 +327,15 @@ function add_to_bd($filename,$fsize,$ext) {
         if($tag_id != 10)
         {
           $query = "INSERT INTO kwords(tag_id,kword_name,status) VALUES($tag_id,'$strValue',0)";
-          $res = pg_query($cn,$query);
+          $res = pg_query($query);
           
           $query = "SELECT tag_id_num FROM kwords WHERE tag_id=$tag_id AND kword_name='$strValue'";
-          $res = pg_query($cn,$query);
+          $res = pg_query($query);
           $row = pg_fetch_object($res);
           $tag_id_num = $row->tag_id_num;
 
           $query = "INSERT INTO kwgkw(gkword_id,tag_id,tag_id_num) VALUES(0,$tag_id,$tag_id_num)";
-          $res = pg_query($cn,$query);
+          $res = pg_query($query);
 
           $last_query .= "INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES('-pic_id-',$tag_id,$tag_id_num);";
         }
@@ -351,26 +348,26 @@ function add_to_bd($filename,$fsize,$ext) {
           foreach ($kword_names as $a => $kword_name) {
             $kword_name = trim($kword_name);
             $query = "SELECT tag_id_num FROM kwords WHERE kword_name = '$kword_name'";
-            $res = pg_query($cn,$query);
+            $res = pg_query($query);
             if(!pg_fetch_object($res))
             {
-              //если такого еще нет
+              //если такого еще нет  
               $query = "INSERT INTO kwords(tag_id,kword_name,status) VALUES($tag_id,'$kword_name',0)";
-              $res = pg_query($cn,$query);
+              $res = pg_query($query);
 
               $query = "SELECT tag_id_num FROM kwords WHERE tag_id=$tag_id AND kword_name='$kword_name'";
-              $res = pg_query($cn,$query);
+              $res = pg_query($query);
               $row = pg_fetch_object($res);
               $tag_id_num = $row->tag_id_num;
 
               $query = "INSERT INTO kwgkw(gkword_id,tag_id,tag_id_num) VALUES(0,$tag_id,$tag_id_num)";
-              $res = pg_query($cn,$query);
+              $res = pg_query($query);
             }
             else
             {
               //если такой уже есть
               $query = "SELECT tag_id_num FROM kwords WHERE tag_id=$tag_id AND kword_name='$kword_name'";
-              $res = pg_query($cn,$query);
+              $res = pg_query($query);
               $row = pg_fetch_object($res);
               $tag_id_num = $row->tag_id_num;
             }
@@ -408,18 +405,18 @@ function add_to_bd($filename,$fsize,$ext) {
   }
   $md5 = md5_file("img_to_download/".$filename);
   $query = "INSERT INTO pics(fmt,subscr,title,width,height,date,fsize,md5,rights) VALUES('".$ext."','".$subscr."','".$title."',$width,$height,'".$date."',$fsize,'".$md5."','".$rights."')";
-  $res = pg_query($cn,$query);
+  $res = pg_query($query);
   // echo "ЗАПРОСИК $query<br>";
 
   $query = "SELECT pic_id FROM pics WHERE title='$title'";
-  $res = pg_query($cn,$query);
+  $res = pg_query($query);
   // echo "ЗАПРОСИК $query<br>";
   $row = pg_fetch_object($res);
   $pic_id = $row->pic_id;
   if($pic_id)
   {
     $last_query = str_replace("'-pic_id-'", $pic_id, $last_query);
-    pg_query($cn,$last_query);
+    pg_query($last_query);
     // echo "ЗАПРОСИК $last_query<br>";
 
     $shl = 'mv img_to_download/'.addcslashes($filename," ")." img_to_download/$pic_id.$ext";
