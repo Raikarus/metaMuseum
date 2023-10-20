@@ -1,5 +1,7 @@
 <?php
-$cn = pg_connect("host=localhost port=5432 dbname=museumbasa user=mm password=schef2002");
+require_once "connect.php";
+session_start();
+
 function upload_file($file, $nameFile='default', $upload_dir= 'img', $allowed_types= array('image/png','image/x-png','image/jpeg','image/webp','image/gif')){
       $blacklist = array(".php", ".phtml", ".php3", ".php4");
       $filename = $file['name']; // В переменную $filename заносим точное имя файла.
