@@ -133,7 +133,6 @@ function load_cross_kwords()
                 while($row = pg_fetch_object($res))
                 {
                     $kword_name = $row->kword_name;
-                    //СКОПИРОВАТЬ СТИЛИ ИЛИ ДОБАВИТЬ ДУБЛИКАТ СВОИХ
                     echo "<li class = 'key_words' data-tag='$kword_name' data-status='automatic'>$kword_name</li>";
                 }
             }
@@ -146,7 +145,6 @@ function load_cross_kwords()
     }
     else
     {
-        //Добавить стили или удалить строчку
         echo "<b class='warning'>Ничего не выбрано</b>";
     }
 }
@@ -182,14 +180,14 @@ function link_kword(){
         {
             if($delete_kwords[$j]==1)
             {
-                $shl = 'exiftool -XMP-dc:subject-="'.$auto_kwords[$j].'" img/'.$img_name;
+                $shl = "exiftool -XMP-dc:subject-='{$auto_kwords[$j]}' img/'{$img_name}";
                 $res = shell_exec($shl);
-                echo "$shl";
-                $query = "SELECT tag_id_num FROM kwords WHERE kword_name='$auto_kwords[$j]'";
+                echo "{$shl}";
+                $query = "SELECT tag_id_num FROM kwords WHERE kword_name='{$auto_kwords[$j]}'";
                 $res = pg_query($query);
-                echo "$query";
+                echo "{$query}";
                 $tag_id_num = pg_fetch_object($res)->tag_id_num;
-                $query = "DELETE FROM pictags WHERE tag_id_num=$tag_id_num AND pic_id=$pic_id";
+                $query = "DELETE FROM pictags WHERE tag_id_num={$tag_id_num} AND pic_id={$pic_id}";
                 $res = pg_query($query);
             }
         }
@@ -197,39 +195,38 @@ function link_kword(){
         for ($j=0; $j < count($new_kwords); $j++)
         {
           $selected_kword = $new_kwords[$j];
-          $query="SELECT tag_id,tag_id_num FROM kwords WHERE kword_name='$selected_kword'";
+          $query="SELECT tag_id,tag_id_num FROM kwords WHERE kword_name='{$selected_kword}'";
           $res = pg_query($query);
-          echo "ЗАПРОСИК $query<br>";
+          echo "ЗАПРОСИК {$query}<br>";
           $row=pg_fetch_object($res);
           $tag_id = $row->tag_id;
           $tag_id_num = $row->tag_id_num;
 
-          $query = "SELECT pic_id FROM pictags WHERE pic_id=$pic_id AND tag_id_num=$tag_id_num";
+          $query = "SELECT pic_id FROM pictags WHERE pic_id={$pic_id} AND tag_id_num={$tag_id_num}";
           $res = pg_query($query);
-          echo "ЗАПРОСИК $query<br>";
+          echo "ЗАПРОСИК {$query}<br>";
           if(!pg_fetch_object($res))
           {
             
             $shl = "exiftool -XMP-dc:subject+='{$selected_kword}' img/'{$img_name}";
             $res = shell_exec($shl);
-            echo "<br>$shl<pre>$res</pre>";
+            echo "<br>{$shl}<pre>{$res}</pre>";
 
             $query="INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES ({$pic_id},{$tag_id},{$tag_id_num})";
             $res = pg_query($query);
-            echo "ЗАПРОСИК $query<br>";
-            echo $query."<br>";
+            echo "ЗАПРОСИК {$query}<br>";
             }
           else
           {
-            echo "Ключевое слово $selected_kword уже существует<br>";
+            echo "Ключевое слово {$selected_kword} уже существует<br>";
           }
         }
 
-        $shl = "exiftool -XMP-dc:ALL img/{$img_name} -b";
+        $shl = "exiftool -XMP-dc:ALL {$path}/img/{$img_name} -b";
         $res = shell_exec($shl);
-        echo "<br><pre>$res</pre>";
+        echo "<br><pre>{$res}</pre>";
 
-        $shl = "rm img/file.xmp";
+        $shl = "rm {$path}/img/file.xmp";
         $res = shell_exec($shl); 
     }
     
@@ -238,7 +235,7 @@ function link_kword(){
 function download() {
   //ДОБАВИТЬ ПРОВЕРКУ НА СЛУЧАЙ, ЕСЛИ title УЖЕ СУЩЕСТВУЕТ 
   
-  $dir = "img_to_download/";
+  $dir = "{$path}/img_to_download/";
   $files = scandir($dir);
   foreach ($files as $key => $filename) {
       if($filename != '.' && $filename != '..')
@@ -248,7 +245,7 @@ function download() {
         add_to_bd($filename,$filesize,$ext);
       }
   }
-  $shl = "mv img_to_download/* img";
+  $shl = "mv {$path}/img_to_download/* img";
   shell_exec($shl);
 }
 
@@ -315,7 +312,7 @@ function add_to_bd($filename,$fsize,$ext) {
         // echo "$strValue<br>";
       }
 
-      $query = "SELECT tag_id_num FROM kwords WHERE tag_id=$tag_id AND kword_name='".$strValue."'";
+      $query = "SELECT tag_id_num FROM kwords WHERE tag_id=$tag_id AND kword_name='{$strValue}'";
       $res = pg_query($query);
       // echo "ЗАПРОСИК $query <br>";
       $row = pg_fetch_object($res);
@@ -347,38 +344,38 @@ function add_to_bd($filename,$fsize,$ext) {
           // echo "</pre></b><br>";
           foreach ($kword_names as $a => $kword_name) {
             $kword_name = trim($kword_name);
-            $query = "SELECT tag_id_num FROM kwords WHERE kword_name = '$kword_name'";
+            $query = "SELECT tag_id_num FROM kwords WHERE kword_name = '{$kword_name}'";
             $res = pg_query($query);
             if(!pg_fetch_object($res))
             {
               //если такого еще нет  
-              $query = "INSERT INTO kwords(tag_id,kword_name,status) VALUES($tag_id,'$kword_name',0)";
+              $query = "INSERT INTO kwords(tag_id,kword_name,status) VALUES({$tag_id},'{$kword_name}',0)";
               $res = pg_query($query);
 
-              $query = "SELECT tag_id_num FROM kwords WHERE tag_id=$tag_id AND kword_name='$kword_name'";
+              $query = "SELECT tag_id_num FROM kwords WHERE tag_id={$tag_id} AND kword_name='{$kword_name}'";
               $res = pg_query($query);
               $row = pg_fetch_object($res);
               $tag_id_num = $row->tag_id_num;
 
-              $query = "INSERT INTO kwgkw(gkword_id,tag_id,tag_id_num) VALUES(0,$tag_id,$tag_id_num)";
+              $query = "INSERT INTO kwgkw(gkword_id,tag_id,tag_id_num) VALUES(0,{$tag_id},{$tag_id_num})";
               $res = pg_query($query);
             }
             else
             {
               //если такой уже есть
-              $query = "SELECT tag_id_num FROM kwords WHERE tag_id=$tag_id AND kword_name='$kword_name'";
+              $query = "SELECT tag_id_num FROM kwords WHERE tag_id={$tag_id} AND kword_name='{$kword_name}'";
               $res = pg_query($query);
               $row = pg_fetch_object($res);
               $tag_id_num = $row->tag_id_num;
             }
-            $last_query .= "INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES('-pic_id-',$tag_id,$tag_id_num);";
+            $last_query .= "INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES('-pic_id-',{$tag_id},{$tag_id_num});";
           }
         }
       }
       else
       {
         // echo "ТЭГ $strValue уже есть tag_id_num = $tag_id_num <br>";
-        $last_query .= "INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES('-pic_id-',$tag_id,$tag_id_num);";
+        $last_query .= "INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES('-pic_id-',{$tag_id},{$tag_id_num});";
       }
           
       switch ($pics_name) {
@@ -404,11 +401,11 @@ function add_to_bd($filename,$fsize,$ext) {
     }
   }
   $md5 = md5_file("img_to_download/".$filename);
-  $query = "INSERT INTO pics(fmt,subscr,title,width,height,date,fsize,md5,rights) VALUES('".$ext."','".$subscr."','".$title."',$width,$height,'".$date."',$fsize,'".$md5."','".$rights."')";
+  $query = "INSERT INTO pics(fmt,subscr,title,width,height,date,fsize,md5,rights) VALUES('{$ext}','{$subscr}','{$title}',{$width},{$height},'{$date}',{$fsize},'{$md5}','{$rights}')";
   $res = pg_query($query);
   // echo "ЗАПРОСИК $query<br>";
 
-  $query = "SELECT pic_id FROM pics WHERE title='$title'";
+  $query = "SELECT pic_id FROM pics WHERE title='{$title}'";
   $res = pg_query($query);
   // echo "ЗАПРОСИК $query<br>";
   $row = pg_fetch_object($res);
@@ -419,7 +416,7 @@ function add_to_bd($filename,$fsize,$ext) {
     pg_query($last_query);
     // echo "ЗАПРОСИК $last_query<br>";
 
-    $shl = 'mv img_to_download/'.addcslashes($filename," ")." img_to_download/$pic_id.$ext";
+    $shl = 'mv {$path}/img_to_download/'.addcslashes($filename," ")." {$path}/img_to_download/{$pic_id}.{$ext}";
     //echo "Попытка переименовать $shl <br>";
     $res = shell_exec($shl);
     //echo "$shl <br>$res<br>";
