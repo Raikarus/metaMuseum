@@ -1,6 +1,7 @@
 <?php 
 session_start();
 require_once "connect.php";
+echo 
 if (isset($_POST['action'])) {
         switch ($_POST['action']) {
             case 'load_podborka':
@@ -323,18 +324,18 @@ function add_to_bd($filename,$fsize,$ext) {
         //Тут автоматически создаются тэги
         if($tag_id != 10)
         {
-          $query = "INSERT INTO kwords(tag_id,kword_name,status) VALUES($tag_id,'$strValue',0)";
+          $query = "INSERT INTO kwords(tag_id,kword_name,status) VALUES({$tag_id},'{$strValue}',0)";
           $res = pg_query($query);
           
-          $query = "SELECT tag_id_num FROM kwords WHERE tag_id=$tag_id AND kword_name='$strValue'";
+          $query = "SELECT tag_id_num FROM kwords WHERE tag_id=$tag_id AND kword_name='{$strValue}'";
           $res = pg_query($query);
           $row = pg_fetch_object($res);
           $tag_id_num = $row->tag_id_num;
 
-          $query = "INSERT INTO kwgkw(gkword_id,tag_id,tag_id_num) VALUES(0,$tag_id,$tag_id_num)";
+          $query = "INSERT INTO kwgkw(gkword_id,tag_id,tag_id_num) VALUES(0,{$tag_id},{$tag_id_num})";
           $res = pg_query($query);
 
-          $last_query .= "INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES('-pic_id-',$tag_id,$tag_id_num);";
+          $last_query .= "INSERT INTO pictags(pic_id,tag_id,tag_id_num) VALUES('-pic_id-',{$tag_id},{$tag_id_num});";
         }
         else
         {
@@ -400,7 +401,7 @@ function add_to_bd($filename,$fsize,$ext) {
       }
     }
   }
-  $md5 = md5_file("img_to_download/".$filename);
+  $md5 = md5_file("{$path}img_to_download/".$filename);
   $query = "INSERT INTO pics(fmt,subscr,title,width,height,date,fsize,md5,rights) VALUES('{$ext}','{$subscr}','{$title}',{$width},{$height},'{$date}',{$fsize},'{$md5}','{$rights}')";
   $res = pg_query($query);
   // echo "ЗАПРОСИК $query<br>";
@@ -428,7 +429,7 @@ function add_to_bd($filename,$fsize,$ext) {
   }
   else
   {
-    // echo "<b style='color:rgb(228, 79, 79)'>Ошибка $title добавления в базу. Файл добавлен с ошибками, требуется вмешательство администратора</b>";
+     echo "<b style='color:rgb(228, 79, 79)'>Ошибка $title добавления в базу. Файл добавлен с ошибками, требуется вмешательство администратора</b>";
   }
   
 }
